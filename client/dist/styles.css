@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+}
+
+.overViewMainContainer {
+
+}
+
+.navbarContainer {
+  background-color: #6699CC;
+  color: white;
+  height: 5rem;
+  padding: 1rem;
+  display: flex;
+}
+
+.navbar {
+  display: flex;
+  flex-basis: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.overViewContainer {
+  background-color: red;
+  display: flex;
+  flex-direction: row;
+}
+
+.imageGalleryContainer {
+  background-color: orange;
+  display: flex;
+  flex-direction: row;
+  flex-basis: 50%;
+}
+
+.productInfoContainer {
+  background-color: teal;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+}
+
+.sizeAndQuantityContainer {
+  background-color: green;
+  display: flex;
+  flex-direction: row;
+}
+
+.sizeSelectorContainer {
+  background-color: yellow;
+  display: flex;
+  flex-direction: row;
+  flex-basis: 75%;
+}
+
+.quantitySelectorContainer {
+  background-color: yellowgreen;
+  display: flex;
+  flex-direction: row;
+  flex-basis: 25%;
+}
+
+.addToBagAndStarContainer {
+  background-color: red;
+  display: flex;
+  flex-direction: row;
+}
+
+.addToBagContainer {
+  background-color: blue;
+  display: flex;
+  flex-direction: row;
+  flex-basis: 90%;
+}
+
+.starContainer {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 10%;
+}
+
+.overView {
+  background-color: #e2eff9;
+  height: 20rem;
+  display: flex;
+}
+
+.imageGallery {
+  background-color: #b5d8f0;
+  height: 15rem;
+  display: flex;
+  flex-basis: 50%;
+}
+
+.productInfo {
+  background-color: #cce4f5;
+  height: 15rem;
+  display: flex;
+  flex-basis: 50%;
+}
+
+.productDescriptionContainer {
+  background-color: #6699CC;
+  color: white;
+  height: 5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
