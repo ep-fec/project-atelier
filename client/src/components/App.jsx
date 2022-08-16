@@ -15,10 +15,10 @@ class App extends React.Component {
   render() {
     return (
       <div> Hello World!
-        <Overview />
+        {/* <Overview />
         <Related />
         <QA />
-        <Reviews />
+        <Reviews /> */}
       </div>
     );
   }
