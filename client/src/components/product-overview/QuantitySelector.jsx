@@ -1,14 +1,13 @@
 import React from 'react';
 
 export default function QuantitySelector() {
+  const classes = 'buttonsAndDropdowns quantitySelectorDropdown'
   return (
-    <div>
-      QuantitySelector
-      <select className='sizeSelectorList'>
-        <option> 1 </option>
-        <option> 2 </option>
-        <option> 3 </option>
+      <select className={classes} defaultValue='1'>
+        <option disabled> SELECT QUANTITY </option>
+        <option value='1'> 1 </option>
+        <option value='2'> 2 </option>
+        <option value='3'> 3 </option>
       </select>
-    </div>
   )
 }

@@ -1,9 +1,11 @@
 import React from 'react';
 
 export default function AddToBag() {
+  const classes = 'buttonsAndDropdowns addToCartButton'
   return (
-    <div>
-      <button> Add To Cart </button>
-    </div>
+      <button className={classes}>
+        <div> ADD TO CART </div>
+        <div> + </div>
+      </button>
   )
 }

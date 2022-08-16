@@ -2,14 +2,12 @@ import React from 'react';
 
 export default function StyleSelector() {
   return (
-    <div>
-      StyleSelector
-      <div>
-        <div> STYLE > </div>
-        <div> Selected Style </div>
+    <div className='styleComponentContainer'>
+      <div className='styleText'>
+        STYLE > Selected Style
       </div>
 
-      <div className='styleThumbnails'>
+      <div className='styleThumbnailsGrid'>
         <div className='thumbnail'></div>
         <div className='thumbnail'></div>
         <div className='thumbnail'></div>

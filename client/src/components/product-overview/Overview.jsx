@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Navbar from './Navbar.jsx';
+import Announcement from './Announcement.jsx';
 import ImageGallery from './ImageGallery.jsx';
 import Rating from './Rating.jsx';
 import Category from './Category.jsx';
@@ -15,12 +16,19 @@ import ProductDescription from './ProductDescription.jsx';
 export default function Overview() {
   // States go here
   const [count, setCount] = useState(0);
+  const [announcementNumber, setAnnouncementNumber] = useState(0);
 
   return (
     <div className='overViewMainContainer'>
       <div className='navbarContainer'>
         <Navbar />
       </div>
+
+      {announcementNumber >= 1 && (
+        <div className='announcementContainer'>
+          <Announcement />
+        </div>
+      )}
 
       <div className='overViewContainer'>
         <div className='imageGalleryContainer'>
@@ -44,7 +52,7 @@ export default function Overview() {
             <Price />
           </div>
 
-          <div className='styleSelector'>
+          <div className='styleSelectorContainer'>
             <StyleSelector />
           </div>
 
@@ -59,7 +67,7 @@ export default function Overview() {
           </div>
 
           <div className='addToBagAndStarContainer'>
-            <div className='addToBagContainer'>
+            <div className='addToCartContainer'>
               <AddToBag />
             </div>
 
