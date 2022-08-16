@@ -14,11 +14,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div> Hello World!
+      <div> PROJECT ATELIER
         {/* <Overview />
         <Related />
-        <QA />
-        <Reviews /> */}
+        <QA /> */}
+        <Reviews />
       </div>
     );
   }
