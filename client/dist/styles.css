@@ -2,6 +2,8 @@
   box-sizing: border-box;
 }
 
+/* ========== OVERVIEW START ========== */
+
 .overViewMainContainer {
 
 }
@@ -26,6 +28,7 @@
   background-color: red;
   display: flex;
   flex-direction: row;
+  height: 40rem;
 }
 
 .imageGalleryContainer {
@@ -40,6 +43,22 @@
   display: flex;
   flex-direction: column;
   flex-basis: 50%;
+}
+
+.styleThumbnails {
+  background-color: green;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.thumbnail {
+  display: flex;
+  background-color: bisque;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
 }
 
 .sizeAndQuantityContainer {
@@ -111,3 +130,5 @@
   align-items: center;
   justify-content: space-between;
 }
+
+/* ========== OVERVIEW END ========== */

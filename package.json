@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/rpp2204-fec-eggpudding/project-atelier#readme",
   "dependencies": {
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "nodemon": "^2.0.19",
