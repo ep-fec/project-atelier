@@ -23,8 +23,10 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "nodemon": "^2.0.19",
+    "npx": "^10.2.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "underscore": "^1.13.4"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
