@@ -11,25 +11,6 @@ class App extends React.Component {
 
     this.state = {
     };
-
-    this.getAllProducts = this.getAllProducts.bind(this);
-  }
-
-  componentDidMount() {
-    this.getAllProducts();
-  }
-
-  getAllProducts() {
-    axios({
-      method: 'GET',
-      url: '/allProducts',
-      success: (response) => {
-        console.log('Success', response);
-      },
-      error: (err) => {
-        console.log('Error', err);
-      }
-    })
   }
 
   render() {

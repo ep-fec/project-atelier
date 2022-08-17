@@ -1,9 +1,10 @@
 import React from 'react';
 
-export default function Title() {
+export default function Title(props) {
+  console.log('props', props);
   return (
     <div>
-      Title
+      {props.name}
     </div>
   )
 }

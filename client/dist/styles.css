@@ -230,4 +230,9 @@
   justify-content: space-between;
 }
 
+.productDescriptionComponentContainer {
+  display: flex;
+  flex-direction: column;
+}
+
 /* ========== OVERVIEW END ========== */

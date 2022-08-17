@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function Category() {
+export default function Category(props) {
   return (
     <div>
-      Category
+      {props.category}
     </div>
   )
 }

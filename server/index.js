@@ -3,33 +3,35 @@ const axios = require('axios');
 const path = require('path');
 const port = process.env.PORT;
 const token = process.env.TOKEN;
-//const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
-const express = require ('express');
-const app =  express();
+const express = require('express');
+const app = express();
 
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
 app.use(express.json());
 app.use(express.text());
-//app.use(bodyParser.json());
+app.use(bodyParser.text());
 
-app.get('/allProducts', async(request, response, next) => {
-  let url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products?page=1&count=5';
+app.get('/initialProduct', (request, response, next) => {
+  let url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products?page=1&count=1';
+
+  //console.log('request.data', request.body);
 
   axios.get(url, {
     headers: {
-      //'Content-Type': 'application/json',
       'Authorization': token
     }
   })
-  .then((response) => {
-    console.log('Response', response.data);
+  .then(result => {
+    //console.log('Result', result.data);
+    //response.setHeader('Content-Type', 'application/json');
+    response.send(result.data[0]);
+    next();
   })
   .catch((err) => {
     console.log('Error', err);
-  })
-  response.send();
-  next();
+  });
 });
 
 app.listen(port, () => {

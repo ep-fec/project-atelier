@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import Navbar from './Navbar.jsx';
 import Announcement from './Announcement.jsx';
 import ImageGallery from './ImageGallery.jsx';
@@ -14,9 +15,25 @@ import Star from './Star.jsx';
 import ProductDescription from './ProductDescription.jsx';
 
 export default function Overview() {
-  // States go here
-  const [count, setCount] = useState(0);
+  // States
+  const [currentProduct, setCurrentProduct] = useState('');
   const [announcementNumber, setAnnouncementNumber] = useState(0);
+
+  // Functions
+  useEffect(async() => {
+    await getInitialProduct();
+  }, []);
+
+  //getFirstProduct
+  const getInitialProduct = () => {
+    axios.get('/initialProduct')
+    .then(response => {
+      setCurrentProduct(response.data);
+    })
+    .catch(error => {
+      console.log('Error from server', error);
+    });
+  };
 
   return (
     <div className='overViewMainContainer'>
@@ -41,19 +58,19 @@ export default function Overview() {
           </div>
 
           <div className='categoryContainer'>
-            <Category />
+            <Category category={currentProduct.category}/>
           </div>
 
           <div className='titleContainer'>
-            <Title />
+            <Title name={currentProduct.name}/>
           </div>
 
           <div className='priceContainer'>
-            <Price />
+            <Price price={currentProduct.default_price}/>
           </div>
 
           <div className='styleSelectorContainer'>
-            <StyleSelector />
+            <StyleSelector productId={currentProduct.id}/>
           </div>
 
           <div className='sizeAndQuantityContainer'>
@@ -79,7 +96,10 @@ export default function Overview() {
       </div>
 
       <div className='productDescriptionContainer'>
-        <ProductDescription />
+        <ProductDescription
+          slogan={currentProduct.slogan}
+          description={currentProduct.description}
+        />
       </div>
 
     </div>
