@@ -1,5 +1,5 @@
 import renderer from 'react-test-renderer';
-import Reviews from './Reviews.jsx';
+import Reviews from '../src/components/reviews/Reviews.jsx';
 
 it('Renders the initial component', () => {
   const component = renderer.create(<Reviews />);
