@@ -2,22 +2,42 @@
 RATINGS & REVIEWS
 */
 
+.reviews-container {
+  margin: 0 auto;
+  width: 70%;
+  padding-left: 15%;
+  padding-right:15%;
+  font-family: 'Inconsolata', monospace;
+  font-weight: 300;
+  font-size:16px;
+}
+
+h2 {
+  margin: 0;
+  display: inline-block
+}
+
 .leftcol {
-  float: left;
-  margin: 0 1.5%;
-  width: 20%
+  width: 30%;
 }
 
 .rightcol {
-  float: right;
-  margin: 0 1.5%;
   width: 70%;
 }
 
-.rating-breakdown,
-.product-breakdown,
-.sort-options,
-.reviews-list,
-.individual-review {
-  display:block;
+.rightcol,
+.leftcol {
+  display: inline-block;
+  vertical-align: top;
 }
+
+.reviewsbutton {
+  font-family: 'Inconsolata', monospace;
+  background-color: white;
+  font-weight: 700;
+  font-size:16px;
+  padding:25px;
+  margin:5px;
+  border-width: thin;
+}
+
