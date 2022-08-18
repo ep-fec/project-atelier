@@ -1,0 +1,23 @@
+/*
+RATINGS & REVIEWS
+*/
+
+.leftcol {
+  float: left;
+  margin: 0 1.5%;
+  width: 20%
+}
+
+.rightcol {
+  float: right;
+  margin: 0 1.5%;
+  width: 70%;
+}
+
+.rating-breakdown,
+.product-breakdown,
+.sort-options,
+.reviews-list,
+.individual-review {
+  display:block;
+}
