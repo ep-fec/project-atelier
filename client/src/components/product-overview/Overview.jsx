@@ -15,20 +15,42 @@ import Star from './Star.jsx';
 import ProductDescription from './ProductDescription.jsx';
 
 export default function Overview() {
-  // States
   const [currentProduct, setCurrentProduct] = useState('');
+  const [allStyles, setAllStyles] = useState([]);
+  const [selectedStyle, setSelectedStyle] = useState('');
   const [announcementNumber, setAnnouncementNumber] = useState(0);
 
-  // Functions
-  useEffect(async() => {
-    await getInitialProduct();
+  useEffect(() => {
+    getInitialProduct();
   }, []);
+
+  useEffect(() => {
+    getAllStyles(currentProduct.id);
+  }, [currentProduct.id]);
 
   //getFirstProduct
   const getInitialProduct = () => {
     axios.get('/initialProduct')
     .then(response => {
       setCurrentProduct(response.data);
+    })
+    .catch(error => {
+      console.log('Error from server', error);
+    });
+  };
+
+  // getAllStyles
+  const getAllStyles = (id) => {
+    axios({
+      method: 'POST',
+      url: 'allStyles',
+      data: id,
+      headers: {
+        'Content-type': 'text/plain'
+      }
+    })
+    .then(response => {
+      setAllStyles(response.data);
     })
     .catch(error => {
       console.log('Error from server', error);
@@ -49,7 +71,9 @@ export default function Overview() {
 
       <div className='overViewContainer'>
         <div className='imageGalleryContainer'>
-          <ImageGallery />
+          <ImageGallery
+            selectedStyle={selectedStyle}
+          />
         </div>
 
         <div className='productInfoContainer'>
@@ -70,12 +94,18 @@ export default function Overview() {
           </div>
 
           <div className='styleSelectorContainer'>
-            <StyleSelector productId={currentProduct.id}/>
+            <StyleSelector
+              allStyles={allStyles}
+              selectedStyle={selectedStyle}
+              setSelectedStyle={setSelectedStyle}
+            />
           </div>
 
           <div className='sizeAndQuantityContainer'>
             <div className='sizeSelectorContainer'>
-              <SizeSelector />
+              <SizeSelector
+                selectedStyle={selectedStyle}
+              />
             </div>
 
             <div className='quantitySelectorContainer'>

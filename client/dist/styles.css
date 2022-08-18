@@ -5,7 +5,7 @@
 /* ========== OVERVIEW START ========== */
 
 .overViewMainContainer {
-  padding: 0 5rem 0 5rem;
+  padding: 0 25vw 0 25vw;
 }
 
 .navbarContainer {
@@ -38,7 +38,7 @@
   /* background-color: red; */
   display: flex;
   flex-direction: row;
-  height: 35rem;
+  height: 45rem;
 }
 
 .imageGalleryContainer {
@@ -48,14 +48,22 @@
   flex-basis: 70%;
 }
 
-/* .imageGalleryComponentContainer {
+.imageGalleryComponentContainer {
   display: flex;
+  height: 100%;
   width: 100%;
 }
 
 .mainImage {
+  background-color: antiquewhite;
   display: flex;
-  background-color: blue;
+  flex-grow: 0;
+  height: 45rem;
+  max-width: rem;
+  flex-direction: row;
+  object-fit: contain;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .thumbnailImagesContainer {
@@ -63,7 +71,7 @@
   background-color: black;
   height: 10px;
   width: 10px;
-} */
+}
 
 .productInfoContainer {
 /*   background-color: teal; */
@@ -84,30 +92,39 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .categoryContainer {
   background-color: antiquewhite;
   display: flex;
   height: 2rem;
+  align-items: center;
 }
 
 .titleContainer {
   background-color: #b5d8f0;
   display: flex;
   height: 4rem;
+  align-items: center;
+}
+
+.titleContainer > div {
+  font-size: 2rem;
 }
 
 .priceContainer {
   background-color: antiquewhite;
   display: flex;
   height: 2rem;
+  align-items: center;
 }
 
 .styleSelectorContainer {
   background-color: #b5d8f0;
   display: flex;
   height: 12rem;
+  align-items: center;
 }
 
 .styleComponentContainer {

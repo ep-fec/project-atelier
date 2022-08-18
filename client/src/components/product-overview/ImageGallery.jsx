@@ -1,16 +1,14 @@
 import React from 'react';
 /* import sample from '../../assets/sampleImage.tif'; */
 
-export default function ImageGallery() {
+export default function ImageGallery({selectedStyle}) {
   return (
     <div className='imageGalleryComponentContainer'>
-      ImageGallery
       <div className='mainImage'>
-        {/* <img src={sample}></img> */}
-        Main Image
+        {selectedStyle != '' && <img src={selectedStyle.photos[0].url}/>}
 
         <div className='thumbnailImagesContainer'>
-          thumbnails
+
         </div>
 
         <div className='downArrow'>
