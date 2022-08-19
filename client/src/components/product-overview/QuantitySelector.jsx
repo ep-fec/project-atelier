@@ -1,7 +1,8 @@
 import React from 'react';
 
-export default function QuantitySelector() {
+export default function QuantitySelector({selectedStyle, selectedSize}) {
   const classes = 'buttonsAndDropdowns quantitySelectorDropdown'
+
   return (
       <select className={classes} defaultValue='1'>
         <option disabled> SELECT QUANTITY </option>

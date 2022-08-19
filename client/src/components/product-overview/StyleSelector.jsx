@@ -2,17 +2,13 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 export default function StyleSelector({allStyles, selectedStyle, setSelectedStyle}) {
-  // States
-/*   const [allStyles, setAllStyles] = useState([]);
-  const [selectedStyle, setSelectedStyle] = useState(''); */
-
-  // Functions
-/*   useEffect(() => {
-    getAllStyles(productId);
-  }, [productId]); */
+  useEffect(() => {
+    if (allStyles.length !== 0) {
+      setSelectedStyle(allStyles[0]);
+    }
+  }, [allStyles])
 
   const handleStyleSelectClick = (e) => {
-    //console.log('e', e);
     setSelectedStyle(allStyles[e.target.id]);
   }
 

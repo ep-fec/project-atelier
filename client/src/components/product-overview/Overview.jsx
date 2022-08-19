@@ -18,6 +18,7 @@ export default function Overview() {
   const [currentProduct, setCurrentProduct] = useState('');
   const [allStyles, setAllStyles] = useState([]);
   const [selectedStyle, setSelectedStyle] = useState('');
+  const [selectedSize, setSelectedSize] = useState('');
   const [announcementNumber, setAnnouncementNumber] = useState(0);
 
   useEffect(() => {
@@ -71,9 +72,7 @@ export default function Overview() {
 
       <div className='overViewContainer'>
         <div className='imageGalleryContainer'>
-          <ImageGallery
-            selectedStyle={selectedStyle}
-          />
+          <ImageGallery selectedStyle={selectedStyle}/>
         </div>
 
         <div className='productInfoContainer'>
@@ -90,7 +89,7 @@ export default function Overview() {
           </div>
 
           <div className='priceContainer'>
-            <Price price={currentProduct.default_price}/>
+            <Price selectedStyle={selectedStyle}/>
           </div>
 
           <div className='styleSelectorContainer'>
@@ -105,11 +104,15 @@ export default function Overview() {
             <div className='sizeSelectorContainer'>
               <SizeSelector
                 selectedStyle={selectedStyle}
+                setSelectedSize={setSelectedSize}
               />
             </div>
 
             <div className='quantitySelectorContainer'>
-              <QuantitySelector />
+              <QuantitySelector
+                selectedStyle={selectedStyle}
+                selectedSize={selectedSize}
+              />
             </div>
           </div>
 

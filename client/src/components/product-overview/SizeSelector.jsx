@@ -1,20 +1,27 @@
 import React from 'react';
 
-export default function SizeSelector({selectedStyle}) {
+export default function SizeSelector({selectedStyle, setSelectedSize}) {
   const classes = 'buttonsAndDropdowns sizeSelectorDropdown'
+
+  const handleSizeSelectClick = (e) => {
+    setSelectedSize(e.target.value);
+  }
+
   return (
-      <select className={classes} defaultValue='SELECT SIZE'>
+      <select className={classes} defaultValue='SELECT SIZE'
+        onChange={handleSizeSelectClick}
+      >
         <option disabled> SELECT SIZE </option>
-       {/*  <option> S </option>
-        <option> M </option>
-        <option> L </option> */}
         {
-          selectedStyle.skus != undefined &&
-          Object.keys(selectedStyle.skus).map((key, index) => (
-            //console.log('keyy', selectedStyle.skus[key])
-            //console.log('key', key)
-            <option key={index}> {selectedStyle.skus[key].size} </option>
-          ))
+          selectedStyle.skus != undefined && (
+            Object.keys(selectedStyle.skus).map((key, index) => (
+              <option key={index}
+                value={selectedStyle.skus[key].size}
+              >
+                {selectedStyle.skus[key].size}
+              </option>
+            ))
+          )
         }
       </select>
   )

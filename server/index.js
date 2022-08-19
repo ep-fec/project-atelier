@@ -14,7 +14,7 @@ app.use(express.text());
 app.use(bodyParser.text());
 
 app.get('/initialProduct', (request, response, next) => {
-  let url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products?page=1&count=1';
+  let url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products?page=3&count=1';
 
   axios.get(url, {
     headers: {
