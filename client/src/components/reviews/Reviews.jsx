@@ -1,4 +1,10 @@
 import React from 'react';
+import List from './components/List.jsx';
+import Review from './components/Review.jsx';
+import ProductBreakdown from './components/ProductBreakdown.jsx';
+import Ratings from './components/Ratings.jsx';
+import Sort from './components/Sort.jsx';
+import NewReview from './components/NewReview.jsx';
 
 const Reviews = (props) => {
 
@@ -9,15 +15,13 @@ const Reviews = (props) => {
       <br/><br/>
 
       <section className="reviews leftcol">
-        <div className="reviews rating-breakdown">Rating Breakdown</div>
-        <div className="reviews product-breakdown">Product Breakdown</div>
+        <div className="reviews rating-breakdown"><Ratings /></div>
+        <div className="reviews product-breakdown"><ProductBreakdown /></div>
       </section>
 
       <section className="reviews rightcol">
-        <div className="reviews sort-options">**Sort Options**</div>
-        <div className="reviews reviews-list">Reviews List Box
-          <div className="reviews individual-review">----Individual Reviews-----</div>
-        </div>
+        <div className="reviews sort-options"><Sort /></div>
+        <div className="reviews reviews-list"><List /></div>
         <br/>
         <button className="reviews more-reviews reviewsbutton">MORE REVIEWS</button>
         <button className="reviews add-review reviewsbutton">ADD A REVIEW +</button>
