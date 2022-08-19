@@ -3,7 +3,7 @@ import React from 'react';
 const ProductBreakdown = (props) => {
 
   return (
-    <div>Product Breakdown</div>
+    <div className="reviews product-breakdown">Product Breakdown</div>
   )
 
 }

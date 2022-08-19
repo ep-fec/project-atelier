@@ -15,13 +15,13 @@ const Reviews = (props) => {
       <br/><br/>
 
       <section className="reviews leftcol">
-        <div className="reviews rating-breakdown"><Ratings /></div>
-        <div className="reviews product-breakdown"><ProductBreakdown /></div>
+        <Ratings />
+        <ProductBreakdown />
       </section>
 
       <section className="reviews rightcol">
-        <div className="reviews sort-options"><Sort /></div>
-        <div className="reviews reviews-list"><List /></div>
+        <Sort />
+        <List />
         <br/>
         <button className="reviews more-reviews reviewsbutton">MORE REVIEWS</button>
         <button className="reviews add-review reviewsbutton">ADD A REVIEW +</button>

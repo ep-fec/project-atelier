@@ -3,7 +3,7 @@ import React from 'react';
 const Review = (props) => {
 
   return (
-    <div>Individual Review</div>
+    <div className="reviews individual-review">Individual Review</div>
   )
 
 }

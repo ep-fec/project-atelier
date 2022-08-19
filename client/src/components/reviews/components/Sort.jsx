@@ -3,7 +3,7 @@ import React from 'react';
 const Sort = (props) => {
 
   return (
-    <div>-Sort Options-</div>
+    <div className="reviews sort-options">-Sort Options-</div>
   )
 
 }

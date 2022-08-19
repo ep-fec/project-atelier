@@ -4,8 +4,8 @@ import Review from './Review.jsx';
 const List = (props) => {
 
   return (
-    <div>Reviews List
-      <div className="reviews individual-review"><Review /></div>
+    <div className="reviews reviews-list">Reviews List
+      <Review />
     </div>
   )
 
