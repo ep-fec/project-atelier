@@ -6,7 +6,7 @@ body {
   margin: 0 auto;
   font-family: 'Inconsolata', monospace;
   font-weight: 300;
-  font-size:16px;
+  font-size:18px;
 }
 
 .reviews-container {
@@ -39,7 +39,7 @@ h2 {
   font-family: 'Inconsolata', monospace;
   background-color: white;
   font-weight: 700;
-  font-size:16px;
+  font-size:20px;
   padding:25px;
   margin:5px;
   border-width: thin;
