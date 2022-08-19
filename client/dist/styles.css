@@ -2,14 +2,18 @@
 RATINGS & REVIEWS
 */
 
+body {
+  margin: 0 auto;
+  font-family: 'Inconsolata', monospace;
+  font-weight: 300;
+  font-size:16px;
+}
+
 .reviews-container {
   margin: 0 auto;
   width: 70%;
   padding-left: 15%;
-  padding-right:15%;
-  font-family: 'Inconsolata', monospace;
-  font-weight: 300;
-  font-size:16px;
+  padding-right: 15%;
 }
 
 h2 {
