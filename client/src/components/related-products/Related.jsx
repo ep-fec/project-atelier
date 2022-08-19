@@ -1,6 +1,7 @@
 import React from 'react';
 import Similar from './Similar.jsx';
 import Outfit from './Outfit.jsx';
+import axios from 'axios';
 
 class Related extends React.Component {
   constructor(props) {
@@ -12,7 +13,13 @@ class Related extends React.Component {
   }
 
   componentDidMount() {
-    //Make an api call to grab a product's info
+    axios.get('/products')
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   }
 
   render() {
