@@ -6,7 +6,7 @@ const Review = (props) => {
     <div className="reviews ind-review">
 
       <section className="reviews ind-review-heading">
-        <span className="reviews ind-review-stars">Star Rating Placeholder☆☆</span>
+        <span className="reviews ind-review-stars">Star Rating Placeholder ☆</span>
         <span className="reviews ind-review-date">Date of Review</span>
         <span className="reviews ind-review-username">Reviewer Name,</span>
       </section>
