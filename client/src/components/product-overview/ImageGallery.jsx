@@ -33,7 +33,6 @@ export default function ImageGallery({selectedStyle}) {
 
   }, [selectedStyle, mainPhotoIndex, showForwardArrow, showBackArrow])
 
-
   const handleThumbnailPhotoClick = (e) => {
     setMainPhoto(selectedStyle.photos[e.target.id].url);
     setMainPhotoIndex(parseInt(e.target.id));
@@ -41,15 +40,15 @@ export default function ImageGallery({selectedStyle}) {
 
   const handleMainPhotoForwardClick = () => {
     if ((mainPhotoIndex + 1) < selectedStyle.photos.length) {
-      setMainPhotoIndex(mainPhotoIndex + 1);
       setMainPhoto(selectedStyle.photos[mainPhotoIndex].url);
+      setMainPhotoIndex(mainPhotoIndex + 1);
     }
   }
 
   const handleMainPhotoBackClick = () => {
     if ((mainPhotoIndex - 1) >= 0) {
-      setMainPhotoIndex(mainPhotoIndex - 1);
       setMainPhoto(selectedStyle.photos[mainPhotoIndex].url);
+      setMainPhotoIndex(mainPhotoIndex - 1);
     }
   }
 
@@ -79,6 +78,10 @@ export default function ImageGallery({selectedStyle}) {
                   />
                 </li>
               ))}
+              <li>hellooo</li>
+              <li>hellooo</li>
+              <li>hellooo</li>
+              <li>hellooo</li>
             </ol>
 
             <div className='thumbnailDownArrow'>
@@ -86,7 +89,7 @@ export default function ImageGallery({selectedStyle}) {
             </div>
           </div>
 
-          <div className='arrows'>
+          <div className='forwardBackArrows'>
             {showBackArrow && (
               <div className='mainPhotoBackArrow'
                 onClick={handleMainPhotoBackClick}
