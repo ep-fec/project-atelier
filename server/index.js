@@ -8,13 +8,8 @@ const request = require('./helpers/request.js');
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
 app.use(express.json());
 
-// TODO: request functions for post and put may need to be adjusted
-// Don't put the first / in the endpoint for requests
-
-// SAMPLE GET
-app.get('/*', (req, res) => {
-  let endpoint = req.url;
-  request.get(endpoint)
+app.all('/*', (req, res) => {
+  request(req.url, req.method, req.body)
     .then((data) => {
       console.log('Success!:', data.data);
       res.send(data.data);
