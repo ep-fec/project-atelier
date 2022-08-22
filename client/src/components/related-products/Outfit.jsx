@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'underscore';
+import Card from './Card.jsx';
 
 class Outfit extends React.Component {
   constructor(props) {
@@ -18,20 +19,11 @@ class Outfit extends React.Component {
   }
 
   let List = (props) => {
-    return(<ul>
+    return(<ul className="side-by-side">
       {_.map(props.products, (product) => {
-        return (<Element product={product}/>);
+        return (<Card product={product}/>);
       })}
     </ul>);
   }
 
-  class Element extends React.Component {
-    constructor(props) {
-      super(props);
-    }
-
-    render() {
-      return(<li>this.props.product</li>)
-    }
-  }
 export default Outfit;
