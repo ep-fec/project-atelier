@@ -16,7 +16,7 @@ app.get('/*', (req, res) => {
   let endpoint = req.url;
   request.get(endpoint)
     .then((data) => {
-      console.log('Success!:', data.data);
+      // console.log('Success!:', data.data);
       res.send(data.data);
     })
     .catch((err) => {
