@@ -19,7 +19,7 @@ class App extends React.Component {
         {/* <Overview />
         <Related />
         <QA /> */}
-        <Reviews />
+        <Reviews currentProduct={this.state.currentProduct}/>
       </div>
     );
   }
