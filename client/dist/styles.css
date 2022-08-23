@@ -57,8 +57,12 @@ Review List
   width: 80%;
   padding-left: 25px;
   padding-right: 25px;
-  max-height: 500px;
+  max-height: 700px;
   overflow-y: auto;
+}
+
+.no-reviews {
+  text-align: center;
 }
 
 /*
@@ -136,13 +140,16 @@ RATINGS & REVIEWS
 Buttons
 */
 
+.more-reviews {
+  margin-right:10px;
+}
+
 .reviewsbutton {
   font-family: 'Fira Sans', sans-serif;
   background-color: white;
   font-weight: 500;
   font-size:16px;
   padding:20px;
-  margin:5px;
   border-width: thin;
 }
 

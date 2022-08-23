@@ -10,13 +10,13 @@ import axios from 'axios';
 
 const Reviews = (props) => {
 
+  let [reviews, setReviews] = useState({results: []});
+
   const getReviews = () => {
     axios.get(`/reviews?product_id=${props.currentProduct}&count=50&sort=newest`)
       .then((res) => setReviews(res.data))
       .catch((err) => console.log(err));
   }
-
-  let [reviews, setReviews] = useState({results: []});
 
   useEffect(() => {
     getReviews();
