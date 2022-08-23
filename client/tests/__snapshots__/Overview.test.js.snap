@@ -13,12 +13,12 @@ exports[`Renders the initial component 1`] = `
       <div
         className="logo"
       >
-         Logo 
+         Logo
       </div>
       <div
         className="search"
       >
-         Search 
+         Search
       </div>
     </nav>
   </div>
@@ -65,12 +65,12 @@ exports[`Renders the initial component 1`] = `
           <div
             className="ratingStars"
           >
-             Stars 
+             Stars
           </div>
           <a
             href="#"
           >
-             Read all reviews 
+             Read all reviews
           </a>
         </div>
       </div>
@@ -149,16 +149,16 @@ exports[`Renders the initial component 1`] = `
             <option
               disabled={true}
             >
-               SELECT SIZE 
+               SELECT SIZE
             </option>
             <option>
-               S 
+               S
             </option>
             <option>
-               M 
+               M
             </option>
             <option>
-               L 
+               L
             </option>
           </select>
         </div>
@@ -172,28 +172,28 @@ exports[`Renders the initial component 1`] = `
             <option
               disabled={true}
             >
-               SELECT QUANTITY 
+               SELECT QUANTITY
             </option>
             <option
               value="1"
             >
-               1 
+               1
             </option>
             <option
               value="2"
             >
-               2 
+               2
             </option>
             <option
               value="3"
             >
-               3 
+               3
             </option>
           </select>
         </div>
       </div>
       <div
-        className="addToBagAndStarContainer"
+        className="addToCartAndStarContainer"
       >
         <div
           className="addToCartContainer"
@@ -202,10 +202,10 @@ exports[`Renders the initial component 1`] = `
             className="buttonsAndDropdowns addToCartButton"
           >
             <div>
-               ADD TO CART 
+               ADD TO CART
             </div>
             <div>
-               + 
+               +
             </div>
           </button>
         </div>
@@ -215,7 +215,7 @@ exports[`Renders the initial component 1`] = `
           <button
             className="buttonsAndDropdowns starButton"
           >
-             STAR 
+             STAR
           </button>
         </div>
       </div>

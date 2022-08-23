@@ -11,7 +11,7 @@
 }
 
 .navbarContainer {
-  background-color: #6699CC;
+  background-color: #ED1C24;
   display: flex;
   padding: 0 1rem 0 1rem;
   height: 5rem;
@@ -71,7 +71,6 @@
 }
 
 .thumbnailImagesContainer {
-  background-color: skyblue;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -256,6 +255,7 @@
 .sizeSelectorContainer {
   display: flex;
   flex-basis: 60%;
+  margin: 0 0.5rem 0 0;
 }
 
 .quantitySelectorContainer {
@@ -279,7 +279,7 @@
   flex-grow: 1;
 }
 
-.addToBagAndStarContainer {
+.addToCartAndStarContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -288,6 +288,7 @@
 .addToCartContainer {
   display: flex;
   flex-basis: 75%;
+  margin: 0 0.5rem 0 0;
 }
 
 .starContainer {
@@ -301,15 +302,15 @@
   flex-direction: row;
   justify-content: space-between;
   flex-grow: 1;
-  background-color: orange;
-  border-color: orange;
+  background-color: #ED1C24;
+  border-color: #ED1C24;
   color: white;
   transition-duration: 0.4s;
 }
 
 .addToCartButton:hover {
   background-color: white;
-  color: orange;
+  color: #ED1C24;
 }
 
 .starButton {
@@ -318,7 +319,7 @@
 }
 
 .productDescriptionContainer {
-  background-color: #6699CC;
+  background-color: antiquewhite;
   color: white;
   height: 5rem;
   padding: 1rem;

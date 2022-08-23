@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function AddToBag() {
+export default function AddToCart() {
   const classes = 'buttonsAndDropdowns addToCartButton'
   return (
       <button className={classes}>

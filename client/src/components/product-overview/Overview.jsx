@@ -11,7 +11,7 @@ import Price from './Price.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import SizeSelector from './SizeSelector.jsx';
 import QuantitySelector from './QuantitySelector.jsx';
-import AddToBag from './AddToBag.jsx';
+import AddToCart from './AddToCart.jsx';
 import Star from './Star.jsx';
 import ProductDescription from './ProductDescription.jsx';
 
@@ -118,9 +118,9 @@ export default function Overview() {
             </div>
           </div>
 
-          <div className='addToBagAndStarContainer'>
+          <div className='addToCartAndStarContainer'>
             <div className='addToCartContainer'>
-              <AddToBag />
+              <AddToCart />
             </div>
 
             <div className='starContainer'>
