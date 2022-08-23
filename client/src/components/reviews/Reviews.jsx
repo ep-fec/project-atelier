@@ -35,9 +35,6 @@ const Reviews = (props) => {
       <section className="reviews rightcol">
         <Sort reviews={reviews}/>
         <List reviews={reviews}/>
-        <br/>
-        <button className="reviews more-reviews reviewsbutton">MORE REVIEWS</button>
-        <button className="reviews add-review reviewsbutton">ADD A REVIEW +</button>
       </section>
     </section>
   )

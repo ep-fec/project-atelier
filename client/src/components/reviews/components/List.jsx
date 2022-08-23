@@ -3,17 +3,24 @@ import Review from './Review.jsx';
 
 const List = (props) => {
 
-  let reviewsAmount = 0;
+  let totalReviews = props.reviews.results.length;
+  let [reviewLimit, increaseReviewLimit] = useState(2);
+  let reviewsLoaded = 0;
 
   return (
     <div className="reviews reviews-list">
       {props.reviews.results.length ?
-      props.reviews.results.map((review) => {
-        reviewsAmount++
-        if (reviewsAmount <= 2) {
-          return (<Review data={review} key={review.review_id}/>)
-        }
-      }) : 'Be the first to leave a review!'}
+        props.reviews.results.map((review) => {
+          if (reviewsLoaded < reviewLimit) {
+            reviewsLoaded++;
+            return (<Review data={review} key={review.review_id} />)
+          }
+        }) : 'Be the first to leave a review!'}
+      <br/>
+      {totalReviews > 2 ?
+      <button className="reviews more-reviews reviewsbutton">MORE REVIEWS</button>
+      : null}
+      <button className="reviews add-review reviewsbutton">ADD A REVIEW +</button>
     </div>
   )
 }
