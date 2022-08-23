@@ -83,13 +83,9 @@ Individual Review
   font-size: 12px;
 }
 
-.ind-review-title {
+.ind-review-summary {
   margin-top: 5px;
   margin-bottom: 15px;
-}
-
-.ind-review-summary {
-  font-size: 12px;
   font-weight: 500;
 }
 

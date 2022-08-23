@@ -18,8 +18,8 @@ const Review = (props) => {
       </section>
 
       <section className="reviews ind-review-body">
-        <h3 className="reviews ind-review-title">REVIEW TITLE</h3>
-        <span className="reviews ind-review-summary">{props.data.summary}</span>
+        <h3 className="reviews ind-review-summary">{props.data.summary}</h3>
+        {/* <span className="reviews ind-review-summary">{props.data.summary}</span> */}
         <p className="reviews ind-review-content">{props.data.body}</p>
         <span className="reviews ind-review-recommendation">√ Recommendation</span>
       </section>
