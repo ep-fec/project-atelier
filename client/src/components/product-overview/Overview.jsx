@@ -20,6 +20,7 @@ export default function Overview() {
   const [allStyles, setAllStyles] = useState([]);
   const [selectedStyle, setSelectedStyle] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
+  const [selectedQuantity, setSelectedQuantity] = useState('-');
   const [announcementNumber, setAnnouncementNumber] = useState(0);
 
   useEffect(() => {
@@ -114,6 +115,8 @@ export default function Overview() {
               <QuantitySelector
                 selectedStyle={selectedStyle}
                 selectedSize={selectedSize}
+                selectedQuantity={selectedQuantity}
+                setSelectedQuantity={setSelectedQuantity}
               />
             </div>
           </div>
