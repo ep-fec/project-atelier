@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import List from './components/List.jsx';
 import Review from './components/Review.jsx';
 import ProductBreakdown from './components/ProductBreakdown.jsx';
 import Ratings from './components/Ratings.jsx';
 import Sort from './components/Sort.jsx';
 import NewReview from './components/NewReview.jsx';
+import data from './components/sampleData.js';
 
 const Reviews = (props) => {
-
 
   return (
     <section className="reviews-container">
@@ -21,7 +21,7 @@ const Reviews = (props) => {
 
       <section className="reviews rightcol">
         <Sort />
-        <List />
+        <List data={data}/>
         <br/>
         <button className="reviews more-reviews reviewsbutton">MORE REVIEWS</button>
         <button className="reviews add-review reviewsbutton">ADD A REVIEW +</button>
