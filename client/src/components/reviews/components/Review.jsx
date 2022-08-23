@@ -10,17 +10,18 @@ const Review = (props) => {
   }
 
   let [helpfulVotes, setHelpfulVotes] = useState(props.data.helpfulness);
+  let [hasVoted, setVotedStatus] = useState(false);
 
   let markHelpful = (e) => {
-    axios.put(`/reviews/${props.data.review_id}/helpful`)
-      .then((res) => setHelpfulVotes(helpfulVotes + 1))
+    if (!hasVoted) {
+      axios.put(`/reviews/${props.data.review_id}/helpful`)
+      .then((res) => {
+        setHelpfulVotes(helpfulVotes + 1);
+        setVotedStatus(true);
+      })
       .catch((err) => console.log(err));
+    }
   }
-
-  // useEffect(() => {
-  //   setHelpfulVotes
-  // }, [helpfulVotes]);
-
 
   return (
     <div className="reviews ind-review">
@@ -48,9 +49,10 @@ const Review = (props) => {
 
       <section className="reviews ind-review-footer">
         <span className="reviews ind-review-helpful">Helpful? </span>
-        <span className="reviews ind-review-helpfulYes" onClick={(e) => markHelpful(e)}>Yes</span>
+        <span className="reviews ind-review-helpfulYes" onClick={(e) => markHelpful(e)}>
+          {hasVoted ? 'Marked as helpful!' : 'Yes'}</span>
         <span className="reviews ind-review-helpfulness"> ({helpfulVotes}) | </span>
-        <span className="reviews ind-review-report">Report</span>
+        <span className="reviews ind-review-report">{'Report'}</span>
         <br/><hr/>
       </section>
     </div>
