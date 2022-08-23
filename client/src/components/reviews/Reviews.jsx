@@ -11,7 +11,7 @@ import axios from 'axios';
 const Reviews = (props) => {
 
   const getReviews = () => {
-    axios.get(`/reviews?product_id=${props.currentProduct}&count=50`)
+    axios.get(`/reviews?product_id=${props.currentProduct}&count=50&sort=newest`)
       .then((res) => setReviews(res.data))
       .catch((err) => console.log(err));
   }

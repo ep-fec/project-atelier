@@ -89,7 +89,8 @@ Individual Review
 }
 
 .ind-review-summary {
-  font-style: italic;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .ind-review-response {
