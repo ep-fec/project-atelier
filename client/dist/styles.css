@@ -89,6 +89,10 @@ Individual Review
   font-weight: 500;
 }
 
+.ind-review-recommendation {
+  font-size: 14px;
+}
+
 .ind-review-response {
   background-color: rgb(233, 232, 232);
   padding: 20px;
@@ -98,6 +102,21 @@ Individual Review
 
 .response-title {
   margin: 0;
+  margin-bottom: 15px;
+}
+
+.ind-review-footer {
+  margin-top:15px;
+  font-size:12px;
+}
+
+.ind-review-helpfulYes,
+.ind-review-report {
+  text-decoration: underline;
+}
+
+hr {
+  margin-top: 15px;
   margin-bottom: 15px;
 }
 
