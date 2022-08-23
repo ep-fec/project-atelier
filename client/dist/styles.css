@@ -21,7 +21,7 @@ Widget Skeleton
 
 .reviews-container {
   margin: 0 auto;
-  width: 70%;
+  width: 80%;
   padding-left: 15%;
   padding-right: 15%;
 }
@@ -33,11 +33,11 @@ h2 {
 }
 
 .leftcol {
-  width: 30%;
+  width: 25%;
 }
 
 .rightcol {
-  width: 70%;
+  width: 75%;
 }
 
 .rightcol,
@@ -54,6 +54,11 @@ Review List
 .reviews-list {
   margin:0;
   margin-top:15px;
+  width: 80%;
+  padding-left: 25px;
+  padding-right: 25px;
+  max-height: 500px;
+  overflow-y: auto;
 }
 
 /*
@@ -116,7 +121,8 @@ Individual Review
 }
 
 .ind-review-helpfulYes:hover,
-.ind-review-report:hover {
+.ind-review-report:hover,
+.reviewsbutton:hover {
   cursor: pointer;
 }
 

@@ -8,7 +8,7 @@ const List = (props) => {
   let reviewsLoaded = 0;
 
   return (
-    <div className="reviews reviews-list">
+    <><div className="reviews reviews-list">
       {props.reviews.results.length ?
         props.reviews.results.map((review) => {
           if (reviewsLoaded < reviewLimit) {
@@ -16,12 +16,14 @@ const List = (props) => {
             return (<Review data={review} key={review.review_id} />)
           }
         }) : 'Be the first to leave a review!'}
-      <br/>
-      {totalReviews > 2 ?
-      <button className="reviews more-reviews reviewsbutton">MORE REVIEWS</button>
-      : null}
-      <button className="reviews add-review reviewsbutton">ADD A REVIEW +</button>
+      <br />
     </div>
+      {(totalReviews > 2 && reviewsLoaded < totalReviews) ?
+        <button className="reviews more-reviews reviewsbutton"
+          onClick={(e) => increaseReviewLimit(reviewLimit + 2)}>MORE REVIEWS</button>
+        : null}
+      <button className="reviews add-review reviewsbutton">ADD A REVIEW +</button>
+    </>
   )
 }
 
