@@ -11,15 +11,24 @@ const Review = (props) => {
 
   let [helpfulVotes, setHelpfulVotes] = useState(props.data.helpfulness);
   let [hasVoted, setVotedStatus] = useState(false);
+  let [hasReported, setReportStatus] = useState(false);
 
   let markHelpful = (e) => {
     if (!hasVoted) {
       axios.put(`/reviews/${props.data.review_id}/helpful`)
-      .then((res) => {
-        setHelpfulVotes(helpfulVotes + 1);
-        setVotedStatus(true);
+        .then((res) => {
+          setHelpfulVotes(helpfulVotes + 1);
+          setVotedStatus(true);
       })
-      .catch((err) => console.log(err));
+        .catch((err) => console.log(err));
+    }
+  }
+
+  let submitReport = (e) => {
+    if (!hasReported) {
+      axios.put(`/reviews/${props.data.review_id}/report`)
+        .then((res) => setReportStatus(true))
+        .catch((err) => console.log(err));
     }
   }
 
@@ -52,7 +61,8 @@ const Review = (props) => {
         <span className="reviews ind-review-helpfulYes" onClick={(e) => markHelpful(e)}>
           {hasVoted ? 'Marked as helpful!' : 'Yes'}</span>
         <span className="reviews ind-review-helpfulness"> ({helpfulVotes}) | </span>
-        <span className="reviews ind-review-report">{'Report'}</span>
+        <span className="reviews ind-review-report" onClick={(e) => submitReport(e)}>
+          {hasReported ? 'Reported' : 'Report'}</span>
         <br/><hr/>
       </section>
     </div>
