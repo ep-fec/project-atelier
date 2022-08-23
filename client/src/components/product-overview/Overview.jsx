@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import $ from 'jquery';
 import Navbar from './Navbar.jsx';
 import Announcement from './Announcement.jsx';
 import ImageGallery from './ImageGallery.jsx';
@@ -22,6 +23,7 @@ export default function Overview() {
   const [announcementNumber, setAnnouncementNumber] = useState(0);
 
   useEffect(() => {
+    $('.overViewMainContainer').find('*').addClass('overview');
     getInitialProduct();
   }, []);
 
