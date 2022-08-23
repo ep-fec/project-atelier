@@ -5,7 +5,7 @@ import ProductBreakdown from './components/ProductBreakdown.jsx';
 import Ratings from './components/Ratings.jsx';
 import Sort from './components/Sort.jsx';
 import NewReview from './components/NewReview.jsx';
-import data from './components/sampleData.js';
+import data from './sampleData.js';
 import axios from 'axios';
 
 const Reviews = (props) => {
@@ -22,11 +22,6 @@ const Reviews = (props) => {
     getReviews();
   }, [props.currentProduct]);
 
-
-
-
-
-
   return (
     <section className="reviews-container">
       <h2>RATINGS & REVIEWS </h2>
@@ -38,7 +33,7 @@ const Reviews = (props) => {
       </section>
 
       <section className="reviews rightcol">
-        <Sort />
+        <Sort reviews={reviews}/>
         <List reviews={reviews}/>
         <br/>
         <button className="reviews more-reviews reviewsbutton">MORE REVIEWS</button>

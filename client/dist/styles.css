@@ -115,6 +115,11 @@ Individual Review
   text-decoration: underline;
 }
 
+.ind-review-helpfulYes:hover,
+.ind-review-report:hover {
+  cursor: pointer;
+}
+
 hr {
   margin-top: 15px;
   margin-bottom: 15px;

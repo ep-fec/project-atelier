@@ -1,19 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Review = (props) => {
   let date = new Date(props.data.date);
-  let options = {
+  let dateOptions = {
     month: 'long',
     year: 'numeric',
     day: 'numeric'
   }
+
+  let [helpfulVotes, setHelpfulVotes] = useState(props.data.helpfulness);
+
+  let markHelpful = (e) => {
+    axios.put(`/reviews/${props.data.review_id}/helpful`)
+      .then((res) => setHelpfulVotes(helpfulVotes + 1))
+      .catch((err) => console.log(err));
+  }
+
+  // useEffect(() => {
+  //   setHelpfulVotes
+  // }, [helpfulVotes]);
+
 
   return (
     <div className="reviews ind-review">
 
       <section className="reviews ind-review-heading">
         <><span className="reviews ind-review-stars" style={{'--rating':  props.data.rating}}></span></>
-        <span className="reviews ind-review-date">{date.toLocaleDateString("en", options)}</span>
+        <span className="reviews ind-review-date">{date.toLocaleDateString("en", dateOptions)}</span>
         <span className="reviews ind-review-username">{props.data.reviewer_name},</span>
       </section>
 
@@ -29,12 +43,13 @@ const Review = (props) => {
           <span className="reviews response-body">{props.data.response}</span>
         </div>
         : null}
+
       </section>
 
       <section className="reviews ind-review-footer">
         <span className="reviews ind-review-helpful">Helpful? </span>
-        <span className="reviews ind-review-helpfulYes">Yes</span>
-        <span className="reviews ind-review-helpfulness"> ({props.data.helpfulness}) | </span>
+        <span className="reviews ind-review-helpfulYes" onClick={(e) => markHelpful(e)}>Yes</span>
+        <span className="reviews ind-review-helpfulness"> ({helpfulVotes}) | </span>
         <span className="reviews ind-review-report">Report</span>
         <br/><hr/>
       </section>
