@@ -1,6 +1,11 @@
 /*
 RATINGS & REVIEWS
 */
+:root {
+  --star-size: 18px;
+  --star-color: rgb(1, 1, 1);
+  --star-background: rgb(255, 179, 0);
+}
 
 body {
   margin: 0 auto;
@@ -43,7 +48,7 @@ h2 {
 
 /*
 RATINGS & REVIEWS
-Individual Review
+Review List
 */
 
 .reviews-list {
@@ -56,6 +61,21 @@ RATINGS & REVIEWS
 Individual Review
 */
 
+.ind-review-stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: var(--star-size);
+  font-family: Times;
+  line-height: 1;
+}
+.ind-review-stars::before {
+  content: "★★★★★";
+  letter-spacing: 0px;
+  background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .ind-review-username,
 .ind-review-date {
   float: right;
@@ -64,6 +84,7 @@ Individual Review
 }
 
 .ind-review-title {
+  margin-top: 5px;
   margin-bottom: 15px;
 }
 
