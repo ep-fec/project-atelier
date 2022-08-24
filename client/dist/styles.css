@@ -5,6 +5,7 @@ RATINGS & REVIEWS
   --star-size: 18px;
   --star-color: rgb(1, 1, 1);
   --star-background: rgb(255, 179, 0);
+  --primary-color: rgb(208, 40, 82);
 }
 
 body {
