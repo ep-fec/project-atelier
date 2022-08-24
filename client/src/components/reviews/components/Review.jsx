@@ -42,7 +42,9 @@ const Review = (props) => {
       </section>
 
       <section className="reviews ind-review-body">
-        <h3 className="reviews ind-review-summary">{props.data.summary}</h3>
+        <h3 className="reviews ind-review-summary">
+          {props.data?.summary.length < 60 ? props.data.summary
+          : `${props.data.summary.slice(0, 60)}...` }</h3>
         <p className="reviews ind-review-content">{props.data.body}</p>
         <span className="reviews ind-review-recommendation">
           {props.data.recommend ? '✔️ I recommend this product' : null}
