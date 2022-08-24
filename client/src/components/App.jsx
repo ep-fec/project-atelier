@@ -4,6 +4,7 @@ import Overview from './product-overview/Overview.jsx';
 import Reviews from './reviews/Reviews.jsx';
 import Related from './related-products/Related.jsx';
 import QA from './questions-and-answers/QA.jsx';
+import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,8 +16,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div> Hello World!
-        <Related/>
+      <div>
+        <Overview />
+        <Related />
+        <QA />
+        <Reviews /> 
       </div>
     );
   }
