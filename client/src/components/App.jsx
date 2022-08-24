@@ -1,8 +1,10 @@
 import React from 'react';
+import axios from 'axios';
 import Overview from './product-overview/Overview.jsx';
 import Reviews from './reviews/Reviews.jsx';
 import Related from './related-products/Related.jsx';
 import QA from './questions-and-answers/QA.jsx';
+import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,10 +18,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {/* <Overview />
+        <Overview />
         <Related />
-        <QA /> */}
-        <Reviews currentProduct={this.state.currentProduct}/>
+        <Reviews /> 
       </div>
     );
   }
