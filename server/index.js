@@ -4,24 +4,12 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT;
 const axios = require('axios');
-const token = process.env.TOKEN;
+const token = process.env.KEY;
 
 const request = require('./helpers/request.js');
 
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
 app.use(express.json());
-
-app.all('/*', (req, res) => {
-  request(req.url, req.method, req.body)
-    .then((data) => {
-      console.log('Success!:', data.data);
-      res.send(data.data);
-    })
-    .catch((err) => {
-      console.log('There was an error!:', err);
-      res.status(404).end();
-    });
-});
 
 app.get('/initialProduct', (request, response, next) => {
   let url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products?page=3&count=1';
@@ -60,6 +48,18 @@ app.post('/allStyles', (request, response, next) => {
   });
 
 });
+
+// app.all('/*', (req, res) => {
+//   request(req.url, req.method, req.body)
+//     .then((data) => {
+//       console.log('Success!:', data.data);
+//       res.send(data.data);
+//     })
+//     .catch((err) => {
+//       console.log('There was an error!:', err);
+//       res.status(404).end();
+//     });
+// });
 
 app.listen(port, () => {
   console.log(`Listening on ${port}`);
