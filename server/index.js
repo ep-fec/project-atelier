@@ -30,7 +30,6 @@ app.get('/initialProduct', (request, response, next) => {
 });
 
 app.post('/allStyles', (request, response, next) => {
-  console.log('iddd', request.body);
   let endpoint = `products/${request.body}/styles`;
   let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/${endpoint}`;
 
@@ -40,7 +39,6 @@ app.post('/allStyles', (request, response, next) => {
     },
   })
   .then(result => {
-    //console.log('resultttt', result.data.results);
     response.send(result.data.results);
     next();
   })
@@ -53,7 +51,7 @@ app.post('/allStyles', (request, response, next) => {
 app.all('/*', (req, res) => {
   request(req.url, req.method, req.body)
     .then((data) => {
-      console.log('Success!:', data.data);
+      // console.log('Success!:', data.data);
       res.send(data.data);
     })
     .catch((err) => {
@@ -92,18 +90,6 @@ app.get('/related/:productId', function(req, res) {
       res.send(result.data);
     }
   });
-});
-
-app.all('/*', (req, res) => {
-  request(req.url, req.method, req.body)
-    .then((data) => {
-      // console.log('Success!:', data.data);
-      res.send(data.data);
-    })
-    .catch((err) => {
-      console.log('There was an error!:', err);
-      res.status(404).end();
-    });
 });
 
 app.listen(port, () => {

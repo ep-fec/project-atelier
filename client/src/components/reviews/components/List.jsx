@@ -3,7 +3,7 @@ import Review from './Review.jsx';
 
 const List = (props) => {
 
-  let totalReviews = props.reviews.results.length;
+  let totalReviews = props?.reviews?.results?.length;
   let [reviewLimit, increaseReviewLimit] = useState(2);
   let reviewsLoaded = 0;
 
@@ -14,7 +14,7 @@ const List = (props) => {
         {!totalReviews ? <button className="reviews add-review-centered reviewsbutton">ADD A REVIEW +</button>
         :null}
       </div>
-      {props.reviews.results.length ?
+      {props?.reviews?.results?.length ?
         props.reviews.results.map((review) => {
           if (reviewsLoaded < reviewLimit) {
             reviewsLoaded++;
