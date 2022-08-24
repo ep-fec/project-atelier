@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Overview from './product-overview/Overview.jsx';
 import Reviews from './reviews/Reviews.jsx';
 import Related from './related-products/Related.jsx';
@@ -17,9 +18,9 @@ class App extends React.Component {
     return (
       <div>
         <Overview />
-      {/*   <Related />
+        <Related />
         <QA />
-        <Reviews /> */}
+        <Reviews /> 
       </div>
     );
   }

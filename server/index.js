@@ -61,6 +61,38 @@ app.post('/allStyles', (request, response, next) => {
 
 });
 
+app.get('/products', function(req, res) {
+  request.get('products', (err, result) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(result.data);
+    }
+  });
+});
+
+app.get('/products/:productId', function(req, res) {
+  let id = req.params.productId;
+  request.get(`products/${id}`, (err, result) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(result.data);
+    }
+  });
+});
+
+app.get('/related/:productId', function(req, res) {
+  let id = req.params.productId;
+  request.get(`products/${id}/related`, (err, result) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(result.data);
+    }
+  });
+});
+
 app.listen(port, () => {
   console.log(`Listening on ${port}`);
 });
