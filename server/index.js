@@ -50,6 +50,18 @@ app.post('/allStyles', (request, response, next) => {
 
 });
 
+app.all('/*', (req, res) => {
+  request(req.url, req.method, req.body)
+    .then((data) => {
+      console.log('Success!:', data.data);
+      res.send(data.data);
+    })
+    .catch((err) => {
+      console.log('There was an error!:', err);
+      res.status(404).end();
+    });
+});
+
 app.get('/products', function(req, res) {
   request.get('products', (err, result) => {
     if (err) {
