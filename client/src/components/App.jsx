@@ -11,6 +11,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      currentProduct: 71700
     };
   }
 
@@ -19,7 +20,6 @@ class App extends React.Component {
       <div>
         <Overview />
         <Related />
-        <QA />
         <Reviews /> 
       </div>
     );

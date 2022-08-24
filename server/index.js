@@ -14,7 +14,7 @@ app.use(express.json());
 app.all('/*', (req, res) => {
   request(req.url, req.method, req.body)
     .then((data) => {
-      console.log('Success!:', data.data);
+      // console.log('Success!:', data.data);
       res.send(data.data);
     })
     .catch((err) => {
