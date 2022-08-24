@@ -1,0 +1,156 @@
+/*
+RATINGS & REVIEWS
+*/
+:root {
+  --star-size: 18px;
+  --star-color: rgb(1, 1, 1);
+  --star-background: rgb(255, 179, 0);
+  --primary-color: rgb(208, 40, 82);
+}
+
+body {
+  margin: 0 auto;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 300;
+  font-size:16px;
+}
+
+/*
+RATINGS & REVIEWS
+Widget Skeleton
+*/
+
+.reviews-container {
+  margin: 0 auto;
+  width: 80%;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+h2 {
+  margin: 0;
+  margin-top:15px;
+  display: inline-block
+}
+
+.leftcol {
+  width: 25%;
+}
+
+.rightcol {
+  width: 75%;
+}
+
+.rightcol,
+.leftcol {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/*
+RATINGS & REVIEWS
+Review List
+*/
+
+.reviews-list {
+  margin:0;
+  margin-top:15px;
+  width: 80%;
+  padding-left: 25px;
+  padding-right: 25px;
+  max-height: 700px;
+  overflow-y: auto;
+}
+
+.no-reviews {
+  text-align: center;
+}
+
+/*
+RATINGS & REVIEWS
+Individual Review
+*/
+
+.ind-review-stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: var(--star-size);
+  font-family: Times;
+  line-height: 1;
+}
+.ind-review-stars::before {
+  content: "★★★★★";
+  letter-spacing: 0px;
+  background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ind-review-username,
+.ind-review-date {
+  float: right;
+  padding-left: 5px;
+  font-size: 12px;
+}
+
+.ind-review-summary {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.ind-review-recommendation {
+  font-size: 14px;
+}
+
+.ind-review-response {
+  background-color: rgb(233, 232, 232);
+  padding: 20px;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+.response-title {
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.ind-review-footer {
+  margin-top:15px;
+  font-size:12px;
+}
+
+.ind-review-helpfulYes,
+.ind-review-report {
+  text-decoration: underline;
+}
+
+.ind-review-helpfulYes:hover,
+.ind-review-report:hover,
+.reviewsbutton:hover {
+  cursor: pointer;
+}
+
+hr {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/*
+RATINGS & REVIEWS
+Buttons
+*/
+
+.more-reviews {
+  margin-right:10px;
+}
+
+.reviewsbutton {
+  font-family: 'Fira Sans', sans-serif;
+  background-color: white;
+  font-weight: 500;
+  font-size:16px;
+  padding:20px;
+  border-width: thin;
+}
+

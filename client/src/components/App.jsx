@@ -9,16 +9,17 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      currentProduct: 71700
     };
   }
 
   render() {
     return (
-      <div> PROJECT ATELIER
+      <div>
         {/* <Overview />
         <Related />
         <QA /> */}
-        <Reviews />
+        <Reviews currentProduct={this.state.currentProduct}/>
       </div>
     );
   }
