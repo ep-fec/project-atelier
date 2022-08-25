@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Image from './Image.jsx';
 
 const Review = (props) => {
   let date = new Date(props.data.date);
@@ -75,7 +76,7 @@ const Review = (props) => {
           <span className="reviews response-body">{props.data.response}</span>
         </div>
         : null}
-
+        {props.data.photos.length ? <Image photo={props.data.photos}/> : null}
       </section>
 
       <section className="reviews ind-review-footer">
