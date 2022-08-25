@@ -94,8 +94,7 @@ Individual Review
 }
 
 .ind-review-summary {
-  white-space: normal;
-  word-wrap:break-word;
+  white-space: ellipsis;
   margin-top: 5px;
   margin-bottom: 15px;
   font-weight: 500;
