@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT;
 const axios = require('axios');
-const token = process.env.TOKEN;
+const key = process.env.KEY;
 
 const request = require('./helpers/request.js');
 // TODO: request functions for post and put may need to be adjusted
@@ -19,7 +19,7 @@ app.get('/initialProduct', (request, response, next) => {
 
   axios.get(url, {
     headers: {
-      'Authorization': token
+      'Authorization': key
     }
   })
   .then(result => {
@@ -38,7 +38,7 @@ app.post('/allStyles', (request, response, next) => {
 
   axios.get(url, {
     headers: {
-      'Authorization': token
+      'Authorization': key
     },
   })
   .then(result => {
