@@ -12,6 +12,12 @@ const Review = (props) => {
   let [helpfulVotes, setHelpfulVotes] = useState(props.data.helpfulness);
   let [hasVoted, setVotedStatus] = useState(false);
   let [hasReported, setReportStatus] = useState(false);
+  let [showMore, toggleShowMore] = useState(false);
+  let [showMoreContent, setShowMoreContent] = useState(false);
+
+  useEffect(() => {
+    props.data?.body.length > 250 ? toggleShowMore(true) : null;
+  }, []);
 
   let markHelpful = (e) => {
     if (!hasVoted) {
@@ -44,8 +50,22 @@ const Review = (props) => {
       <section className="reviews ind-review-body">
         <h3 className="reviews ind-review-summary">
           {props.data?.summary.length < 60 ? props.data.summary
-          : `${props.data.summary.slice(0, 60)}...` }</h3>
+          :
+          `${props.data.summary.slice(0, 60)}...` }
+        </h3>
+
+        {!showMore ?
         <p className="reviews ind-review-content">{props.data.body}</p>
+        : null }
+
+        {(showMore && !showMoreContent) ?
+        <><p className="reviews ind-review-content">{props.data.body.slice(0, 250)}</p>
+        <div className="reviews ind-review-showmore" onClick={(e) => setShowMoreContent(true)}>SHOW MORE</div></>
+        : null}
+
+        {showMoreContent ? <p className="reviews ind-review-content">{props.data.body}</p>
+        : null}
+
         <span className="reviews ind-review-recommendation">
           {props.data.recommend ? '✔️ I recommend this product' : null}
         </span>

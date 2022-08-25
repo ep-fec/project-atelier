@@ -94,9 +94,16 @@ Individual Review
 }
 
 .ind-review-summary {
+  white-space: normal;
+  word-wrap:break-word;
   margin-top: 5px;
   margin-bottom: 15px;
   font-weight: 500;
+}
+
+.ind-review-content {
+  white-space: normal;
+  word-wrap:break-word;
 }
 
 .ind-review-recommendation {
@@ -120,6 +127,11 @@ Individual Review
   font-size:12px;
 }
 
+.ind-review-showmore {
+  text-align: center;
+  font-weight: 500;
+}
+
 .ind-review-helpfulYes,
 .ind-review-report {
   text-decoration: underline;
@@ -127,7 +139,8 @@ Individual Review
 
 .ind-review-helpfulYes:hover,
 .ind-review-report:hover,
-.reviewsbutton:hover {
+.reviewsbutton:hover,
+.ind-review-showmore:hover {
   cursor: pointer;
 }
 
