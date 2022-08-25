@@ -21,9 +21,9 @@ class App extends React.Component {
   }
 
   getInitialProduct() {
-    axios.get('/initialProduct')
+    axios.get('/products?page=3&count=1')
     .then(response => {
-      this.setState({currentProduct: response.data});
+      this.setState({currentProduct: response.data[0]});
     })
     .catch(error => {
       console.log('Error getting initial product', error);
