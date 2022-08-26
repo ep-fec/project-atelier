@@ -167,7 +167,8 @@ Individual Review
 .ind-review-report:hover,
 .reviewsbutton:hover,
 .ind-review-showmore:hover,
-.review-thumbnail:hover {
+.review-thumbnail:hover,
+.reviews-modal-button:hover {
   cursor: pointer;
 }
 
@@ -182,7 +183,7 @@ Modal
 */
 
 .modal-overlay {
-  position:fixed;
+  position:absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -192,13 +193,22 @@ Modal
 }
 
 .reviews-modal {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 50px;
+  height:80%;
+  width: 80%;
+  background-color: rgb(255, 255, 255);
   z-index: 1000;
+}
 
+.modal-image {
+  display: block;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 /*
@@ -222,9 +232,28 @@ Buttons
   border-width: thin;
 }
 
-.reviewsbutton:hover {
-  background-color: white;
-  color:var(--primary-color);
+.reviews-modal-button {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+
+  font-family: 'Fira Sans', sans-serif;
+  background-color: var(--primary-color);
+  color:white;
+  font-weight: 500;
+  font-size:16px;
+  padding:20px;
+  padding-left:40px;
+  padding-right: 40px;
+  border-width: thin;
+}
+
+.reviewsbutton:hover,
+.reviews-modal-button:hover {
+  background-color: rgb(0, 0, 0);
+  color:white;
   transition-duration: 0.4s;
 }
 

@@ -11,8 +11,8 @@ const Image = (props) => {
       onClick={() => setShowModal(true)}
       src={props.photo.url + '?tr=w-400,h-300,bl-30,q-50'}/>
 
-    <Modal className="reviews reviews-modal" open={showModal} close={() => setShowModal(false)}>
-      HI
+    <Modal open={showModal} close={() => setShowModal(false)}>
+      <img className="reviews modal-image" src={props.photo.url}/>
     </Modal>
     </>
   )
