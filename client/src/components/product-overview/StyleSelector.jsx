@@ -19,15 +19,17 @@ export default function StyleSelector({allStyles, selectedStyle, setSelectedStyl
       </div>
 
       <div className='styleThumbnailsGrid'>
-        {allStyles.map((style, index) => (
-          <img className='thumbnail'
-            src={style.photos[0].thumbnail_url}
-            key={index}
-            onClick={handleStyleSelectClick}
-            name={style.name}
-            id={index}
-          />
-        ))}
+        {allStyles.length !== 0 && (
+          allStyles.map((style, index) => (
+            <img className='thumbnail'
+              src={style.photos[0].thumbnail_url}
+              key={index}
+              onClick={handleStyleSelectClick}
+              name={style.name}
+              id={index}
+            />
+          ))
+        )}
       </div>
     </div>
   )
