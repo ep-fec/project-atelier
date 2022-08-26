@@ -392,6 +392,10 @@ Buttons
   border-radius: 50%;
 }
 
+.styleThumbnailCheckmark {
+  border: 2px solid red;
+}
+
 .buttonsAndDropdowns {
   display: flex;
   align-items: center;
