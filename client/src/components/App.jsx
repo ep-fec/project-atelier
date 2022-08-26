@@ -10,16 +10,32 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      currentProduct: 71700
+      currentProduct: {}
     };
+
+    this.getInitialProduct = this.getInitialProduct.bind(this);
   }
+
+  componentDidMount() {
+    this.getInitialProduct();
+  }
+
+  getInitialProduct() {
+    axios.get('/products?page=3&count=1')
+    .then(response => {
+      this.setState({currentProduct: response.data[0]});
+    })
+    .catch(error => {
+      console.log('Error getting initial product', error);
+    });
+  };
 
   render() {
     return (
       <div>
-        <Overview />
+        <Overview currentProduct={this.state.currentProduct}/>
         <Related />
-        <Reviews />
+        <Reviews currentProduct={this.state.currentProduct.id}/>
       </div>
     );
   }
