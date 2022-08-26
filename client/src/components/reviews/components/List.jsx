@@ -5,12 +5,12 @@ const List = (props) => {
 
   let totalReviews = props.reviews.results.length;
   let [reviewLimit, increaseReviewLimit] = useState(2);
-  let [maxHeight, setMaxHeight] = useState('400px');
+  let [maxHeight, setMaxHeight] = useState('350px');
   let reviewsLoaded = 0;
 
   useEffect(() => {
     if (reviewLimit === 4) {
-      setMaxHeight('650px');
+      setMaxHeight('600px');
     }
 
   }, [reviewLimit])
