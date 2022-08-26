@@ -14,7 +14,7 @@ const List = (props) => {
         {!totalReviews ? <button className="reviews add-review-centered reviewsbutton">ADD A REVIEW +</button>
         :null}
       </div>
-      {props.reviews.results.length ?
+      {props.reviews?.results?.length ?
         props.reviews.results.map((review) => {
           if (reviewsLoaded < reviewLimit) {
             reviewsLoaded++;
