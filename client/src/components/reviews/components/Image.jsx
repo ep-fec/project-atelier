@@ -1,14 +1,16 @@
 import react, { useState } from 'react';
+import Modal from './Modal.jsx';
 
 const Image = (props) => {
 
   let [openModal, toggleModal] = useState(false);
 
-
   return (
-    <div className="reviews review-images">
-      <img className="reviews review-thumbnail" src={props.photo[0].url}/>
-    </div>
+    <>
+    <img className="reviews review-thumbnail"
+    onClick={() => <Modal show={true}/>}
+    src={props.photo.url}/>
+    </>
   )
 }
 

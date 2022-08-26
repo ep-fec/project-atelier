@@ -76,7 +76,13 @@ const Review = (props) => {
           <span className="reviews response-body">{props.data.response}</span>
         </div>
         : null}
-        {props.data.photos.length ? <Image photo={props.data.photos}/> : null}
+
+        {props.data.photos.length ?
+        <section className="reviews images-section">
+        {props.data.photos.map((photo) => (
+          <Image photo={photo} key={photo.id}/>
+        ))}
+        </section> : null}
       </section>
 
       <section className="reviews ind-review-footer">
