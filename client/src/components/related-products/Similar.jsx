@@ -17,7 +17,8 @@ class Similar extends React.Component {
 
 let List = (props) => {
   return(<ul className="side-by-side">
-    {_.map(props.products, (product) => {
+    {_.map(props.products, (product, index) => {
+     //console.log('product', index, product);
       return (<Card product={product}/>);
     })}
   </ul>);

@@ -6,7 +6,9 @@ class Card extends React.Component {
     super(props);
     this.state = {
       productId: 0,
-      product: {}
+      product: {},
+      styles: ['failed'],
+      reviews: {}
     };
   }
 
@@ -18,25 +20,33 @@ class Card extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.product !== this.props.product) {
+      //console.log('product', this.props.product);
       this.setState({
-        productId: this.props.product
+        productId: this.props.product,
       });
     }
     if (prevState.productId !== this.state.productId) {
-      axios.get(`/products/${this.state.productId}`)
+      axios.get(`/related/${this.state.productId}`)
       .then((result) => {
+        //console.log('Result', result.data);
         this.setState({
-          product: result.data
+          product: result.data.product,
+          styles: result.data.styles,
+          reviews: result.data.reviews
         });
       })
       .catch((err) => {
-        console.log('ERROR GETTING PRODUCT INFO IN CARD', err);
+        console.log('ERROR GETTING RELATED PRODUCT INFO');
       });
+      // this.setState({
+      //   styles: ['worked']
+      // }, function() {
+      //   console.log('Card state', this.state);
+      // });
     }
   }
 
   render() {
-    console.log(this.state.product);
     return(<li>
       <p>{this.state.product.category}</p>
       <p>{this.state.product.name}</p>

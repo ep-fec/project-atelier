@@ -34,7 +34,7 @@ class App extends React.Component {
     return (
       <div>
         <Overview currentProduct={this.state.currentProduct}/>
-        <Related />
+        <Related currProduct={this.state.currentProduct}/>
         <Reviews currentProduct={this.state.currentProduct.id}/>
       </div>
     );

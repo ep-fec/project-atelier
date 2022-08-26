@@ -31,6 +31,33 @@ app.post('/allStyles', (request, response, next) => {
 
 });
 
+app.get('/related/:productId', function(req, res) {
+  let id = req.params.productId;
+  let [productURL, stylesURL, reviewsURL] = [`/products/${id}`,
+  `/products/${id}/styles`, `/reviews/meta/?product_id=${id}`];
+  var product, styles, reviews;
+  request(productURL, req.method, req.body)
+    .then((response) => {
+      product = response.data;
+    })
+    .then(() => {
+      return request(stylesURL, req.method, req.body);
+    })
+    .then((response) => {
+      styles = response.data.results;
+    })
+    .then(() => {
+      return request(reviewsURL, req.method, req.body);
+    })
+    .then((response) => {
+      reviews = response.data.ratings;
+      res.send({product, styles, reviews})
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+});
+
 app.all('/*', (req, res) => {
   request(req.url, req.method, req.body)
     .then((response) => {
@@ -43,37 +70,28 @@ app.all('/*', (req, res) => {
     });
 });
 
-app.get('/products', function(req, res) {
-  request.get('products', (err, result) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.send(result.data);
-    }
-  });
-});
+// app.get('/products', function(req, res) {
+//   request.get('products', (err, result) => {
+//     if (err) {
+//       res.send(err);
+//     } else {
+//       res.send(result.data);
+//     }
+//   });
+// });
 
-app.get('/products/:productId', function(req, res) {
-  let id = req.params.productId;
-  request.get(`products/${id}`, (err, result) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.send(result.data);
-    }
-  });
-});
+// app.get('/products/:productId', function(req, res) {
+//   let id = req.params.productId;
+//   request.get(`products/${id}`, (err, result) => {
+//     if (err) {
+//       res.send(err);
+//     } else {
+//       res.send(result.data);
+//     }
+//   });
+// });
 
-app.get('/related/:productId', function(req, res) {
-  let id = req.params.productId;
-  request.get(`products/${id}/related`, (err, result) => {
-    if (err) {
-      res.send(err);
-    } else {
-      res.send(result.data);
-    }
-  });
-});
+
 
 app.listen(port, () => {
   console.log(`Listening on ${port}`);
