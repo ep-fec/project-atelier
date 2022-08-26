@@ -10,13 +10,16 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      currentProduct: 71700
     };
   }
 
   render() {
     return (
-      <div> Hello World!
-        <Related/>
+      <div>
+        <Overview />
+        <Related />
+        <Reviews />
       </div>
     );
   }
