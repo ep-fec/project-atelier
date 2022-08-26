@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactDom from 'react-dom';
 
 const Modal = ({ open, close, children}) => {
 
@@ -6,11 +7,15 @@ const Modal = ({ open, close, children}) => {
     return null;
   }
 
-  return (
-    <div>
-      {children}
-      <button onClick={close}>Close Modal</button>
-    </div>
+  return ReactDom.createPortal(
+    <>
+      <div className="modal-overlay"></div>
+      <div className="reviews-modal">
+        {children}
+        <button onClick={close} class="reviewsbutton">CLOSE</button>
+      </div>
+    </>,
+    document.getElementById('modal-root')
   )
 };
 
