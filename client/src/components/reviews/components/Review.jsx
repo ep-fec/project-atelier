@@ -15,6 +15,7 @@ const Review = (props) => {
   let [hasReported, setReportStatus] = useState(false);
   let [showMore, toggleShowMore] = useState(false);
   let [showMoreContent, setShowMoreContent] = useState(false);
+  let [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     props.data?.body.length > 250 ? toggleShowMore(true) : null;

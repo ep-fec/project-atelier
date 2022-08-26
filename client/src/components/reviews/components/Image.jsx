@@ -3,13 +3,17 @@ import Modal from './Modal.jsx';
 
 const Image = (props) => {
 
-  let [openModal, toggleModal] = useState(false);
+  let [showModal, setShowModal] = useState(false);
 
   return (
     <>
     <img className="reviews review-thumbnail"
-    onClick={() => <Modal show={true}/>}
-    src={props.photo.url}/>
+      onClick={() => setShowModal(true)}
+      src={props.photo.url + '?tr=w-400,h-300,bl-30,q-50'}/>
+
+    <Modal className="reviews reviews-modal" open={showModal} close={() => setShowModal(false)}>
+      HI
+    </Modal>
     </>
   )
 }

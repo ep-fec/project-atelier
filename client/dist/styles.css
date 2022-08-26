@@ -36,7 +36,8 @@ Widget Skeleton
 h2 {
   margin: 0;
   margin-top:15px;
-  display: inline-block
+  display: inline-block;
+  color:var(--primary-color);
 }
 
 .leftcol {
@@ -63,11 +64,14 @@ Review List
   width: 100%;
   padding-left: 15px;
   padding-right: 15px;
-  max-height: 600px;
+}
+
+.reviews-list-extended {
+  transition: max-height 0.4s;
+  max-height: var(--max-height);
   overflow-y: auto;
   scroll-behavior: smooth;
-  transition-property: all;
-  transition-duration: 2s;
+  padding-right: 15px;
 }
 
 .no-reviews {
@@ -147,13 +151,17 @@ Individual Review
 .review-thumbnail {
   border: 1px solid #ddd;
   border-radius: 0px;
-  border-color:var(--primary-color);
   margin-top:15px;
   margin-right:10px;
   padding: 5px;
   width: 100px;
   height: 100px;
 }
+/*
+.reviews-modal {
+  position: fixed;
+  top:
+} */
 
 .ind-review-helpfulYes:hover,
 .ind-review-report:hover,
