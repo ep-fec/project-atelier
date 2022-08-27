@@ -3,7 +3,7 @@ import Review from './Review.jsx';
 
 const List = (props) => {
 
-  let totalReviews = props.reviews.results.length;
+  let totalReviews = props?.reviews?.results?.length;
   let [reviewLimit, increaseReviewLimit] = useState(2);
   let [maxHeight, setMaxHeight] = useState('350px');
   let reviewsLoaded = 0;
@@ -22,7 +22,6 @@ const List = (props) => {
         {!totalReviews ? <button className="reviews add-review-centered reviewsbutton">ADD A REVIEW +</button>
         :null}
       </div>
-
       <div className="reviews reviews-list-extended" style={{'--max-height': maxHeight}}>
         {props.reviews?.results?.length ?
           props.reviews.results.map((review) => {
@@ -33,7 +32,6 @@ const List = (props) => {
           }) : null}
         <br />
       </div>
-
     </div>
       {(totalReviews > 2 && reviewsLoaded < totalReviews) ?
         <button className="reviews more-reviews reviewsbutton"

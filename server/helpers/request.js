@@ -1,7 +1,7 @@
 require('dotenv').config();
 const axios = require('axios');
 const headers = {
-  Authorization: process.env.KEY
+  'Authorization': process.env.KEY
 };
 
 let request = (endpoint, method, data) => {
