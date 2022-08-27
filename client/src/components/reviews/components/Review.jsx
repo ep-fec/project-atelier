@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Image from './Image.jsx';
 
 const Review = (props) => {
   let date = new Date(props.data.date);
@@ -12,6 +13,13 @@ const Review = (props) => {
   let [helpfulVotes, setHelpfulVotes] = useState(props.data.helpfulness);
   let [hasVoted, setVotedStatus] = useState(false);
   let [hasReported, setReportStatus] = useState(false);
+  let [showMore, toggleShowMore] = useState(false);
+  let [showMoreContent, setShowMoreContent] = useState(false);
+  let [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    props.data?.body.length > 250 ? toggleShowMore(true) : null;
+  }, []);
 
   let markHelpful = (e) => {
     if (!hasVoted) {
@@ -42,8 +50,24 @@ const Review = (props) => {
       </section>
 
       <section className="reviews ind-review-body">
-        <h3 className="reviews ind-review-summary">{props.data.summary}</h3>
+        <h3 className="reviews ind-review-summary">
+          {props.data?.summary.length < 60 ? props.data.summary
+          :
+          `${props.data.summary.slice(0, 60)}...` }
+        </h3>
+
+        {!showMore ?
         <p className="reviews ind-review-content">{props.data.body}</p>
+        : null }
+
+        {(showMore && !showMoreContent) ?
+        <><p className="reviews ind-review-content">{props.data.body.slice(0, 250)}</p>
+        <div className="reviews ind-review-showmore" onClick={(e) => setShowMoreContent(true)}>SHOW MORE</div></>
+        : null}
+
+        {showMoreContent ? <p className="reviews ind-review-content">{props.data.body}</p>
+        : null}
+        <br/>
         <span className="reviews ind-review-recommendation">
           {props.data.recommend ? '✔️ I recommend this product' : null}
         </span>
@@ -54,6 +78,12 @@ const Review = (props) => {
         </div>
         : null}
 
+        {props.data.photos.length ?
+        <section className="reviews images-section">
+        {props.data.photos.map((photo) => (
+          <Image photo={photo} key={photo.id}/>
+        ))}
+        </section> : null}
       </section>
 
       <section className="reviews ind-review-footer">

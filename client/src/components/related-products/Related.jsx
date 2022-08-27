@@ -14,35 +14,40 @@ class Related extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/products')
-    .then((result) => {
-      console.log(result.data);
-      this.setState({
-        currProduct: result.data[0]
-      }, function() {
-        let id = this.state.currProduct.id;
-        axios.get(`/related/${id}`)
-        .then((result) => {
-          this.setState({
-            products: result.data
-          });
-        })
-        .catch((err) => {
-          console.log('ERROR GETTING RELATED', err);
-        });
-      });
-    })
-    .catch((err) => {
-      console.log('ERROR GETTING PRODUCTS',err);
+    this.setState({
+      currProduct: this.props.currProduct
     });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.currProduct !== this.props.currProduct) {
+      this.setState({
+        currProduct: this.props.currProduct
+      });
+    }
+    if (prevState.currProduct !== this.state.currProduct) {
+      let id = this.state.currProduct.id;
+      axios.get(`/products/${id}/related`)
+      .then((result) => {
+        this.setState({
+          products: result.data
+        }, function() {
+          //console.log('Related State', this.state);
+        });
+      })
+      .catch((err) => {
+        console.log('ERROR GETTING RELATED', err);
+      });
+    }
+  }
+
   render() {
-    return(<div>
-      <h3>Related Products</h3>
+    return(<div className='overViewMainContainer related-container'>
+      <h2>RELATED PRODUCTS</h2>
       <Similar products={this.state.products}/>
-      <h3>Your Outfit</h3>
+      <h2>YOUR OUTFIT</h2>
       <Outfit outfit={this.state.outfit}/>
+      <br></br>
     </div>);
   }
 }

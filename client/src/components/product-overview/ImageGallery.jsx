@@ -3,52 +3,65 @@ import React, {useState, useEffect} from 'react';
 export default function ImageGallery({selectedStyle}) {
   const [mainPhoto, setMainPhoto] = useState('');
   const [mainPhotoIndex, setMainPhotoIndex] = useState(0);
+  const [selectedThumbnailIndex, setSelectedThumbnailIndex] = useState(0);
   const [showForwardArrow, setShowForwardArrow] = useState(true);
   const [showBackArrow, setShowBackArrow] = useState(false);
-  const [showUpArrow, setShowUpdArrow] = useState(false);
-  const [showDownArrow, setShowDownArrow] = useState(false);
+  const [showUpArrow, setShowUpdArrow] = useState(true);
+  const [showDownArrow, setShowDownArrow] = useState(true);
 
   useEffect(() => {
     if (selectedStyle !== '') {
       setMainPhoto(selectedStyle.photos[mainPhotoIndex].url);
 
-      if ((mainPhotoIndex) === (selectedStyle.photos.length - 1)) {
+      if (mainPhotoIndex === (selectedStyle.photos.length - 1)) {
         setShowForwardArrow(false);
+        setShowDownArrow(false);
       } else {
         setShowForwardArrow(true);
+        setShowDownArrow(true);
       }
 
       if (mainPhotoIndex === 0) {
         setShowBackArrow(false);
+        setShowUpdArrow(false);
       } else {
         setShowBackArrow(true);
+        setShowUpdArrow(true);
       }
 
-/*       if (selectedStyle.photos.length > 7) {
+      /* if (selectedStyle.photos.length > 7) {
         setShowDownArrow(true);
       } else {
         setShowDownArrow(false);
       } */
     }
-
   }, [selectedStyle, mainPhotoIndex, showForwardArrow, showBackArrow])
 
   const handleThumbnailPhotoClick = (e) => {
-    setMainPhoto(selectedStyle.photos[e.target.id].url);
     setMainPhotoIndex(parseInt(e.target.id));
   }
 
   const handleMainPhotoForwardClick = () => {
     if ((mainPhotoIndex + 1) < selectedStyle.photos.length) {
-      setMainPhoto(selectedStyle.photos[mainPhotoIndex].url);
-      setMainPhotoIndex(mainPhotoIndex + 1);
+      setMainPhotoIndex(prevIndex => prevIndex + 1);
     }
   }
 
   const handleMainPhotoBackClick = () => {
     if ((mainPhotoIndex - 1) >= 0) {
-      setMainPhoto(selectedStyle.photos[mainPhotoIndex].url);
-      setMainPhotoIndex(mainPhotoIndex - 1);
+      setMainPhotoIndex(prevIndex => prevIndex - 1);
+    }
+  }
+
+  const handleUpArrowClick = () => {
+    if ((mainPhotoIndex - 1) >= 0) {
+      setMainPhotoIndex(prevIndex => prevIndex - 1);
+    }
+  }
+
+  const handleDownArrowClick = () => {
+    if ((mainPhotoIndex + 1) < selectedStyle.photos.length) {
+      setMainPhotoIndex(prevIndex => prevIndex + 1);
     }
   }
 
@@ -63,9 +76,13 @@ export default function ImageGallery({selectedStyle}) {
           }}
         >
           <div className='thumbnailImagesContainer'>
-            <div className='thumbnailUpArrow'>
-              UP
-            </div>
+            {showUpArrow && (
+              <div className='thumbnailUpArrow'
+                onClick={handleUpArrowClick}
+              >
+                <i className="fa-solid fa-angle-up"></i>
+              </div>
+            )}
 
             <ol className='thumbnailListContainer'>
               {selectedStyle.photos.map((photo, index) => (
@@ -78,15 +95,15 @@ export default function ImageGallery({selectedStyle}) {
                   />
                 </li>
               ))}
-              <li>hellooo</li>
-              <li>hellooo</li>
-              <li>hellooo</li>
-              <li>hellooo</li>
             </ol>
 
-            <div className='thumbnailDownArrow'>
-                DOWN
-            </div>
+            {showDownArrow && (
+              <div className='thumbnailDownArrow'
+                onClick={handleDownArrowClick}
+              >
+                  <i className="fa-solid fa-angle-down"></i>
+              </div>
+            )}
           </div>
 
           <div className='forwardBackArrows'>
@@ -94,7 +111,7 @@ export default function ImageGallery({selectedStyle}) {
               <div className='mainPhotoBackArrow'
                 onClick={handleMainPhotoBackClick}
               >
-                BACK
+                <i className="fa-solid fa-angle-left"></i>
               </div>
             )}
 
@@ -102,7 +119,7 @@ export default function ImageGallery({selectedStyle}) {
               <div className='mainPhotoForwardArrow'
                 onClick={handleMainPhotoForwardClick}
               >
-                FORWARD
+                <i class="fa-solid fa-angle-right"></i>
               </div>
             )}
 
