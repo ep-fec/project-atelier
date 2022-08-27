@@ -162,7 +162,6 @@ Buttons
   border-width: thin;
 }
 
-
 /* ========== OVERVIEW START ========== */
 
 .overViewMainContainer {
@@ -199,7 +198,7 @@ Buttons
   /* background-color: red; */
   display: flex;
   flex-direction: row;
-  height: 45rem;
+  height: 35rem;
 }
 
 .imageGalleryContainer {
@@ -220,7 +219,7 @@ Buttons
   background-color: antiquewhite;
   display: flex;
   flex-grow: 0;
-  height: 45rem;
+  height: 35rem;
   width: 100%;
   flex-direction: row;
   object-fit: contain;
@@ -255,7 +254,7 @@ Buttons
 .thumbnailListItems {
   scroll-snap-align: start;
   display: flex;
-  padding: 1rem 0 1rem 0;
+  padding: 0.5rem 0 0.5rem 0;
 }
 
 .thumbnailImages {
@@ -295,9 +294,31 @@ Buttons
   grid-column: -1;
 }
 
+.fa-angle-right {
+  font-size: 2rem;
+  padding: 0 1rem 0 0;
+  color: #808080;
+}
+
+.fa-angle-right:hover {
+  color: #ED1C24;
+  transition: 0.4s;
+}
+
 .mainPhotoBackArrow {
   display: flex;
   grid-column: 1;
+}
+
+.fa-angle-left {
+  font-size: 2rem;
+  padding: 0 0 0 1rem;
+  color: #808080;
+}
+
+.fa-angle-left:hover {
+  color: #ED1C24;
+  transition: 0.4s;
 }
 
 .productInfoContainer {
@@ -385,15 +406,33 @@ Buttons
 .thumbnail {
   background-color: antiquewhite;
   border: 2px solid black;
-  width: 5vw;
-  height: 5vw;
-  max-width: 4.5rem;
-  max-height: 4.5rem;
+  width: 4.5vw;
+  height: 4.5vw;
+  max-width: 4rem;
+  max-height: 4rem;
   border-radius: 50%;
 }
 
 .styleThumbnailCheckmark {
   border: 2px solid red;
+}
+
+.fas {
+  margin: 0;
+  padding: 0;
+  color: red;
+}
+
+.fa-check-circle {
+  height: 0;
+  width: 0;
+  background-color: blue;
+  display: inline;
+  position: relative;
+  bottom: 5px;
+  right: 30px;
+  margin: 0;
+  padding: 0;
 }
 
 .buttonsAndDropdowns {
@@ -418,13 +457,7 @@ Buttons
 .sizeSelectorContainer {
   display: flex;
   flex-basis: 60%;
-  margin: 0 0.5rem 0 0;
-}
-
-.quantitySelectorContainer {
-  display: flex;
-  flex-basis: 35%;
-  justify-content: right;
+  /* margin: 0 0.5rem 0 0; */
 }
 
 .sizeSelectorDropdown {
@@ -433,13 +466,34 @@ Buttons
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
-/*   padding-right: 10px;
-  background-image: url(); */
+}
+
+.sizeSelectorDropdown:hover{
+  background-color: white;
+  border: 2px solid #ED1C24;
+  color: #ED1C24;
+  transition: 0.4s;
+}
+
+.quantitySelectorContainer {
+  display: flex;
+  flex-basis: 35%;
 }
 
 .quantitySelectorDropdown {
   display: flex;
   flex-grow: 1;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  text-align-last: center;
+}
+
+.quantitySelectorDropdown:hover:enabled{
+  background-color: white;
+  border: 2px solid #ED1C24;
+  color: #ED1C24;
+  transition: 0.4s;
 }
 
 .addToCartAndStarContainer {
