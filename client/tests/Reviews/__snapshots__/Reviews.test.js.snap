@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders the initial Reviews component correctly 1`] = `
+<section
+  className="reviews-container"
+>
+  <h2>
+    RATINGS & REVIEWS 
+  </h2>
+  <br />
+  <br />
+  <section
+    className="reviews leftcol"
+  >
+    <div
+      className="reviews rating-breakdown"
+    >
+      Rating Breakdown
+    </div>
+    <div
+      className="reviews product-breakdown"
+    >
+      Product Breakdown
+    </div>
+  </section>
+  <section
+    className="reviews rightcol"
+  >
+    <div
+      className="reviews sort-options"
+    >
+      -Sort Options Placeholder-
+    </div>
+    <div
+      className="reviews reviews-list"
+    >
+      <div
+        className="reviews no-reviews"
+      >
+        <button
+          className="reviews add-review-centered reviewsbutton"
+        >
+          ADD A REVIEW +
+        </button>
+      </div>
+      <div
+        className="reviews reviews-list-extended"
+        style={
+          Object {
+            "--max-height": "350px",
+          }
+        }
+      >
+        <br />
+      </div>
+    </div>
+  </section>
+</section>
+`;

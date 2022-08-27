@@ -5,7 +5,6 @@ import ProductBreakdown from './components/ProductBreakdown.jsx';
 import Ratings from './components/Ratings.jsx';
 import Sort from './components/Sort.jsx';
 import NewReview from './components/NewReview.jsx';
-import data from './sampleData.js';
 import axios from 'axios';
 
 const Reviews = (props) => {
