@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Image from './Image.jsx';
 
 const Review = (props) => {
   let date = new Date(props.data.date);
@@ -76,6 +77,12 @@ const Review = (props) => {
         </div>
         : null}
 
+        {props.data.photos.length ?
+        <section className="reviews images-section">
+        {props.data.photos.map((photo) => (
+          <Image photo={photo} key={photo.id}/>
+        ))}
+        </section> : null}
       </section>
 
       <section className="reviews ind-review-footer">

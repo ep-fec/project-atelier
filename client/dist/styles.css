@@ -72,8 +72,15 @@ Review List
   width: 100%;
   padding-left: 15px;
   padding-right: 15px;
-  /* max-height: 600px; */
   overflow-y: auto;
+}
+
+.reviews-list-extended {
+  transition: max-height 0.4s;
+  max-height: var(--max-height);
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  padding-right: 15px;
 }
 
 .reviews-list-extended {
@@ -229,6 +236,7 @@ Modal
   margin-right: auto;
   width: 50%;
   object-fit: contain;
+
 }
 
 /*

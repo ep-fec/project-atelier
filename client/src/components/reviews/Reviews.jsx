@@ -5,7 +5,6 @@ import ProductBreakdown from './components/ProductBreakdown.jsx';
 import Ratings from './components/Ratings.jsx';
 import Sort from './components/Sort.jsx';
 import NewReview from './components/NewReview.jsx';
-import data from './sampleData.js';
 import axios from 'axios';
 
 const Reviews = (props) => {
@@ -13,7 +12,7 @@ const Reviews = (props) => {
   let [reviews, setReviews] = useState({results: []});
 
   const getReviews = () => {
-    axios.get(`/reviews?product_id=${props.currentProduct}&count=50&sort=newest`)
+    axios.get(`/reviews?product_id=${props.currentProduct.id}&count=50&sort=newest`)
       .then((res) => setReviews(res.data))
       .catch((err) => console.log(err));
   }
