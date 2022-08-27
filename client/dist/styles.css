@@ -273,6 +273,7 @@ Buttons
 
 .overViewMainContainer {
   padding: 0 15vw 0 15vw;
+  background-color: #efefef;
 }
 
 .navbarContainer {
@@ -309,7 +310,6 @@ Buttons
 }
 
 .imageGalleryContainer {
-  background-color: antiquewhite;
   display: flex;
   flex-direction: row;
   flex-basis: 70%;
@@ -323,7 +323,6 @@ Buttons
 }
 
 .mainImage {
-  background-color: antiquewhite;
   display: flex;
   flex-grow: 0;
   height: 35rem;
@@ -438,7 +437,6 @@ Buttons
 }
 
 .ratingContainer {
-  background-color: #b5d8f0;
   display: flex;
   height: 2rem;
 }
@@ -451,14 +449,12 @@ Buttons
 }
 
 .categoryContainer {
-  background-color: antiquewhite;
   display: flex;
   height: 2rem;
   align-items: center;
 }
 
 .titleContainer {
-  background-color: #b5d8f0;
   display: flex;
   height: 4rem;
   align-items: center;
@@ -469,7 +465,6 @@ Buttons
 }
 
 .priceContainer {
-  background-color: antiquewhite;
   display: flex;
   height: 2rem;
   align-items: center;
@@ -488,7 +483,6 @@ Buttons
 }
 
 .styleSelectorContainer {
-  background-color: #b5d8f0;
   display: flex;
   height: 12rem;
   align-items: center;
@@ -643,8 +637,7 @@ Buttons
 }
 
 .productDescriptionContainer {
-  background-color: antiquewhite;
-  color: white;
+  color: black;
   height: 5rem;
   padding: 1rem;
   display: flex;
