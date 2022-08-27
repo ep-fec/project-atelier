@@ -4,6 +4,164 @@
   margin: 0;
 }
 
+/*
+RATINGS & REVIEWS
+*/
+:root {
+  --star-size: 18px;
+  --star-color: rgb(1, 1, 1);
+  --star-background: rgb(255, 179, 0);
+  --primary-color: rgb(208, 40, 82);
+}
+
+body {
+  margin: 0 auto;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 300;
+  font-size:16px;
+}
+
+/*
+RATINGS & REVIEWS
+Widget Skeleton
+*/
+
+.reviews-container {
+  margin: 0 auto;
+  width: 90%;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-bottom: 100px;
+}
+
+h2 {
+  margin: 0;
+  margin-top:15px;
+  display: inline-block
+}
+
+.leftcol {
+  width: 25%;
+}
+
+.rightcol {
+  width: 75%;
+}
+
+.rightcol,
+.leftcol {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/*
+RATINGS & REVIEWS
+Review List
+*/
+
+.reviews-list {
+  margin:15px 15px 15px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.no-reviews {
+  text-align: center;
+}
+
+/*
+RATINGS & REVIEWS
+Individual Review
+*/
+
+.ind-review-stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: var(--star-size);
+  font-family: Times;
+  line-height: 1;
+}
+.ind-review-stars::before {
+  content: "★★★★★";
+  letter-spacing: 0px;
+  background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ind-review-username,
+.ind-review-date {
+  float: right;
+  padding-left: 5px;
+  font-size: 12px;
+}
+
+.ind-review-summary {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.ind-review-recommendation {
+  font-size: 14px;
+}
+
+.ind-review-response {
+  background-color: rgb(233, 232, 232);
+  padding: 20px;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+.response-title {
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.ind-review-footer {
+  margin-top:15px;
+  font-size:12px;
+}
+
+.ind-review-helpfulYes,
+.ind-review-report {
+  text-decoration: underline;
+}
+
+.ind-review-helpfulYes:hover,
+.ind-review-report:hover,
+.reviewsbutton:hover {
+  cursor: pointer;
+}
+
+hr {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/*
+RATINGS & REVIEWS
+Buttons
+*/
+
+.more-reviews {
+  margin-right:10px;
+}
+
+.reviewsbutton {
+  padding-top:20px;
+  margin: 15px 15px 15px;
+  font-family: 'Fira Sans', sans-serif;
+  background-color: white;
+  font-weight: 500;
+  font-size:16px;
+  padding:20px;
+  border-width: thin;
+}
+
 /* ========== OVERVIEW START ========== */
 
 .overViewMainContainer {
@@ -40,7 +198,7 @@
   /* background-color: red; */
   display: flex;
   flex-direction: row;
-  height: 45rem;
+  height: 35rem;
 }
 
 .imageGalleryContainer {
@@ -61,7 +219,7 @@
   background-color: antiquewhite;
   display: flex;
   flex-grow: 0;
-  height: 45rem;
+  height: 35rem;
   width: 100%;
   flex-direction: row;
   object-fit: contain;
@@ -96,7 +254,7 @@
 .thumbnailListItems {
   scroll-snap-align: start;
   display: flex;
-  padding: 1rem 0 1rem 0;
+  padding: 0.5rem 0 0.5rem 0;
 }
 
 .thumbnailImages {
@@ -136,9 +294,31 @@
   grid-column: -1;
 }
 
+.fa-angle-right {
+  font-size: 2rem;
+  padding: 0 1rem 0 0;
+  color: #808080;
+}
+
+.fa-angle-right:hover {
+  color: #ED1C24;
+  transition: 0.4s;
+}
+
 .mainPhotoBackArrow {
   display: flex;
   grid-column: 1;
+}
+
+.fa-angle-left {
+  font-size: 2rem;
+  padding: 0 0 0 1rem;
+  color: #808080;
+}
+
+.fa-angle-left:hover {
+  color: #ED1C24;
+  transition: 0.4s;
 }
 
 .productInfoContainer {
@@ -226,11 +406,33 @@
 .thumbnail {
   background-color: antiquewhite;
   border: 2px solid black;
-  width: 5vw;
-  height: 5vw;
-  max-width: 4.5rem;
-  max-height: 4.5rem;
+  width: 4.5vw;
+  height: 4.5vw;
+  max-width: 4rem;
+  max-height: 4rem;
   border-radius: 50%;
+}
+
+.styleThumbnailCheckmark {
+  border: 2px solid red;
+}
+
+.fas {
+  margin: 0;
+  padding: 0;
+  color: red;
+}
+
+.fa-check-circle {
+  height: 0;
+  width: 0;
+  background-color: blue;
+  display: inline;
+  position: relative;
+  bottom: 5px;
+  right: 30px;
+  margin: 0;
+  padding: 0;
 }
 
 .buttonsAndDropdowns {
@@ -255,13 +457,7 @@
 .sizeSelectorContainer {
   display: flex;
   flex-basis: 60%;
-  margin: 0 0.5rem 0 0;
-}
-
-.quantitySelectorContainer {
-  display: flex;
-  flex-basis: 35%;
-  justify-content: right;
+  /* margin: 0 0.5rem 0 0; */
 }
 
 .sizeSelectorDropdown {
@@ -270,13 +466,34 @@
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
-/*   padding-right: 10px;
-  background-image: url(); */
+}
+
+.sizeSelectorDropdown:hover{
+  background-color: white;
+  border: 2px solid #ED1C24;
+  color: #ED1C24;
+  transition: 0.4s;
+}
+
+.quantitySelectorContainer {
+  display: flex;
+  flex-basis: 35%;
 }
 
 .quantitySelectorDropdown {
   display: flex;
   flex-grow: 1;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  text-align-last: center;
+}
+
+.quantitySelectorDropdown:hover:enabled{
+  background-color: white;
+  border: 2px solid #ED1C24;
+  color: #ED1C24;
+  transition: 0.4s;
 }
 
 .addToCartAndStarContainer {
