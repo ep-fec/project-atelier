@@ -127,6 +127,8 @@ Individual Review
 }
 
 .ind-review-recommendation {
+  padding-top:10px;
+  padding-bottom:10px;
   font-size: 14px;
 }
 
@@ -148,6 +150,7 @@ Individual Review
 }
 
 .ind-review-showmore {
+  padding-top:10px;
   text-align: center;
   font-weight: 500;
 }
