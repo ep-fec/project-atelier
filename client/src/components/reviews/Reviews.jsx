@@ -24,7 +24,7 @@ const Reviews = (props) => {
 
   return (
     <section className="reviews-container">
-      <h2>RATINGS & REVIEWS </h2>
+      <h2 className="RatingsReviewsHeader">RATINGS & REVIEWS </h2>
       <br/><br/>
 
       <section className="reviews leftcol">
