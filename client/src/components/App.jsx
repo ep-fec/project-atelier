@@ -9,7 +9,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      currentProduct: 71697
+      currentProduct: {id: 71697}
     };
   }
 
