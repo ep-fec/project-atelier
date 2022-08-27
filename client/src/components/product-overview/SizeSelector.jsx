@@ -8,12 +8,13 @@ export default function SizeSelector({selectedStyle, setSelectedSize}) {
   }
 
   return (
-      <select className={classes} defaultValue='SELECT SIZE'
+      <select className={classes}
+        defaultValue='SELECT SIZE'
         onChange={handleSizeSelectClick}
       >
         <option disabled> SELECT SIZE </option>
         {
-          selectedStyle.skus != undefined && (
+          selectedStyle.skus !== undefined && (
             Object.keys(selectedStyle.skus).map((key, index) => (
               <option key={index}
                 value={selectedStyle.skus[key].size}

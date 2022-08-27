@@ -35,7 +35,7 @@ class App extends React.Component {
       <div>
         <Overview currentProduct={this.state.currentProduct}/>
         <Related currProduct={this.state.currentProduct}/>
-        <Reviews currentProduct={this.state.currentProduct.id}/>
+        <Reviews currentProduct={this.state.currentProduct}/>
       </div>
     );
   }

@@ -13,7 +13,7 @@ const Reviews = (props) => {
   let [reviews, setReviews] = useState({results: []});
 
   const getReviews = () => {
-    axios.get(`/reviews?product_id=${props.currentProduct}&count=50&sort=newest`)
+    axios.get(`/reviews?product_id=${props.currentProduct.id}&count=50&sort=newest`)
       .then((res) => setReviews(res.data))
       .catch((err) => console.log(err));
   }
