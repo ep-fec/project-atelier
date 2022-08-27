@@ -111,7 +111,7 @@ export default function ImageGallery({selectedStyle}) {
               <div className='mainPhotoBackArrow'
                 onClick={handleMainPhotoBackClick}
               >
-                BACK
+                <i className="fa-solid fa-angle-left"></i>
               </div>
             )}
 
@@ -119,7 +119,7 @@ export default function ImageGallery({selectedStyle}) {
               <div className='mainPhotoForwardArrow'
                 onClick={handleMainPhotoForwardClick}
               >
-                FORWARD
+                <i class="fa-solid fa-angle-right"></i>
               </div>
             )}
 

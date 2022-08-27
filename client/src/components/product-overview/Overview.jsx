@@ -15,32 +15,20 @@ import AddToCart from './AddToCart.jsx';
 import Star from './Star.jsx';
 import ProductDescription from './ProductDescription.jsx';
 
-export default function Overview() {
-  const [currentProduct, setCurrentProduct] = useState('');
+export default function Overview({currentProduct}) {
   const [allStyles, setAllStyles] = useState([]);
   const [selectedStyle, setSelectedStyle] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
+  const [selectedQuantity, setSelectedQuantity] = useState('-');
   const [announcementNumber, setAnnouncementNumber] = useState(0);
 
   useEffect(() => {
     $('.overViewMainContainer').find('*').addClass('overview');
-    getInitialProduct();
   }, []);
 
   useEffect(() => {
     getAllStyles(currentProduct.id);
   }, [currentProduct.id]);
-
-  //getFirstProduct
-  const getInitialProduct = () => {
-    axios.get('/initialProduct')
-    .then(response => {
-      setCurrentProduct(response.data);
-    })
-    .catch(error => {
-      console.log('Error from server', error);
-    });
-  };
 
   // getAllStyles
   const getAllStyles = (id) => {
@@ -114,6 +102,8 @@ export default function Overview() {
               <QuantitySelector
                 selectedStyle={selectedStyle}
                 selectedSize={selectedSize}
+                selectedQuantity={selectedQuantity}
+                setSelectedQuantity={setSelectedQuantity}
               />
             </div>
           </div>
