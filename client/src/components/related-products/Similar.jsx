@@ -8,15 +8,14 @@ class Similar extends React.Component {
   }
 
   render() {
-    return(<div>
-      <h3>Similar Products</h3>
+    return(<div class='table'>
       <List products={this.props.products}/>
     </div>)
   }
 }
 
 let List = (props) => {
-  return(<ul className="side-by-side">
+  return(<ul className="side-by-side full">
     {_.map(props.products, (product, index) => {
      //console.log('product', index, product);
       return (<Card product={product}/>);

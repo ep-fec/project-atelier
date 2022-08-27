@@ -28,7 +28,6 @@ app.post('/allStyles', (request, response, next) => {
   .catch((err) => {
     console.log('Error', err);
   });
-
 });
 
 app.get('/related/:productId', function(req, res) {
@@ -51,7 +50,19 @@ app.get('/related/:productId', function(req, res) {
     })
     .then((response) => {
       reviews = response.data.ratings;
-      res.send({product, styles, reviews})
+      let [totalAmount, totalRatings] = [0, 0];
+      for (let [key, value] of Object.entries(reviews)) {
+        let [rating, amount] = [parseInt(key), parseInt(value)];
+        totalAmount += (rating * amount);
+        totalRatings += amount;
+      }
+      var reviewScore;
+      if (totalRatings === 0) {
+        reviewScore = "No Reviews";
+      } else {
+        reviewScore = Math.floor(totalAmount/totalRatings) || 0;
+      }
+      res.send({product, styles, reviewScore});
     })
     .catch((err) => {
       res.send(err);
@@ -69,29 +80,6 @@ app.all('/*', (req, res) => {
       res.status(404).end();
     });
 });
-
-// app.get('/products', function(req, res) {
-//   request.get('products', (err, result) => {
-//     if (err) {
-//       res.send(err);
-//     } else {
-//       res.send(result.data);
-//     }
-//   });
-// });
-
-// app.get('/products/:productId', function(req, res) {
-//   let id = req.params.productId;
-//   request.get(`products/${id}`, (err, result) => {
-//     if (err) {
-//       res.send(err);
-//     } else {
-//       res.send(result.data);
-//     }
-//   });
-// });
-
-
 
 app.listen(port, () => {
   console.log(`Listening on ${port}`);

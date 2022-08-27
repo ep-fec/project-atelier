@@ -7,8 +7,8 @@ class Card extends React.Component {
     this.state = {
       productId: 0,
       product: {},
-      styles: ['failed'],
-      reviews: {}
+      styles: [{photos: ['img']}],
+      reviews: 0
     };
   }
 
@@ -32,26 +32,24 @@ class Card extends React.Component {
         this.setState({
           product: result.data.product,
           styles: result.data.styles,
-          reviews: result.data.reviews
+          reviews: result.data.reviewScore
         });
       })
       .catch((err) => {
-        console.log('ERROR GETTING RELATED PRODUCT INFO');
+        console.log('ERROR GETTING RELATED PRODUCT INFO', err);
       });
-      // this.setState({
-      //   styles: ['worked']
-      // }, function() {
-      //   console.log('Card state', this.state);
-      // });
     }
   }
 
   render() {
-    return(<li>
+    let photo = this.state.styles[0].photos[0];
+    return(<li class='card'>
+      <img
+        src={photo.thumbnail_url}/>
       <p>{this.state.product.category}</p>
       <p>{this.state.product.name}</p>
       <p>{this.state.product.default_price}</p>
-      <p>Star rating</p>
+      <p>{this.state.reviews} out of 5 stars</p>
       </li>);
   }
 }
