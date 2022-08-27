@@ -2,6 +2,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: var(--primary-font);
 }
 
 /*
@@ -273,7 +274,6 @@ Buttons
 
 .overViewMainContainer {
   padding: 0 15vw 0 15vw;
-  background-color: #efefef;
 }
 
 .navbarContainer {
@@ -304,6 +304,7 @@ Buttons
 
 .overViewContainer {
   /* background-color: red; */
+  background-color: #efefef;
   display: flex;
   flex-direction: row;
   height: 35rem;
@@ -338,6 +339,7 @@ Buttons
   display: flex;
   flex-direction: column;
   height: 100%;
+  align-items: center;
 }
 
 .thumbnailListContainer::-webkit-scrollbar {
@@ -348,7 +350,7 @@ Buttons
   display: flex;
   flex-direction: column;
   list-style-type: none;
-  padding: 0 0 0 2rem;
+  padding: 0 0 0 0;
   margin: 0;
   max-height: 35rem;
   overflow-y: scroll;
@@ -374,16 +376,16 @@ Buttons
 
 .thumbnailUpArrow {
   display: flex;
-  background-color: #de5246;
   height: 25px;
   width: 25px;
+  justify-content: center;
 }
 
 .thumbnailDownArrow {
   display: flex;
-  background-color: #de5246;
   height: 25px;
   width: 25px;
+  justify-content: center;
 }
 
 .forwardBackArrows {
@@ -637,6 +639,7 @@ Buttons
 }
 
 .productDescriptionContainer {
+  background-color: #efefef;
   color: black;
   height: 5rem;
   padding: 1rem;
@@ -687,5 +690,9 @@ Buttons
   padding: 0 20px;
   max-width: 60vw;
   overflow-y: auto;
+}
+
+.overview {
+  font-family: var(--primary-font);
 }
 

@@ -80,7 +80,7 @@ export default function ImageGallery({selectedStyle}) {
               <div className='thumbnailUpArrow'
                 onClick={handleUpArrowClick}
               >
-                UP
+                <i className="fa-solid fa-angle-up"></i>
               </div>
             )}
 
@@ -101,7 +101,7 @@ export default function ImageGallery({selectedStyle}) {
               <div className='thumbnailDownArrow'
                 onClick={handleDownArrowClick}
               >
-                  DOWN
+                  <i className="fa-solid fa-angle-down"></i>
               </div>
             )}
           </div>
