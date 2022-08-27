@@ -10,7 +10,7 @@ const List = (props) => {
 
   useEffect(() => {
     if (reviewLimit === 4) {
-      setMaxHeight('800px');
+      setMaxHeight('750px');
     }
 
   }, [reviewLimit])

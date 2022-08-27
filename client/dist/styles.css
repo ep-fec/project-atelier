@@ -150,7 +150,7 @@ Individual Review
 }
 
 .ind-review-showmore {
-  padding-top:10px;
+  padding-top:20px;
   text-align: center;
   font-weight: 500;
 }
@@ -185,6 +185,10 @@ Individual Review
 }
 
 hr {
+  border: 0;
+  height: 1px;
+  background: #000;
+  opacity: 0.2;
   margin-top: 15px;
   margin-bottom: 15px;
 }
@@ -244,7 +248,7 @@ Buttons
   font-weight: 500;
   font-size:16px;
   padding:20px;
-  border-width: thin;
+  border:none;
 }
 
 .reviews-modal-button {
@@ -253,7 +257,6 @@ Buttons
   bottom: 20px;
   transform: translate(-50%, -50%);
   margin: 0 auto;
-
   font-family: 'Fira Sans', sans-serif;
   background-color: var(--primary-color);
   color:white;
@@ -262,7 +265,7 @@ Buttons
   padding:20px;
   padding-left:40px;
   padding-right: 40px;
-  border-width: thin;
+  border: none;
 }
 
 .reviewsbutton:hover,
