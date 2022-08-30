@@ -4,7 +4,6 @@ import Review from './components/Review.jsx';
 import ProductBreakdown from './components/ProductBreakdown.jsx';
 import Ratings from './components/Ratings.jsx';
 import Sort from './components/Sort.jsx';
-import NewReview from './components/NewReview.jsx';
 import axios from 'axios';
 
 const Reviews = (props) => {
@@ -18,7 +17,9 @@ const Reviews = (props) => {
   }
 
   useEffect(() => {
-    getReviews();
+    if (props.currentProduct?.id) {
+      getReviews();
+    }
   }, [props.currentProduct]);
 
   return (

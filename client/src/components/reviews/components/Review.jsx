@@ -88,10 +88,10 @@ const Review = (props) => {
 
       <section className="reviews ind-review-footer">
         <span className="reviews ind-review-helpful">Helpful? </span>
-        <span className="reviews ind-review-helpfulYes" onClick={(e) => markHelpful(e)}>
+        <span className="reviews ind-review-helpfulYes" onClick={(e) => markHelpful(e)} role="button">
           {hasVoted ? 'Marked as helpful!' : 'Yes'}</span>
         <span className="reviews ind-review-helpfulness"> ({helpfulVotes}) | </span>
-        <span className="reviews ind-review-report" onClick={(e) => submitReport(e)}>
+        <span className="reviews ind-review-report" onClick={(e) => submitReport(e)} role="button">
           {hasReported ? 'Reported' : 'Report'}</span>
         <br/><hr/>
       </section>
