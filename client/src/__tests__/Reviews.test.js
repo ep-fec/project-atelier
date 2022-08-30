@@ -16,13 +16,9 @@ const server = setupServer(
   rest.get('/reviews', (req, res, ctx) => {
     return res(ctx.json(data.reviews));
   }),
-  rest.put('/reviews/:review_id/helpful', (req, res, ctx) => {
-    return res(ctx.json({helpful: true}));
-  }),
 );
 
 beforeAll(() => server.listen())
-
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
