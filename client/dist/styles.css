@@ -502,10 +502,12 @@ Buttons
   display: grid;
   grid-gap: 0.5rem;
   grid-template-columns:  1fr 1fr 1fr 1fr;
-  grid-auto-columns: 1fr;
+  grid-auto-columns: auto;
+  grid-auto-rows: 1fr;
 }
 
-.thumbnail {
+.styleThumbnail {
+  display: flex;
   background-color: antiquewhite;
   border: 2px solid black;
   width: 4.5vw;
@@ -526,15 +528,14 @@ Buttons
 }
 
 .fa-check-circle {
+  display: flex;
   height: 0;
   width: 0;
-  background-color: blue;
-  display: inline;
-  position: relative;
-  bottom: 5px;
-  right: 30px;
   margin: 0;
   padding: 0;
+  position: relative;
+  bottom: 4.5rem;
+  left: 2.5rem;
 }
 
 .buttonsAndDropdowns {
