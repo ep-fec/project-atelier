@@ -109,7 +109,7 @@ Individual Review
 }
 .stars::before {
   content: "★★★★★";
-  letter-spacing: 0px;
+  letter-spacing: -1px;
   background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -288,7 +288,17 @@ Buttons
 RATINGS & REVIEWS
 Rating Breakdown
 */
-
+.rating-header {
+  vertical-align: top;
+}
 .total-rating {
-  font-size: 48px;
+  font-size: 68px;
+  font-weight: 900;
+  margin-right: 20px;
+  display: inline-block;
+}
+
+.rating-stars {
+  vertical-align: top;
+
 }

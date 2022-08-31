@@ -38,7 +38,10 @@ const Ratings = (props) => {
 
   return (
     <div className="reviews rating-breakdown">
-      <h1 className="reviews total-rating">{totalRating}</h1>
+      <div className="reviews rating-header">
+        <h1 className="reviews total-rating">{totalRating} </h1>
+        <span className="reviews stars rating-stars" style={{'--rating':  totalRating}}></span>
+      </div>
 
     </div>
   )
