@@ -12,7 +12,7 @@ const Reviews = (props) => {
   let [reviews, setReviews] = useState({results: []});
 
   const getReviews = () => {
-    axios.get(`/reviews?product_id=${props.currentProduct.id}&count=50&sort=newest`)
+    axios.get(`/reviews?product_id=${props.currentProduct.id}&count=1000&sort=newest`)
       .then((res) => setReviews(res.data))
       .catch((err) => console.log(err));
   }
@@ -27,8 +27,8 @@ const Reviews = (props) => {
       <br/><br/>
 
       <section className="reviews leftcol">
-        <Ratings />
-        <ProductBreakdown />
+        <Ratings reviews={reviews?.results}/>
+        <ProductBreakdown reviews={reviews}/>
       </section>
 
       <section className="reviews rightcol">

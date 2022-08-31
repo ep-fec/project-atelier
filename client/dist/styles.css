@@ -100,14 +100,14 @@ RATINGS & REVIEWS
 Individual Review
 */
 
-.ind-review-stars {
+.stars {
   --percent: calc(var(--rating) / 5 * 100%);
   display: inline-block;
   font-size: var(--star-size);
   font-family: Times;
   line-height: 1;
 }
-.ind-review-stars::before {
+.stars::before {
   content: "★★★★★";
   letter-spacing: 0px;
   background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
@@ -282,4 +282,13 @@ Buttons
   background-color: rgb(0, 0, 0);
   color:white;
   transition-duration: 0.4s;
+}
+
+/*
+RATINGS & REVIEWS
+Rating Breakdown
+*/
+
+.total-rating {
+  font-size: 48px;
 }
