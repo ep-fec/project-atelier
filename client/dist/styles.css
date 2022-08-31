@@ -20,7 +20,7 @@ body {
   margin: 0 auto;
   font-family: var(--primary-font);
   font-weight: 300;
-  font-size:16px;
+  font-size:14px;
 }
 
 * {
@@ -288,17 +288,23 @@ Buttons
 RATINGS & REVIEWS
 Rating Breakdown
 */
-.rating-header {
+/* .rating-header {
   vertical-align: top;
-}
+} */
 .total-rating {
   font-size: 68px;
+  letter-spacing: -2px;
   font-weight: 900;
-  margin-right: 20px;
+  margin-right: 10px;
   display: inline-block;
 }
 
 .rating-stars {
   vertical-align: top;
+  text-align: right;
+}
 
+.recommend-product {
+  font-size:12px;
+  color: rgb(61, 59, 59);
 }
