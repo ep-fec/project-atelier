@@ -691,7 +691,7 @@ Buttons
 .side-by-side {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(6, calc(33%));
+  grid-template-columns: repeat(var(--count), calc(33%));
   grid-template-rows: minmax(150px, 1fr);
   padding: 0 20px;
   max-width: 60vw;

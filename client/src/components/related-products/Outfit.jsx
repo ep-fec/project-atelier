@@ -18,9 +18,9 @@ class Outfit extends React.Component {
   }
 
   let List = (props) => {
-    return(<ul className="side-by-side">
-      {_.map(props.products, (product) => {
-        return (<Card product={product}/>);
+    return(<ul className="side-by-side" style={{'--count': props.products.length + 1}}>
+      {_.map(props.products, (product, index) => {
+        return (<Card product={product} index={index}/>);
       })}
     </ul>);
   }
