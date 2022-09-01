@@ -48,9 +48,11 @@ const Ratings = (props) => {
         <span className="reviews stars rating-stars" style={{'--rating':  totalRating}}></span>
       </div>
 
+
       <span className="reviews recommend-product">{recommendations}% of reviews recommend this product</span>
 
       <div className="reviews rating-breakdown">
+        <hr/>
         <div className="reviews rating-leftcol">
           5 Stars
         </div>
@@ -63,8 +65,9 @@ const Ratings = (props) => {
         <div className="reviews rating-rightcol">
            ({ratings[5]})
         </div>
+      </div>
 
-
+      <div className="reviews rating-breakdown">
         <div className="reviews rating-leftcol">
           4 Stars
         </div>
@@ -77,7 +80,9 @@ const Ratings = (props) => {
         <div className="reviews rating-rightcol">
            ({ratings[4]})
         </div>
+      </div>
 
+      <div className="reviews rating-breakdown">
         <div className="reviews rating-leftcol">
           3 Stars
         </div>
@@ -90,7 +95,9 @@ const Ratings = (props) => {
         <div className="reviews rating-rightcol">
            ({ratings[3]})
         </div>
+      </div>
 
+      <div className="reviews rating-breakdown">
         <div className="reviews rating-leftcol">
           2 Stars
         </div>
@@ -103,7 +110,9 @@ const Ratings = (props) => {
         <div className="reviews rating-rightcol">
            ({ratings[2]})
         </div>
+      </div>
 
+      <div className="reviews rating-breakdown">
         <div className="reviews rating-leftcol">
           1 Stars
         </div>
@@ -116,8 +125,8 @@ const Ratings = (props) => {
         <div className="reviews rating-rightcol">
            ({ratings[1]})
         </div>
-
       </div>
+
     </div>
   )
 }

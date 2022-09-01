@@ -289,6 +289,11 @@ RATINGS & REVIEWS
 Rating Breakdown
 */
 
+* {
+  --bar-color-empty:#4e4949;
+  --bar-color-full: #3abb7d;
+}
+
 .total-rating {
   font-size: 68px;
   letter-spacing: -2px;
@@ -318,6 +323,7 @@ Rating Breakdown
   font-size:12px;
   white-space: nowrap;
   overflow:visible;
+  text-decoration: inherit;
 }
 
 .rating-midcol {
@@ -332,17 +338,31 @@ Rating Breakdown
   margin-top:10px;
   text-align: right;
   font-size:12px;
+  text-decoration: inherit;
 }
 
 .rating-bar-container {
   width: 100%;
-  background-color: #4e4949;
+  background-color: var(--bar-color-empty);
   text-align: center;
-  color: #4e4949;
+  color: var(--bar-color-empty);
 }
+
 
 .rating-bar {
   width: var(--rating-bar-size);
   height: 13px;
-  background-color: #3abb7d;
+  background-color: var(--bar-color-full);
+}
+
+.rating-breakdown:hover
+.rating-bar-container
+.rating-bar {
+  filter: hue-rotate(180deg);
+  cursor:pointer;
+}
+
+.rating-breakdown:hover {
+  cursor:pointer;
+  text-decoration: underline;
 }
