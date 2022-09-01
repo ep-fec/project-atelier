@@ -72,7 +72,6 @@ app.get('/related/:productId', function(req, res) {
 app.all('/*', (req, res) => {
   request(req.url, req.method, req.body)
     .then((response) => {
-      // console.log('Success!:', response.data);
       res.send(response.data);
     })
     .catch((err) => {

@@ -11,7 +11,7 @@ class Outfit extends React.Component {
     }
 
     render() {
-      return(<div class='table'>
+      return(<div>
         <List products={this.state.products}/>
       </div>)
     }
