@@ -52,7 +52,6 @@ describe('Renders lists and their cards', () => {
     render(<Related currProduct={71699}/>);
     await waitFor(async () => {
       const card = await screen.findByText('Summer Shoes');
-      console.log(card);
       expect(card).toBeDefined();
     });
   });

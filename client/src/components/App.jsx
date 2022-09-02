@@ -33,9 +33,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Overview currentProduct={this.state.currentProduct}/>
+        {/* <Overview currentProduct={this.state.currentProduct}/> */}
         <Related currProduct={this.state.currentProduct}/>
-        <Reviews currentProduct={this.state.currentProduct}/>
+        {/* <Reviews currentProduct={this.state.currentProduct}/> */}
       </div>
     );
   }
