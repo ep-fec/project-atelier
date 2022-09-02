@@ -23,7 +23,7 @@ const Reviews = (props) => {
   }, [props.currentProduct]);
 
   return (
-    <section className="reviews-container">
+    <section id="reviews-container">
       <h2 className="RatingsReviewsHeader">RATINGS & REVIEWS </h2>
       <br/><br/>
 

@@ -15,7 +15,7 @@ import AddToCart from './AddToCart.jsx';
 import Star from './Star.jsx';
 import ProductDescription from './ProductDescription.jsx';
 
-export default function Overview({currentProduct}) {
+export default function Overview({currentProduct, currentRating}) {
   const [allStyles, setAllStyles] = useState([]);
   const [selectedStyle, setSelectedStyle] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
@@ -67,7 +67,7 @@ export default function Overview({currentProduct}) {
 
         <div className='productInfoContainer'>
           <div className='ratingContainer'>
-            <Rating />
+            <Rating currentRating={currentRating}/>
           </div>
 
           <div className='categoryContainer'>
