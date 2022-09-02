@@ -44,7 +44,7 @@ class Card extends React.Component {
 
   render() {
     let photo = this.state.styles[0].photos[0];
-    return(<li className='card'>
+    return(<li className='card' role={`product-${this.state.productId}`}>
       <img
         src={photo.thumbnail_url}/>
       <p>{this.state.product.category}</p>
