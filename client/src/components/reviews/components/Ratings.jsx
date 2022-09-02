@@ -6,7 +6,7 @@ const Ratings = (props) => {
   let [totalReviews, setTotalReviews] = useState(0);
   let [totalRating, setTotalRating] = useState('');
   let [recommendations, setRecommendations] = useState(0);
-
+  let [activeFilters, setActiveFilters] = useState([]);
 
   useEffect(() => {
     if (data?.length) {
@@ -31,6 +31,10 @@ const Ratings = (props) => {
     return Math.ceil((x / y) * 100) + '%';
   }
 
+  useEffect(() => {
+    handleActiveFilters();
+  }, [props.filters])
+
   function calcRating() {
     let recCounter = 0;
     data.forEach((review) => {
@@ -41,6 +45,28 @@ const Ratings = (props) => {
     setRecommendations(Math.ceil((recCounter / totalReviews) * 100));
   }
 
+  function handleFilterChange(rating) {
+    props.setFilter(filters => ({...filters, [rating]: !filters[rating]}));
+  }
+
+  function handleFilterReset() {
+    props.setFilter({1: false, 2: false, 3: false, 4:false, 5: false})
+  }
+
+  function handleActiveFilters() {
+    let actFilters = [];
+    for (let key in props.filters) {
+      if (props.filters[key]) {
+        actFilters.push(key);
+      }
+    }
+    if (actFilters.length === 5) {
+      handleFilterReset();
+    } else {
+      setActiveFilters(actFilters);
+    }
+  }
+
   return (
     <div className="reviews rating-breakdown-container">
       <div className="reviews rating-header">
@@ -48,11 +74,11 @@ const Ratings = (props) => {
         <span className="reviews stars rating-stars" style={{'--rating':  totalRating}}></span>
       </div>
 
-
       <span className="reviews recommend-product">{recommendations}% of reviews recommend this product</span>
+      <br/>
 
-      <div className="reviews rating-breakdown">
-        <hr/>
+      <div className="reviews rating-breakdown" onClick={() => handleFilterChange(5)}>
+
         <div className="reviews rating-leftcol">
           5 Stars
         </div>
@@ -67,7 +93,7 @@ const Ratings = (props) => {
         </div>
       </div>
 
-      <div className="reviews rating-breakdown">
+      <div className="reviews rating-breakdown" onClick={() => handleFilterChange(4)}>
         <div className="reviews rating-leftcol">
           4 Stars
         </div>
@@ -82,7 +108,7 @@ const Ratings = (props) => {
         </div>
       </div>
 
-      <div className="reviews rating-breakdown">
+      <div className="reviews rating-breakdown" onClick={() => handleFilterChange(3)}>
         <div className="reviews rating-leftcol">
           3 Stars
         </div>
@@ -97,7 +123,7 @@ const Ratings = (props) => {
         </div>
       </div>
 
-      <div className="reviews rating-breakdown">
+      <div className="reviews rating-breakdown" onClick={() => handleFilterChange(2)}>
         <div className="reviews rating-leftcol">
           2 Stars
         </div>
@@ -112,7 +138,7 @@ const Ratings = (props) => {
         </div>
       </div>
 
-      <div className="reviews rating-breakdown">
+      <div className="reviews rating-breakdown" onClick={() => handleFilterChange(1)}>
         <div className="reviews rating-leftcol">
           1 Stars
         </div>
@@ -126,7 +152,12 @@ const Ratings = (props) => {
            ({ratings[1]})
         </div>
       </div>
-
+      <br/>
+    {activeFilters.length
+    ? <div className="reviews ratings-footer"><span className="reviews shown-ratings">Filtering by {activeFilters.join(', ')} stars reviews. </span>
+    <span className="reviews remove-filters" onClick={() => handleFilterReset()}>Remove all filters</span></div>
+    : null}
+    <hr/>
     </div>
   )
 }
