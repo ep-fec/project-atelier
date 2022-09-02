@@ -2,6 +2,7 @@ require ('dotenv').config();
 const express = require('express');
 const path = require('path');
 const app = express();
+const expressGzip = require('express-static-gzip');
 const port = process.env.PORT;
 const axios = require('axios');
 const key = process.env.KEY;
