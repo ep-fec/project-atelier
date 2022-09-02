@@ -2,12 +2,8 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: var(--primary-font);
 }
 
-/*
-RATINGS & REVIEWS
-*/
 :root {
   --star-size: 18px;
   --star-color: rgb(1, 1, 1);
@@ -20,13 +16,12 @@ body {
   margin: 0 auto;
   font-family: var(--primary-font);
   font-weight: 300;
-  font-size:16px;
+  font-size: 16px;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-}
+/*
+RATINGS & REVIEWS
+*/
 
 /*
 RATINGS & REVIEWS
@@ -309,8 +304,6 @@ Buttons
 }
 
 .overViewContainer {
-  /* background-color: red; */
-  background-color: #efefef;
   display: flex;
   flex-direction: row;
   height: 35rem;
@@ -323,7 +316,6 @@ Buttons
 }
 
 .imageGalleryComponentContainer {
-  /* background-color: #de5246; */
   display: flex;
   height: 100%;
   width: 100%;
@@ -332,9 +324,9 @@ Buttons
 .mainImage {
   display: flex;
   flex-grow: 0;
-  height: 35rem;
   width: 100%;
-  flex-direction: row;
+  height: 100%;;
+  max-height: 35rem;
   object-fit: contain;
   justify-content: center;
   overflow: hidden;
@@ -395,9 +387,6 @@ Buttons
 }
 
 .forwardBackArrows {
- /*  display: flex;
-  width: 100%;
-  justify-content: flex-end; */
   display: grid;
   width: 100%;
   grid-template-columns: 1fr 1fr;
@@ -458,8 +447,9 @@ Buttons
 
 .categoryContainer {
   display: flex;
-  height: 2rem;
+  height: 1rem;
   align-items: center;
+  text-transform: uppercase;
 }
 
 .titleContainer {
@@ -470,16 +460,17 @@ Buttons
 
 .titleContainer > div {
   font-size: 2rem;
+  font-weight: bold;
 }
 
 .priceContainer {
   display: flex;
-  height: 2rem;
+  height: 1rem;
   align-items: center;
+  font-size: 1.25rem;
 }
 
 .price {
-
 }
 
 .originalPrice {
@@ -488,6 +479,8 @@ Buttons
 
 .salePrice {
   color: red;
+  padding-right: 0.5rem;
+  font-weight: bold;
 }
 
 .styleSelectorContainer {
@@ -509,10 +502,12 @@ Buttons
   display: grid;
   grid-gap: 0.5rem;
   grid-template-columns:  1fr 1fr 1fr 1fr;
-  grid-auto-columns: 1fr;
+  grid-auto-columns: auto;
+  grid-auto-rows: 1fr;
 }
 
-.thumbnail {
+.styleThumbnail {
+  display: flex;
   background-color: antiquewhite;
   border: 2px solid black;
   width: 4.5vw;
@@ -533,15 +528,14 @@ Buttons
 }
 
 .fa-check-circle {
+  display: flex;
   height: 0;
   width: 0;
-  background-color: blue;
-  display: inline;
-  position: relative;
-  bottom: 5px;
-  right: 30px;
   margin: 0;
   padding: 0;
+  position: relative;
+  bottom: 4.5rem;
+  left: 2.5rem;
 }
 
 .buttonsAndDropdowns {
@@ -645,7 +639,6 @@ Buttons
 }
 
 .productDescriptionContainer {
-  background-color: #efefef;
   color: black;
   height: 5rem;
   padding: 1rem;
@@ -697,8 +690,3 @@ Buttons
   max-width: 60vw;
   overflow-y: auto;
 }
-
-.overview {
-  font-family: var(--primary-font);
-}
-
