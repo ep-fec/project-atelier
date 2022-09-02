@@ -67,10 +67,6 @@ const Review = (props) => {
         {showMoreContent ? <p className="reviews ind-review-content">{props.data.body}</p>
         : null}
         <br/>
-<<<<<<< HEAD
-=======
-
->>>>>>> reviews-main
         <span className="reviews ind-review-recommendation">
           {props.data.recommend ? '✔️ I recommend this product' : null}
         </span>
