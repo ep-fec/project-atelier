@@ -1,0 +1,4 @@
+{
+  "merge-conflict.autoNavigateNextConflict.enabled": true,
+  "git.mergeEditor": false
+}

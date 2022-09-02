@@ -15,7 +15,6 @@ const Review = (props) => {
   let [hasReported, setReportStatus] = useState(false);
   let [showMore, toggleShowMore] = useState(false);
   let [showMoreContent, setShowMoreContent] = useState(false);
-  let [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     props.data?.body.length > 250 ? toggleShowMore(true) : null;
@@ -44,7 +43,7 @@ const Review = (props) => {
     <div className="reviews ind-review">
 
       <section className="reviews ind-review-heading">
-        <><span className="reviews ind-review-stars" style={{'--rating':  props.data.rating}}></span></>
+        <><span className="reviews stars" style={{'--rating':  props.data.rating}}></span></>
         <span className="reviews ind-review-date">{date.toLocaleDateString("en", dateOptions)}</span>
         <span className="reviews ind-review-username">{props.data.reviewer_name},</span>
       </section>
@@ -68,6 +67,10 @@ const Review = (props) => {
         {showMoreContent ? <p className="reviews ind-review-content">{props.data.body}</p>
         : null}
         <br/>
+<<<<<<< HEAD
+=======
+
+>>>>>>> reviews-main
         <span className="reviews ind-review-recommendation">
           {props.data.recommend ? '✔️ I recommend this product' : null}
         </span>
@@ -88,10 +91,10 @@ const Review = (props) => {
 
       <section className="reviews ind-review-footer">
         <span className="reviews ind-review-helpful">Helpful? </span>
-        <span className="reviews ind-review-helpfulYes" onClick={(e) => markHelpful(e)}>
+        <span className="reviews ind-review-helpfulYes" onClick={(e) => markHelpful(e)} role="button">
           {hasVoted ? 'Marked as helpful!' : 'Yes'}</span>
         <span className="reviews ind-review-helpfulness"> ({helpfulVotes}) | </span>
-        <span className="reviews ind-review-report" onClick={(e) => submitReport(e)}>
+        <span className="reviews ind-review-report" onClick={(e) => submitReport(e)} role="button">
           {hasReported ? 'Reported' : 'Report'}</span>
         <br/><hr/>
       </section>

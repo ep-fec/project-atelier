@@ -1,5 +1,10 @@
 require ('dotenv').config();
+<<<<<<< HEAD
 const express = require('express');
+=======
+const express = require ('express');
+var expressStaticGzip = require("express-static-gzip");
+>>>>>>> reviews-main
 const path = require('path');
 const app = express();
 const port = process.env.PORT;
@@ -8,6 +13,7 @@ const key = process.env.KEY;
 
 const request = require('./helpers/request.js');
 
+app.use('/', expressStaticGzip(path.resolve(__dirname, '../client/dist')));
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
 app.use(express.json());
 app.use(express.text());

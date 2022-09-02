@@ -10,7 +10,11 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+<<<<<<< HEAD
       currentProduct: {}
+=======
+      currentProduct: {id: 71698}
+>>>>>>> reviews-main
     };
 
     this.getInitialProduct = this.getInitialProduct.bind(this);

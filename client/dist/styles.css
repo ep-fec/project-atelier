@@ -2,8 +2,17 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+<<<<<<< HEAD
 }
 
+=======
+  font-family: var(--primary-font);
+}
+
+/*
+RATINGS & REVIEWS
+*/
+>>>>>>> reviews-main
 :root {
   --star-size: 18px;
   --star-color: rgb(1, 1, 1);
@@ -16,7 +25,11 @@ body {
   margin: 0 auto;
   font-family: var(--primary-font);
   font-weight: 300;
+<<<<<<< HEAD
   font-size: 16px;
+=======
+  font-size:14px;
+>>>>>>> reviews-main
 }
 
 /*
@@ -28,7 +41,7 @@ RATINGS & REVIEWS
 Widget Skeleton
 */
 
-.reviews-container {
+#reviews-container {
   margin: 0 auto;
   width: 100%;
   padding-left: 15%;
@@ -79,6 +92,14 @@ Review List
   padding-right: 15px;
 }
 
+.reviews-list-extended {
+  transition: max-height 0.4s;
+  max-height: var(--max-height);
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  padding-right: 15px;
+}
+
 .no-reviews {
   text-align: center;
 }
@@ -88,16 +109,16 @@ RATINGS & REVIEWS
 Individual Review
 */
 
-.ind-review-stars {
+.stars {
   --percent: calc(var(--rating) / 5 * 100%);
   display: inline-block;
   font-size: var(--star-size);
   font-family: Times;
   line-height: 1;
 }
-.ind-review-stars::before {
+.stars::before {
   content: "★★★★★";
-  letter-spacing: 0px;
+  letter-spacing: -1px;
   background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -224,6 +245,10 @@ Modal
   margin-right: auto;
   width: 50%;
   object-fit: contain;
+<<<<<<< HEAD
+=======
+
+>>>>>>> reviews-main
 }
 
 /*
@@ -271,6 +296,7 @@ Buttons
   transition-duration: 0.4s;
 }
 
+<<<<<<< HEAD
 /* ========== OVERVIEW START ========== */
 
 .overViewMainContainer {
@@ -690,3 +716,87 @@ Buttons
   max-width: 60vw;
   overflow-y: auto;
 }
+=======
+/*
+RATINGS & REVIEWS
+Rating Breakdown
+*/
+
+* {
+  --bar-color-empty:#4e4949;
+  --bar-color-full: #3abb7d;
+}
+
+.total-rating {
+  font-size: 68px;
+  letter-spacing: -2px;
+  font-weight: 900;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.rating-stars {
+  vertical-align: top;
+  text-align: right;
+}
+
+.recommend-product {
+  font-size:12px;
+  color: rgb(61, 59, 59);
+}
+
+.rating-breakdown {
+  width:90%;
+}
+
+.rating-leftcol {
+  float: left;
+  width: 20%;
+  margin-top:10px;
+  font-size:12px;
+  white-space: nowrap;
+  overflow:visible;
+  text-decoration: inherit;
+}
+
+.rating-midcol {
+  float:left;
+  width: 65%;
+  margin-top:10px;
+}
+
+.rating-rightcol {
+  float: left;
+  width: 10%;
+  margin-top:10px;
+  text-align: right;
+  font-size:12px;
+  text-decoration: inherit;
+}
+
+.rating-bar-container {
+  width: 100%;
+  background-color: var(--bar-color-empty);
+  text-align: center;
+  color: var(--bar-color-empty);
+}
+
+
+.rating-bar {
+  width: var(--rating-bar-size);
+  height: 13px;
+  background-color: var(--bar-color-full);
+}
+
+.rating-breakdown:hover
+.rating-bar-container
+.rating-bar {
+  filter: hue-rotate(180deg);
+  cursor:pointer;
+}
+
+.rating-breakdown:hover {
+  cursor:pointer;
+  text-decoration: underline;
+}
+>>>>>>> reviews-main
