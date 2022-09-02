@@ -28,11 +28,12 @@ class Card extends React.Component {
     if (prevState.productId !== this.state.productId) {
       axios.get(`/related/${this.state.productId}`)
       .then((result) => {
-        //console.log('Result', result.data);
         this.setState({
           product: result.data.product,
           styles: result.data.styles,
           reviews: result.data.reviewScore
+        }, function() {
+         // console.log('Result:', this.props.product, result.data);
         });
       })
       .catch((err) => {
@@ -43,7 +44,7 @@ class Card extends React.Component {
 
   render() {
     let photo = this.state.styles[0].photos[0];
-    return(<li class='card'>
+    return(<li className='card' role={`product-${this.state.productId}`}>
       <img
         src={photo.thumbnail_url}/>
       <p>{this.state.product.category}</p>

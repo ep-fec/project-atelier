@@ -43,9 +43,7 @@ class Related extends React.Component {
 
   render() {
     return(<div className='overViewMainContainer related-container'>
-      <h2>RELATED PRODUCTS</h2>
       <Similar products={this.state.products}/>
-      <h2>YOUR OUTFIT</h2>
       <Outfit outfit={this.state.outfit}/>
       <br></br>
     </div>);

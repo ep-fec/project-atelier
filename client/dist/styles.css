@@ -13,7 +13,7 @@ RATINGS & REVIEWS
   --star-color: rgb(1, 1, 1);
   --star-background: rgb(255, 179, 0);
   --primary-color: #ED1C24;
-  --primary-font: 'Fira Sans', sans-serif;
+  --primary-font: 'Roboto', sans-serif;
 }
 
 body {
@@ -84,6 +84,14 @@ Review List
   padding-right: 15px;
 }
 
+.reviews-list-extended {
+  transition: max-height 0.4s;
+  max-height: var(--max-height);
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  padding-right: 15px;
+}
+
 .no-reviews {
   text-align: center;
 }
@@ -119,7 +127,7 @@ Individual Review
   white-space: ellipsis;
   margin-top: 5px;
   margin-bottom: 15px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .ind-review-content {
@@ -153,7 +161,7 @@ Individual Review
 .ind-review-showmore {
   padding-top:20px;
   text-align: center;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .ind-review-helpfulYes,
@@ -701,4 +709,3 @@ Buttons
 .overview {
   font-family: var(--primary-font);
 }
-
