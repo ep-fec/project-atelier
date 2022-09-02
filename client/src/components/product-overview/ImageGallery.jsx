@@ -119,7 +119,7 @@ export default function ImageGallery({selectedStyle}) {
               <div className='mainPhotoForwardArrow'
                 onClick={handleMainPhotoForwardClick}
               >
-                <i class="fa-solid fa-angle-right"></i>
+                <i className="fa-solid fa-angle-right"></i>
               </div>
             )}
 

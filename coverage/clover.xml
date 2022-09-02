@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1662083567347" clover="3.2.0">
+  <project timestamp="1662083567347" name="All files">
+    <metrics statements="97" coveredstatements="85" conditionals="52" coveredconditionals="38" methods="50" coveredmethods="41" elements="199" coveredelements="164" complexity="0" loc="97" ncloc="97" packages="3" files="12" classes="12"/>
+    <package name="related-products">
+      <metrics statements="33" coveredstatements="28" conditionals="8" coveredconditionals="6" methods="22" coveredmethods="19"/>
+      <file name="Card.jsx" path="/home/kentwl1876/hackreactor/main-course/project-atelier/client/src/components/related-products/Card.jsx">
+        <metrics statements="11" coveredstatements="9" conditionals="4" coveredconditionals="3" methods="7" coveredmethods="6"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="22" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="28" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
+        <line num="47" count="3" type="stmt"/>
+      </file>
+      <file name="Outfit.jsx" path="/home/kentwl1876/hackreactor/main-course/project-atelier/client/src/components/related-products/Outfit.jsx">
+        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="14" count="11" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="11" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+      </file>
+      <file name="Related.jsx" path="/home/kentwl1876/hackreactor/main-course/project-atelier/client/src/components/related-products/Related.jsx">
+        <metrics statements="11" coveredstatements="9" conditionals="4" coveredconditionals="3" methods="7" coveredmethods="6"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="23" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="28" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="5" type="stmt"/>
+        <line num="30" count="5" type="stmt"/>
+        <line num="32" count="5" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="45" count="11" type="stmt"/>
+      </file>
+      <file name="Similar.jsx" path="/home/kentwl1876/hackreactor/main-course/project-atelier/client/src/components/related-products/Similar.jsx">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="11" count="11" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="11" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="reviews">
+      <metrics statements="10" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="4"/>
+      <file name="Reviews.jsx" path="/home/kentwl1876/hackreactor/main-course/project-atelier/client/src/components/reviews/Reviews.jsx">
+        <metrics statements="10" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="4"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="14" type="stmt"/>
+        <line num="13" count="14" type="stmt"/>
+        <line num="14" count="8" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="19" count="14" type="stmt"/>
+        <line num="20" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="8" type="stmt"/>
+        <line num="25" count="14" type="stmt"/>
+      </file>
+    </package>
+    <package name="reviews.components">
+      <metrics statements="54" coveredstatements="48" conditionals="42" coveredconditionals="30" methods="23" coveredmethods="18"/>
+      <file name="Image.jsx" path="/home/kentwl1876/hackreactor/main-course/project-atelier/client/src/components/reviews/components/Image.jsx">
+        <metrics statements="5" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="7" type="stmt"/>
+        <line num="8" count="7" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+      </file>
+      <file name="List.jsx" path="/home/kentwl1876/hackreactor/main-course/project-atelier/client/src/components/reviews/components/List.jsx">
+        <metrics statements="13" coveredstatements="13" conditionals="14" coveredconditionals="14" methods="4" coveredmethods="4"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="16" type="stmt"/>
+        <line num="7" count="16" type="stmt"/>
+        <line num="8" count="16" type="stmt"/>
+        <line num="9" count="16" type="stmt"/>
+        <line num="11" count="16" type="stmt"/>
+        <line num="12" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="18" count="16" type="stmt"/>
+        <line num="28" count="266" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="18" type="stmt"/>
+        <line num="30" count="18" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+      </file>
+      <file name="Modal.jsx" path="/home/kentwl1876/hackreactor/main-course/project-atelier/client/src/components/reviews/components/Modal.jsx">
+        <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="7" count="7" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+      </file>
+      <file name="ProductBreakdown.jsx" path="/home/kentwl1876/hackreactor/main-course/project-atelier/client/src/components/reviews/components/ProductBreakdown.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="14" type="stmt"/>
+      </file>
+      <file name="Ratings.jsx" path="/home/kentwl1876/hackreactor/main-course/project-atelier/client/src/components/reviews/components/Ratings.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="14" type="stmt"/>
+      </file>
+      <file name="Review.jsx" path="/home/kentwl1876/hackreactor/main-course/project-atelier/client/src/components/reviews/components/Review.jsx">
+        <metrics statements="26" coveredstatements="23" conditionals="26" coveredconditionals="15" methods="12" coveredmethods="9"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="18" type="stmt"/>
+        <line num="7" count="18" type="stmt"/>
+        <line num="13" count="18" type="stmt"/>
+        <line num="14" count="18" type="stmt"/>
+        <line num="15" count="18" type="stmt"/>
+        <line num="16" count="18" type="stmt"/>
+        <line num="17" count="18" type="stmt"/>
+        <line num="19" count="18" type="stmt"/>
+        <line num="20" count="12" type="cond" truecount="1" falsecount="1"/>
+        <line num="23" count="18" type="stmt"/>
+        <line num="24" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="34" count="18" type="stmt"/>
+        <line num="35" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="42" count="18" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="83" count="7" type="stmt"/>
+        <line num="90" count="1" type="stmt"/>
+        <line num="93" count="1" type="stmt"/>
+      </file>
+      <file name="Sort.jsx" path="/home/kentwl1876/hackreactor/main-course/project-atelier/client/src/components/reviews/components/Sort.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="14" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

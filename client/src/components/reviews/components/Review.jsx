@@ -15,7 +15,6 @@ const Review = (props) => {
   let [hasReported, setReportStatus] = useState(false);
   let [showMore, toggleShowMore] = useState(false);
   let [showMoreContent, setShowMoreContent] = useState(false);
-  let [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     props.data?.body.length > 250 ? toggleShowMore(true) : null;
@@ -88,10 +87,10 @@ const Review = (props) => {
 
       <section className="reviews ind-review-footer">
         <span className="reviews ind-review-helpful">Helpful? </span>
-        <span className="reviews ind-review-helpfulYes" onClick={(e) => markHelpful(e)}>
+        <span className="reviews ind-review-helpfulYes" onClick={(e) => markHelpful(e)} role="button">
           {hasVoted ? 'Marked as helpful!' : 'Yes'}</span>
         <span className="reviews ind-review-helpfulness"> ({helpfulVotes}) | </span>
-        <span className="reviews ind-review-report" onClick={(e) => submitReport(e)}>
+        <span className="reviews ind-review-report" onClick={(e) => submitReport(e)} role="button">
           {hasReported ? 'Reported' : 'Report'}</span>
         <br/><hr/>
       </section>
