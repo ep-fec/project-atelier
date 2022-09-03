@@ -481,21 +481,22 @@ a:hover {
   font-size: 0.8rem;
 }
 
+.categoryAndTitleContainer {
+  display: flex;
+  flex-direction: column;
+}
+
 .categoryContainer {
   display: flex;
-  height: 1rem;
   align-items: center;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  padding-bottom: 0.25rem;
 }
 
 .titleContainer {
   display: flex;
-  height: 4rem;
   align-items: center;
-}
-
-.titleContainer > div {
   font-size: 2rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -535,7 +536,7 @@ a:hover {
   display: flex;
   flex-direction: row;
   padding: 0 0 1rem 0;
-  font-size: 0.8rem;
+  font-size: 1rem;
   align-content: center;
 }
 
@@ -595,7 +596,7 @@ a:hover {
   margin: 0;
   padding: 0;
   bottom: 60%;
-  right: 1.5vw;
+  right: 1.5vh;
 }
 
 .buttonsAndDropdowns {

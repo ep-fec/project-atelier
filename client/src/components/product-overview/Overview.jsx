@@ -5,8 +5,8 @@ import Navbar from './Navbar.jsx';
 import Announcement from './Announcement.jsx';
 import ImageGallery from './ImageGallery.jsx';
 import Rating from './Rating.jsx';
-import Category from './Category.jsx';
-import Title from './Title.jsx';
+import CategoryAndTitle from './CategoryAndTitle.jsx';
+//import Title from './Title.jsx';
 import Price from './Price.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import SizeSelector from './SizeSelector.jsx';
@@ -70,13 +70,16 @@ export default function Overview({currentProduct, currentRating}) {
             <Rating currentRating={currentRating}/>
           </div>
 
-          <div className='categoryContainer'>
-            <Category category={currentProduct.category}/>
+          <div className='categoryAndTitleContainer'>
+            <CategoryAndTitle
+              category={currentProduct.category}
+              title={currentProduct.name}
+            />
           </div>
 
-          <div className='titleContainer'>
+{/*           <div className='titleContainer'>
             <Title name={currentProduct.name}/>
-          </div>
+          </div> */}
 
           <div className='priceContainer'>
             <Price selectedStyle={selectedStyle}/>
