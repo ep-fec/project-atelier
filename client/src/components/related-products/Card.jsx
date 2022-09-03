@@ -42,9 +42,13 @@ class Card extends React.Component {
     }
   }
 
+  changeProduct() {
+    this.props.changeProduct(this.state.productId);
+  }
+
   render() {
     let photo = this.state.styles[0].photos[0];
-    return(<li className='card' role={`product-${this.state.productId}`}>
+    return(<li className='card' onClick={this.changeProduct.bind(this)}>
       <img
         src={photo.thumbnail_url}/>
       <p>{this.state.product.category}</p>

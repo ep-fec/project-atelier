@@ -236,10 +236,6 @@ Modal
   margin-right: auto;
   width: 50%;
   object-fit: contain;
-<<<<<<< HEAD
-=======
-
->>>>>>> c65f4f5e357d5e129824ae6b906b88b6024d8438
 }
 
 /*
@@ -286,8 +282,6 @@ Buttons
   color:white;
   transition-duration: 0.4s;
 }
-<<<<<<< HEAD
-=======
 
 /*
 RATINGS & REVIEWS
@@ -371,7 +365,6 @@ Rating Breakdown
   cursor:pointer;
   text-decoration: underline;
 }
->>>>>>> c65f4f5e357d5e129824ae6b906b88b6024d8438
 
 /* ========== OVERVIEW START ========== */
 
@@ -769,14 +762,15 @@ Rating Breakdown
   grid-column: 1 / -1;
 }
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 4px 4px 8px 4px rgba(0,0,0,0.2);
   list-style: none;
   transition: 0.3s;
   max-height: 40vw;
   padding: 2px 16px;
+  border-radius: 10px;
 }
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 8px 8px 16px 8px rgba(0,0,0,0.2);
 }
 .card img {
   max-width: 100%;
@@ -786,16 +780,13 @@ Rating Breakdown
 .side-by-side {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(var(--count), calc(33%));
+  grid-template-columns: repeat(var(--count), calc(27%));
   grid-template-rows: minmax(150px, 1fr);
   padding: 0 20px;
   max-width: 60vw;
   overflow-y: auto;
 }
-<<<<<<< HEAD
 
 .overview {
   font-family: var(--primary-font);
 }
-=======
->>>>>>> c65f4f5e357d5e129824ae6b906b88b6024d8438

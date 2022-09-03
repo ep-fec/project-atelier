@@ -9,7 +9,6 @@ class Related extends React.Component {
     this.state = {
       currProduct: {},
       products: [],
-      outfit: []
     };
   }
 
@@ -41,10 +40,13 @@ class Related extends React.Component {
     }
   }
 
+
   render() {
     return(<div className='overViewMainContainer related-container'>
-      <Similar products={this.state.products}/>
-      <Outfit outfit={this.state.outfit}/>
+      <Similar products={this.state.products}
+        changeProduct={this.props.changeProduct}/>
+      <Outfit outfit={this.props.outfit} handleAdd={this.props.handleAdd}
+        changeProduct={this.props.changeProduct}/>
       <br></br>
     </div>);
   }

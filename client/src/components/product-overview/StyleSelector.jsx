@@ -44,18 +44,6 @@ export default function StyleSelector({allStyles, selectedStyle, setSelectedStyl
             let showCheckmark = checkmarkStatus[index] ? 'styleThumbnailCheckmark' : null;
 
             return (
-<<<<<<< HEAD
-              <>
-              <img className={`thumbnail ${showCheckmark}`}
-                src={style.photos[0].thumbnail_url}
-                key={index}
-                onClick={handleStyleSelectClick}
-                name={style.name}
-                id={index}
-              />
-              {showCheckmark && (<i className="fas fa-check-circle"></i>)}
-              </>
-=======
               <div className='styleThumbnailAndCheckmark'>
                 <img className={`styleThumbnail ${showCheckmark}`}
                   src={style.photos[0].thumbnail_url}
@@ -66,7 +54,6 @@ export default function StyleSelector({allStyles, selectedStyle, setSelectedStyl
                 />
                 {showCheckmark && (<i class="fas fa-check-circle"></i>)}
               </div>
->>>>>>> c65f4f5e357d5e129824ae6b906b88b6024d8438
             )
           })
         )}
