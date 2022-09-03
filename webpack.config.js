@@ -1,5 +1,5 @@
 require('dotenv').config();
-let compressionPlugin = require('compression-webpack-plugin');
+const CompressionPlugin = require("compression-webpack-plugin");
 const path = require('path');
 
 module.exports = {
@@ -9,6 +9,7 @@ module.exports = {
     path: path.join(__dirname, '/client/dist'),
     filename: 'bundle.js'
   },
+  plugins: [new CompressionPlugin()],
   module: {
     rules: [
       {
