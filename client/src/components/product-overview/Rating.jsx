@@ -1,6 +1,6 @@
 import {React, useState, useEffect} from 'react';
 
-export default function Rating({currentRating}) {
+export default function Rating({currentRating, numberOfReviews}) {
   let [calculatedRating, setCalculatedRating] = useState(3.4);
   let ratingExists = true;
 
@@ -24,7 +24,8 @@ export default function Rating({currentRating}) {
         </div>
         <a className='reviewsLink'
           href='#reviews-container'>
-            READ ALL REVIEWS
+            READ ALL [#] REVIEWS
+            {/* READ ALL {numberOfReviews} REVIEWS */}
         </a>
       </div>
     )

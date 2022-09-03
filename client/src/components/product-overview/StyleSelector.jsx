@@ -53,7 +53,9 @@ export default function StyleSelector({allStyles, selectedStyle, setSelectedStyl
                   name={style.name}
                   id={index}
                 />
-                {showCheckmark && (<i class="fas fa-check-circle"></i>)}
+                {showCheckmark && (
+                  <i class="fas fa-check-circle"></i>
+                )}
               </div>
             )
           })
