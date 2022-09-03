@@ -277,6 +277,7 @@ Buttons
 .overViewMainContainer {
   padding: 0 20vw 0 20vw;
   background-color: white;
+  height: 50rem;
 }
 
 .navbarContainer {
@@ -700,18 +701,18 @@ a:hover {
 }
 
 .productDescriptionContainer {
+  padding: 1rem 0 0 0;
   color: black;
-  height: 5rem;
-  padding: 1rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.productDescriptionComponentContainer {
+  height: 10rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+
+.productSlogan {
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
 }
 
 /* ========== OVERVIEW END ========== */

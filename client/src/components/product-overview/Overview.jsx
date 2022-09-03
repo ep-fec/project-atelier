@@ -77,10 +77,6 @@ export default function Overview({currentProduct, currentRating}) {
             />
           </div>
 
-{/*           <div className='titleContainer'>
-            <Title name={currentProduct.name}/>
-          </div> */}
-
           <div className='priceContainer'>
             <Price selectedStyle={selectedStyle}/>
           </div>
@@ -123,12 +119,14 @@ export default function Overview({currentProduct, currentRating}) {
         </div>
       </div>
 
-      <div className='productDescriptionContainer'>
-        <ProductDescription
-          slogan={currentProduct.slogan}
-          description={currentProduct.description}
-        />
-      </div>
+      {currentProduct.slogan !== '' && (
+        <div className='productDescriptionContainer'>
+          <ProductDescription
+            slogan={currentProduct.slogan}
+            description={currentProduct.description}
+          />
+        </div>
+      )}
 
     </div>
   );
