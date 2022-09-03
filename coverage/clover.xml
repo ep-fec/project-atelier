@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1662238413555" clover="3.2.0">
-  <project timestamp="1662238413555" name="All files">
+<coverage generated="1662238626074" clover="3.2.0">
+  <project timestamp="1662238626074" name="All files">
     <metrics statements="110" coveredstatements="57" conditionals="50" coveredconditionals="11" methods="44" coveredmethods="20" elements="204" coveredelements="88" complexity="0" loc="110" ncloc="110" packages="1" files="14" classes="14"/>
     <file name="AddToCart.jsx" path="/Users/uchchas/Documents/hackreactor/fec/project-atelier/client/src/components/product-overview/AddToCart.jsx">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
