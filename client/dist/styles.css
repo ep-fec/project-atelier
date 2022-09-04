@@ -62,6 +62,13 @@ h2 {
   vertical-align: top;
 }
 
+@media screen and (max-width: 800px) {
+  .leftcol,
+  .rightcol {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+
 /*
 RATINGS & REVIEWS
 Review List
@@ -70,7 +77,7 @@ Review List
 .reviews-list {
   margin:15px 15px 15px;
   width: 100%;
-  padding-left: 15px;
+  /* padding-left: 15px; */
   padding-right: 15px;
   overflow-y: auto;
 }
@@ -315,7 +322,7 @@ Rating Breakdown
 }
 
 .rating-breakdown {
-  width:90%;
+  width:100%;
 }
 
 .rating-leftcol {
@@ -330,17 +337,42 @@ Rating Breakdown
 
 .rating-midcol {
   float:left;
-  width: 65%;
+  width: 60%;
   margin-top:10px;
+
 }
 
 .rating-rightcol {
   float: left;
-  width: 10%;
+  width: 5%;
   margin-top:10px;
   text-align: right;
   font-size:12px;
   text-decoration: inherit;
+}
+
+@media screen and (max-width: 1000px) {
+  .rating-leftcol {
+    width: 30%;
+  }
+  .rating-midcol {
+    width: 60%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+  .rating-rightcol {
+    width: 10%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .rating-leftcol {
+    width: 15%;
+  }
+  .rating-midcol {
+    width: 80%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+  .rating-rightcol {
+    width: 5%;
+  }
 }
 
 .rating-bar-container {
@@ -434,8 +466,7 @@ Product Breakdown
   border-width: 0 3px 3px 0;
   display:block;
   padding: 2px;
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
+  rotate: -135deg;
   top:6px;
   left:var(--char-arrow-pos);
 }

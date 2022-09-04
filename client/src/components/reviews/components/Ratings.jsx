@@ -12,7 +12,10 @@ const Ratings = (props) => {
     if (data?.length) {
       setTotalReviews(data.length);
     }
-  }, [props.reviews]);
+    setRatings({'1': 0, '2': 0,'3': 0,'4': 0,'5': 0});
+    setRecommendations(0)
+    handleFilterReset();
+  }, [data]);
 
   useEffect(() => {
     if (totalReviews) {
@@ -157,7 +160,6 @@ const Ratings = (props) => {
     ? <div className="reviews ratings-footer"><span className="reviews shown-ratings">Filtering by {activeFilters.join(', ')} stars reviews. </span>
     <span className="reviews remove-filters" onClick={() => handleFilterReset()}>Remove all filters</span></div>
     : null}
-    <hr style={{'width': '85%'}}/>
     </div>
   )
 }

@@ -31,6 +31,7 @@ const ProductBreakdown = (props) => {
         <div className="product-breakdown-chardesc">Too big</div>
         </div><br/>
 
+
       </div>
 
     </div>
