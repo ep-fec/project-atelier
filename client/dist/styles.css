@@ -2,8 +2,12 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: var(--primary-font);
 }
 
+/*
+RATINGS & REVIEWS
+*/
 :root {
   --star-size: 18px;
   --star-color: rgb(1, 1, 1);
@@ -17,12 +21,13 @@ body {
   margin: 0 auto;
   font-family: var(--primary-font);
   font-weight: 300;
-  font-size: 16px;
+  font-size:14px;
 }
 
-/*
-RATINGS & REVIEWS
-*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+}
 
 /*
 RATINGS & REVIEWS
@@ -68,8 +73,15 @@ Review List
   width: 100%;
   padding-left: 15px;
   padding-right: 15px;
-  /* max-height: 600px; */
   overflow-y: auto;
+}
+
+.reviews-list-extended {
+  transition: max-height 0.4s;
+  max-height: var(--max-height);
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  padding-right: 15px;
 }
 
 .reviews-list-extended {
@@ -89,16 +101,16 @@ RATINGS & REVIEWS
 Individual Review
 */
 
-.ind-review-stars {
+.stars {
   --percent: calc(var(--rating) / 5 * 100%);
   display: inline-block;
   font-size: var(--star-size);
   font-family: Times;
   line-height: 1;
 }
-.ind-review-stars::before {
+.stars::before {
   content: "★★★★★";
-  letter-spacing: 0px;
+  letter-spacing: -1px;
   background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -270,6 +282,89 @@ Buttons
   background-color: rgb(0, 0, 0);
   color:white;
   transition-duration: 0.4s;
+}
+
+/*
+RATINGS & REVIEWS
+Rating Breakdown
+*/
+
+* {
+  --bar-color-empty:#4e4949;
+  --bar-color-full: #3abb7d;
+}
+
+.total-rating {
+  font-size: 68px;
+  letter-spacing: -2px;
+  font-weight: 900;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.rating-stars {
+  vertical-align: top;
+  text-align: right;
+}
+
+.recommend-product {
+  font-size:12px;
+  color: rgb(61, 59, 59);
+}
+
+.rating-breakdown {
+  width:90%;
+}
+
+.rating-leftcol {
+  float: left;
+  width: 20%;
+  margin-top:10px;
+  font-size:12px;
+  white-space: nowrap;
+  overflow:visible;
+  text-decoration: inherit;
+}
+
+.rating-midcol {
+  float:left;
+  width: 65%;
+  margin-top:10px;
+}
+
+.rating-rightcol {
+  float: left;
+  width: 10%;
+  margin-top:10px;
+  text-align: right;
+  font-size:12px;
+  text-decoration: inherit;
+}
+
+.rating-bar-container {
+  width: 100%;
+  background-color: var(--bar-color-empty);
+  text-align: center;
+  color: var(--bar-color-empty);
+}
+
+
+.rating-bar {
+  width: var(--rating-bar-size);
+  height: 13px;
+  background-color: var(--bar-color-full);
+}
+
+.rating-breakdown:hover
+.rating-bar-container
+.rating-bar {
+  filter: hue-rotate(180deg);
+  cursor:pointer;
+}
+
+.rating-breakdown:hover {
+  cursor:pointer;
+  text-decoration: underline;
 }
 
 /* ========== OVERVIEW START ========== */
@@ -742,14 +837,15 @@ a:hover {
   grid-column: 1 / -1;
 }
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 4px 4px 8px 4px rgba(0,0,0,0.2);
   list-style: none;
   transition: 0.3s;
   max-height: 40vw;
   padding: 2px 16px;
+  border-radius: 10px;
 }
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 8px 8px 16px 8px rgba(0,0,0,0.2);
 }
 .card img {
   max-width: 100%;
@@ -759,9 +855,13 @@ a:hover {
 .side-by-side {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(6, calc(33%));
+  grid-template-columns: repeat(var(--count), calc(27%));
   grid-template-rows: minmax(150px, 1fr);
   padding: 0 20px;
   max-width: 60vw;
   overflow-y: auto;
+}
+
+.overview {
+  font-family: var(--primary-font);
 }
