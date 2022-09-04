@@ -69,7 +69,7 @@ class App extends React.Component {
           currentProduct={this.state.currentProduct}
           currentRating={this.state.currentRating}
         />
-        <Related 
+        <Related
           currProduct={this.state.currentProduct}
           changeProduct={this.changeProduct.bind(this)}
           handleAdd={this.handleAdd.bind(this)}
