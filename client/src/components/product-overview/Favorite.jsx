@@ -1,9 +1,15 @@
-import React from 'react';
+import {React, useState} from 'react';
 
-export default function Favorite() {
-  const classes = 'buttonsAndDropdowns favoriteButton'
+export default function Favorite({addToMyOutfit, currentProductId}) {
+  const handleFavoriteButtonClick = () => {
+    addToMyOutfit(currentProductId);
+  }
+
   return (
-      <button className={classes}>
+      <button
+        className='buttonsAndDropdowns favoriteButton'
+        onClick={handleFavoriteButtonClick}
+      >
         <i className="fa-regular fa-heart"></i>
       </button>
   )

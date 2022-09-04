@@ -14,12 +14,12 @@ import AddToCart from './AddToCart.jsx';
 import Favorite from './Favorite.jsx';
 import ProductDescription from './ProductDescription.jsx';
 
-export default function Overview({currentProduct, currentRating}) {
+export default function Overview({currentProduct, currentRating, addToMyOutfit}) {
+  const [announcementNumber, setAnnouncementNumber] = useState(0);
   const [allStyles, setAllStyles] = useState([]);
   const [selectedStyle, setSelectedStyle] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedQuantity, setSelectedQuantity] = useState('-');
-  const [announcementNumber, setAnnouncementNumber] = useState(0);
 
   useEffect(() => {
     $('.overViewMainContainer').find('*').addClass('overview');
@@ -112,7 +112,10 @@ export default function Overview({currentProduct, currentRating}) {
             </div>
 
             <div className='favoriteContainer'>
-              <Favorite />
+              <Favorite
+                addToMyOutfit={addToMyOutfit}
+                currentProductId={currentProduct.id}
+              />
             </div>
           </div>
         </div>

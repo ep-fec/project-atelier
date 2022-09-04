@@ -16,6 +16,8 @@ class App extends React.Component {
     };
 
     this.getInitialProduct = this.getInitialProduct.bind(this);
+    this.changeProduct = this.changeProduct.bind(this);
+    this.addToMyOutfit = this.addToMyOutfit.bind(this);
   }
 
   componentDidMount() {
@@ -54,7 +56,7 @@ class App extends React.Component {
     this.setState({productId});
   }
 
-  handleAdd() {
+  addToMyOutfit() {
     let outfit = this.state.outfit;
     if (!outfit.includes(this.state.productId)) {
       outfit.push(this.state.productId);
@@ -68,11 +70,12 @@ class App extends React.Component {
         <Overview
           currentProduct={this.state.currentProduct}
           currentRating={this.state.currentRating}
+          addToMyOutfit={this.addToMyOutfit}
         />
-        <Related 
+        <Related
           currProduct={this.state.currentProduct}
-          changeProduct={this.changeProduct.bind(this)}
-          handleAdd={this.handleAdd.bind(this)}
+          changeProduct={this.changeProduct}
+          handleAdd={this.addToMyOutfit}
           outfit={this.state.outfit}
         />
         <Reviews currentProduct={this.state.currentProduct}/>
