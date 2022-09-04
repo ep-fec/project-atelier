@@ -109,7 +109,7 @@ Individual Review
 }
 .stars::before {
   content: "★★★★★";
-  letter-spacing: -1px;
+  letter-spacing: -2px;
   background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -380,4 +380,67 @@ Rating Breakdown
 }
 .remove-filters:hover {
   cursor:pointer;
+}
+
+/*
+RATINGS & REVIEWS
+Product Breakdown
+*/
+* {
+  --char-arrow-pos: 50%;
+}
+.product-breakdown-container {
+  width: 90%;
+  font-size:12px;
+  color: rgb(61, 59, 59);
+}
+
+.product-breakdown {
+  width: 100%;
+  margin: 0;
+  position: relative;
+}
+
+.product-breakdown-leftcol,
+.product-breakdown-midcol,
+.product-breakdown-rightcol {
+  float:left;
+  width: 33.33%;
+  margin-top: 10px;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.product-breakdown-bar {
+  width:98%;
+  background-color: #cbcbcb;
+  border-radius: 50px;
+  height:8px;
+}
+
+.product-breakdown:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.product-breakdown-arrowcont {
+  position:relative;
+  display:block;
+  max-width:97%;
+}
+.product-breakdown-arrow {
+  position:absolute;
+  border: solid rgb(61, 59, 59);
+  border-width: 0 3px 3px 0;
+  display:block;
+  padding: 2px;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  top:6px;
+  left:var(--char-arrow-pos);
+}
+
+.product-breakdown-chardesc {
+  margin: 0 auto;
+  text-align: center;
 }

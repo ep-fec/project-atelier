@@ -157,7 +157,7 @@ const Ratings = (props) => {
     ? <div className="reviews ratings-footer"><span className="reviews shown-ratings">Filtering by {activeFilters.join(', ')} stars reviews. </span>
     <span className="reviews remove-filters" onClick={() => handleFilterReset()}>Remove all filters</span></div>
     : null}
-    <hr/>
+    <hr style={{'width': '85%'}}/>
     </div>
   )
 }
