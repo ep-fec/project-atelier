@@ -18,6 +18,7 @@ class App extends React.Component {
     this.getInitialProduct = this.getInitialProduct.bind(this);
     this.changeProduct = this.changeProduct.bind(this);
     this.addToMyOutfit = this.addToMyOutfit.bind(this);
+    this.removeFromMyOutfit = this.removeFromMyOutfit.bind(this);
   }
 
   componentDidMount() {
@@ -64,13 +65,24 @@ class App extends React.Component {
     }
   }
 
+  removeFromMyOutfit() {
+    let outfit = this.state.outfit;
+    let indexToRemove = outfit.indexOf(this.state.productId);
+    if (indexToRemove !== -1) {
+      outfit.splice(indexToRemove, 1);
+    }
+    this.setState({outfit: outfit});
+  }
+
   render() {
     return (
       <div>
         <Overview
           currentProduct={this.state.currentProduct}
           currentRating={this.state.currentRating}
+          outfit={this.state.outfit}
           addToMyOutfit={this.addToMyOutfit}
+          removeFromMyOutfit={this.removeFromMyOutfit}
         />
         <Related
           currProduct={this.state.currentProduct}

@@ -11,10 +11,16 @@ import StyleSelector from './StyleSelector.jsx';
 import SizeSelector from './SizeSelector.jsx';
 import QuantitySelector from './QuantitySelector.jsx';
 import AddToCart from './AddToCart.jsx';
-import Favorite from './Favorite.jsx';
+import AddToMyOutfit from './AddToMyOutfit.jsx';
 import ProductDescription from './ProductDescription.jsx';
 
-export default function Overview({currentProduct, currentRating, addToMyOutfit}) {
+export default function Overview({
+  currentProduct,
+  currentRating,
+  outfit,
+  addToMyOutfit,
+  removeFromMyOutfit
+}) {
   const [announcementNumber, setAnnouncementNumber] = useState(0);
   const [allStyles, setAllStyles] = useState([]);
   const [selectedStyle, setSelectedStyle] = useState('');
@@ -111,10 +117,12 @@ export default function Overview({currentProduct, currentRating, addToMyOutfit})
               <AddToCart />
             </div>
 
-            <div className='favoriteContainer'>
-              <Favorite
-                addToMyOutfit={addToMyOutfit}
+            <div className='addToMyOutfitContainer'>
+              <AddToMyOutfit
                 currentProductId={currentProduct.id}
+                outfit={outfit}
+                addToMyOutfit={addToMyOutfit}
+                removeFromMyOutfit={removeFromMyOutfit}
               />
             </div>
           </div>

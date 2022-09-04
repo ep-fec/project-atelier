@@ -785,7 +785,7 @@ a:hover {
   color: #ED1C24;
 }
 
-.favoriteContainer {
+.addToMyOutfitContainer {
   display: flex;
   flex-basis: 20%;
   justify-content: right;
@@ -805,7 +805,10 @@ a:hover {
 
 .fa-heart {
   font-size: 1.5rem;
-  font-weight: lighter;
+}
+
+.fa-solid.fa-heart {
+  color: var(--primary-color);
 }
 
 .productDescriptionContainer {
