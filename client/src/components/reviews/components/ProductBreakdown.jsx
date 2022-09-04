@@ -30,7 +30,6 @@ const ProductBreakdown = (props) => {
         <div className="reviews product-breakdown-rightcol">
         <div className="product-breakdown-chardesc">Too big</div>
         </div><br/>
-
       </div>
 
     </div>

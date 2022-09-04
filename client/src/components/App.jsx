@@ -10,13 +10,9 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-<<<<<<< HEAD
       currentProduct: {},
       productId: 0,
       outfit: []
-=======
-      currentProduct: {id: 71700}
->>>>>>> reviews-main
     };
 
     this.getInitialProduct = this.getInitialProduct.bind(this);
@@ -73,7 +69,7 @@ class App extends React.Component {
           currentProduct={this.state.currentProduct}
           currentRating={this.state.currentRating}
         />
-        <Related 
+        <Related
           currProduct={this.state.currentProduct}
           changeProduct={this.changeProduct.bind(this)}
           handleAdd={this.handleAdd.bind(this)}
