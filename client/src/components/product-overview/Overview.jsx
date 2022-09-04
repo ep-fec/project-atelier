@@ -6,13 +6,12 @@ import Announcement from './Announcement.jsx';
 import ImageGallery from './ImageGallery.jsx';
 import Rating from './Rating.jsx';
 import CategoryAndTitle from './CategoryAndTitle.jsx';
-//import Title from './Title.jsx';
 import Price from './Price.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import SizeSelector from './SizeSelector.jsx';
 import QuantitySelector from './QuantitySelector.jsx';
 import AddToCart from './AddToCart.jsx';
-import Star from './Star.jsx';
+import Favorite from './Favorite.jsx';
 import ProductDescription from './ProductDescription.jsx';
 
 export default function Overview({currentProduct, currentRating}) {
@@ -112,8 +111,8 @@ export default function Overview({currentProduct, currentRating}) {
               <AddToCart />
             </div>
 
-            <div className='starContainer'>
-              <Star />
+            <div className='favoriteContainer'>
+              <Favorite />
             </div>
           </div>
         </div>

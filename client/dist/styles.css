@@ -516,7 +516,7 @@ a:hover {
 }
 
 .salePrice {
-  color: red;
+  color: var(--primary-color);
   padding-right: 0.5rem;
   font-weight: bold;
 }
@@ -580,7 +580,7 @@ a:hover {
 }
 
 .styleThumbnailCheckmark {
-  border: 2px red solid;
+  border: 2px var(--primary-color) solid;
 }
 
 .fas {
@@ -589,7 +589,7 @@ a:hover {
 }
 
 .fa-check-circle {
-  color: red;
+  color: var(--primary-color);
   position: relative;
   display: flex;
   height: 0;
@@ -673,11 +673,6 @@ a:hover {
   margin: 0 1rem 0 0;
 }
 
-.starContainer {
-  display: flex;
-  flex-basis: 20%;
-  justify-content: right;
-}
 
 .addToCartButton {
   display: flex;
@@ -695,9 +690,27 @@ a:hover {
   color: #ED1C24;
 }
 
-.starButton {
+.favoriteContainer {
+  display: flex;
+  flex-basis: 20%;
+  justify-content: right;
+}
+
+.favoriteButton {
   display: flex;
   flex-grow: 1;
+  justify-content: center;
+}
+
+.favoriteButton:hover {
+  border: 2px var(--primary-color) solid;
+  color: var(--primary-color);
+  transition: 0.4s;
+}
+
+.fa-heart {
+  font-size: 1.5rem;
+  font-weight: lighter;
 }
 
 .productDescriptionContainer {
