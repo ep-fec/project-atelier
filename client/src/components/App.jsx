@@ -65,11 +65,16 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Overview currentProduct={this.state.currentProduct}/>
-        <Related currProduct={this.state.currentProduct}
-        changeProduct={this.changeProduct.bind(this)}
-        handleAdd={this.handleAdd.bind(this)}
-        outfit={this.state.outfit}/>
+        <Overview
+          currentProduct={this.state.currentProduct}
+          currentRating={this.state.currentRating}
+        />
+        <Related 
+          currProduct={this.state.currentProduct}
+          changeProduct={this.changeProduct.bind(this)}
+          handleAdd={this.handleAdd.bind(this)}
+          outfit={this.state.outfit}
+        />
         <Reviews currentProduct={this.state.currentProduct}/>
       </div>
     );
