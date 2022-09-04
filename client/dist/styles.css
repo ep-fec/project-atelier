@@ -409,6 +409,8 @@ Rating Breakdown
 .remove-filters {
   text-decoration: underline;
   text-align: center;
+  font-weight: 800;
+  color:var(--primary-color)
 }
 .remove-filters:hover {
   cursor:pointer;
@@ -460,6 +462,7 @@ Product Breakdown
   display:block;
   max-width:97%;
 }
+
 .product-breakdown-arrow {
   position:absolute;
   border: solid rgb(61, 59, 59);
