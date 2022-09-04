@@ -34,8 +34,9 @@ export default function StyleSelector({allStyles, selectedStyle, setSelectedStyl
 
   return (
     <div className='styleComponentContainer'>
-      <div className='styleText'>
-        STYLE > {selectedStyle.name}
+      <div className='styleTextContainer'>
+        <div className='styleText'> STYLE >> </div>
+        <div className='selectedStyleText'> {selectedStyle.name} </div>
       </div>
 
       <div className='styleThumbnailsGrid'>
@@ -52,7 +53,9 @@ export default function StyleSelector({allStyles, selectedStyle, setSelectedStyl
                   name={style.name}
                   id={index}
                 />
-                {showCheckmark && (<i class="fas fa-check-circle"></i>)}
+                {showCheckmark && (
+                  <i class="fas fa-check-circle"></i>
+                )}
               </div>
             )
           })

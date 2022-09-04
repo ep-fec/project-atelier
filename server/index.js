@@ -1,13 +1,16 @@
 require ('dotenv').config();
-const express = require('express');
+const express = require ('express');
+var expressStaticGzip = require("express-static-gzip");
 const path = require('path');
 const app = express();
+const expressGzip = require('express-static-gzip');
 const port = process.env.PORT;
 const axios = require('axios');
 const key = process.env.KEY;
 
 const request = require('./helpers/request.js');
 
+app.use('/', expressStaticGzip(path.resolve(__dirname, '../client/dist')));
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
 app.use(express.json());
 app.use(express.text());
@@ -72,7 +75,6 @@ app.get('/related/:productId', function(req, res) {
 app.all('/*', (req, res) => {
   request(req.url, req.method, req.body)
     .then((response) => {
-      // console.log('Success!:', response.data);
       res.send(response.data);
     })
     .catch((err) => {

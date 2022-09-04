@@ -10,7 +10,9 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      currentProduct: {}
+      currentProduct: {},
+      productId: 0,
+      outfit: []
     };
 
     this.getInitialProduct = this.getInitialProduct.bind(this);
@@ -20,21 +22,59 @@ class App extends React.Component {
     this.getInitialProduct();
   }
 
+  componentDidUpdate(pp, prevState) {
+    if (prevState.productId !== this.state.productId && prevState.productId !== 0) {
+      axios.get(`/products/${this.state.productId}`)
+      .then((response) => {
+        this.setState({
+          currentProduct: response.data
+        });
+      })
+      .catch((err) => {
+        console.log('ERROR GETTING NEW PRODUCT INFO', err);
+      })
+    }
+  }
+
   getInitialProduct() {
     axios.get('/products?page=3&count=1')
     .then(response => {
-      this.setState({currentProduct: response.data[0]});
+      console.log(response.data);
+      this.setState({
+        currentProduct: response.data[0],
+        productId: response.data[0].id
+      });
     })
     .catch(error => {
       console.log('Error getting initial product', error);
     });
   };
 
+  changeProduct(productId) {
+    this.setState({productId});
+  }
+
+  handleAdd() {
+    let outfit = this.state.outfit;
+    if (!outfit.includes(this.state.productId)) {
+      outfit.push(this.state.productId);
+      this.setState({outfit: outfit});
+    }
+  }
+
   render() {
     return (
       <div>
-        <Overview currentProduct={this.state.currentProduct}/>
-        <Related currProduct={this.state.currentProduct}/>
+        <Overview
+          currentProduct={this.state.currentProduct}
+          currentRating={this.state.currentRating}
+        />
+        <Related 
+          currProduct={this.state.currentProduct}
+          changeProduct={this.changeProduct.bind(this)}
+          handleAdd={this.handleAdd.bind(this)}
+          outfit={this.state.outfit}
+        />
         <Reviews currentProduct={this.state.currentProduct}/>
       </div>
     );

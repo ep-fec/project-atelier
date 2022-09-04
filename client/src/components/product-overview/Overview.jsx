@@ -5,8 +5,8 @@ import Navbar from './Navbar.jsx';
 import Announcement from './Announcement.jsx';
 import ImageGallery from './ImageGallery.jsx';
 import Rating from './Rating.jsx';
-import Category from './Category.jsx';
-import Title from './Title.jsx';
+import CategoryAndTitle from './CategoryAndTitle.jsx';
+//import Title from './Title.jsx';
 import Price from './Price.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import SizeSelector from './SizeSelector.jsx';
@@ -15,7 +15,7 @@ import AddToCart from './AddToCart.jsx';
 import Star from './Star.jsx';
 import ProductDescription from './ProductDescription.jsx';
 
-export default function Overview({currentProduct}) {
+export default function Overview({currentProduct, currentRating}) {
   const [allStyles, setAllStyles] = useState([]);
   const [selectedStyle, setSelectedStyle] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
@@ -67,15 +67,14 @@ export default function Overview({currentProduct}) {
 
         <div className='productInfoContainer'>
           <div className='ratingContainer'>
-            <Rating />
+            <Rating currentRating={currentRating}/>
           </div>
 
-          <div className='categoryContainer'>
-            <Category category={currentProduct.category}/>
-          </div>
-
-          <div className='titleContainer'>
-            <Title name={currentProduct.name}/>
+          <div className='categoryAndTitleContainer'>
+            <CategoryAndTitle
+              category={currentProduct.category}
+              title={currentProduct.name}
+            />
           </div>
 
           <div className='priceContainer'>
@@ -120,12 +119,14 @@ export default function Overview({currentProduct}) {
         </div>
       </div>
 
-      <div className='productDescriptionContainer'>
-        <ProductDescription
-          slogan={currentProduct.slogan}
-          description={currentProduct.description}
-        />
-      </div>
+      {currentProduct.slogan !== '' && (
+        <div className='productDescriptionContainer'>
+          <ProductDescription
+            slogan={currentProduct.slogan}
+            description={currentProduct.description}
+          />
+        </div>
+      )}
 
     </div>
   );
