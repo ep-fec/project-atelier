@@ -45,7 +45,7 @@ export default function StyleSelector({allStyles, selectedStyle, setSelectedStyl
             let showCheckmark = checkmarkStatus[index] ? 'styleThumbnailCheckmark' : null;
 
             return (
-              <div className='styleThumbnailAndCheckmark'>
+              <div className='styleThumbnailAndCheckmark' key={index}>
                 <img className={`styleThumbnail ${showCheckmark}`}
                   src={style.photos[0].thumbnail_url}
                   key={index}
@@ -54,7 +54,7 @@ export default function StyleSelector({allStyles, selectedStyle, setSelectedStyl
                   id={index}
                 />
                 {showCheckmark && (
-                  <i class="fas fa-check-circle"></i>
+                  <i className="fas fa-check-circle"></i>
                 )}
               </div>
             )

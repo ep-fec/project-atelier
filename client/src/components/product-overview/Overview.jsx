@@ -32,10 +32,11 @@ export default function Overview({
   }, []);
 
   useEffect(() => {
-    getAllStyles(currentProduct.id);
-  }, [currentProduct.id]);
+    if (Object.keys(currentProduct).length !== 0) {
+      getAllStyles(currentProduct.id);
+    }
+  }, [currentProduct]);
 
-  // getAllStyles
   const getAllStyles = (id) => {
     axios({
       method: 'POST',

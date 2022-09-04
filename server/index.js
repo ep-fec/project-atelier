@@ -15,22 +15,21 @@ app.use(express.static(path.resolve(__dirname, '../client/dist')));
 app.use(express.json());
 app.use(express.text());
 
-app.post('/allStyles', (request, response, next) => {
+app.post('/allStyles', (request, response) => {
   let endpoint = `products/${request.body}/styles`;
   let url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/${endpoint}`;
 
-  axios.get(url, {
+  return axios.get(url, {
     headers: {
       'Authorization': key
     },
   })
-  .then(result => {
-    response.send(result.data.results);
-    next();
-  })
-  .catch((err) => {
-    console.log('Error', err);
-  });
+    .then(result => {
+      response.send(result.data.results);
+    })
+    .catch((err) => {
+      console.log('Error', err);
+    });
 });
 
 app.get('/related/:productId', function(req, res) {
