@@ -62,13 +62,6 @@ h2 {
   vertical-align: top;
 }
 
-@media screen and (max-width: 800px) {
-  .leftcol,
-  .rightcol {
-    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
-  }
-}
-
 /*
 RATINGS & REVIEWS
 Review List
@@ -144,7 +137,7 @@ Individual Review
 .ind-review-recommendation {
   padding-top:10px;
   padding-bottom:10px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .ind-review-response {
@@ -199,10 +192,10 @@ Individual Review
   cursor: pointer;
 }
 
-hr {
+.ind-review-divider {
   border: 0;
   height: 1px;
-  background: #000;
+  background: rgba(0, 0, 0, 0.500);
   opacity: 0.2;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -351,30 +344,6 @@ Rating Breakdown
   text-decoration: inherit;
 }
 
-@media screen and (max-width: 1000px) {
-  .rating-leftcol {
-    width: 30%;
-  }
-  .rating-midcol {
-    width: 60%; /* The width is 100%, when the viewport is 800px or smaller */
-  }
-  .rating-rightcol {
-    width: 10%;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .rating-leftcol {
-    width: 15%;
-  }
-  .rating-midcol {
-    width: 80%; /* The width is 100%, when the viewport is 800px or smaller */
-  }
-  .rating-rightcol {
-    width: 5%;
-  }
-}
-
 .rating-bar-container {
   width: 100%;
   background-color: var(--bar-color-empty);
@@ -431,8 +400,15 @@ Product Breakdown
 
 .product-breakdown {
   width: 100%;
-  margin: 0;
+  margin: 0 auto;
   position: relative;
+}
+
+.char-label {
+  margin-left:10px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom:5px;
 }
 
 .product-breakdown-leftcol,
@@ -440,7 +416,7 @@ Product Breakdown
 .product-breakdown-rightcol {
   float:left;
   width: 33.33%;
-  margin-top: 10px;
+  margin-top: 2px;
   margin-right: 0;
   padding-right: 0;
 }
@@ -448,8 +424,7 @@ Product Breakdown
 .product-breakdown-bar {
   width:98%;
   background-color: #cbcbcb;
-  border-radius: 50px;
-  height:8px;
+  height:5px;
 }
 
 .product-breakdown:after {
@@ -466,15 +441,61 @@ Product Breakdown
 .product-breakdown-arrow {
   position:absolute;
   border: solid rgb(61, 59, 59);
-  border-width: 0 3px 3px 0;
+  border-width: 0 2px 2px 0;
   display:block;
   padding: 2px;
   rotate: -135deg;
-  top:6px;
+  top: -5px;
   left:var(--char-arrow-pos);
 }
 
 .product-breakdown-chardesc {
   margin: 0 auto;
   text-align: center;
+  font-size:10px;
+}
+
+.product-breakdown-divider {
+  margin:10px;
+  border: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.500);
+  opacity: 0.2;
+}
+
+/*
+RATINGS & REVIEWS
+Media Queries
+*/
+
+
+@media screen and (max-width: 1000px) {
+  .rating-leftcol {
+    width: 30%;
+  }
+  .rating-midcol {
+    width: 60%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+  .rating-rightcol {
+    width: 10%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .leftcol,
+  .rightcol {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+  .rating-leftcol {
+    width: 15%;
+  }
+  .rating-midcol {
+    width: 80%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+  .rating-rightcol {
+    width: 5%;
+  }
+  .product-breakdown-container {
+    margin: 0 auto;
+  }
 }

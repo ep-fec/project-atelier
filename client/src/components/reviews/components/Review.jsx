@@ -93,7 +93,7 @@ const Review = (props) => {
         <span className="reviews ind-review-helpfulness"> ({helpfulVotes}) | </span>
         <span className="reviews ind-review-report" onClick={(e) => submitReport(e)} role="button">
           {hasReported ? 'Reported' : 'Report'}</span>
-        <br/><hr/>
+        <br/><hr className="ind-review-divider"/>
       </section>
     </div>
   )
