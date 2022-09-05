@@ -70,7 +70,7 @@ Review List
 .reviews-list {
   margin:15px 15px 15px;
   width: 100%;
-  padding-left: 15px;
+  /* padding-left: 15px; */
   padding-right: 15px;
   overflow-y: auto;
 }
@@ -109,7 +109,7 @@ Individual Review
 }
 .stars::before {
   content: "★★★★★";
-  letter-spacing: -1px;
+  letter-spacing: -2px;
   background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -137,7 +137,7 @@ Individual Review
 .ind-review-recommendation {
   padding-top:10px;
   padding-bottom:10px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .ind-review-response {
@@ -192,10 +192,10 @@ Individual Review
   cursor: pointer;
 }
 
-hr {
+.ind-review-divider {
   border: 0;
   height: 1px;
-  background: #000;
+  background: rgba(0, 0, 0, 0.500);
   opacity: 0.2;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -315,7 +315,7 @@ Rating Breakdown
 }
 
 .rating-breakdown {
-  width:90%;
+  width:100%;
 }
 
 .rating-leftcol {
@@ -330,13 +330,14 @@ Rating Breakdown
 
 .rating-midcol {
   float:left;
-  width: 65%;
+  width: 60%;
   margin-top:10px;
+
 }
 
 .rating-rightcol {
   float: left;
-  width: 10%;
+  width: 5%;
   margin-top:10px;
   text-align: right;
   font-size:12px;
@@ -377,7 +378,124 @@ Rating Breakdown
 .remove-filters {
   text-decoration: underline;
   text-align: center;
+  font-weight: 800;
+  color:var(--primary-color)
 }
 .remove-filters:hover {
   cursor:pointer;
+}
+
+/*
+RATINGS & REVIEWS
+Product Breakdown
+*/
+* {
+  --char-arrow-pos: 50%;
+}
+.product-breakdown-container {
+  width: 90%;
+  font-size:12px;
+  color: rgb(61, 59, 59);
+}
+
+.product-breakdown {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.char-label {
+  margin-left:10px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom:5px;
+}
+
+.product-breakdown-leftcol,
+.product-breakdown-midcol,
+.product-breakdown-rightcol {
+  float:left;
+  width: 33.33%;
+  margin-top: 2px;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.product-breakdown-bar {
+  width:98%;
+  background-color: #cbcbcb;
+  height:5px;
+}
+
+.product-breakdown:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.product-breakdown-arrowcont {
+  position:relative;
+  display:block;
+  max-width:97%;
+}
+
+.product-breakdown-arrow {
+  position:absolute;
+  border: solid rgb(61, 59, 59);
+  border-width: 0 2px 2px 0;
+  display:block;
+  padding: 2px;
+  rotate: -135deg;
+  top: -5px;
+  left:var(--char-arrow-pos);
+}
+
+.product-breakdown-chardesc {
+  margin: 0 auto;
+  text-align: center;
+  font-size:10px;
+}
+
+.product-breakdown-divider {
+  margin:10px;
+  border: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.500);
+  opacity: 0.2;
+}
+
+/*
+RATINGS & REVIEWS
+Media Queries
+*/
+
+
+@media screen and (max-width: 1000px) {
+  .rating-leftcol {
+    width: 30%;
+  }
+  .rating-midcol {
+    width: 60%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+  .rating-rightcol {
+    width: 10%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .leftcol,
+  .rightcol {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+  .rating-leftcol {
+    width: 15%;
+  }
+  .rating-midcol {
+    width: 80%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+  .rating-rightcol {
+    width: 5%;
+  }
+  .product-breakdown-container {
+    margin: 0 auto;
+  }
 }
