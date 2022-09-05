@@ -130,7 +130,7 @@ export default function Overview({
         </div>
       </div>
 
-      {currentProduct.slogan !== '' && (
+      {(currentProduct.slogan !== '' || currentProduct.description !== '') && (
         <div className='productDescriptionContainer'>
           <ProductDescription
             slogan={currentProduct.slogan}
