@@ -1,14 +1,24 @@
-import React from 'react';
+import {React, useEffect} from 'react';
 
-export default function SizeSelector({selectedStyle, setSelectedSize}) {
-  const classes = 'buttonsAndDropdowns sizeSelectorDropdown'
+export default function SizeSelector({selectedStyle, setSelectedSize, outOfStock, setOutOfStock}) {
+  useEffect(() => {
+    if (selectedStyle.skus !== undefined) {
+      if (selectedStyle.skus[null]) {
+        setOutOfStock(true);
+      } else {
+        setOutOfStock(false);
+      }
+    }
+  }, [selectedStyle])
 
   const handleSizeSelectClick = (e) => {
     setSelectedSize(e.target.value);
   }
 
   return (
-      <select className={classes}
+    <>
+    {(outOfStock === false) && (
+      <select className='buttonsAndDropdowns sizeSelectorDropdown'
         defaultValue='SELECT SIZE'
         onChange={handleSizeSelectClick}
       >
@@ -25,5 +35,16 @@ export default function SizeSelector({selectedStyle, setSelectedSize}) {
           )
         }
       </select>
+    )}
+
+    {(outOfStock === true) && (
+      <select className='buttonsAndDropdowns styleOutOfStock'
+      disabled='true'
+      defaultValue='OUT OF STOCK'
+      >
+        <option disabled> OUT OF STOCK </option>
+      </select>
+    )}
+    </>
   )
 }

@@ -92,6 +92,7 @@ export default function ImageGallery({selectedStyle}) {
                     key={index}
                     onClick={handleThumbnailPhotoClick}
                     id={index}
+                    alt='Image cannot be loaded'
                   />
                 </li>
               ))}

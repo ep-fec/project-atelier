@@ -6,7 +6,6 @@ import Announcement from './Announcement.jsx';
 import ImageGallery from './ImageGallery.jsx';
 import Rating from './Rating.jsx';
 import CategoryAndTitle from './CategoryAndTitle.jsx';
-//import Title from './Title.jsx';
 import Price from './Price.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import SizeSelector from './SizeSelector.jsx';
@@ -16,11 +15,12 @@ import Star from './Star.jsx';
 import ProductDescription from './ProductDescription.jsx';
 
 export default function Overview({currentProduct, currentRating}) {
+  const [announcementNumber, setAnnouncementNumber] = useState(0);
   const [allStyles, setAllStyles] = useState([]);
   const [selectedStyle, setSelectedStyle] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedQuantity, setSelectedQuantity] = useState('-');
-  const [announcementNumber, setAnnouncementNumber] = useState(0);
+  const [outOfStock, setOutOfStock] = useState(false);
 
   useEffect(() => {
     $('.overViewMainContainer').find('*').addClass('overview');
@@ -94,23 +94,31 @@ export default function Overview({currentProduct, currentRating}) {
               <SizeSelector
                 selectedStyle={selectedStyle}
                 setSelectedSize={setSelectedSize}
+                outOfStock={outOfStock}
+                setOutOfStock={setOutOfStock}
               />
             </div>
 
             <div className='quantitySelectorContainer'>
-              <QuantitySelector
-                selectedStyle={selectedStyle}
-                selectedSize={selectedSize}
-                selectedQuantity={selectedQuantity}
-                setSelectedQuantity={setSelectedQuantity}
-              />
+              {(outOfStock === false) && (
+                <QuantitySelector
+                  selectedStyle={selectedStyle}
+                  selectedSize={selectedSize}
+                  selectedQuantity={selectedQuantity}
+                  setSelectedQuantity={setSelectedQuantity}
+                />
+              )}
             </div>
           </div>
 
           <div className='addToCartAndStarContainer'>
-            <div className='addToCartContainer'>
-              <AddToCart />
-            </div>
+            {(outOfStock === false) && (
+              <div className='addToCartContainer'>
+                <AddToCart
+                  selectedSize={selectedSize}
+                />
+              </div>
+            )}
 
             <div className='starContainer'>
               <Star />

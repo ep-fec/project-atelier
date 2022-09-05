@@ -1,11 +1,18 @@
 import React from 'react';
 
-export default function AddToCart() {
-  const classes = 'buttonsAndDropdowns addToCartButton'
+export default function AddToCart({selectedSize}) {
+  const handleAddToCartButtonClick = () => {
+    if (selectedSize === '') {
+
+    }
+  }
+
   return (
-      <button className={classes}>
-        <div> ADD TO CART </div>
-        <div> + </div>
-      </button>
+    <button className='buttonsAndDropdowns addToCartButton'
+      onClick={handleAddToCartButtonClick}
+    >
+      <div> ADD TO CART </div>
+      <div> + </div>
+    </button>
   )
 }
