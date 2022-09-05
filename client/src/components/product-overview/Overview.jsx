@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import axios from 'axios';
 import $ from 'jquery';
 import Navbar from './Navbar.jsx';
@@ -21,6 +21,7 @@ export default function Overview({currentProduct, currentRating}) {
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedQuantity, setSelectedQuantity] = useState('-');
   const [outOfStock, setOutOfStock] = useState(false);
+  const selectRef = useRef();
 
   useEffect(() => {
     $('.overViewMainContainer').find('*').addClass('overview');
@@ -30,7 +31,6 @@ export default function Overview({currentProduct, currentRating}) {
     getAllStyles(currentProduct.id);
   }, [currentProduct.id]);
 
-  // getAllStyles
   const getAllStyles = (id) => {
     axios({
       method: 'POST',
@@ -96,6 +96,7 @@ export default function Overview({currentProduct, currentRating}) {
                 setSelectedSize={setSelectedSize}
                 outOfStock={outOfStock}
                 setOutOfStock={setOutOfStock}
+                selectRef={selectRef}
               />
             </div>
 
@@ -116,6 +117,8 @@ export default function Overview({currentProduct, currentRating}) {
               <div className='addToCartContainer'>
                 <AddToCart
                   selectedSize={selectedSize}
+                  selectedQuantity={selectedQuantity}
+                  selectRef={selectRef}
                 />
               </div>
             )}

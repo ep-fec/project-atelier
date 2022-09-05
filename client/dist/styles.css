@@ -745,6 +745,10 @@ a:hover {
   transition: 0.4s;
 }
 
+.sizeSelectorDropdown:focus {
+  display: block;
+}
+
 .styleOutOfStock {
   color: red;
   appearance: none;
