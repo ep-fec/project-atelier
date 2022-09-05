@@ -32,6 +32,10 @@ export default function StyleSelector({allStyles, selectedStyle, setSelectedStyl
     return array;
   }
 
+  let smallStyleThumbnail = null;
+  if (allStyles.length > 8) {
+    smallStyleThumbnail = 'smallStyleThumbnail';
+  }
   return (
     <div className='styleComponentContainer'>
       <div className='styleTextContainer'>
@@ -46,7 +50,7 @@ export default function StyleSelector({allStyles, selectedStyle, setSelectedStyl
 
             return (
               <div className='styleThumbnailAndCheckmark' key={index}>
-                <img className={`styleThumbnail ${showCheckmark}`}
+                <img className={`styleThumbnail ${showCheckmark} ${smallStyleThumbnail}`}
                   src={style.photos[0].thumbnail_url}
                   key={index}
                   onClick={handleStyleSelectClick}
