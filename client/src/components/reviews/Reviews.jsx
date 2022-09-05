@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import List from './components/List.jsx';
 import Review from './components/Review.jsx';
 import ProductBreakdown from './components/ProductBreakdown.jsx';
@@ -8,18 +8,18 @@ import axios from 'axios';
 
 const Reviews = (props) => {
 
-  let [allReviews, setAllReviews] = useState({results: []});
-  let [filteredReviews, setFilteredReviews] = useState({results: []});
-  let [filters, setFilter] = useState({1: false, 2: false, 3: false, 4: false, 5: false});
-  let [productMeta, setProductMeta] = useState({});
+  const isMounted = useRef(false);
+  const [getRatings, shouldGetRatings] = useState(true);
+  const [allReviews, setAllReviews] = useState({results: []});
+  const [filteredReviews, setFilteredReviews] = useState({results: []});
+  const [filters, setFilter] = useState({1: false, 2: false, 3: false, 4: false, 5: false});
+  const [productMeta, setProductMeta] = useState({});
+  const [sort, setSort] = useState('relevant');
+
 
   const getReviews = () => {
-    axios.get(`/reviews?product_id=${props.currentProduct.id}&count=1000&sort=newest`)
-      .then((res) => {
-        setAllReviews(res.data);
-        setFilteredReviews(res.data);
-        getMeta();
-      })
+    axios.get(`/reviews?product_id=${props.currentProduct.id}&count=20000&sort=${sort}`)
+      .then((res) => {setAllReviews(res.data)})
       .catch((err) => console.log(err));
   }
 
@@ -44,8 +44,23 @@ const Reviews = (props) => {
   }
 
   useEffect(() => {
-    if (props.currentProduct?.id) {
+    handleFilterChange();
+  }, [allReviews])
+
+  useEffect(() => {
+    shouldGetRatings(false);
+    if (isMounted.current) {
       getReviews();
+    } else {
+      isMounted.current = true;
+    }
+  }, [sort]);
+
+  useEffect(() => {
+    if (props.currentProduct?.id) {
+      shouldGetRatings(true);
+      getReviews();
+      getMeta();
     }
   }, [props.currentProduct]);
 
@@ -59,13 +74,13 @@ const Reviews = (props) => {
       <br/><br/>
 
       <section className="reviews leftcol">
-        <Ratings reviews={allReviews?.results} filters={filters} setFilter={setFilter}/>
+        <Ratings reviews={allReviews?.results} filters={filters} setFilter={setFilter} shouldRun={getRatings}/>
         <ProductBreakdown meta={productMeta}/>
       </section>
 
       <section className="reviews rightcol">
-        <Sort reviews={allReviews}/>
-        <List reviews={filteredReviews} filters={filters}/>
+        <Sort sort={sort} setSort={setSort} reviewsAmount={allReviews.results.length}/>
+        <List reviews={filteredReviews} filters={filters} sort={sort}/>
       </section>
     </section>
   )
