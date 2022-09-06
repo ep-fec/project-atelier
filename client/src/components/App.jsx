@@ -16,6 +16,9 @@ class App extends React.Component {
     };
 
     this.getInitialProduct = this.getInitialProduct.bind(this);
+    this.changeProduct = this.changeProduct.bind(this);
+    this.addToMyOutfit = this.addToMyOutfit.bind(this);
+    this.removeFromMyOutfit = this.removeFromMyOutfit.bind(this);
   }
 
   componentDidMount() {
@@ -37,29 +40,37 @@ class App extends React.Component {
   }
 
   getInitialProduct() {
-    axios.get('/products?page=3&count=1')
-    .then(response => {
-      console.log(response.data);
-      this.setState({
-        currentProduct: response.data[0],
-        productId: response.data[0].id
+    return axios.get('/products?page=3&count=1')
+      .then(response => {
+        this.setState({
+          currentProduct: response.data[0],
+          productId: response.data[0].id
+        });
+      })
+      .catch(error => {
+        console.log('Error getting initial product', error);
       });
-    })
-    .catch(error => {
-      console.log('Error getting initial product', error);
-    });
   };
 
   changeProduct(productId) {
     this.setState({productId});
   }
 
-  handleAdd() {
+  addToMyOutfit() {
     let outfit = this.state.outfit;
     if (!outfit.includes(this.state.productId)) {
       outfit.push(this.state.productId);
       this.setState({outfit: outfit});
     }
+  }
+
+  removeFromMyOutfit() {
+    let outfit = this.state.outfit;
+    let indexToRemove = outfit.indexOf(this.state.productId);
+    if (indexToRemove !== -1) {
+      outfit.splice(indexToRemove, 1);
+    }
+    this.setState({outfit: outfit});
   }
 
   render() {
@@ -68,11 +79,14 @@ class App extends React.Component {
         <Overview
           currentProduct={this.state.currentProduct}
           currentRating={this.state.currentRating}
+          outfit={this.state.outfit}
+          addToMyOutfit={this.addToMyOutfit}
+          removeFromMyOutfit={this.removeFromMyOutfit}
         />
         <Related
           currProduct={this.state.currentProduct}
-          changeProduct={this.changeProduct.bind(this)}
-          handleAdd={this.handleAdd.bind(this)}
+          changeProduct={this.changeProduct}
+          handleAdd={this.addToMyOutfit}
           outfit={this.state.outfit}
         />
         <Reviews currentProduct={this.state.currentProduct}/>
