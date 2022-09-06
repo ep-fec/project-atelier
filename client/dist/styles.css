@@ -256,7 +256,8 @@ Buttons
   border:none;
 }
 
-.reviews-modal-image-button {
+.reviews-modal-image-button,
+.reviews-modal-button {
   position: fixed;
   left: 50%;
   bottom: 20px;
@@ -535,11 +536,24 @@ RATINGS & REVIEWS
 Add New Review
 */
 
+.reviews-logo {
+  margin-bottom: 5px;
+}
+
+.new-review-product-name {
+  text-decoration: underline;
+}
+
 .new-review-header {
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
   margin: 0 auto;
   text-align: center;
+}
+
+.new-review-required {
+  color: var(--primary-color);
+  font-weight: 800;
 }
 
 .new-review-body {
@@ -547,12 +561,15 @@ Add New Review
   width: 80%;
 }
 
-.new-review-overall-rating {
-  font-weight: 800;
-  font-size: 16px;
+.new-review-body div{
+  margin: 10px 0 10px 0;
+
 }
 
-
+.new-review-category {
+  font-weight: 500;
+  font-size: 16px;
+}
 
 .new-review-stars span {
   /*below reverses texts (for hover coloring)*/
@@ -579,6 +596,19 @@ Add New Review
   position: absolute;
   color: var(--star-background);
 }
+
+.new-review-radio label {
+  margin-right: 5px;
+}
+
+.new-review-radio input {
+  margin-left:20px;
+}
+
+
+
+
+
 
 
 /*
