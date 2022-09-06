@@ -177,18 +177,14 @@ Individual Review
   width: 100px;
   height: 100px;
 }
-/*
-.reviews-modal {
-  position: fixed;
-  top:
-} */
+
 
 .ind-review-helpfulYes:hover,
 .ind-review-report:hover,
 .reviewsbutton:hover,
 .ind-review-showmore:hover,
 .review-thumbnail:hover,
-.reviews-modal-button:hover {
+.reviews-modal-image-button:hover {
   cursor: pointer;
 }
 
@@ -533,6 +529,11 @@ Sort Options
   width: 95%;
   border-color: #b5a9a934;
 }
+
+/*
+RATINGS & REVIEWS
+Add New Review
+*/
 
 
 
