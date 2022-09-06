@@ -12,9 +12,12 @@ const Image = ({photo, summary}) => {
       alt={summary}
       src={photo.url + '?tr=w-400,h-300,bl-30,q-50'}/>
 
-    <Modal open={showModal} close={() => setShowModal(false)}>
+    {showModal ?
+    <Modal open={showModal}>
       <img className="reviews modal-image" src={photo.url}/>
+      <button onClick={() => setShowModal(false)} className="reviews-modal-image-button">CLOSE</button>
     </Modal>
+    : null}
     </>
   )
 }
