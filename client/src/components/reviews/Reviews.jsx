@@ -15,11 +15,14 @@ const Reviews = (props) => {
   const [filters, setFilter] = useState({1: false, 2: false, 3: false, 4: false, 5: false});
   const [productMeta, setProductMeta] = useState({});
   const [sort, setSort] = useState('relevant');
+  const [productInfo, setProductInfo] = useState({});
 
 
   const getReviews = () => {
     axios.get(`/reviews?product_id=${props.currentProduct.id}&count=20000&sort=${sort}`)
-      .then((res) => {setAllReviews(res.data)})
+      .then((res) => setAllReviews(res.data))
+      .then(() => axios.get(`/products/${props.currentProduct.id}`))
+      .then((res) => setProductInfo(res.data))
       .catch((err) => console.log(err));
   }
 
@@ -70,7 +73,7 @@ const Reviews = (props) => {
 
   return (
     <section id="reviews-container">
-      <h2>RATINGS & REVIEWS </h2>
+      <h2 className="reviews-logo">RATINGS & REVIEWS </h2>
       <br/><br/>
 
       <section className="reviews leftcol">
@@ -80,7 +83,7 @@ const Reviews = (props) => {
 
       <section className="reviews rightcol">
         <Sort sort={sort} setSort={setSort} reviewsAmount={allReviews.results.length}/>
-        <List reviews={filteredReviews} filters={filters} sort={sort}/>
+        <List reviews={filteredReviews} filters={filters} sort={sort} productInfo={productInfo} productMeta={productMeta}/>
       </section>
     </section>
   )

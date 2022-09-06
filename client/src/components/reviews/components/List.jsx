@@ -28,7 +28,7 @@ const List = (props) => {
           </button>
           {showModal ?
             <Modal open={showModal}>
-              <NewReview />
+              <NewReview productInfo={props.productInfo} productMeta={props.productMeta}/>
               <button onClick={() => setShowModal(false)} className="reviews-modal-button">CLOSE</button>
             </Modal>
             : null}
@@ -59,7 +59,7 @@ const List = (props) => {
 
           {showModal ?
             <Modal open={showModal}>
-              <NewReview />
+              <NewReview productInfo={props.productInfo} productMeta={props.productMeta} />
               <button onClick={() => setShowModal(false)} className="reviews-modal-button">CLOSE</button>
             </Modal>
             : null}

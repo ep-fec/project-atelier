@@ -41,7 +41,7 @@ Widget Skeleton
   padding-bottom: 100px;
 }
 
-h2 {
+.reviews-logo {
   margin: 0;
   margin-top:15px;
   display: inline-block;
@@ -535,6 +535,50 @@ RATINGS & REVIEWS
 Add New Review
 */
 
+.new-review-header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.new-review-body {
+  margin:0 auto;
+  width: 80%;
+}
+
+.new-review-overall-rating {
+  font-weight: 800;
+  font-size: 16px;
+}
+
+
+
+.new-review-stars span {
+  /*below reverses texts (for hover coloring)*/
+  content:'☆';
+  unicode-bidi: bidi-override; 
+  direction: rtl;
+}
+
+.new-review-stars span:hover,
+.new-review-stars > span:hover ~ span {
+  color:transparent;
+}
+
+.new-review-stars span:hover:before,
+.new-review-stars span:hover ~ span:before {
+  content: '★';
+  position: absolute;
+  color: var(--star-background);
+  font-size: 14px;
+}
+
+.new-review-stars-selected:before {
+  content: '★';
+  position: absolute;
+  color: var(--star-background);
+}
 
 
 /*

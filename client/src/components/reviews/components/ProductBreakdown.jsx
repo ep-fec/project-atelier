@@ -14,10 +14,10 @@ const ProductBreakdown = ({meta}) => {
   return (
     <div className="reviews product-breakdown-container">
       {charsLoaded ?
-      Object.keys(meta?.characteristics).map((char) => {
+      Object.keys(meta?.characteristics).map((char, i) => {
         return (
           <div key={meta.characteristics[char].id}>
-            <Characteristic name={char} scale={meta.characteristics[char].value}/>
+            <Characteristic key={i} name={char} scale={meta.characteristics[char].value}/>
             <hr className="product-breakdown-divider"/>
           </div>
         )})
