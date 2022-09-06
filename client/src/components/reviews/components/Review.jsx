@@ -81,7 +81,7 @@ const Review = (props) => {
         {props.data.photos.length ?
         <section className="reviews images-section">
         {props.data.photos.map((photo) => (
-          <Image photo={photo} key={photo.id}/>
+          <Image photo={photo} summary={props.data.summary} key={photo.id}/>
         ))}
         </section> : null}
       </section>
