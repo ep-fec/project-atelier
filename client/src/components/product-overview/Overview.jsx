@@ -28,6 +28,7 @@ export default function Overview({
   const [selectedQuantity, setSelectedQuantity] = useState('-');
   const [outOfStock, setOutOfStock] = useState(false);
   const errorRef = useRef();
+  const [expand, setExpand] = useState(false);
 
   useEffect(() => {
     $('.overViewMainContainer').find('*').addClass('overview');
@@ -56,6 +57,16 @@ export default function Overview({
     });
   };
 
+  let hide = ''
+  const handleImageClick = () => {
+    setExpand(prevState => !prevState);
+    if (expand === true) {
+      hide = 'none';
+    } else {
+      hide = '';
+    }
+  }
+
   return (
     <div className='overViewMainContainer'>
       <div className='navbarContainer'>
@@ -69,11 +80,16 @@ export default function Overview({
       )}
 
       <div className='overViewContainer'>
-        <div className='imageGalleryContainer'>
+        <div className='imageGalleryContainer'
+          onClick={handleImageClick}
+          style={{flexBasis: expand ? '100%' : '70%'}}
+        >
           <ImageGallery selectedStyle={selectedStyle}/>
         </div>
 
-        <div className='productInfoContainer'>
+        <div className='productInfoContainer'
+          style={{display: expand ? 'none' : 'flex'}}
+        >
           <div className='ratingContainer'>
             <Rating currentRating={currentRating}/>
           </div>

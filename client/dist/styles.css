@@ -495,6 +495,7 @@ Product Breakdown
   display: flex;
   flex-direction: row;
   flex-basis: 70%;
+  transition: 0.4s;
 }
 
 .imageGalleryComponentContainer {
