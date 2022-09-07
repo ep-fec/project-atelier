@@ -499,17 +499,44 @@ Product Breakdown
 }
 
 .imageGalleryComponentContainer {
-  display: flex;
+  display: grid;
   height: 100%;
   width: 100%;
   padding: 0.5rem 0 0 0;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+}
+
+.background {
+  display: grid;
+  grid-area: 1/1/2/2;
+}
+
+.child {
+  grid-area: 1/1/2/2;
+  pointer-events: none;
+  display: grid;
+  flex-direction: row;
+  justify-content: space-between;
+  grid-template-columns: 15% 85%;
+}
+
+.thumbnailImagesContainer {
+  pointer-events: auto;
+}
+
+.arrows {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  pointer-events: none;
 }
 
 .mainImage {
   display: flex;
   flex-grow: 0;
   width: 100%;
-  height: 100%;;
+  height: 100%;
   max-height: 35rem;
   object-fit: contain;
   justify-content: center;
@@ -518,11 +545,20 @@ Product Breakdown
   transition: background-image 0.4s ease-in-out;
 }
 
+.galleryComponents {
+  display: grid;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 35rem;
+  position: absolute;
+  grid-template-columns: auto auto auto;
+  background-color: #de5246;
+}
+
 .thumbnailImagesContainer {
   display: flex;
   flex-direction: column;
   height: 100%;
-  align-items: center;
   padding: 0 0 0 0;
 }
 
@@ -588,12 +624,14 @@ Product Breakdown
 .mainPhotoForwardArrow {
   display: flex;
   grid-column: -1;
+  align-items: center;
 }
 
 .fa-angle-right {
   font-size: 2rem;
   padding: 0 1rem 0 0;
   color: #808080;
+  pointer-events: auto;
 }
 
 .fa-angle-right:hover {
@@ -604,12 +642,14 @@ Product Breakdown
 .mainPhotoBackArrow {
   display: flex;
   grid-column: 1;
+  align-items: center;
 }
 
 .fa-angle-left {
   font-size: 2rem;
   padding: 0 0 0 1rem;
   color: #808080;
+  pointer-events: auto;
 }
 
 .fa-angle-left:hover {

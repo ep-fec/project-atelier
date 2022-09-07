@@ -28,7 +28,8 @@ export default function Overview({
   const [selectedQuantity, setSelectedQuantity] = useState('-');
   const [outOfStock, setOutOfStock] = useState(false);
   const errorRef = useRef();
-  const [expand, setExpand] = useState(false);
+  const [expandView, setExpandView] = useState(false);
+  const [zoomView, setZoomView] = useState(false);
 
   useEffect(() => {
     $('.overViewMainContainer').find('*').addClass('overview');
@@ -57,15 +58,15 @@ export default function Overview({
     });
   };
 
-  let hide = ''
+  /* let hide = ''
   const handleImageClick = () => {
     setExpand(prevState => !prevState);
     if (expand === true) {
-      hide = 'none';
+      hide = 'productDescriptionContainer';
     } else {
       hide = '';
     }
-  }
+  } */
 
   return (
     <div className='overViewMainContainer'>
@@ -81,14 +82,20 @@ export default function Overview({
 
       <div className='overViewContainer'>
         <div className='imageGalleryContainer'
-          onClick={handleImageClick}
-          style={{flexBasis: expand ? '100%' : '70%'}}
-        >
-          <ImageGallery selectedStyle={selectedStyle}/>
+          style={{flexBasis: expandView ? '100%' : '70%'}}
+          >
+          <ImageGallery
+            selectedStyle={selectedStyle}
+            expandView={expandView}
+            setExpandView={setExpandView}
+          />
         </div>
 
         <div className='productInfoContainer'
-          style={{display: expand ? 'none' : 'flex'}}
+          style={{
+            display: expandView ? 'none' : 'flex',
+            height: expandView ? '45rem' : '35rem'
+          }}
         >
           <div className='ratingContainer'>
             <Rating currentRating={currentRating}/>
@@ -136,31 +143,57 @@ export default function Overview({
             </div>
           </div>
 
-          <div className='addToCartAndStarContainer'>
-            {(outOfStock === false) && (
-              <div className='addToCartContainer'>
-                <AddToCart
-                  selectedSize={selectedSize}
-                  selectedQuantity={selectedQuantity}
-                  errorRef={errorRef}
+          {!expandView && (
+            <div className={`addToCartAndStarContainer`}>
+              {(outOfStock === false) && (
+                <div className='addToCartContainer'>
+                  <AddToCart
+                    selectedSize={selectedSize}
+                    selectedQuantity={selectedQuantity}
+                    errorRef={errorRef}
+                    style={{display: 'block'}}
+                  />
+                </div>
+              )}
+
+              <div className='addToMyOutfitContainer'>
+                <AddToMyOutfit
+                  currentProductId={currentProduct.id}
+                  outfit={outfit}
+                  addToMyOutfit={addToMyOutfit}
+                  removeFromMyOutfit={removeFromMyOutfit}
                 />
               </div>
-            )}
-
-            <div className='addToMyOutfitContainer'>
-              <AddToMyOutfit
-                currentProductId={currentProduct.id}
-                outfit={outfit}
-                addToMyOutfit={addToMyOutfit}
-                removeFromMyOutfit={removeFromMyOutfit}
-              />
             </div>
-          </div>
+          )}
         </div>
       </div>
 
       {(currentProduct.slogan !== '' || currentProduct.description !== '') && (
         <div className='productDescriptionContainer'>
+          {expandView && (
+              <div className={`addToCartAndStarContainer`}>
+              {(outOfStock === false) && (
+                <div className='addToCartContainer'>
+                  <AddToCart
+                    selectedSize={selectedSize}
+                    selectedQuantity={selectedQuantity}
+                    errorRef={errorRef}
+                    style={{display: 'block'}}
+                  />
+                </div>
+              )}
+
+              <div className='addToMyOutfitContainer'>
+                <AddToMyOutfit
+                  currentProductId={currentProduct.id}
+                  outfit={outfit}
+                  addToMyOutfit={addToMyOutfit}
+                  removeFromMyOutfit={removeFromMyOutfit}
+                />
+              </div>
+            </div>
+          )}
           <ProductDescription
             slogan={currentProduct.slogan}
             description={currentProduct.description}
