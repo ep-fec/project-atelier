@@ -8,8 +8,6 @@ export default function SizeSelector({
   setOutOfStock,
   selectRef
 }) {
-  let optionsArray = [];
-  const [options, setOptions] = useState([]);
 
   useEffect(() => {
     if (selectedStyle.skus !== undefined) {
@@ -18,31 +16,33 @@ export default function SizeSelector({
       } else {
         setOutOfStock(false);
       }
-
-      Object.keys(selectedStyle.skus).map((key, index) => {
-        optionsArray.push({
-          value: selectedStyle.skus[key].size,
-          label: selectedStyle.skus[key].size
-        });
-      })
-      setOptions(optionsArray);
     }
   }, [selectedStyle])
 
-  const handleSizeSelectClick = (selectedValue) => {
-    setSelectedSize(selectedValue.value);
+  const handleSizeSelectClick = (e) => {
+    setSelectedSize(e.target.value);
   }
 
   return (
     <>
     {(outOfStock === false) && (
-      <Select className='buttonsAndDropdowns sizeSelectorDropdown'
-        ref={selectRef}
-        openMenuOnFocus={true}
+      <select className='buttonsAndDropdowns sizeSelectorDropdown'
+        defaultValue='SELECT SIZE'
         onChange={handleSizeSelectClick}
-        options={options}
-        placeholder='SELECT SIZE'
-      />
+      >
+        <option disabled> SELECT SIZE </option>
+        {
+          selectedStyle.skus !== undefined && (
+            Object.keys(selectedStyle.skus).map((key, index) => (
+              <option key={index}
+                value={selectedStyle.skus[key].size}
+              >
+                {selectedStyle.skus[key].size}
+              </option>
+            ))
+          )
+        }
+      </select>
     )}
 
     {(outOfStock === true) && (
