@@ -928,6 +928,28 @@ a:hover {
   padding-bottom: 1rem;
 }
 
+.errorMsgContainer {
+  position: relative;
+  bottom: 45%;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.errorMsgContainer .errorMsg {
+  visibility: hidden;
+  width: 120px;
+  background-color: var(--primary-color);
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+
+.errorMsgContainer:focus .errorMsg {
+  visibility: visible;
+}
 /* ========== OVERVIEW END ========== */
 
 /* ======== RELATED PRODUCTS ======== */

@@ -1,10 +1,14 @@
 import React from 'react';
 import $ from 'jquery';
 
-export default function AddToCart({selectedSize, selectedQuantity, selectRef}) {
+export default function AddToCart({
+  selectedSize,
+  selectedQuantity,
+  errorRef}) {
+
   const handleAddToCartButtonClick = () => {
     if (selectedSize === '') {
-      selectRef.current.focus();
+      errorRef.current.focus();
     }
   }
 

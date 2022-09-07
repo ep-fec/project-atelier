@@ -27,7 +27,7 @@ export default function Overview({
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedQuantity, setSelectedQuantity] = useState('-');
   const [outOfStock, setOutOfStock] = useState(false);
-  const selectRef = useRef();
+  const errorRef = useRef();
 
   useEffect(() => {
     $('.overViewMainContainer').find('*').addClass('overview');
@@ -104,7 +104,7 @@ export default function Overview({
                 setSelectedSize={setSelectedSize}
                 outOfStock={outOfStock}
                 setOutOfStock={setOutOfStock}
-                selectRef={selectRef}
+                errorRef={errorRef}
               />
             </div>
 
@@ -126,7 +126,7 @@ export default function Overview({
                 <AddToCart
                   selectedSize={selectedSize}
                   selectedQuantity={selectedQuantity}
-                  selectRef={selectRef}
+                  errorRef={errorRef}
                 />
               </div>
             )}

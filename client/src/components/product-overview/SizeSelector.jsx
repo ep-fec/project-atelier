@@ -6,7 +6,7 @@ export default function SizeSelector({
   setSelectedSize,
   outOfStock,
   setOutOfStock,
-  selectRef
+  errorRef
 }) {
 
   useEffect(() => {
@@ -25,11 +25,14 @@ export default function SizeSelector({
 
   return (
     <>
+<div ref={errorRef} tabIndex="1" class="errorMsgContainer">
+  <span class="errorMsg"> Please select size </span>
+</div>
+
     {(outOfStock === false) && (
       <select className='buttonsAndDropdowns sizeSelectorDropdown'
         defaultValue='SELECT SIZE'
         onChange={handleSizeSelectClick}
-        ref={selectRef}
       >
         <option disabled> SELECT SIZE </option>
         {
