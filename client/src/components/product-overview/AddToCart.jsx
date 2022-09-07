@@ -1,11 +1,19 @@
 import React from 'react';
+import $ from 'jquery';
 
-export default function AddToCart() {
-  const classes = 'buttonsAndDropdowns addToCartButton'
+export default function AddToCart({selectedSize, selectedQuantity, selectRef}) {
+  const handleAddToCartButtonClick = () => {
+    if (selectedSize === '') {
+      selectRef.current.focus();
+    }
+  }
+
   return (
-      <button className={classes}>
-        <div> ADD TO CART </div>
-        <div> + </div>
-      </button>
+    <button className='buttonsAndDropdowns addToCartButton'
+      onClick={handleAddToCartButtonClick}
+    >
+      <div> ADD TO CART </div>
+      <div> + </div>
+    </button>
   )
 }

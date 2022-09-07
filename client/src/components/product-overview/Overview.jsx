@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import axios from 'axios';
 import $ from 'jquery';
 import Navbar from './Navbar.jsx';
@@ -26,6 +26,8 @@ export default function Overview({
   const [selectedStyle, setSelectedStyle] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedQuantity, setSelectedQuantity] = useState('-');
+  const [outOfStock, setOutOfStock] = useState(false);
+  const selectRef = useRef();
 
   useEffect(() => {
     $('.overViewMainContainer').find('*').addClass('overview');
@@ -100,23 +102,34 @@ export default function Overview({
               <SizeSelector
                 selectedStyle={selectedStyle}
                 setSelectedSize={setSelectedSize}
+                outOfStock={outOfStock}
+                setOutOfStock={setOutOfStock}
+                selectRef={selectRef}
               />
             </div>
 
             <div className='quantitySelectorContainer'>
-              <QuantitySelector
-                selectedStyle={selectedStyle}
-                selectedSize={selectedSize}
-                selectedQuantity={selectedQuantity}
-                setSelectedQuantity={setSelectedQuantity}
-              />
+              {(outOfStock === false) && (
+                <QuantitySelector
+                  selectedStyle={selectedStyle}
+                  selectedSize={selectedSize}
+                  selectedQuantity={selectedQuantity}
+                  setSelectedQuantity={setSelectedQuantity}
+                />
+              )}
             </div>
           </div>
 
           <div className='addToCartAndStarContainer'>
-            <div className='addToCartContainer'>
-              <AddToCart />
-            </div>
+            {(outOfStock === false) && (
+              <div className='addToCartContainer'>
+                <AddToCart
+                  selectedSize={selectedSize}
+                  selectedQuantity={selectedQuantity}
+                  selectRef={selectRef}
+                />
+              </div>
+            )}
 
             <div className='addToMyOutfitContainer'>
               <AddToMyOutfit

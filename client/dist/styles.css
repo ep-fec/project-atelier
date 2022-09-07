@@ -555,6 +555,10 @@ Product Breakdown
   height: 4vw;
   max-width: 4.5rem;
   max-height: 4.5rem;
+  object-fit: fill;
+  overflow: hidden;
+  font-size: 0.75rem;
+  cursor: pointer;
 }
 
 .thumbnailUpArrow {
@@ -562,6 +566,7 @@ Product Breakdown
   height: 25px;
   width: 25px;
   justify-content: center;
+  cursor: pointer;
 }
 
 .thumbnailDownArrow {
@@ -569,12 +574,14 @@ Product Breakdown
   height: 25px;
   width: 25px;
   justify-content: center;
+  cursor: pointer;
 }
 
 .forwardBackArrows {
   display: grid;
   width: 100%;
   grid-template-columns: 1fr 1fr;
+  cursor: pointer;
 }
 
 .mainPhotoForwardArrow {
@@ -748,6 +755,10 @@ a:hover {
   max-width: 4rem;
   max-height: 4rem;
   border-radius: 50%;
+  object-fit: fill;
+  overflow: hidden;
+  font-size: 0.75rem;
+  cursor: pointer;
 }
 
 .smallStyleThumbnail {
@@ -814,6 +825,17 @@ a:hover {
   border: 2px solid #ED1C24;
   color: #ED1C24;
   transition: 0.4s;
+}
+
+.sizeSelectorDropdown:focus {
+  display: block;
+}
+
+.styleOutOfStock {
+  color: red;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
 .quantitySelectorContainer {
