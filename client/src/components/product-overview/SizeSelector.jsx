@@ -29,6 +29,7 @@ export default function SizeSelector({
       <select className='buttonsAndDropdowns sizeSelectorDropdown'
         defaultValue='SELECT SIZE'
         onChange={handleSizeSelectClick}
+        ref={selectRef}
       >
         <option disabled> SELECT SIZE </option>
         {
