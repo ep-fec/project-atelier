@@ -12,7 +12,6 @@ const List = (props) => {
     if (reviewLimit === 4) {
       setMaxHeight('750px');
     }
-
   }, [reviewLimit])
 
   return (

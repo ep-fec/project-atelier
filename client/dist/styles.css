@@ -110,7 +110,7 @@ Individual Review
 }
 .stars::before {
   content: "★★★★★";
-  letter-spacing: -1px;
+  letter-spacing: -2px;
   background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -307,7 +307,9 @@ Rating Breakdown
   text-align: right;
 }
 
-.recommend-product {
+.recommend-product,
+.shown-ratings,
+.remove-filters {
   font-size:12px;
   color: rgb(61, 59, 59);
 }
@@ -348,7 +350,6 @@ Rating Breakdown
   color: var(--bar-color-empty);
 }
 
-
 .rating-bar {
   width: var(--rating-bar-size);
   height: 13px;
@@ -358,13 +359,90 @@ Rating Breakdown
 .rating-breakdown:hover
 .rating-bar-container
 .rating-bar {
-  filter: hue-rotate(180deg);
+  filter: hue-rotate(150deg);
   cursor:pointer;
 }
 
 .rating-breakdown:hover {
   cursor:pointer;
   text-decoration: underline;
+}
+
+.rating-breakdown:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.remove-filters {
+  text-decoration: underline;
+  text-align: center;
+}
+.remove-filters:hover {
+  cursor:pointer;
+}
+
+/*
+RATINGS & REVIEWS
+Product Breakdown
+*/
+* {
+  --char-arrow-pos: 50%;
+}
+.product-breakdown-container {
+  width: 90%;
+  font-size:12px;
+  color: rgb(61, 59, 59);
+}
+
+.product-breakdown {
+  width: 100%;
+  margin: 0;
+  position: relative;
+}
+
+.product-breakdown-leftcol,
+.product-breakdown-midcol,
+.product-breakdown-rightcol {
+  float:left;
+  width: 33.33%;
+  margin-top: 10px;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.product-breakdown-bar {
+  width:98%;
+  background-color: #cbcbcb;
+  border-radius: 50px;
+  height:8px;
+}
+
+.product-breakdown:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.product-breakdown-arrowcont {
+  position:relative;
+  display:block;
+  max-width:97%;
+}
+.product-breakdown-arrow {
+  position:absolute;
+  border: solid rgb(61, 59, 59);
+  border-width: 0 3px 3px 0;
+  display:block;
+  padding: 2px;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  top:6px;
+  left:var(--char-arrow-pos);
+}
+
+.product-breakdown-chardesc {
+  margin: 0 auto;
+  text-align: center;
 }
 
 /* ========== OVERVIEW START ========== */
@@ -601,7 +679,7 @@ a:hover {
 
 .priceContainer {
   display: flex;
-  height: 1rem;
+  height: 2rem;
   align-items: center;
   font-size: 1.25rem;
 }
@@ -611,7 +689,7 @@ a:hover {
 }
 
 .salePrice {
-  color: red;
+  color: var(--primary-color);
   padding-right: 0.5rem;
   font-weight: bold;
 }
@@ -652,16 +730,14 @@ a:hover {
 .styleThumbnailsGrid {
   display: inline-grid;
   grid-gap: 0.5rem;
-  grid-template-columns: auto auto auto auto;
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat(4, 4rem);
 }
 
 .styleThumbnailAndCheckmark {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
 }
-
 
 .styleThumbnail {
   display: flex;
@@ -674,8 +750,13 @@ a:hover {
   border-radius: 50%;
 }
 
+.smallStyleThumbnail {
+  max-width: 3rem;
+  max-height: 3rem;
+}
+
 .styleThumbnailCheckmark {
-  border: 2px red solid;
+  border: 2px var(--primary-color) solid;
 }
 
 .fas {
@@ -684,7 +765,7 @@ a:hover {
 }
 
 .fa-check-circle {
-  color: red;
+  color: var(--primary-color);
   position: relative;
   display: flex;
   height: 0;
@@ -768,12 +849,6 @@ a:hover {
   margin: 0 1rem 0 0;
 }
 
-.starContainer {
-  display: flex;
-  flex-basis: 20%;
-  justify-content: right;
-}
-
 .addToCartButton {
   display: flex;
   flex-direction: row;
@@ -790,9 +865,30 @@ a:hover {
   color: #ED1C24;
 }
 
-.starButton {
+.addToMyOutfitContainer {
+  display: flex;
+  flex-basis: 20%;
+  justify-content: right;
+}
+
+.favoriteButton {
   display: flex;
   flex-grow: 1;
+  justify-content: center;
+}
+
+.favoriteButton:hover {
+  border: 2px var(--primary-color) solid;
+  color: var(--primary-color);
+  transition: 0.4s;
+}
+
+.fa-heart {
+  font-size: 1.5rem;
+}
+
+.fa-solid.fa-heart {
+  color: var(--primary-color);
 }
 
 .productDescriptionContainer {
