@@ -95,7 +95,7 @@ const NewReview = ({productInfo, productMeta}) => {
                 photos: previewSources,
                 characteristics
             })
-            .then((res) => console.log(res))
+            .then((res) => setPosted(true))
             .catch((err) => {
                 if (err.message?.includes('Unsupported')) {
                     setImageError(true);

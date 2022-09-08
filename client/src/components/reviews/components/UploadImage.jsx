@@ -11,10 +11,6 @@ const UploadImage = ( {previewSources, setPreviewSources} ) => {
     };
   };
 
-  // const handleRemove = (i) => {
-  //   let images = previewSources.slice().splice(i, 1);
-  //   setPreviewSources(images);
-  // };
 
   return (
     <div className="new-review-upload-images">
