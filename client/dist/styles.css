@@ -44,7 +44,7 @@ Widget Skeleton
 .reviews-logo {
   /* margin: 0 auto; */
   margin-top:15px;
-  display: block;
+  display: inline-block;
   text-align: center;
   color:
   var(--primary-color);
