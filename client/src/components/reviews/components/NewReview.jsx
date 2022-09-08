@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 
 const NewReview = ({productInfo, productMeta}) => {
@@ -13,19 +13,30 @@ const NewReview = ({productInfo, productMeta}) => {
         Fit: ['Runs tight', 'Runs slightly tight', 'Perfect', 'Runs slightly long', 'Runs long'],
     }
 
+    const form = useRef(null);
+
     const [selected, setSelected] = useState({1:false, 2:false, 3:false, 4:false, 5:false});
     const [productChars, setChars] = useState([]);
     const [rating, setRating] = useState(0);
     const [summary, setSummary] = useState('');
     const [body, setBody] = useState('');
-    const [recommend, setRecommend] = useState(false);
+    const [recommend, setRecommend] = useState(null);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [characteristics, setCharacteristics] = useState({});
+    const [posted, setPosted] = useState(false);
 
     useEffect(() => {
-        setChars(Object.keys(productMeta?.characteristics));
-    }, [productMeta])
+        setChars(Object.keys(productMeta?.characteristics).map((char) => {
+            return ([char, productMeta.characteristics[char].id])
+        }));
+    }, [productMeta]);
+
+    useEffect(() => {
+        if (productChars.length) {
+            productChars.forEach(char => setCharacteristics(characteristics => ({...characteristics, [char[1]]: null})));
+        }
+    }, [productChars]);
 
     const handleStarClick = (star) => {
         star === 1 ? setSelected({1: true, 2: false, 3: false, 4: false, 5: false })
@@ -37,13 +48,32 @@ const NewReview = ({productInfo, productMeta}) => {
         setRating(star);
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (form.current.reportValidity()) {
+            axios.post('/reviews', {
+                product_id: productInfo.id,
+                rating,
+                summary,
+                body,
+                recommend,
+                name,
+                email,
+                characteristics
+            })
+            .then(() => setPosted(true))
+            .catch((err) => console.log(err));
+        }
+    }
+
     return (
         <div className="reviews new-review-component">
+            {!posted ? <>
             <div className="new-review-header">
                 <h1 className="reviews-logo">Write Your Review</h1>
                 <h3>About the <span className="new-review-product-name">{productInfo.name}</span></h3>
             </div>
-            <form className="new-review-body">
+            <form className="new-review-body" ref={form}>
                 <span className="new-review-category"><span className="new-review-required">* </span>Overall Rating: </span>
                 <span className="reviews new-review-stars" required>
                     <span className={selected[5] ? 'new-review-stars-selected' : null}
@@ -85,19 +115,41 @@ const NewReview = ({productInfo, productMeta}) => {
                         {productChars.length ? productChars.map((char, i) => {
                             return (
                             <div key={i} className="new-review-category new-review-char-section">
-                                <div className="new-review-char-title">{char}:
+                                <div className="new-review-char-title">{char[0]}:
                                 <span className="new-review-char-selection"> none selected </span>
                                 </div>
                                 <div className="new-review-char-radios">
-                                    <label className="char-radio"> {charsDefinition[char][0]}
-                                        <input type="radio" name={char} value="1" required/>
+                                    <label className="char-radio"> {charsDefinition[char[0]][0]}
+                                        <input
+                                            type="radio"
+                                            name={char[1]}
+                                            value="1"
+                                            onChange={(e) => setCharacteristics({...characteristics, [e.target.name]:Number(e.target.value)})}
+                                            required />
                                     </label>
-                                    <input type="radio" name={char} value="2" />
-                                    <input type="radio" name={char} value="3" />
-                                    <input type="radio" name={char} value="4" />
+                                    <input
+                                        type="radio"
+                                        name={char[1]}
+                                        onChange={(e) => setCharacteristics({...characteristics, [e.target.name]:Number(e.target.value)})}
+                                        value="2"
+                                         />
+                                    <input
+                                        type="radio"
+                                        name={char[1]}
+                                        onChange={(e) => setCharacteristics({...characteristics, [e.target.name]:Number(e.target.value)})}
+                                        value="3" />
+                                    <input
+                                        type="radio"
+                                        name={char[1]}
+                                        onChange={(e) => setCharacteristics({...characteristics, [e.target.name]:Number(e.target.value)})}
+                                        value="4" />
                                     <label className="char-radio">
-                                        <input type="radio" name={char} value="5" />
-                                        {charsDefinition[char][4]}
+                                        <input
+                                            type="radio"
+                                            name={char[1]}
+                                            onChange={(e) => setCharacteristics({...characteristics, [e.target.name]:Number(e.target.value)})}
+                                            value="5" />
+                                        {charsDefinition[char[0]][4]}
                                     </label><hr className="new-review-char-divider"/>
                                 </div>
                             </div>
@@ -114,6 +166,8 @@ const NewReview = ({productInfo, productMeta}) => {
                             placeholder="Example: Best purchase ever!"
                             size="40"
                             maxLength="60"
+                            value={summary}
+                            onChange={(e) => setSummary(e.target.value)}
                             required/>
                     </label>
                 </div>
@@ -127,6 +181,8 @@ const NewReview = ({productInfo, productMeta}) => {
                             placeholder="Why did you like the product or not?"
                             minLength="50"
                             maxLength="1000"
+                            value={body}
+                            onChange={(e) => setBody(e.target.value)}
                             required />
                     </label>
                 </div>
@@ -144,6 +200,8 @@ const NewReview = ({productInfo, productMeta}) => {
                             placeholder="Example: jackson11!"
                             size="40"
                             maxLength="60"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             required/>
                     </label>
                     <div className="nickdisclaimer">
@@ -160,6 +218,8 @@ const NewReview = ({productInfo, productMeta}) => {
                             placeholder="Example: jackson11@email.com"
                             size="40"
                             maxLength="60"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             required />
                     </label>
                     <div className="emaildisclaimer">
@@ -168,9 +228,12 @@ const NewReview = ({productInfo, productMeta}) => {
                 </div>
 
                 <div className="new-review-category new-review-submit">
-                    <button className="reviewsbutton">SUBMIT REVIEW</button>
+                    <button
+                    className="reviewsbutton"
+                    onClick={(e) => handleSubmit(e)}>SUBMIT REVIEW</button>
                 </div>
             </form>
+            </> : <h1 className="reviews-success-post">Thank you for submitting your review!</h1>}
         </div>
     );
 };
