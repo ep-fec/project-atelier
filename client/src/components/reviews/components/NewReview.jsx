@@ -4,19 +4,27 @@ import React, { useEffect, useState, useRef } from 'react';
 
 const NewReview = ({productInfo, productMeta}) => {
 
-    const charsDefinition = {
-        Size: ['A size too small', '½ a size too small', 'Perfect', '½ a size too big', 'A size too wide'],
-        Width: ['Too narrow', 'Slightly narrow', 'Perfect', 'Slightly wide', 'Too wide'],
-        Comfort: ['Uncomfortable', 'Slightly uncomfortable', 'Ok', 'Comfortable', 'Perfect'],
-        Quality: ['Poor', 'Below average', 'What I expected', 'Pretty great', 'Perfect'],
-        Length: ['Runs short', 'Runs slightly short', 'Perfect', 'Runs slightly long', 'Runs long'],
-        Fit: ['Runs tight', 'Runs slightly tight', 'Perfect', 'Runs slightly long', 'Runs long'],
-    }
-
     const form = useRef(null);
 
     const [selected, setSelected] = useState({1:false, 2:false, 3:false, 4:false, 5:false});
     const [productChars, setChars] = useState([]);
+    const [selectedChar, setSelectedChar] = useState({
+        Size: ['none selected', 'A size too small', '½ a size too small', 'Perfect', '½ a size too big', 'A size too wide'],
+        Width: ['none selected', 'Too narrow', 'Slightly narrow', 'Perfect', 'Slightly wide', 'Too wide'],
+        Comfort: ['none selected', 'Uncomfortable', 'Slightly uncomfortable', 'Ok', 'Comfortable', 'Perfect'],
+        Quality: ['none selected', 'Poor', 'Below average', 'What I expected', 'Pretty great', 'Perfect'],
+        Length: ['none selected', 'Runs short', 'Runs slightly short', 'Perfect', 'Runs slightly long', 'Runs long'],
+        Fit: ['none selected', 'Runs tight', 'Runs slightly tight', 'Perfect', 'Runs slightly long', 'Runs long'],
+    });
+    const [displayChar, setDisplayChar] = useState({
+        Size: 'none selected',
+        Width: 'none selected',
+        Comfort: 'none selected',
+        Quality: 'none selected',
+        Length: 'none selected',
+        Fit: 'none selected'
+    });
+
     const [rating, setRating] = useState(0);
     const [summary, setSummary] = useState('');
     const [body, setBody] = useState('');
@@ -46,6 +54,16 @@ const NewReview = ({productInfo, productMeta}) => {
         : star === 5 ? setSelected({ 1: true, 2: true, 3: true, 4: true, 5: true })
         : null;
         setRating(star);
+    };
+
+    const handleCharRating = (e, char) => {
+        console.log(char)
+        setDisplayChar({ ...displayChar, [char]: selectedChar[char][e.target.value]});
+        setCharacteristics({ ...characteristics, [e.target.name]: Number(e.target.value) });
+    }
+
+    const handleUpload = (files) => {
+        console.log(files)
     };
 
     const handleSubmit = (e) => {
@@ -116,40 +134,40 @@ const NewReview = ({productInfo, productMeta}) => {
                             return (
                             <div key={i} className="new-review-category new-review-char-section">
                                 <div className="new-review-char-title">{char[0]}:
-                                <span className="new-review-char-selection"> none selected </span>
+                                <span className="new-review-char-selection"> {displayChar[char[0]]}</span>
                                 </div>
                                 <div className="new-review-char-radios">
-                                    <label className="char-radio"> {charsDefinition[char[0]][0]}
+                                    <label className="char-radio"> {selectedChar[char[0]][1]}
                                         <input
                                             type="radio"
                                             name={char[1]}
                                             value="1"
-                                            onChange={(e) => setCharacteristics({...characteristics, [e.target.name]:Number(e.target.value)})}
+                                            onChange={(e) => handleCharRating(e, char[0])}
                                             required />
                                     </label>
                                     <input
                                         type="radio"
                                         name={char[1]}
-                                        onChange={(e) => setCharacteristics({...characteristics, [e.target.name]:Number(e.target.value)})}
+                                        onChange={(e) => handleCharRating(e, char[0])}
                                         value="2"
                                          />
                                     <input
                                         type="radio"
                                         name={char[1]}
-                                        onChange={(e) => setCharacteristics({...characteristics, [e.target.name]:Number(e.target.value)})}
+                                        onChange={(e) => handleCharRating(e, char[0])}
                                         value="3" />
                                     <input
                                         type="radio"
                                         name={char[1]}
-                                        onChange={(e) => setCharacteristics({...characteristics, [e.target.name]:Number(e.target.value)})}
+                                        onChange={(e) => handleCharRating(e, char[0])}
                                         value="4" />
                                     <label className="char-radio">
                                         <input
                                             type="radio"
                                             name={char[1]}
-                                            onChange={(e) => setCharacteristics({...characteristics, [e.target.name]:Number(e.target.value)})}
+                                            onChange={(e) => handleCharRating(e, char[0])}
                                             value="5" />
-                                        {charsDefinition[char[0]][4]}
+                                        {selectedChar[char[0]][5]}
                                     </label><hr className="new-review-char-divider"/>
                                 </div>
                             </div>
@@ -188,7 +206,11 @@ const NewReview = ({productInfo, productMeta}) => {
                 </div>
 
                 <div className="new-review-upload-images">
-                    <button className="reviewsbutton">UPLOAD IMAGES</button>
+                    {/* <button className="reviewsbutton">UPLOAD IMAGES</button> */}
+                    <input
+                        type="file"
+                        onChange={(e) => handleUpload(e.target.files)}
+                        />
                 </div>
 
                 <div className="new-review-category new-review-nickname">

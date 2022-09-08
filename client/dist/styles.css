@@ -637,8 +637,8 @@ Add New Review
 
 .new-review-char-selection {
   font-size: 12px;
-  color: rgba(42, 42, 42, 0.703);
-  font-weight: 700;
+  color:#282525;
+  font-weight: 500;
 }
 
 .new-review-text-form {
