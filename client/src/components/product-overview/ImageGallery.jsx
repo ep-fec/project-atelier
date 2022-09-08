@@ -33,12 +33,6 @@ export default function ImageGallery({
         setShowBackArrow(true);
         setShowUpdArrow(true);
       }
-
-      /* if (selectedStyle.photos.length > 7) {
-        setShowDownArrow(true);
-      } else {
-        setShowDownArrow(false);
-      } */
     }
   }, [selectedStyle, mainPhotoIndex, showForwardArrow, showBackArrow])
 
@@ -71,46 +65,26 @@ export default function ImageGallery({
   }
 
   const handleMainImageClick = () => {
-    setExpandView(true);
-    console.log('main image clicked');
+    setExpandView(prevState => !prevState);
   }
 
   return (
     <div className='imageGalleryComponentContainer'>
-{/*       {selectedStyle !== '' && (
-        <>
-          <div className='background'
-            onClick={handleMainImageClick}
-            style={{
-            backgroundImage: `url(${mainPhoto})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'contain',
-            backgroundPosition: 'center'
-          }}
-          ></div>
-
-          <div className='child'>
-            CHILD
-            <div className='hello'> HELLO </div>
-            <div className='hell'> GO TO HELL </div>
-            <div className='blah'> BLAH </div>
-          </div>
-        </>
-      )} */}
-
       {selectedStyle !== '' && (
         <>
-          <div className='background'
+          <div className='mainImage'
             onClick={handleMainImageClick}
             style={{
-            backgroundImage: `url(${mainPhoto})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'contain',
-            backgroundPosition: 'center'
+              backgroundImage: `url(${mainPhoto})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              cursor: expandView ? '' : 'zoom-in',
+              maxHeight: expandView ? '50rem' : '35rem',
           }}
           ></div>
 
-          <div className='child'>
+          <div className='thumbnailComponentContainer'>
             <div className='thumbnailImagesContainer'>
                 {showUpArrow && (
                   <div className='thumbnailUpArrow'
@@ -138,105 +112,31 @@ export default function ImageGallery({
                   <div className='thumbnailDownArrow'
                     onClick={handleDownArrowClick}
                   >
-                      <i className="fa-solid fa-angle-down"></i>
+                    <i className="fa-solid fa-angle-down"></i>
                   </div>
                 )}
             </div>
 
-            <div className='arrows'>
-                {showBackArrow && (
-                  <div className='mainPhotoBackArrow'
-                    onClick={handleMainPhotoBackClick}
-                  >
-                    <i className="fa-solid fa-angle-left"></i>
-                  </div>
-                )}
+            <div className='forwardBackArrows'>
+              {showBackArrow && (
+                <div className='mainPhotoBackArrow'
+                  onClick={handleMainPhotoBackClick}
+                >
+                  <i className="fa-solid fa-angle-left"></i>
+                </div>
+              )}
 
-                {showForwardArrow && (
-                  <div className='mainPhotoForwardArrow'
-                    onClick={handleMainPhotoForwardClick}
-                  >
-                    <i className="fa-solid fa-angle-right"></i>
-                  </div>
-                )}
-
-
+              {showForwardArrow && (
+                <div className='mainPhotoForwardArrow'
+                  onClick={handleMainPhotoForwardClick}
+                >
+                  <i className="fa-solid fa-angle-right"></i>
+                </div>
+              )}
             </div>
           </div>
         </>
       )}
-
-
-
-     {/*  {selectedStyle !== '' &&
-        <>
-          <div className='mainImage'
-              onClick={handleMainImageClick}
-              style={{
-              backgroundImage: `url(${mainPhoto})`,
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'contain',
-              backgroundPosition: 'center',
-            }}
-          ></div>
-
-          <div className='galleryComponents'>
-            <div className='gridgrid'>
-              <div className='thumbnailImagesContainer'>
-                {showUpArrow && (
-                  <div className='thumbnailUpArrow'
-                    onClick={handleUpArrowClick}
-                  >
-                    <i className="fa-solid fa-angle-up"></i>
-                  </div>
-                )}
-
-                <ol className='thumbnailListContainer'>
-                  {selectedStyle.photos.map((photo, index) => (
-                    <li className='thumbnailListItems' key={index}>
-                      <img className='thumbnailImages'
-                        src={photo.thumbnail_url}
-                        key={index}
-                        onClick={handleThumbnailPhotoClick}
-                        id={index}
-                        alt='Image cannot be loaded'
-                      />
-                    </li>
-                  ))}
-                </ol>
-
-                {showDownArrow && (
-                  <div className='thumbnailDownArrow'
-                    onClick={handleDownArrowClick}
-                  >
-                      <i className="fa-solid fa-angle-down"></i>
-                  </div>
-                )}
-              </div>
-
-              <div className='forwardBackArrows'>
-                {showBackArrow && (
-                  <div className='mainPhotoBackArrow'
-                    onClick={handleMainPhotoBackClick}
-                  >
-                    <i className="fa-solid fa-angle-left"></i>
-                  </div>
-                )}
-
-                {showForwardArrow && (
-                  <div className='mainPhotoForwardArrow'
-                    onClick={handleMainPhotoForwardClick}
-                  >
-                    <i className="fa-solid fa-angle-right"></i>
-                  </div>
-                )}
-
-
-</div>
-            </div>
-          </div>
-        </>
-      } */}
     </div>
   )
 }

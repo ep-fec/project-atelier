@@ -58,92 +58,97 @@ export default function Overview({
     });
   };
 
-  /* let hide = ''
-  const handleImageClick = () => {
-    setExpand(prevState => !prevState);
-    if (expand === true) {
-      hide = 'productDescriptionContainer';
-    } else {
-      hide = '';
-    }
-  } */
-
   return (
     <div className='overViewMainContainer'>
-      <div className='navbarContainer'>
-        <Navbar />
-      </div>
-
-      {announcementNumber >= 1 && (
-        <div className='announcementContainer'>
-          <Announcement />
-        </div>
-      )}
-
-      <div className='overViewContainer'>
-        <div className='imageGalleryContainer'
-          style={{flexBasis: expandView ? '100%' : '70%'}}
-          >
-          <ImageGallery
-            selectedStyle={selectedStyle}
-            expandView={expandView}
-            setExpandView={setExpandView}
-          />
+      <div className='galleryAndProductInfoContainer'
+        style={{
+          height: expandView ? '65rem' : '40rem',
+          transition: '0.4s'
+        }}
+      >
+        <div className='navbarContainer'>
+          <Navbar />
         </div>
 
-        <div className='productInfoContainer'
+        {announcementNumber >= 1 && (
+          <div className='announcementContainer'>
+            <Announcement />
+          </div>
+        )}
+
+        <div className='overViewContainer'
           style={{
-            display: expandView ? 'none' : 'flex',
-            height: expandView ? '45rem' : '35rem'
+            display: expandView ? 'grid' : 'flex',
+            gridTemplateRows: expandView ? 'auto auto' : ''
           }}
+
         >
-          <div className='ratingContainer'>
-            <Rating currentRating={currentRating}/>
-          </div>
-
-          <div className='categoryAndTitleContainer'>
-            <CategoryAndTitle
-              category={currentProduct.category}
-              title={currentProduct.name}
-            />
-          </div>
-
-          <div className='priceContainer'>
-            <Price selectedStyle={selectedStyle}/>
-          </div>
-
-          <div className='styleSelectorContainer'>
-            <StyleSelector
-              allStyles={allStyles}
+          <div className='imageGalleryContainer'
+            style={{flexBasis: expandView ? '100%' : '70%'}}
+          >
+            <ImageGallery
               selectedStyle={selectedStyle}
-              setSelectedStyle={setSelectedStyle}
+              expandView={expandView}
+              setExpandView={setExpandView}
             />
           </div>
 
-          <div className='sizeAndQuantityContainer'>
-            <div className='sizeSelectorContainer'>
-              <SizeSelector
+          <div className='productInfoContainer'
+            style={{
+              height: expandView ? '25rem' : '35rem',
+              padding: expandView ? '0' : '1rem 0 0 1rem',
+            }}
+          >
+            {!expandView && (
+              <>
+                <div className='ratingContainer'>
+                  <Rating currentRating={currentRating}/>
+                </div>
+
+                <div className='categoryAndTitleContainer'>
+                  <CategoryAndTitle
+                    category={currentProduct.category}
+                    title={currentProduct.name}
+                  />
+                </div>
+
+                <div className='priceContainer'>
+                  <Price selectedStyle={selectedStyle}/>
+                </div>
+              </>
+            )}
+
+            <div className='styleSelectorContainer'>
+              <StyleSelector
+                allStyles={allStyles}
                 selectedStyle={selectedStyle}
-                setSelectedSize={setSelectedSize}
-                outOfStock={outOfStock}
-                setOutOfStock={setOutOfStock}
-                errorRef={errorRef}
+                setSelectedStyle={setSelectedStyle}
               />
             </div>
 
-            <div className='quantitySelectorContainer'>
-              {(outOfStock === false) && (
-                <QuantitySelector
+            <div className='sizeAndQuantityContainer'>
+              <div className='sizeSelectorContainer'>
+                <SizeSelector
                   selectedStyle={selectedStyle}
-                  selectedSize={selectedSize}
-                  selectedQuantity={selectedQuantity}
-                  setSelectedQuantity={setSelectedQuantity}
+                  setSelectedSize={setSelectedSize}
+                  outOfStock={outOfStock}
+                  setOutOfStock={setOutOfStock}
+                  errorRef={errorRef}
                 />
-              )}
-            </div>
-          </div>
+              </div>
 
-          {!expandView && (
+              <div className='quantitySelectorContainer'>
+                {(outOfStock === false) && (
+                  <QuantitySelector
+                    selectedStyle={selectedStyle}
+                    selectedSize={selectedSize}
+                    selectedQuantity={selectedQuantity}
+                    setSelectedQuantity={setSelectedQuantity}
+                  />
+                )}
+              </div>
+            </div>
+
             <div className={`addToCartAndStarContainer`}>
               {(outOfStock === false) && (
                 <div className='addToCartContainer'>
@@ -151,7 +156,6 @@ export default function Overview({
                     selectedSize={selectedSize}
                     selectedQuantity={selectedQuantity}
                     errorRef={errorRef}
-                    style={{display: 'block'}}
                   />
                 </div>
               )}
@@ -165,42 +169,19 @@ export default function Overview({
                 />
               </div>
             </div>
-          )}
+
+          </div>
         </div>
       </div>
 
       {(currentProduct.slogan !== '' || currentProduct.description !== '') && (
         <div className='productDescriptionContainer'>
-          {expandView && (
-              <div className={`addToCartAndStarContainer`}>
-              {(outOfStock === false) && (
-                <div className='addToCartContainer'>
-                  <AddToCart
-                    selectedSize={selectedSize}
-                    selectedQuantity={selectedQuantity}
-                    errorRef={errorRef}
-                    style={{display: 'block'}}
-                  />
-                </div>
-              )}
-
-              <div className='addToMyOutfitContainer'>
-                <AddToMyOutfit
-                  currentProductId={currentProduct.id}
-                  outfit={outfit}
-                  addToMyOutfit={addToMyOutfit}
-                  removeFromMyOutfit={removeFromMyOutfit}
-                />
-              </div>
-            </div>
-          )}
           <ProductDescription
             slogan={currentProduct.slogan}
             description={currentProduct.description}
           />
         </div>
       )}
-
     </div>
   );
 };
