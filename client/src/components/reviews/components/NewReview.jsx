@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState, useRef } from 'react';
+import UploadImage from './UploadImage.jsx';
 
 
 const NewReview = ({productInfo, productMeta}) => {
 
     const form = useRef(null);
+    const reviewBody = useRef(null);
 
     const [selected, setSelected] = useState({1:false, 2:false, 3:false, 4:false, 5:false});
     const [productChars, setChars] = useState([]);
@@ -25,6 +27,7 @@ const NewReview = ({productInfo, productMeta}) => {
         Fit: 'none selected'
     });
 
+    const [previewSources, setPreviewSources] = useState([]);
     const [rating, setRating] = useState(0);
     const [summary, setSummary] = useState('');
     const [body, setBody] = useState('');
@@ -33,6 +36,10 @@ const NewReview = ({productInfo, productMeta}) => {
     const [email, setEmail] = useState('');
     const [characteristics, setCharacteristics] = useState({});
     const [posted, setPosted] = useState(false);
+
+    const [ratingError, setRatingError] = useState(false);
+    const [bodyError, setBodyError] = useState(false);
+    const [imageError, setImageError] = useState(false);
 
     useEffect(() => {
         setChars(Object.keys(productMeta?.characteristics).map((char) => {
@@ -57,19 +64,27 @@ const NewReview = ({productInfo, productMeta}) => {
     };
 
     const handleCharRating = (e, char) => {
-        console.log(char)
         setDisplayChar({ ...displayChar, [char]: selectedChar[char][e.target.value]});
         setCharacteristics({ ...characteristics, [e.target.name]: Number(e.target.value) });
     }
 
-    const handleUpload = (files) => {
-        console.log(files)
-    };
-
     const handleSubmit = (e) => {
         e.preventDefault();
         if (form.current.reportValidity()) {
-            axios.post('/reviews', {
+
+            if (rating === 0) {
+                setRatingError(true);
+                form.current.scrollIntoView(top);
+                return;
+            }
+
+            if (body.length < 50) {
+                setBodyError(true);
+                reviewBody.current.scrollIntoView(top);
+                return;
+            }
+
+            axios.post('/reviews/uploads', {
                 product_id: productInfo.id,
                 rating,
                 summary,
@@ -77,10 +92,15 @@ const NewReview = ({productInfo, productMeta}) => {
                 recommend,
                 name,
                 email,
+                photos: previewSources,
                 characteristics
             })
-            .then(() => setPosted(true))
-            .catch((err) => console.log(err));
+            .then((res) => console.log(res))
+            .catch((err) => {
+                if (err.message?.includes('Unsupported')) {
+                    setImageError(true);
+                }
+                console.log(err)});
         }
     }
 
@@ -93,6 +113,7 @@ const NewReview = ({productInfo, productMeta}) => {
             </div>
             <form className="new-review-body" ref={form}>
                 <span className="new-review-category"><span className="new-review-required">* </span>Overall Rating: </span>
+                {ratingError ? <span className="write-review-error"> **Please select a rating.** </span> : null}
                 <span className="reviews new-review-stars" required>
                     <span className={selected[5] ? 'new-review-stars-selected' : null}
                         onClick={() => handleStarClick(5)}>☆</span>
@@ -194,6 +215,7 @@ const NewReview = ({productInfo, productMeta}) => {
                     <span className="new-review-required">* </span>
                     <label>Review Body<br /><br/>
                         <textarea
+                            ref={reviewBody}
                             className="new-review-text-form"
                             name="review-body-text"
                             placeholder="Why did you like the product or not?"
@@ -203,15 +225,18 @@ const NewReview = ({productInfo, productMeta}) => {
                             onChange={(e) => setBody(e.target.value)}
                             required />
                     </label>
-                </div>
+                    {body.length < 50 ?
+                    <div className="new-review-category">Minimum required characters left: {50 - body.length}</div>
+                    :
+                    <div className="new-review-category">Minimum reached.</div>}
+                    {(bodyError && body.length < 50) ? <span className="write-review-error"> **Please type at least 50 characters.**</span> : null}
 
-                <div className="new-review-upload-images">
-                    {/* <button className="reviewsbutton">UPLOAD IMAGES</button> */}
-                    <input
-                        type="file"
-                        onChange={(e) => handleUpload(e.target.files)}
-                        />
                 </div>
+                {imageError ? <div className="write-review-error">**Invalid upload file.**</div> : null}
+                <UploadImage
+                    previewSources={previewSources}
+                    setPreviewSources={setPreviewSources}
+                />
 
                 <div className="new-review-category new-review-nickname">
                     <label className="nickname">

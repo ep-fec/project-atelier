@@ -8,9 +8,12 @@ const Image = ({photo, summary}) => {
   return (
     <>
     <img className="reviews review-thumbnail"
+      height="100"
+      width="100"
+      loading="eager"
       onClick={() => setShowModal(true)}
       alt={summary}
-      src={photo.url + '?tr=w-400,h-300,bl-30,q-50'}/>
+      src={photo.url}/>
 
     {showModal ?
     <Modal open={showModal}>
