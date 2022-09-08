@@ -4,7 +4,7 @@ const Characteristic = ({name, scale}) => {
 
   const characteristics = {
     Size: ['A size too small', 'A size too wide'],
-    Width: ['Too narrow', 'A size too wide'],
+    Width: ['Too narrow', 'Too wide'],
     Comfort: ['Uncomfortable', 'Perfect'],
     Quality: ['Poor', 'Perfect'],
     Length: ['Runs short', 'Runs long'],

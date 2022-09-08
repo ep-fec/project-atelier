@@ -21,8 +21,8 @@ const List = (props) => {
     <>
     <div className="reviews reviews-list">
       <div className="reviews no-reviews">
-        {!totalReviews ? 
-        <><button 
+        {!totalReviews ?
+        <><button
             className="reviews add-review-centered reviewsbutton"
             onClick={() => setShowModal(true)}>ADD A REVIEW +
           </button>
@@ -52,15 +52,15 @@ const List = (props) => {
         <button className="reviews more-reviews reviewsbutton"
           onClick={(e) => increaseReviewLimit(reviewLimit + 2)}>MORE REVIEWS</button>
         : null}
-        {totalReviews ? 
-        <><button 
+        {totalReviews ?
+        <><button
           className="reviews add-review reviewsbutton"
           onClick={() => setShowModal(true)}>ADD A REVIEW +</button>
 
           {showModal ?
             <Modal open={showModal}>
               <NewReview productInfo={props.productInfo} productMeta={props.productMeta} />
-              <button onClick={() => setShowModal(false)} className="reviews-modal-button">CLOSE</button>
+              <button onClick={() => setShowModal(false)} className="reviews-modal-x">X</button>
             </Modal>
             : null}
           </>
