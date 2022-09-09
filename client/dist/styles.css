@@ -46,7 +46,8 @@ Widget Skeleton
   margin-top:15px;
   display: inline-block;
   text-align: center;
-  color: var(--primary-color);
+  color:
+  var(--primary-color);
 }
 
 h1.reviews-logo {}
@@ -682,7 +683,6 @@ Add New Review
 .reviews-success-post {
   margin: 0 auto;
 }
-
 .max-uploads-reached {
   color:var(--primary-color);
   font-weight: 700;
@@ -693,11 +693,6 @@ Add New Review
   font-size:16px;
   color: red;
   font-weight: 700;
-}
-
-.reviews-loading {
-  display: block;
-  margin: 0 auto;
 }
 /*
 RATINGS & REVIEWS
