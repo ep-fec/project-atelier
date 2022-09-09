@@ -1,9 +1,8 @@
 .env
 node_modules
 *bundle.js
-<<<<<<< HEAD
 **.DS_Store
-=======
 **/.DS_Store
->>>>>>> reviews-main
 *bundle.js.gz
+*.sh
+*.pem
