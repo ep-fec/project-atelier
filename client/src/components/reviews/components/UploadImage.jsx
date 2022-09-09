@@ -29,6 +29,7 @@ const UploadImage = ( {previewSources, setPreviewSources} ) => {
       <br /><br />
 
       <input
+        id="files"
         type="file"
         multiple
         disabled={(previewSources.length >= 5)}
