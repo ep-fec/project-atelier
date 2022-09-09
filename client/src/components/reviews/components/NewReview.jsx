@@ -36,6 +36,7 @@ const NewReview = ({productInfo, productMeta}) => {
     const [email, setEmail] = useState('');
     const [characteristics, setCharacteristics] = useState({});
     const [posted, setPosted] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const [ratingError, setRatingError] = useState(false);
     const [bodyError, setBodyError] = useState(false);
@@ -74,16 +75,17 @@ const NewReview = ({productInfo, productMeta}) => {
 
             if (rating === 0) {
                 setRatingError(true);
-                form.current.scrollIntoView(top);
+                form.current.scrollIntoView(true);
                 return;
             }
 
             if (body.length < 50) {
                 setBodyError(true);
-                reviewBody.current.scrollIntoView(top);
+                reviewBody.current.scrollIntoView(true);
                 return;
             }
 
+            setLoading(true);
             axios.post('/reviews/uploads', {
                 product_id: productInfo.id,
                 rating,
@@ -95,7 +97,10 @@ const NewReview = ({productInfo, productMeta}) => {
                 photos: previewSources,
                 characteristics
             })
-            .then((res) => setPosted(true))
+            .then((res) => {
+                setLoading(false);
+                setPosted(true)
+            })
             .catch((err) => {
                 if (err.message?.includes('Unsupported')) {
                     setImageError(true);
@@ -280,7 +285,8 @@ const NewReview = ({productInfo, productMeta}) => {
                     onClick={(e) => handleSubmit(e)}>SUBMIT REVIEW</button>
                 </div>
             </form>
-            </> : <h1 className="reviews-success-post">Thank you for submitting your review!</h1>}
+            </> : loading ? <img className="reviews-loading" src="https://res.cloudinary.com/absaga/image/upload/v1662736077/Spin-1s-200px_g6wnrc.gif" />
+            : <h1 className="reviews-logo">Thank you for submitting your review!</h1>}
         </div>
     );
 };
