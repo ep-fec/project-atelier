@@ -61,7 +61,7 @@ app.get('/related/:productId', function(req, res) {
       }
       var reviewScore;
       if (totalRatings === 0) {
-        reviewScore = "No Reviews";
+        reviewScore = 'No Reviews';
       } else {
         reviewScore = Math.floor(totalAmount/totalRatings) || 0;
       }

@@ -16,6 +16,9 @@ class App extends React.Component {
     };
 
     this.getInitialProduct = this.getInitialProduct.bind(this);
+    this.changeProduct = this.changeProduct.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
+    this.removeFromOutfit = this.removeFromOutfit.bind(this);
   }
 
   componentDidMount() {
@@ -39,7 +42,6 @@ class App extends React.Component {
   getInitialProduct() {
     axios.get('/products?page=3&count=1')
     .then(response => {
-      console.log(response.data);
       this.setState({
         currentProduct: response.data[0],
         productId: response.data[0].id
@@ -62,14 +64,23 @@ class App extends React.Component {
     }
   }
 
+  removeFromOutfit(id) {
+    let outfit = this.state.outfit;
+    let index = outfit.indexOf(id);
+    outfit.splice(index, 1);
+    this.setState({outfit});
+  }
+
+
   render() {
     return (
       <div>
         <Overview currentProduct={this.state.currentProduct}/>
         <Related currProduct={this.state.currentProduct}
-        changeProduct={this.changeProduct.bind(this)}
-        handleAdd={this.handleAdd.bind(this)}
-        outfit={this.state.outfit}/>
+          changeProduct={this.changeProduct}
+          handleAdd={this.handleAdd}
+          outfit={this.state.outfit}
+          removeProduct={this.removeFromOutfit}/>
         <Reviews currentProduct={this.state.currentProduct}/>
       </div>
     );
