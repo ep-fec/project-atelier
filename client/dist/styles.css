@@ -1307,14 +1307,71 @@ a:hover {
   max-height: 50%;
 }
 
+.card i {
+  float: right;
+  color: var(--primary-color);
+}
+
 .side-by-side {
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 15px;
   grid-template-columns: repeat(var(--count), calc(27%));
   grid-template-rows: minmax(150px, 1fr);
   padding: 0 20px;
   max-width: 60vw;
   overflow-y: auto;
+}
+
+.modal, .overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(49,49,49,0.8);
+}
+
+.modal-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 7px;
+  border-radius: 3px;
+  max-width: 600px;
+  min-width: 300px;
+}
+
+table {
+  border-spacing: 30px;
+  /* margin: 10px 5px; */
+  /* padding: 10px 5px; */
+}
+.scroll-thead{
+  width: 100%;
+  display: inline-table;
+}
+
+.scroll-tbody-y
+{
+  display: block;
+  overflow-y: scroll;
+}
+
+.table-body{
+  height: 300px;
+}
+
+th, td {
+  text-align: center;
+  width: 100vw;
 }
 
 .overview {

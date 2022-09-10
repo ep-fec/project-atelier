@@ -18,6 +18,8 @@ class App extends React.Component {
     this.changeProduct = this.changeProduct.bind(this);
     this.addToMyOutfit = this.addToMyOutfit.bind(this);
     this.removeFromMyOutfit = this.removeFromMyOutfit.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
+    this.removeFromOutfit = this.removeFromOutfit.bind(this);
   }
 
   componentDidMount() {
@@ -72,6 +74,13 @@ class App extends React.Component {
     this.setState({outfit: outfit});
   }
 
+  removeFromOutfit(id) {
+    let outfit = this.state.outfit;
+    let index = outfit.indexOf(id);
+    outfit.splice(index, 1);
+    this.setState({outfit});
+  }
+
   render() {
     return (
       <div>
@@ -82,15 +91,13 @@ class App extends React.Component {
           addToMyOutfit={this.addToMyOutfit}
           removeFromMyOutfit={this.removeFromMyOutfit}
         />
-        <Related
-          currProduct={this.state.currentProduct}
+        <Related currProduct={this.state.currentProduct}
           changeProduct={this.changeProduct}
-          handleAdd={this.addToMyOutfit}
+          handleAdd={this.handleAdd}
           outfit={this.state.outfit}
-        />
+          removeProduct={this.removeFromOutfit}/>
         <Reviews currentProduct={this.state.currentProduct}/>
-      </div>
-    );
+      </div>);
   }
 }
 
