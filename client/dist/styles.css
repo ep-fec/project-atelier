@@ -385,6 +385,10 @@ Rating Breakdown
   cursor:pointer;
 }
 
+.ratings-footer {
+  margin-bottom: 20px;
+}
+
 /*
 RATINGS & REVIEWS
 Product Breakdown
@@ -462,6 +466,75 @@ Product Breakdown
   background: rgba(0, 0, 0, 0.500);
   opacity: 0.2;
 }
+
+/*
+RATINGS & REVIEWS
+Sort Options
+*/
+
+.sort-options-container {
+  margin-left: 15px;
+  margin-top:10px;
+  margin-bottom: 20px;
+  width: 100%;
+  padding-right: 15px;
+}
+
+.sort-options,
+.current-sort {
+  font-weight: 800;
+}
+
+.current-sort {
+  text-decoration: underline;
+}
+
+.current-sort:hover,
+.sort-arrow:hover {
+  cursor:pointer;
+}
+
+.sort-dropdown {
+  position:relative;
+  display:inline-block;
+}
+
+.sort-dropdown-content {
+  display:none;
+  position:absolute;
+  left: 10px;
+  z-index: 1;
+  background-color: #ffffff;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.sort-dropdown-content .sort-menu-option:hover {
+    background-color: var(--primary-color);
+    color:white;
+}
+
+
+.sort-menu-option {
+  display:
+  block;
+  background-color: transparent;
+  border: none;
+  padding:8px;
+  font-weight: 800;
+}
+
+.sort-menu-option:hover {
+  cursor:pointer;
+}
+
+.sort-options-divider {
+  margin: 0 auto;
+  width: 95%;
+  border-color: #b5a9a934;
+}
+
+
 
 /*
 RATINGS & REVIEWS

@@ -9,13 +9,15 @@ const Ratings = (props) => {
   let [activeFilters, setActiveFilters] = useState([]);
 
   useEffect(() => {
-    if (data?.length) {
-      setTotalReviews(data.length);
+    if (props.shouldRun) {
+      if (data?.length) {
+        setTotalReviews(data.length);
+      }
+      setRatings({'1': 0, '2': 0,'3': 0,'4': 0,'5': 0});
+      setRecommendations(0)
+      handleFilterReset();
     }
-    setRatings({'1': 0, '2': 0,'3': 0,'4': 0,'5': 0});
-    setRecommendations(0)
-    handleFilterReset();
-  }, [data]);
+  }, [props.reviews]);
 
   useEffect(() => {
     if (totalReviews) {
