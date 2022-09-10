@@ -9,8 +9,13 @@ const Ratings = (props) => {
   let [activeFilters, setActiveFilters] = useState([]);
 
   useEffect(() => {
-    if (data?.length) {
-      setTotalReviews(data.length);
+    if (props.shouldRun) {
+      if (data?.length) {
+        setTotalReviews(data.length);
+      }
+      setRatings({'1': 0, '2': 0,'3': 0,'4': 0,'5': 0});
+      setRecommendations(0)
+      handleFilterReset();
     }
     setRatings({'1': 0, '2': 0,'3': 0,'4': 0,'5': 0});
     setRecommendations(0)
@@ -31,6 +36,9 @@ const Ratings = (props) => {
   }, [ratings])
 
   function percentCalc(x, y) {
+    if (totalReviews === 0) {
+      return 0;
+    }
     return Math.ceil((x / y) * 100) + '%';
   }
 
@@ -160,7 +168,6 @@ const Ratings = (props) => {
     ? <div className="reviews ratings-footer"><span className="reviews shown-ratings">Filtering by {activeFilters.join(', ')} stars reviews. </span>
     <span className="reviews remove-filters" onClick={() => handleFilterReset()}>Remove all filters</span></div>
     : null}
-    <hr style={{'width': '85%'}}/>
     </div>
   )
 }

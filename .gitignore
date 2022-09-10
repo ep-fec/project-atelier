@@ -2,4 +2,7 @@
 node_modules
 *bundle.js
 **.DS_Store
+**/.DS_Store
 *bundle.js.gz
+*.sh
+*.pem
