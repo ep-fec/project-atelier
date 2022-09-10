@@ -18,7 +18,7 @@ class App extends React.Component {
     this.changeProduct = this.changeProduct.bind(this);
     this.addToMyOutfit = this.addToMyOutfit.bind(this);
     this.removeFromMyOutfit = this.removeFromMyOutfit.bind(this);
-    this.handleAdd = this.handleAdd.bind(this);
+    // this.handleAdd = this.handleAdd.bind(this);
     this.removeFromOutfit = this.removeFromOutfit.bind(this);
   }
 
@@ -93,7 +93,7 @@ class App extends React.Component {
         />
         <Related currProduct={this.state.currentProduct}
           changeProduct={this.changeProduct}
-          handleAdd={this.handleAdd}
+          handleAdd={this.addToMyOutfit}
           outfit={this.state.outfit}
           removeProduct={this.removeFromOutfit}/>
         <Reviews currentProduct={this.state.currentProduct}/>

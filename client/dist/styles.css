@@ -37,6 +37,7 @@ Widget Skeleton
 #reviews-container {
   margin: 0 auto;
   width: 100%;
+  padding-top: 50px;
   padding-left: 15%;
   padding-right: 15%;
   padding-bottom: 100px;
@@ -733,7 +734,7 @@ Media Queries
 /* ========== OVERVIEW START ========== */
 
 .overViewMainContainer {
-  padding: 0 20vw 0 20vw;
+  padding: 0 15vw 0 15vw;
   background-color: white;
 }
 
@@ -1283,7 +1284,7 @@ a:hover {
 /* ======== RELATED PRODUCTS ======== */
 .related-container {
   display: grid;
-  grid-template-columns: 20px 1fr 20px;
+  grid-template-columns: 0px 1fr 0px;
 }
 .related-container > * {
   grid-column: 2 / -2;
@@ -1317,7 +1318,7 @@ a:hover {
   grid-gap: 15px;
   grid-template-columns: repeat(var(--count), calc(27%));
   grid-template-rows: minmax(150px, 1fr);
-  padding: 0 20px;
+  padding: 20px;
   max-width: 60vw;
   overflow-y: auto;
 }

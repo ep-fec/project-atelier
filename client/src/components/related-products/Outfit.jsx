@@ -20,7 +20,7 @@ class Outfit extends React.Component {
     render() {
       return(
       <div>
-        <h2>YOUR OUTFIT</h2>
+        <h2 className="reviews-logo">YOUR OUTFIT</h2>
         <ul id='outfit' className='side-by-side' style={{'--count': this.props.outfit.length + 1}} role='outfit-list'>
           <li className='card' onClick={this.props.handleAdd}>Add to your list of outfits</li>
           {_.map(this.props.outfit, (product, index) => {

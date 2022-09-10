@@ -20,7 +20,7 @@ class Similar extends React.Component {
   render() {
     return(
     <div>
-      <h2>RELATED PRODUCTS</h2>
+      <h2 className="reviews-logo">RELATED PRODUCTS</h2>
       <ul id='similar' className='side-by-side' style={{'--count': this.props.products.length}} role='related-list'>
         {_.map(this.props.products, (product, index) => {
         //console.log('product', index, product);
