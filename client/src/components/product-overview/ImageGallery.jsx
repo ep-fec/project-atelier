@@ -1,6 +1,11 @@
 import React, {useState, useEffect} from 'react';
 
-export default function ImageGallery({selectedStyle}) {
+export default function ImageGallery({
+  selectedStyle,
+  onImageClick,
+  expandView,
+  setExpandView}) {
+
   const [mainPhoto, setMainPhoto] = useState('');
   const [mainPhotoIndex, setMainPhotoIndex] = useState(0);
   const [selectedThumbnailIndex, setSelectedThumbnailIndex] = useState(0);
@@ -28,12 +33,6 @@ export default function ImageGallery({selectedStyle}) {
         setShowBackArrow(true);
         setShowUpdArrow(true);
       }
-
-      /* if (selectedStyle.photos.length > 7) {
-        setShowDownArrow(true);
-      } else {
-        setShowDownArrow(false);
-      } */
     }
   }, [selectedStyle, mainPhotoIndex, showForwardArrow, showBackArrow])
 
@@ -65,67 +64,79 @@ export default function ImageGallery({selectedStyle}) {
     }
   }
 
+  const handleMainImageClick = () => {
+    setExpandView(prevState => !prevState);
+  }
+
   return (
     <div className='imageGalleryComponentContainer'>
-      {selectedStyle !== '' &&
-        <div className='mainImage'
-          style={{backgroundImage: `url(${mainPhoto})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'contain',
-            backgroundPosition: 'center'
+      {selectedStyle !== '' && (
+        <>
+          <div className='mainImage'
+            onClick={handleMainImageClick}
+            style={{
+              backgroundImage: `url(${mainPhoto})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              cursor: expandView ? '' : 'zoom-in',
+              maxHeight: expandView ? '50rem' : '35rem',
           }}
-        >
-          <div className='thumbnailImagesContainer'>
-            {showUpArrow && (
-              <div className='thumbnailUpArrow'
-                onClick={handleUpArrowClick}
-              >
-                <i className="fa-solid fa-angle-up"></i>
-              </div>
-            )}
+          ></div>
 
-            <ol className='thumbnailListContainer'>
-              {selectedStyle.photos.map((photo, index) => (
-                <li className='thumbnailListItems' key={index}>
-                  <img className='thumbnailImages'
-                    src={photo.thumbnail_url}
-                    key={index}
-                    onClick={handleThumbnailPhotoClick}
-                    id={index}
-                  />
-                </li>
-              ))}
-            </ol>
+          <div className='thumbnailComponentContainer'>
+            <div className='thumbnailImagesContainer'>
+                {showUpArrow && (
+                  <div className='thumbnailUpArrow'
+                    onClick={handleUpArrowClick}
+                  >
+                    <i className="fa-solid fa-angle-up"></i>
+                  </div>
+                )}
 
-            {showDownArrow && (
-              <div className='thumbnailDownArrow'
-                onClick={handleDownArrowClick}
-              >
-                  <i className="fa-solid fa-angle-down"></i>
-              </div>
-            )}
+                <ol className='thumbnailListContainer'>
+                  {selectedStyle.photos.map((photo, index) => (
+                    <li className='thumbnailListItems' key={index}>
+                      <img className='thumbnailImages'
+                        src={photo.thumbnail_url}
+                        key={index}
+                        onClick={handleThumbnailPhotoClick}
+                        id={index}
+                        alt='Image cannot be loaded'
+                      />
+                    </li>
+                  ))}
+                </ol>
+
+                {showDownArrow && (
+                  <div className='thumbnailDownArrow'
+                    onClick={handleDownArrowClick}
+                  >
+                    <i className="fa-solid fa-angle-down"></i>
+                  </div>
+                )}
+            </div>
+
+            <div className='forwardBackArrows'>
+              {showBackArrow && (
+                <div className='mainPhotoBackArrow'
+                  onClick={handleMainPhotoBackClick}
+                >
+                  <i className="fa-solid fa-angle-left"></i>
+                </div>
+              )}
+
+              {showForwardArrow && (
+                <div className='mainPhotoForwardArrow'
+                  onClick={handleMainPhotoForwardClick}
+                >
+                  <i className="fa-solid fa-angle-right"></i>
+                </div>
+              )}
+            </div>
           </div>
-
-          <div className='forwardBackArrows'>
-            {showBackArrow && (
-              <div className='mainPhotoBackArrow'
-                onClick={handleMainPhotoBackClick}
-              >
-                <i className="fa-solid fa-angle-left"></i>
-              </div>
-            )}
-
-            {showForwardArrow && (
-              <div className='mainPhotoForwardArrow'
-                onClick={handleMainPhotoForwardClick}
-              >
-                <i className="fa-solid fa-angle-right"></i>
-              </div>
-            )}
-
-          </div>
-        </div>
-      }
+        </>
+      )}
     </div>
   )
 }

@@ -52,6 +52,7 @@ export default function StyleSelector({allStyles, selectedStyle, setSelectedStyl
               <div className='styleThumbnailAndCheckmark' key={index}>
                 <img className={`styleThumbnail ${showCheckmark} ${smallStyleThumbnail}`}
                   src={style.photos[0].thumbnail_url}
+                  alt='Image cannot be loaded'
                   key={index}
                   onClick={handleStyleSelectClick}
                   name={style.name}
