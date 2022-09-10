@@ -525,7 +525,6 @@ Product Breakdown
   pointer-events: none;
   display: grid;
   flex-direction: row;
-  justify-content: space-between;
   grid-template-columns: 15% 85%;
   max-height: 35rem;
 }
@@ -539,7 +538,7 @@ Product Breakdown
   grid-template-columns: auto auto;
   justify-content: space-between;
   pointer-events: none;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .galleryComponents {
@@ -618,14 +617,20 @@ Product Breakdown
 
 .fa-angle-right {
   font-size: 2rem;
-  padding: 0 1rem 0 0;
+  padding: 0.1rem 0.5rem 0.1rem 0.5rem;
   color: #808080;
   pointer-events: auto;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.5;
+  margin-right: 1rem;
 }
 
 .fa-angle-right:hover {
   color: #ED1C24;
   transition: 0.4s;
+  opacity: 0.8;
 }
 
 .mainPhotoBackArrow {
@@ -636,14 +641,19 @@ Product Breakdown
 
 .fa-angle-left {
   font-size: 2rem;
-  padding: 0 0 0 1rem;
+  padding: 0.1rem 0.5rem 0.1rem 0.5rem;
   color: #808080;
   pointer-events: auto;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.5;
 }
 
 .fa-angle-left:hover {
   color: #ED1C24;
   transition: 0.4s;
+  opacity: 0.8;
 }
 
 .productInfoContainer {
