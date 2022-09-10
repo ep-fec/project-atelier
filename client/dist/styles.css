@@ -294,6 +294,7 @@ Rating Breakdown
 * {
   --bar-color-empty:#4e4949;
   --bar-color-full: #3abb7d;
+  --arr
 }
 
 .total-rating {
@@ -695,41 +696,7 @@ Add New Review
   color: red;
   font-weight: 700;
 }
-/*
-RATINGS & REVIEWS
-Media Queries
-*/
 
-@media screen and (max-width: 1000px) {
-  .rating-leftcol {
-    width: 30%;
-  }
-  .rating-midcol {
-    width: 60%; /* The width is 100%, when the viewport is 800px or smaller */
-  }
-  .rating-rightcol {
-    width: 10%;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .leftcol,
-  .rightcol {
-    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
-  }
-  .rating-leftcol {
-    width: 15%;
-  }
-  .rating-midcol {
-    width: 80%; /* The width is 100%, when the viewport is 800px or smaller */
-  }
-  .rating-rightcol {
-    width: 5%;
-  }
-  .product-breakdown-container {
-    margin: 0 auto;
-  }
-}
 
 /* ========== OVERVIEW START ========== */
 
@@ -1377,4 +1344,54 @@ th, td {
 
 .overview {
   font-family: var(--primary-font);
+}
+
+/*
+RATINGS & REVIEWS
+Media Queries
+*/
+
+@media screen and (max-width: 1000px) {
+  .rating-leftcol {
+    width: 30%;
+  }
+
+  .rating-midcol {
+    width: 60%;
+    /* The width is 100%, when the viewport is 800px or smaller */
+  }
+
+  .rating-rightcol {
+    width: 10%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+
+  #reviews-container {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .leftcol,
+  .rightcol {
+    width: 100%;
+  }
+
+  .rating-leftcol {
+    width: 15%;
+  }
+
+  .rating-midcol {
+    width: 80%;
+  }
+
+  .rating-rightcol {
+    width: 5%;
+  }
+
+  .product-breakdown-container {
+    margin: 0 auto;
+  }
+
 }
