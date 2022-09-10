@@ -33,6 +33,9 @@ const Ratings = (props) => {
   }, [ratings])
 
   function percentCalc(x, y) {
+    if (totalReviews === 0) {
+      return 0;
+    }
     return Math.ceil((x / y) * 100) + '%';
   }
 
