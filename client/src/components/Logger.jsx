@@ -1,18 +1,22 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-const withLogger = (WrappedComponent) =>
-  class Logger extends Component {
-    state = {
-      element: '',
-      widget: '',
-      time: '',
+const withLogger = (WrappedComponent) => {
+  return class extends React.Component {
+    constructor(props) {
+      super(props);
+      this.handleMouseClick = this.handleMouseClick.bind(this);
+      this.state = {
+        element: '',
+        widget: props.widget,
+        time: '',
+      }
     }
 
   handleMouseClick(e) {
+    console.log(e.target.outerHTML)
     let date = new Date();
     let time = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
-    let element = e.target.innerHTML;
-
+    let element = e.target.outerHTML;
     this.setState({
       element,
       time
@@ -23,12 +27,12 @@ const withLogger = (WrappedComponent) =>
   render() {
     return (
       <div onClick={(e) => this.handleMouseClick(e)}>
-        <WrappedComponent />
+        <WrappedComponent {...this.props}/>
       </div>
     );
   };
 };
-
+}
 export default withLogger;
 
 /*
