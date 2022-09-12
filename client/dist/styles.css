@@ -52,7 +52,9 @@ Widget Skeleton
     var(--primary-color);
 }
 
-h1.reviews-logo {}
+h1.reviews-logo {
+
+}
 
 .leftcol {
   width: 25%;
@@ -240,11 +242,7 @@ Modal
   padding-top: 10px;
   margin: 0 auto;
   /* width: 50%; */
-<<<<<<< HEAD
   object-fit:contain;
-=======
-  object-fit: contain;
->>>>>>> click-tracking
 }
 
 /*
@@ -704,7 +702,6 @@ Add New Review
   font-weight: 700;
 }
 
-<<<<<<< HEAD
 
 /* ========== OVERVIEW START ========== */
 
@@ -1354,8 +1351,6 @@ th, td {
   font-family: var(--primary-font);
 }
 
-=======
->>>>>>> click-tracking
 /*
 RATINGS & REVIEWS
 Media Queries
@@ -1368,10 +1363,7 @@ Media Queries
 
   .rating-midcol {
     width: 60%;
-<<<<<<< HEAD
     /* The width is 100%, when the viewport is 800px or smaller */
-=======
->>>>>>> click-tracking
   }
 
   .rating-rightcol {
