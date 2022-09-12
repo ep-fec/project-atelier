@@ -40,19 +40,19 @@ const Sort = ({sort, setSort, reviewsAmount}) => {
 
         {showSort ?
         <div className="sort-dropdown-content" style={display}>
-          {sort === 'newest' ? null : 
+          {sort === 'newest' ? null :
               <><span className="sort-menu-option" onMouseDown={() => handleSortChange('newest')}>Newest</span>
               <hr className="sort-options-divider"/></>}
-          {sort === 'relevant' ? null : 
+          {sort === 'relevant' ? null :
               <><span className="sort-menu-option" onMouseDown={() => handleSortChange('relevant')}>Relevant</span>
               <hr className="sort-options-divider" /></>}
-          {sort === 'helpful' ? null : 
+          {sort === 'helpful' ? null :
               <span className="sort-menu-option" onMouseDown={() => handleSortChange('helpful')}>Helpful</span>}
         </div>
         : null}
 
       </div>
-   
+
     </div>
   )
 }

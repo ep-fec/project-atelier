@@ -5,7 +5,7 @@ import NewReview from './NewReview.jsx';
 
 const List = (props) => {
 
-  let totalReviews = props.reviews.results.length;
+  let totalReviews = props?.reviews?.results?.length;
   let [reviewLimit, increaseReviewLimit] = useState(2);
   let [maxHeight, setMaxHeight] = useState('500px');
   const [showModal, setShowModal] = useState(false);
@@ -29,13 +29,12 @@ const List = (props) => {
           {showModal ?
             <Modal open={showModal}>
               <NewReview productInfo={props.productInfo} productMeta={props.productMeta}/>
-              <button onClick={() => setShowModal(false)} className="reviews-modal-button">CLOSE</button>
+              <button onClick={() => setShowModal(false)} className="reviews-modal-x">X</button>
             </Modal>
             : null}
         </>
         :null}
       </div>
-
       <div className="reviews reviews-list-extended" style={{'--max-height': maxHeight}}>
         {props.reviews?.results?.length ?
           props.reviews.results.map((review) => {
@@ -46,7 +45,6 @@ const List = (props) => {
           }) : null}
         <br />
       </div>
-
     </div>
       {(totalReviews > 2 && reviewsLoaded < totalReviews) ?
         <button className="reviews more-reviews reviewsbutton"
