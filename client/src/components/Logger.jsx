@@ -25,7 +25,7 @@ const withLogger = (WrappedComponent) => {
     };
 
     componentDidUpdate(prevProps, prevState) {
-      if (prevState.element !== '') {
+      if (this.state.element !== '' ) {
         this.sendInteraction();
       }
     }
