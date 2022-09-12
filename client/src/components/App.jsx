@@ -6,7 +6,6 @@ import withLogger from './Logger.jsx';
 
 const Reviews = withLogger(BaseReviews);
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);

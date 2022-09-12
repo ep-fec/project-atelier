@@ -1,19 +1,20 @@
 import React from 'react';
+import axios from 'axios';
 
 const withLogger = (WrappedComponent) => {
     return class extends React.Component {
       constructor(props) {
         super(props);
-        this.handleMouseClick = this.handleMouseClick.bind(this);
         this.state = {
           element: '',
           widget: props.widget,
           time: '',
         }
+        this.handleMouseClick = this.handleMouseClick.bind(this);
+        this.sendInteraction = this.sendInteraction.bind(this);
       }
 
     handleMouseClick(e) {
-      console.log(e.target.outerHTML)
       let date = new Date();
       let time = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
       let element = e.target.outerHTML;
@@ -21,7 +22,18 @@ const withLogger = (WrappedComponent) => {
         element,
         time
       });
+      this.sendInteraction();
     };
+
+    sendInteraction(e) {
+      let element = this.state.element;
+      let widget = this.state.widget;
+      let time = this.state.time;
+
+      axios.post('/interactions', {element, widget, time})
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    }
 
     render() {
       return (
