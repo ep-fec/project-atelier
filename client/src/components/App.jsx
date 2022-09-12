@@ -1,8 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import Overview from './product-overview/Overview.jsx';
-import Reviews from './reviews/Reviews.jsx';
+import BaseReviews from './reviews/Reviews.jsx';
 import Related from './related-products/Related.jsx';
+import withLogger from './Logger.jsx';
+
+const Reviews = withLogger(BaseReviews);
 
 class App extends React.Component {
   constructor(props) {
@@ -81,6 +84,7 @@ class App extends React.Component {
     this.setState({outfit});
   }
 
+
   render() {
     return (
       <div>
@@ -96,9 +100,10 @@ class App extends React.Component {
           handleAdd={this.addToMyOutfit}
           outfit={this.state.outfit}
           removeProduct={this.removeFromOutfit}/>
-        <Reviews currentProduct={this.state.currentProduct}/>
+        <Reviews currentProduct={this.state.currentProduct} widget={'Ratings & Reviews'}/>
       </div>);
   }
 }
+
 
 export default App;

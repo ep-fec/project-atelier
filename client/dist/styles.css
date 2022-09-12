@@ -21,7 +21,7 @@ body {
   margin: 0 auto;
   font-family: var(--primary-font);
   font-weight: 300;
-  font-size:14px;
+  font-size: 14px;
 }
 
 * {
@@ -45,11 +45,11 @@ Widget Skeleton
 
 .reviews-logo {
   /* margin: 0 auto; */
-  margin-top:15px;
+  margin-top: 15px;
   display: inline-block;
   text-align: center;
   color:
-  var(--primary-color);
+    var(--primary-color);
 }
 
 h1.reviews-logo {}
@@ -74,7 +74,7 @@ Review List
 */
 
 .reviews-list {
-  margin:15px 15px 15px;
+  margin: 15px 15px 15px;
   width: 100%;
   /* padding-left: 15px; */
   padding-right: 15px;
@@ -113,6 +113,7 @@ Individual Review
   font-family: Times;
   line-height: 1;
 }
+
 .stars::before {
   content: "★★★★★";
   letter-spacing: -2px;
@@ -137,20 +138,20 @@ Individual Review
 
 .ind-review-content {
   white-space: normal;
-  word-wrap:break-word;
+  word-wrap: break-word;
 }
 
 .ind-review-recommendation {
-  padding-top:10px;
-  padding-bottom:10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 12px;
 }
 
 .ind-review-response {
   background-color: rgb(233, 232, 232);
   padding: 20px;
-  margin-top:20px;
-  margin-bottom:20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .response-title {
@@ -159,12 +160,12 @@ Individual Review
 }
 
 .ind-review-footer {
-  margin-top:15px;
-  font-size:12px;
+  margin-top: 15px;
+  font-size: 12px;
 }
 
 .ind-review-showmore {
-  padding-top:20px;
+  padding-top: 20px;
   text-align: center;
   font-weight: 700;
 }
@@ -177,8 +178,8 @@ Individual Review
 .review-thumbnail {
   border: 1px solid #ddd;
   border-radius: 0px;
-  margin-top:15px;
-  margin-right:10px;
+  margin-top: 15px;
+  margin-right: 10px;
   padding: 5px;
   width: 100px;
   height: 100px;
@@ -209,7 +210,7 @@ Modal
 */
 
 .modal-overlay {
-  position:fixed;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -226,10 +227,10 @@ Modal
   height: 80%;
   width: 80%;
   max-height: 95%;
-  max-width:95;
+  max-width: 95;
   background-color: rgb(255, 255, 255);
   z-index: 1000;
-  overflow:auto;
+  overflow: auto;
 }
 
 .modal-image {
@@ -239,7 +240,11 @@ Modal
   padding-top: 10px;
   margin: 0 auto;
   /* width: 50%; */
+<<<<<<< HEAD
   object-fit:contain;
+=======
+  object-fit: contain;
+>>>>>>> click-tracking
 }
 
 /*
@@ -248,17 +253,17 @@ Buttons
 */
 
 .more-reviews {
-  margin-right:10px;
+  margin-right: 10px;
 }
 
 .reviewsbutton {
   margin: 10px 3px 10px;
   background-color: var(--primary-color);
-  color:white;
+  color: white;
   font-weight: 500;
-  font-size:14px;
-  padding:18px;
-  border:none;
+  font-size: 14px;
+  padding: 18px;
+  border: none;
 }
 
 .reviews-modal-image-button,
@@ -269,11 +274,11 @@ Buttons
   transform: translate(-50%, -50%);
   margin: 0 auto;
   background-color: var(--primary-color);
-  color:white;
+  color: white;
   font-weight: 500;
-  font-size:14px;
-  padding:18px;
-  padding-left:40px;
+  font-size: 14px;
+  padding: 18px;
+  padding-left: 40px;
   padding-right: 40px;
   border: none;
   font-weight: 700;
@@ -282,7 +287,7 @@ Buttons
 .reviewsbutton:hover,
 .reviews-modal-button:hover {
   background-color: rgb(0, 0, 0);
-  color:white;
+  color: white;
   transition-duration: 0.4s;
 }
 
@@ -292,7 +297,7 @@ Rating Breakdown
 */
 
 * {
-  --bar-color-empty:#4e4949;
+  --bar-color-empty: #4e4949;
   --bar-color-full: #3abb7d;
   --arr
 }
@@ -313,37 +318,37 @@ Rating Breakdown
 .recommend-product,
 .shown-ratings,
 .remove-filters {
-  font-size:12px;
+  font-size: 12px;
   color: rgb(61, 59, 59);
 }
 
 .rating-breakdown {
-  width:100%;
+  width: 100%;
 }
 
 .rating-leftcol {
   float: left;
   width: 20%;
-  margin-top:10px;
-  font-size:12px;
+  margin-top: 10px;
+  font-size: 12px;
   white-space: nowrap;
-  overflow:visible;
+  overflow: visible;
   text-decoration: inherit;
 }
 
 .rating-midcol {
-  float:left;
+  float: left;
   width: 60%;
-  margin-top:10px;
+  margin-top: 10px;
 
 }
 
 .rating-rightcol {
   float: left;
   width: 5%;
-  margin-top:10px;
+  margin-top: 10px;
   text-align: right;
-  font-size:12px;
+  font-size: 12px;
   text-decoration: inherit;
 }
 
@@ -355,20 +360,18 @@ Rating Breakdown
 }
 
 .rating-bar {
-  width: var(--rating-bar-size) ;
+  width: var(--rating-bar-size);
   height: 13px;
   background-color: var(--bar-color-full);
 }
 
-.rating-breakdown:hover
-.rating-bar-container
-.rating-bar {
+.rating-breakdown:hover .rating-bar-container .rating-bar {
   filter: hue-rotate(150deg);
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .rating-breakdown:hover {
-  cursor:pointer;
+  cursor: pointer;
   text-decoration: underline;
 }
 
@@ -382,10 +385,11 @@ Rating Breakdown
   text-decoration: underline;
   text-align: center;
   font-weight: 800;
-  color:var(--primary-color)
+  color: var(--primary-color)
 }
+
 .remove-filters:hover {
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .ratings-footer {
@@ -399,9 +403,10 @@ Product Breakdown
 * {
   --char-arrow-pos: 50%;
 }
+
 .product-breakdown-container {
   width: 90%;
-  font-size:12px;
+  font-size: 12px;
   color: rgb(61, 59, 59);
 }
 
@@ -412,16 +417,16 @@ Product Breakdown
 }
 
 .char-label {
-  margin-left:10px;
+  margin-left: 10px;
   font-size: 12px;
   font-weight: 700;
-  margin-bottom:5px;
+  margin-bottom: 5px;
 }
 
 .product-breakdown-leftcol,
 .product-breakdown-midcol,
 .product-breakdown-rightcol {
-  float:left;
+  float: left;
   width: 33.33%;
   margin-top: 2px;
   margin-right: 0;
@@ -429,9 +434,9 @@ Product Breakdown
 }
 
 .product-breakdown-bar {
-  width:98%;
+  width: 98%;
   background-color: #cbcbcb;
-  height:5px;
+  height: 5px;
 }
 
 .product-breakdown:after {
@@ -439,31 +444,32 @@ Product Breakdown
   display: table;
   clear: both;
 }
+
 .product-breakdown-arrowcont {
-  position:relative;
-  display:block;
-  max-width:97%;
+  position: relative;
+  display: block;
+  max-width: 97%;
 }
 
 .product-breakdown-arrow {
-  position:absolute;
+  position: absolute;
   border: solid rgb(61, 59, 59);
   border-width: 0 2px 2px 0;
-  display:block;
+  display: block;
   padding: 2px;
   rotate: -135deg;
   top: -5px;
-  left:var(--char-arrow-pos);
+  left: var(--char-arrow-pos);
 }
 
 .product-breakdown-chardesc {
   margin: 0 auto;
   text-align: center;
-  font-size:10px;
+  font-size: 10px;
 }
 
 .product-breakdown-divider {
-  margin:10px;
+  margin: 10px;
   border: 0;
   height: 1px;
   background: rgba(0, 0, 0, 0.500);
@@ -477,7 +483,7 @@ Sort Options
 
 .sort-options-container {
   margin-left: 15px;
-  margin-top:10px;
+  margin-top: 10px;
   margin-bottom: 20px;
   width: 100%;
   padding-right: 15px;
@@ -494,41 +500,41 @@ Sort Options
 
 .current-sort:hover,
 .sort-arrow:hover {
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .sort-dropdown {
-  position:relative;
-  display:inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .sort-dropdown-content {
-  display:none;
-  position:absolute;
+  display: none;
+  position: absolute;
   left: 10px;
   z-index: 1;
   background-color: #ffffff;
   min-width: 100px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 .sort-dropdown-content .sort-menu-option:hover {
-    background-color: var(--primary-color);
-    color:white;
+  background-color: var(--primary-color);
+  color: white;
 }
 
 
 .sort-menu-option {
   display:
-  block;
+    block;
   background-color: transparent;
   border: none;
-  padding:8px;
+  padding: 8px;
   font-weight: 800;
 }
 
 .sort-menu-option:hover {
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .sort-options-divider {
@@ -563,11 +569,11 @@ Add New Review
 }
 
 .new-review-body {
-  margin:0 auto;
+  margin: 0 auto;
   width: 80%;
 }
 
-.new-review-body div{
+.new-review-body div {
   margin: 10px 0 10px 0;
 
 }
@@ -575,23 +581,23 @@ Add New Review
 .new-review-category {
   font-weight: 500;
   font-size: 16px;
-  padding-bottom:1px;
+  padding-bottom: 1px;
 }
 
 .new-review-stars span {
   /*below reverses texts (for hover coloring)*/
-  content:'☆';
+  content: '☆';
   unicode-bidi: bidi-override;
   direction: rtl;
 }
 
 .new-review-stars span:hover,
-.new-review-stars > span:hover ~ span {
-  color:transparent;
+.new-review-stars>span:hover~span {
+  color: transparent;
 }
 
 .new-review-stars span:hover:before,
-.new-review-stars span:hover ~ span:before {
+.new-review-stars span:hover~span:before {
   content: '★';
   position: absolute;
   color: var(--star-background);
@@ -609,14 +615,14 @@ Add New Review
 }
 
 .new-review-radio input {
-  margin-left:20px;
-  margin-right:3px;
+  margin-left: 20px;
+  margin-right: 3px;
 }
 
 .new-review-char-title {
-  color:var(--primary-color);
+  color: var(--primary-color);
   font-weight: 500;
-  font-size:14px;
+  font-size: 14px;
 }
 
 .new-review-char-section {
@@ -624,8 +630,8 @@ Add New Review
 }
 
 .new-review-char-radios input[type=radio] {
-  margin-left:7px;
-  margin-right:5px;
+  margin-left: 7px;
+  margin-right: 5px;
 }
 
 .new-review-char-radios {
@@ -633,21 +639,21 @@ Add New Review
 }
 
 .new-review-char-divider {
-  width:250px;
-  margin-top:16px;
+  width: 250px;
+  margin-top: 16px;
   border-color: #9694942d;
 }
 
 .new-review-char-selection {
   font-size: 12px;
-  color:#282525;
+  color: #282525;
   font-weight: 500;
 }
 
 .new-review-text-form {
   width: 80%;
-  height:100px;
-  resize:none;
+  height: 100px;
+  resize: none;
   border-width: .1;
   padding: 5px;
 }
@@ -661,7 +667,7 @@ Add New Review
 .nickdisclaimer,
 .emaildisclaimer {
   font-size: 12px;
-  color:#6a6767;
+  color: #6a6767;
   font-style: italic;
 }
 
@@ -673,7 +679,7 @@ Add New Review
   background-color: transparent;
   color: rgb(0, 0, 0);
   font-size: 20px;
-  padding:10px;
+  padding: 10px;
   border: none;
 }
 
@@ -685,18 +691,20 @@ Add New Review
 .reviews-success-post {
   margin: 0 auto;
 }
+
 .max-uploads-reached {
-  color:var(--primary-color);
+  color: var(--primary-color);
   font-weight: 700;
-  padding:10px;
+  padding: 10px;
 }
 
 .write-review-error {
-  font-size:16px;
+  font-size: 16px;
   color: red;
   font-weight: 700;
 }
 
+<<<<<<< HEAD
 
 /* ========== OVERVIEW START ========== */
 
@@ -1346,6 +1354,8 @@ th, td {
   font-family: var(--primary-font);
 }
 
+=======
+>>>>>>> click-tracking
 /*
 RATINGS & REVIEWS
 Media Queries
@@ -1358,7 +1368,10 @@ Media Queries
 
   .rating-midcol {
     width: 60%;
+<<<<<<< HEAD
     /* The width is 100%, when the viewport is 800px or smaller */
+=======
+>>>>>>> click-tracking
   }
 
   .rating-rightcol {
