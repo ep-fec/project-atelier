@@ -811,17 +811,14 @@ Media Queries
   pointer-events: none;
   display: grid;
   flex-direction: row;
-  grid-template-columns: 15% 85%;
+  grid-template-columns: 10% 90%;
   max-height: 35rem;
-}
-
-.thumbnailImagesContainer {
-  pointer-events: auto;
 }
 
 .forwardBackArrows {
   display: grid;
   grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto;
   justify-content: space-between;
   pointer-events: none;
   cursor: pointer;
@@ -837,10 +834,13 @@ Media Queries
 }
 
 .thumbnailImagesContainer {
+  pointer-events: auto;
   display: flex;
   flex-direction: column;
-  height: 30rem;
+  height: 35vw;
+  width: 4vw;
   padding: 0 0 0 0;
+  align-items: center;
 }
 
 .thumbnailListContainer::-webkit-scrollbar {
@@ -853,7 +853,7 @@ Media Queries
   list-style-type: none;
   padding: 0 0 0 0;
   margin: 0;
-  max-height: 35rem;
+  max-height: 31vw;
   overflow-y: scroll;
   scrollbar-width: none;
   scroll-snap-type: y mandatory;
@@ -885,6 +885,24 @@ Media Queries
   width: 25px;
   justify-content: center;
   cursor: pointer;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.fa-angle-up {
+  color: #808080;
+  pointer-events: auto;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.5;
+  padding: 0.3rem 0.4rem 0.3rem 0.4rem;
+}
+
+.fa-angle-up:hover {
+  color: #ED1C24;
+  transition: 0.4s;
+  opacity: 0.8;
 }
 
 .thumbnailDownArrow {
@@ -893,12 +911,31 @@ Media Queries
   width: 25px;
   justify-content: center;
   cursor: pointer;
+  align-items: center;
+  padding-top: 0.5rem;
+}
+
+.fa-angle-down {
+  color: #808080;
+  pointer-events: auto;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.5;
+  padding: 0.3rem 0.4rem 0.3rem 0.4rem;
+}
+
+.fa-angle-down:hover {
+  color: #ED1C24;
+  transition: 0.4s;
+  opacity: 0.8;
 }
 
 .mainPhotoForwardArrow {
   display: flex;
   grid-column: -1;
   align-items: center;
+  grid-area: 2/2/3/3;
 }
 
 .fa-angle-right {
@@ -923,6 +960,7 @@ Media Queries
   display: flex;
   grid-column: 1;
   align-items: center;
+  grid-area: 2/1/3/2;
 }
 
 .fa-angle-left {
@@ -934,6 +972,7 @@ Media Queries
   border-radius: 50%;
   background-color: white;
   opacity: 0.5;
+  margin-left: 0.1rem;
 }
 
 .fa-angle-left:hover {
@@ -1278,6 +1317,37 @@ a:hover {
 
 .errorMsgContainer:focus .errorMsg {
   visibility: visible;
+}
+
+.xmark {
+  display: flex;
+  color: #808080;
+  font-size: 2rem;
+  grid-area: 1/2/2/3;
+  z-index: 1;
+  justify-content: right;
+  margin-right: 1.5rem;
+}
+
+.fa-xmark {
+  pointer-events: auto;
+  opacity: 0.5;
+}
+
+.fa-xmark:hover {
+  color: var(--primary-color);
+  opacity: 0.8;
+  transition: 0.4s;
+}
+
+.square {
+  position: absolute;
+  z-index: 2;
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  border: 2px solid black;
+  transform: scale(2.5);
 }
 /* ========== OVERVIEW END ========== */
 
