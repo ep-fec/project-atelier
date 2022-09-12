@@ -22,13 +22,19 @@ const withLogger = (WrappedComponent) => {
         element,
         time
       });
-      this.sendInteraction();
     };
+
+    componentDidUpdate(prevProps, prevState) {
+      if (prevState.element !== '') {
+        this.sendInteraction();
+      }
+    }
 
     sendInteraction(e) {
       let element = this.state.element;
       let widget = this.state.widget;
       let time = this.state.time;
+      console.log({ element, widget, time });
 
       axios.post('/interactions', {element, widget, time})
         .then((res) => console.log(res))

@@ -1,11 +1,13 @@
 import React from 'react';
 import axios from 'axios';
-import Overview from './product-overview/Overview.jsx';
+import BaseOverview from './product-overview/Overview.jsx';
 import BaseReviews from './reviews/Reviews.jsx';
-import Related from './related-products/Related.jsx';
+import BaseRelated from './related-products/Related.jsx';
 import withLogger from './Logger.jsx';
 
 const Reviews = withLogger(BaseReviews);
+const Related = withLogger(BaseRelated);
+const Overview = withLogger(BaseOverview);
 
 class App extends React.Component {
   constructor(props) {
@@ -94,13 +96,20 @@ class App extends React.Component {
           outfit={this.state.outfit}
           addToMyOutfit={this.addToMyOutfit}
           removeFromMyOutfit={this.removeFromMyOutfit}
+          widget={'Product Overview'}
         />
-        <Related currProduct={this.state.currentProduct}
+        <Related
+          currProduct={this.state.currentProduct}
           changeProduct={this.changeProduct}
           handleAdd={this.addToMyOutfit}
           outfit={this.state.outfit}
-          removeProduct={this.removeFromOutfit}/>
-        <Reviews currentProduct={this.state.currentProduct} widget={'Ratings & Reviews'}/>
+          removeProduct={this.removeFromOutfit}
+          widget={'Related Products'}
+          />
+        <Reviews
+          currentProduct={this.state.currentProduct}
+          widget={'Ratings & Reviews'}
+        />
       </div>);
   }
 }
