@@ -11,7 +11,9 @@ const Modal = ({ open, close, children}) => {
     <>
       <div className="modal-overlay"></div>
       <div className="reviews-modal">
-        {children}
+        <div className="reviews-modal-image-container">
+          {children}
+        </div>
       </div>
     </>,
     document.getElementById('modal-root')
