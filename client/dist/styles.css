@@ -1122,7 +1122,7 @@ a:hover {
   max-width: 4rem;
   max-height: 4rem;
   border-radius: 50%;
-  object-fit: fill;
+  object-fit: cover;
   overflow: hidden;
   font-size: 0.75rem;
   cursor: pointer;
@@ -1342,7 +1342,7 @@ a:hover {
 
 .square {
   position: absolute;
-  z-index: 2;
+  z-index: 20;
   height: 50px;
   width: 50px;
   background-color: transparent;
