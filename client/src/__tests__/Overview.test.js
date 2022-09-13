@@ -24,17 +24,35 @@ afterAll(() => server.close())
 
 describe('Main overview component', () => {
   test('Renders the overview component', async () => {
-    render(<Overview currentProduct={data.initialProduct}/>);
+    render(
+      <Overview
+        currentProduct={data.initialProduct}
+        currentRating={3.5}
+        outfit={[]}
+      />
+    );
     expect(screen.getByRole('navigation')).toBeDefined();
   });
 
   test('Renders the add to cart button', async () => {
-    render(<Overview currentProduct={data.initialProduct}/>);
+    render(
+      <Overview
+        currentProduct={data.initialProduct}
+        currentRating={3.5}
+        outfit={[]}
+      />
+    );
     expect(screen.getByRole('button', {name: /add to cart \+/i})).toBeDefined();
   });
 
   test('Rendering "SELECT SIZE" when size not selected', async () => {
-    render(<Overview currentProduct={data.initialProduct}/>);
+    render(
+      <Overview
+        currentProduct={data.initialProduct}
+        currentRating={3.5}
+        outfit={[]}
+      />
+    );
     expect(screen.getByDisplayValue('SELECT SIZE')).toBeDefined();
   });
 })

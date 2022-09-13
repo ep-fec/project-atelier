@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">37.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/21</span>
+                <span class='fraction'>9/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">30% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/8</span>
+                <span class='fraction'>3/10</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35% </span>
+                <span class="strong">39.13% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/20</span>
+                <span class='fraction'>9/23</span>
             </div>
         
             
@@ -125,7 +125,15 @@
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
 <a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -160,6 +168,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -171,6 +184,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -221,10 +237,15 @@ export default function StyleSelector({allStyles, selectedStyle, setSelectedStyl
 <span class="cstat-no" title="statement not covered" >    return array;</span>
   }
 &nbsp;
+  let smallStyleThumbnail = null;
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (allStyles.length &gt; 8) {
+<span class="cstat-no" title="statement not covered" >    smallStyleThumbnail = 'smallStyleThumbnail';</span>
+  }
   return (
     &lt;div className='styleComponentContainer'&gt;
-      &lt;div className='styleText'&gt;
-        STYLE &gt; {selectedStyle.name}
+      &lt;div className='styleTextContainer'&gt;
+        &lt;div className='styleText'&gt; STYLE &gt;&gt; &lt;/div&gt;
+        &lt;div className='selectedStyleText'&gt; {selectedStyle.name} &lt;/div&gt;
       &lt;/div&gt;
 &nbsp;
       &lt;div className='styleThumbnailsGrid'&gt;
@@ -233,15 +254,18 @@ export default function StyleSelector({allStyles, selectedStyle, setSelectedStyl
             let showCheckmark = <span class="cstat-no" title="statement not covered" >checkmarkStatus[index] ? 'styleThumbnailCheckmark' : null;</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >            return (</span>
-              &lt;div className='styleThumbnailAndCheckmark'&gt;
-                &lt;img className={`styleThumbnail ${showCheckmark}`}
+              &lt;div className='styleThumbnailAndCheckmark' key={index}&gt;
+                &lt;img className={`styleThumbnail ${showCheckmark} ${smallStyleThumbnail}`}
                   src={style.photos[0].thumbnail_url}
+                  alt='Image cannot be loaded'
                   key={index}
                   onClick={handleStyleSelectClick}
                   name={style.name}
                   id={index}
                 /&gt;
-                {showCheckmark &amp;&amp; (&lt;i class="fas fa-check-circle"&gt;&lt;/i&gt;)}
+                {showCheckmark &amp;&amp; (
+                  &lt;i className="fas fa-check-circle"&gt;&lt;/i&gt;
+                )}
               &lt;/div&gt;
             )
           })
@@ -256,7 +280,7 @@ export default function StyleSelector({allStyles, selectedStyle, setSelectedStyl
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-09-03T20:57:06.033Z
+                at 2022-09-13T02:58:00.933Z
             </div>
         <script src="prettify.js"></script>
         <script>
