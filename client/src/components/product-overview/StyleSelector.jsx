@@ -32,10 +32,15 @@ export default function StyleSelector({allStyles, selectedStyle, setSelectedStyl
     return array;
   }
 
+  let smallStyleThumbnail = null;
+  if (allStyles.length > 8) {
+    smallStyleThumbnail = 'smallStyleThumbnail';
+  }
   return (
     <div className='styleComponentContainer'>
-      <div className='styleText'>
-        STYLE > {selectedStyle.name}
+      <div className='styleTextContainer'>
+        <div className='styleText'> STYLE >> </div>
+        <div className='selectedStyleText'> {selectedStyle.name} </div>
       </div>
 
       <div className='styleThumbnailsGrid'>
@@ -44,15 +49,18 @@ export default function StyleSelector({allStyles, selectedStyle, setSelectedStyl
             let showCheckmark = checkmarkStatus[index] ? 'styleThumbnailCheckmark' : null;
 
             return (
-              <div className='styleThumbnailAndCheckmark'>
-                <img className={`styleThumbnail ${showCheckmark}`}
+              <div className='styleThumbnailAndCheckmark' key={index}>
+                <img className={`styleThumbnail ${showCheckmark} ${smallStyleThumbnail}`}
                   src={style.photos[0].thumbnail_url}
+                  alt='Image cannot be loaded'
                   key={index}
                   onClick={handleStyleSelectClick}
                   name={style.name}
                   id={index}
                 />
-                {showCheckmark && (<i class="fas fa-check-circle"></i>)}
+                {showCheckmark && (
+                  <i className="fas fa-check-circle"></i>
+                )}
               </div>
             )
           })

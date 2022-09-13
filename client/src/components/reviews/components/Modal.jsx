@@ -12,7 +12,6 @@ const Modal = ({ open, close, children}) => {
       <div className="modal-overlay"></div>
       <div className="reviews-modal">
         {children}
-        <button onClick={close} className="reviews-modal-button">CLOSE</button>
       </div>
     </>,
     document.getElementById('modal-root')

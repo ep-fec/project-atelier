@@ -4,4 +4,5 @@ node_modules
 **.DS_Store
 **/.DS_Store
 *bundle.js.gz
-coverage/
+*.sh
+*.pem

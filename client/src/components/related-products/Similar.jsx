@@ -5,22 +5,33 @@ import Card from './Card.jsx';
 class Similar extends React.Component {
   constructor(props) {
     super(props);
+
+    this.moveRight = this.moveRight.bind(this);
+    this.moveLeft = this.moveLeft.bind(this);
+  }
+
+  moveRight() {
+    this.props.moveRight('similar');
+  }
+  moveLeft() {
+    this.props.moveLeft('similar');
   }
 
   render() {
-    return(<div class='table'>
-      <List products={this.props.products}/>
-    </div>)
+    return(
+    <div>
+      <h2 className="reviews-logo">RELATED PRODUCTS</h2>
+      <ul id='similar' className='side-by-side' style={{'--count': this.props.products.length}} role='related-list'>
+        {_.map(this.props.products, (product, index) => {
+        //console.log('product', index, product);
+          return (<Card product={product} index={index}
+            changeProduct={this.props.changeProduct}
+            actionButton={this.props.compare}
+            location={'similar'}/>);
+        })}
+      </ul>
+     </div>)
   }
-}
-
-let List = (props) => {
-  return(<ul className="side-by-side full">
-    {_.map(props.products, (product, index) => {
-     //console.log('product', index, product);
-      return (<Card product={product}/>);
-    })}
-  </ul>);
 }
 
 export default Similar;
