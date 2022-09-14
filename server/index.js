@@ -11,8 +11,9 @@ const key = process.env.KEY;
 const request = require('./helpers/request.js');
 const uploadImage = require('./helpers/cloudinary.js');
 
-app.use('/', expressStaticGzip(path.resolve(__dirname, '../client/dist')));
+app.use(expressStaticGzip(path.resolve(__dirname, '../client/dist')));
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
+app.use(express.text());
 app.use(express.json({limit:  '50mb'}));
 app.use(express.urlencoded({limit: '50mb', extended:true}))
 
@@ -42,7 +43,6 @@ app.post('/reviews/uploads', async (req, res) => {
       });
   }
 });
-app.use(express.text());
 
 app.post('/allStyles', (request, response) => {
   let endpoint = `products/${request.body}/styles`;
@@ -96,22 +96,28 @@ app.get('/related/:productId', function(req, res) {
       res.send({product, styles, reviewScore});
     })
     .catch((err) => {
+      console.log(err);
       res.send(err);
     });
 });
 
+// app.use('/products/:productId', expressStaticGzip(path.resolve(__dirname, '../client/dist')));
+// app.use('/products/:productId', express.static(path.resolve(__dirname, '../client/dist')));
+
 app.all('/*', (req, res) => {
   request(req.url, req.method, req.body)
     .then((response) => {
-      res.send(response.data);
+      console.log(req.params);
+      console.log(req.query);
+      console.log(req.url);
+      console.log(response);
+        res.send(response.data);
     })
     .catch((err) => {
       console.log('There was an error!:', err);
       res.status(404).end();
     });
 });
-
-
 
 app.listen(port, () => {
   console.log(`Listening on ${port}`);

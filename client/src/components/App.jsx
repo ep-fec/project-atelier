@@ -11,6 +11,7 @@ class App extends React.Component {
     this.state = {
       currentProduct: {},
       productId: 0,
+      url: '/',
       outfit: []
     };
 
@@ -24,15 +25,20 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getInitialProduct();
+    console.log(window.location.pathname);
+
+
   }
 
-  componentDidUpdate(pp, prevState) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevState.productId !== this.state.productId && prevState.productId !== 0) {
       axios.get(`/products/${this.state.productId}`)
       .then((response) => {
         this.setState({
           currentProduct: response.data
         });
+        history.pushState({ productId: this.state.productId }, '', `${this.state.productId}`);
+        console.log(history);
       })
       .catch((err) => {
         console.log('ERROR GETTING NEW PRODUCT INFO', err);
