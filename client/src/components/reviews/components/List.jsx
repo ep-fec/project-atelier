@@ -29,7 +29,7 @@ const List = (props) => {
           {showModal ?
             <Modal open={showModal}>
               <NewReview productInfo={props.productInfo} productMeta={props.productMeta}/>
-              <button onClick={() => setShowModal(false)} className="reviews-modal-button">CLOSE</button>
+              <button onClick={() => setShowModal(false)} className="reviews-modal-x">X</button>
             </Modal>
             : null}
         </>

@@ -11,7 +11,9 @@ const Characteristic = ({name, scale}) => {
     Fit: ['Runs tight', 'Runs long'],
   }
 
-  const arrowPosition = ((scale - 1) * 100 / (5 - 1));
+
+  const arrowPosition = scale === null ? 0 : ((scale - 1) * 100 / (5 - 1));
+
 
   return (
 

@@ -25,8 +25,8 @@ export default function SizeSelector({
 
   return (
     <>
-<div ref={errorRef} tabIndex="1" class="errorMsgContainer">
-  <span class="errorMsg"> Please select size </span>
+<div ref={errorRef} tabIndex="1" className="errorMsgContainer">
+  <span className="errorMsg"> Please select size </span>
 </div>
 
     {(outOfStock === false) && (
