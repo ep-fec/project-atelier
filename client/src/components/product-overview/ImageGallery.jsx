@@ -4,7 +4,9 @@ export default function ImageGallery({
   selectedStyle,
   onImageClick,
   expandView,
-  setExpandView}) {
+  setExpandView,
+  zoomView,
+  setZoomView}) {
 
   const [mainPhoto, setMainPhoto] = useState('');
   const [mainPhotoIndex, setMainPhotoIndex] = useState(0);
@@ -65,7 +67,23 @@ export default function ImageGallery({
   }
 
   const handleMainImageClick = () => {
-    setExpandView(prevState => !prevState);
+    if (expandView === false) {
+      setExpandView(true);
+    }
+
+    if (expandView === true) {
+      setZoomView(true);
+    }
+
+    if (zoomView === true) {
+      setZoomView(false);
+    }
+  }
+
+  const handleXmarkClick = () => {
+    if (expandView === true) {
+      setExpandView(false);
+    }
   }
 
   return (
@@ -82,7 +100,10 @@ export default function ImageGallery({
               cursor: expandView ? '' : 'zoom-in',
               maxHeight: expandView ? '50rem' : '35rem',
           }}
-          ></div>
+          >
+            <div className={zoomView ? 'square' : null}>
+            </div>
+          </div>
 
           <div className='thumbnailComponentContainer'>
             <div className='thumbnailImagesContainer'>
@@ -131,6 +152,17 @@ export default function ImageGallery({
                   onClick={handleMainPhotoForwardClick}
                 >
                   <i className="fa-solid fa-angle-right"></i>
+                </div>
+              )}
+
+              {expandView && !zoomView && (
+                <div className='xmark'
+                  style={{
+                    display: expandView ? 'flex' : 'none',
+                  }}
+                  onClick={handleXmarkClick}
+                >
+                  <i className="fa-solid fa-xmark"></i>
                 </div>
               )}
             </div>

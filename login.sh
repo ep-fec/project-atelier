@@ -1,0 +1,1 @@
+ssh -i '/Users/uchchas/Documents/hackreactor/fec/project-atelier/hr_fec.pem' ubuntu@ec2-54-165-25-69.compute-1.amazonaws.com

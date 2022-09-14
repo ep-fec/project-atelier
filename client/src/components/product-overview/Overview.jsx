@@ -81,7 +81,6 @@ export default function Overview({
             display: expandView ? 'grid' : 'flex',
             gridTemplateRows: expandView ? 'auto auto' : ''
           }}
-
         >
           <div className='imageGalleryContainer'
             style={{flexBasis: expandView ? '100%' : '70%'}}
@@ -90,6 +89,8 @@ export default function Overview({
               selectedStyle={selectedStyle}
               expandView={expandView}
               setExpandView={setExpandView}
+              zoomView={zoomView}
+              setZoomView={setZoomView}
             />
           </div>
 
