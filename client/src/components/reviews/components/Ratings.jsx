@@ -17,9 +17,6 @@ const Ratings = (props) => {
       setRecommendations(0)
       handleFilterReset();
     }
-    setRatings({'1': 0, '2': 0,'3': 0,'4': 0,'5': 0});
-    setRecommendations(0)
-    handleFilterReset();
   }, [data]);
 
   useEffect(() => {
