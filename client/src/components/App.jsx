@@ -11,7 +11,6 @@ class App extends React.Component {
     this.state = {
       currentProduct: {},
       productId: 0,
-      url: '/',
       outfit: []
     };
 
@@ -21,13 +20,17 @@ class App extends React.Component {
     this.removeFromMyOutfit = this.removeFromMyOutfit.bind(this);
     // this.handleAdd = this.handleAdd.bind(this);
     this.removeFromOutfit = this.removeFromOutfit.bind(this);
+    this.handleGetId = this.handleGetId.bind(this);
   }
 
   componentDidMount() {
-    this.getInitialProduct();
-    console.log(window.location.pathname);
-
-
+    let url = window.location.pathname.split('/');
+    if (url.length === 3) {
+      let productId = Number(url[2]);
+      this.handleGetId(productId);
+    } else {
+      this.getInitialProduct();
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -37,14 +40,26 @@ class App extends React.Component {
         this.setState({
           currentProduct: response.data
         });
-        history.pushState({ productId: this.state.productId }, '', `${this.state.productId}`);
-        console.log(history);
+        history.pushState(null , '', `/productid/${this.state.productId}`);
       })
       .catch((err) => {
         console.log('ERROR GETTING NEW PRODUCT INFO', err);
       })
     }
   }
+
+    handleGetId(id) {
+      return axios.get(`/products/${id}`)
+        .then(response => {
+          this.setState({
+            currentProduct: response.data,
+            productId: response.data.id
+          });
+        })
+        .catch(error => {
+          console.log('Error getting initial product', error);
+        });
+    }
 
   getInitialProduct() {
     return axios.get('/products?page=3&count=1')

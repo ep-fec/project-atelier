@@ -24,7 +24,7 @@ class Outfit extends React.Component {
         <ul id='outfit' className='side-by-side' style={{'--count': this.props.outfit.length + 1}} role='outfit-list'>
           <li className='card' onClick={this.props.handleAdd}>Add to your list of outfits</li>
           {_.map(this.props.outfit, (product, index) => {
-            return (<Card product={product} index={index}
+            return (<Card key={index} product={product}
               changeProduct={this.props.changeProduct}
               actionButton={this.props.removeProduct}
               location ={'outfit'}/>);})}
