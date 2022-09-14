@@ -183,6 +183,7 @@ Individual Review
   padding: 5px;
   width: 100px;
   height: 100px;
+  object-fit: cover;
 }
 
 
@@ -225,7 +226,7 @@ Modal
   left: 50%;
   transform: translate(-50%, -50%);
   height: 80%;
-  width: 80%;
+  width: 60%;
   max-height: 95%;
   max-width: 95;
   background-color: rgb(255, 255, 255);
@@ -243,8 +244,8 @@ Modal
 }
 
 .reviews-modal-image-container {
-    height: 90%;
-    width: 90%;
+    height: 80%;
+    width: 80%;
     padding: 0;
     margin: 0 auto;
     position: relative;
