@@ -1286,7 +1286,6 @@ a:hover {
   grid-template-columns: repeat(var(--count), calc(27%));
   grid-template-rows: minmax(150px, 1fr);
   padding: 20px;
-  max-width: 60vw;
   overflow-y: auto;
 }
 
@@ -1374,8 +1373,18 @@ Media Queries
   }
 
   .leftcol,
-  .rightcol {
+  .rightcol,
+  .overViewMainContainer {
     width: 100%;
+  }
+
+  .overview {
+
+
+  }
+
+  .overViewMainContainer {
+    padding:0;
   }
 
   .rating-leftcol {
