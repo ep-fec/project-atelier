@@ -42,20 +42,21 @@ export default function Overview({
   }, [currentProduct]);
 
   const getAllStyles = (id) => {
-    axios({
-      method: 'POST',
-      url: 'allStyles',
-      data: id,
-      headers: {
-        'Content-type': 'text/plain'
-      }
-    })
+    axios.get(`/allStyles/${id}`)
     .then(response => {
       setAllStyles(response.data);
     })
     .catch(error => {
       console.log('Error from server', error);
     });
+    // axios({
+    //   method: 'POST',
+    //   url: 'allStyles',
+    //   data: id,
+    //   headers: {
+    //     'Content-type': 'text/plain'
+    //   }
+    // })
   };
 
   return (
