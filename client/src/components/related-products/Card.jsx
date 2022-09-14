@@ -60,21 +60,21 @@ class Card extends React.Component {
     if (this.props.location === 'similar') {
       return(
         <li className='card' onClick={this.changeProduct}>
-          <i class="fa-regular fa-star" onClick={this.actionButton}></i>
+          <i className="fa-regular fa-star" onClick={this.actionButton}></i>
           <img src={photo.thumbnail_url}/>
-          <p>{this.state.product.category}</p>
-          <p>{this.state.product.name}</p>
-          <p>{this.state.product.default_price}</p>
+          <p>{this.state.product?.category}</p>
+          <p>{this.state.product?.name}</p>
+          <p>{this.state.product?.default_price}</p>
           <Stars reviews={this.state.reviews}/>
         </li>);
     } else if (this.props.location === 'outfit') {
       return(
         <li className='card' onClick={this.changeProduct}>
-          <i class="fa-solid fa-x" onClick={this.actionButton}></i>
+          <i className="fa-solid fa-x" onClick={this.actionButton}></i>
           <img src={photo.thumbnail_url}/>
-          <p>{this.state.product.category}</p>
-          <p>{this.state.product.name}</p>
-          <p>{this.state.product.default_price}</p>
+          <p>{this.state.product?.category}</p>
+          <p>{this.state.product?.name}</p>
+          <p>{this.state.product?.default_price}</p>
           <Stars reviews={this.state.reviews}/>
         </li>);
     }

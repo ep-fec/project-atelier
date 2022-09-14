@@ -24,25 +24,46 @@ class App extends React.Component {
     this.addToMyOutfit = this.addToMyOutfit.bind(this);
     this.removeFromMyOutfit = this.removeFromMyOutfit.bind(this);
     this.removeFromOutfit = this.removeFromOutfit.bind(this);
+    this.handleGetId = this.handleGetId.bind(this);
   }
 
   componentDidMount() {
-    this.getInitialProduct();
+    let url = window.location.pathname.split('/');
+    if (url.length === 3) {
+      let productId = Number(url[2]);
+      this.handleGetId(productId);
+    } else {
+      this.getInitialProduct();
+    }
   }
 
-  componentDidUpdate(pp, prevState) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevState.productId !== this.state.productId && prevState.productId !== 0) {
       axios.get(`/products/${this.state.productId}`)
       .then((response) => {
         this.setState({
           currentProduct: response.data
         });
+        history.pushState(null , '', `/productid/${this.state.productId}`);
       })
       .catch((err) => {
         console.log('ERROR GETTING NEW PRODUCT INFO', err);
       })
     }
   }
+
+    handleGetId(id) {
+      return axios.get(`/products/${id}`)
+        .then(response => {
+          this.setState({
+            currentProduct: response.data,
+            productId: response.data.id
+          });
+        })
+        .catch(error => {
+          console.log('Error getting initial product', error);
+        });
+    }
 
   getInitialProduct() {
     return axios.get('/products?page=3&count=1')

@@ -24,7 +24,7 @@ class Similar extends React.Component {
       <ul id='similar' className='side-by-side' style={{'--count': this.props.products.length}} role='related-list'>
         {_.map(this.props.products, (product, index) => {
         //console.log('product', index, product);
-          return (<Card product={product} index={index}
+          return (<Card key={index} product={product}
             changeProduct={this.props.changeProduct}
             actionButton={this.props.compare}
             location={'similar'}/>);
