@@ -227,10 +227,11 @@ Modal
   transform: translate(-50%, -50%);
   height: 80%;
   width: 60%;
-  max-height: 95%;
+  /* max-height: 95%; */
   max-width: 95;
   background-color: rgb(255, 255, 255);
-  z-index: 1000;
+  z-index: 5000;
+  overflow-y: auto;
 }
 
 .modal-image {
@@ -250,7 +251,10 @@ Modal
     margin: 0 auto;
     position: relative;
     display: flex;
+    /* overflow-y: auto; */
 }
+
+.reviews-modal-image-container {}
 
 .reviews-modal-image-container {}
 
@@ -271,7 +275,7 @@ Buttons
   color: white;
   font-weight: 500;
   font-size: 14px;
-  padding: 18px;
+  padding: 20px;
   border: none;
 }
 
@@ -556,6 +560,14 @@ Sort Options
 RATINGS & REVIEWS
 Add New Review
 */
+
+.new-review-component {
+  position: absolute;
+  width: 100%;
+  /* display: block; */
+  /* height: 100%; */
+  overflow-y: auto;
+}
 
 .reviews-logo {
   margin-bottom: 5px;
