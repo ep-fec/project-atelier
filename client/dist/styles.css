@@ -749,6 +749,8 @@ Media Queries
   #reviews-container {
     padding-left: 5%;
     padding-right: 5%;
+    overflow-x: none;
+    word-wrap: break-word;
   }
 
   .leftcol,
@@ -757,7 +759,7 @@ Media Queries
   }
 
   .rating-leftcol {
-    width: 15%;
+    width: 13%;
   }
 
   .rating-midcol {
@@ -770,7 +772,7 @@ Media Queries
   }
 
   .rating-rightcol {
-    width: 5%;
+    width: 7%;
   }
 
   .product-breakdown-container {
