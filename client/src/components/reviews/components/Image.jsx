@@ -5,15 +5,25 @@ const Image = ({photo, summary}) => {
 
   let [showModal, setShowModal] = useState(false);
 
+  let url = new URL(photo.url);
+  let currentParams = new URLSearchParams(photo.url);
+  currentParams.set('w', 200);
+  currentParams.set('q', 20);
+  url.search = currentParams.toString();
+  let finalUrl = url.toString();
+
   return (
     <>
     <img className="reviews review-thumbnail"
       height="100"
       width="100"
       loading="eager"
-      onClick={() => setShowModal(true)}
+      onClick={() => {
+        setShowModal(true)
+        console.log(finalUrl);
+      }}
       alt={summary}
-      src={photo.url}/>
+      src={finalUrl}/>
 
     {showModal ?
     <Modal open={showModal}>
