@@ -18,7 +18,7 @@ class App extends React.Component {
       productId: 0,
       outfit: [],
       currentRating: 0,
-      theme: 'dark'
+      theme: 'light'
     };
 
     this.getInitialProduct = this.getInitialProduct.bind(this);
