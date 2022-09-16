@@ -1,4 +1,4 @@
-import react, { useState } from 'react';
+import React, { useState } from 'react';
 import Modal from './Modal.jsx';
 
 const Image = ({photo, summary}) => {
@@ -17,7 +17,7 @@ const Image = ({photo, summary}) => {
 
     {showModal ?
     <Modal open={showModal}>
-          <img className="reviews modal-image" src={photo.url} onClick={() => setShowModal(false)}/>
+          <img className="reviews modal-image" alt={summary} src={photo.url} onClick={() => setShowModal(false)}/>
       <button onClick={() => setShowModal(false)} className="reviews-modal-image-button">CLOSE</button>
     </Modal>
     : null}

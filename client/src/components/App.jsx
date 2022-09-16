@@ -18,7 +18,7 @@ class App extends React.Component {
       productId: 0,
       outfit: [],
       currentRating: 0,
-      theme: 'light'
+      theme: 'dark'
     };
 
     this.getInitialProduct = this.getInitialProduct.bind(this);
@@ -34,9 +34,9 @@ class App extends React.Component {
     let url = window.location.pathname.split('/');
     if (url.length === 3) {
       let productId = Number(url[2]);
-      this.handleGetId(productId);
+      this.handleGetId(productId).catch((err) => console.log(err));
     } else {
-      this.getInitialProduct();
+      this.getInitialProduct().catch((err) => console.log(err));
     }
   }
 

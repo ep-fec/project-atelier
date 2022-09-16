@@ -14,6 +14,8 @@ RATINGS & REVIEWS
   --star-background: rgb(255, 179, 0);
   --primary-color: #ED1C24;
   --primary-font: 'Roboto', sans-serif;
+  --darkmode: #444444;
+  --darkfont: #d3d0d0;
   scroll-behavior: smooth;
 }
 
@@ -152,6 +154,10 @@ Individual Review
   margin-bottom: 20px;
 }
 
+#dark .ind-review-response {
+    background-color: #666666;
+}
+
 .response-title {
   margin: 0;
   margin-bottom: 15px;
@@ -183,6 +189,7 @@ Individual Review
   height: 100px;
   object-fit: cover;
 }
+
 
 
 .ind-review-helpfulYes:hover,
@@ -232,6 +239,10 @@ Modal
   overflow-y: auto;
 }
 
+#dark .reviews-modal {
+  background-color: var(--darkmode);
+}
+
 .modal-image {
   display: block;
   max-width: 100%;
@@ -251,12 +262,6 @@ Modal
     display: flex;
     /* overflow-y: auto; */
 }
-
-.reviews-modal-image-container {}
-
-.reviews-modal-image-container {}
-
-.reviews-modal-image-container {}
 
 /*
 RATINGS & REVIEWS
@@ -538,6 +543,11 @@ Sort Options
 .sort-dropdown-content .sort-menu-option:hover {
   background-color: var(--primary-color);
   color: white;
+}
+
+#dark .sort-dropdown-content {
+  background-color: var(--darkmode);
+  color: var(--darkfont);
 }
 
 

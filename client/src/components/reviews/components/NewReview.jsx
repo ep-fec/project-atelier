@@ -86,6 +86,7 @@ const NewReview = ({productInfo, productMeta, closeModal}) => {
             }
 
             setLoading(true);
+
             axios.post('/reviews/uploads', {
                 product_id: productInfo.id,
                 rating,
@@ -111,7 +112,8 @@ const NewReview = ({productInfo, productMeta, closeModal}) => {
 
     return (
         <div className="reviews new-review-component">
-            {!posted ? <>
+            {!loading && !posted ?
+        <>
             <div className="new-review-header">
                 <h1 className="reviews-logo">Write Your Review</h1>
                 <h3>About the <span className="new-review-product-name">{productInfo.name}</span></h3>
@@ -281,15 +283,26 @@ const NewReview = ({productInfo, productMeta, closeModal}) => {
 
                 <div className="new-review-category new-review-submit">
                     <button
-                    className="reviewsbutton"
-                    onClick={(e) => handleSubmit(e)}>SUBMIT REVIEW</button>
+                        className="reviewsbutton"
+                        onClick={(e) => handleSubmit(e)}>SUBMIT REVIEW
+                    </button>
                     <button
                         className="reviewsbutton reviews-addreview-close"
-                        onClick={closeModal}>CLOSE</button>
+                        onClick={closeModal}>CLOSE
+                    </button>
                 </div>
             </form>
-            </> : loading ? <img className="reviews-loading" src="https://res.cloudinary.com/absaga/image/upload/v1662736077/Spin-1s-200px_g6wnrc.gif" />
-            : <h1 className="reviews-logo">Thank you for submitting your review!</h1>}
+        </> :
+            <img
+                className="reviews-loading"
+                alt="loading indicator"
+                src="https://res.cloudinary.com/absaga/image/upload/v1662736077/Spin-1s-200px_g6wnrc.gif" />}
+            { posted ?
+            <div className="new-review-header">
+                <h1 className="reviews-logo">Thank you for submitting your review!</h1>
+            </div>
+            :
+            null}
         </div>
     );
 };

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import List from './components/List.jsx';
-import Review from './components/Review.jsx';
 import ProductBreakdown from './components/ProductBreakdown.jsx';
 import Ratings from './components/Ratings.jsx';
 import Sort from './components/Sort.jsx';
