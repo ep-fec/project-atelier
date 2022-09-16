@@ -25,6 +25,7 @@ export default function Overview({
   const [allStyles, setAllStyles] = useState([]);
   const [selectedStyle, setSelectedStyle] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
+  const [selectedSku, setSelectedSku] = useState('');
   const [selectedQuantity, setSelectedQuantity] = useState('-');
   const [outOfStock, setOutOfStock] = useState(false);
   const errorRef = useRef();
@@ -43,20 +44,12 @@ export default function Overview({
 
   const getAllStyles = (id) => {
     axios.get(`/allStyles/${id}`)
-    .then(response => {
-      setAllStyles(response.data);
-    })
-    .catch(error => {
-      console.log('Error from server', error);
-    });
-    // axios({
-    //   method: 'POST',
-    //   url: 'allStyles',
-    //   data: id,
-    //   headers: {
-    //     'Content-type': 'text/plain'
-    //   }
-    // })
+      .then(response => {
+        setAllStyles(response.data);
+      })
+      .catch(error => {
+        console.log('Error from server', error);
+      });
   };
 
   return (
@@ -125,7 +118,7 @@ export default function Overview({
                 allStyles={allStyles}
                 selectedStyle={selectedStyle}
                 setSelectedStyle={setSelectedStyle}
-              />
+                />
             </div>
 
             <div className='sizeAndQuantityContainer'>
@@ -133,6 +126,7 @@ export default function Overview({
                 <SizeSelector
                   selectedStyle={selectedStyle}
                   setSelectedSize={setSelectedSize}
+                  setSelectedSku={setSelectedSku}
                   outOfStock={outOfStock}
                   setOutOfStock={setOutOfStock}
                   errorRef={errorRef}
@@ -157,6 +151,7 @@ export default function Overview({
                   <AddToCart
                     selectedSize={selectedSize}
                     selectedQuantity={selectedQuantity}
+                    selectedSku={selectedSku}
                     errorRef={errorRef}
                   />
                 </div>

@@ -1,7 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
-export default function StyleSelector({allStyles, selectedStyle, setSelectedStyle}) {
+export default function StyleSelector({
+  allStyles,
+  selectedStyle,
+  setSelectedStyle
+}) {
   const [checkmarkStatus, setCheckmarkStatus] = useState([]);
 
   useEffect(() => {

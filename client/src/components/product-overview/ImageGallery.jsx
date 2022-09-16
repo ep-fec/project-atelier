@@ -10,7 +10,6 @@ export default function ImageGallery({
 
   const [mainPhoto, setMainPhoto] = useState('');
   const [mainPhotoIndex, setMainPhotoIndex] = useState(0);
-  //const [selectedThumbnailIndex, setSelectedThumbnailIndex] = useState(0);
   const [showForwardArrow, setShowForwardArrow] = useState(true);
   const [showBackArrow, setShowBackArrow] = useState(false);
   const [showUpArrow, setShowUpdArrow] = useState(true);
