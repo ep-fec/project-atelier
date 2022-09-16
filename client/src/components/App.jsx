@@ -17,7 +17,8 @@ class App extends React.Component {
       currentProduct: {},
       productId: 0,
       outfit: [],
-      currentRating: 0
+      currentRating: 0,
+      theme: 'dark'
     };
 
     this.getInitialProduct = this.getInitialProduct.bind(this);
@@ -115,7 +116,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id={this.state.theme}>
         <Overview
           currentProduct={this.state.currentProduct}
           currentRating={this.state.currentRating}

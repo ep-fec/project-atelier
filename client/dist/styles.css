@@ -52,10 +52,6 @@ Widget Skeleton
     var(--primary-color);
 }
 
-h1.reviews-logo {
-
-}
-
 .leftcol {
   width: 25%;
 }
@@ -1496,3 +1492,4 @@ Media Queries
   }
 
 }
+
