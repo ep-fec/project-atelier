@@ -16,11 +16,13 @@ class App extends React.Component {
     this.state = {
       currentProduct: {},
       productId: 0,
-      outfit: []
+      outfit: [],
+      currentRating: 0
     };
 
     this.getInitialProduct = this.getInitialProduct.bind(this);
     this.changeProduct = this.changeProduct.bind(this);
+    // this.changeRating
     this.addToMyOutfit = this.addToMyOutfit.bind(this);
     this.removeFromMyOutfit = this.removeFromMyOutfit.bind(this);
     this.removeFromOutfit = this.removeFromOutfit.bind(this);

@@ -6,14 +6,14 @@ const ProductBreakdown = ({meta}) => {
   const [charsLoaded, setCharsLoaded] = useState(false);
 
   useEffect(() => {
-    if (Object.keys(meta).length) {
+    if (Object.keys(meta).length && meta.characteristics) {
       setCharsLoaded(true);
     }
   }, [meta]);
 
   return (
     <div className="reviews product-breakdown-container">
-      {charsLoaded ?
+      {charsLoaded && meta?.characteristics ?
         Object.keys(meta?.characteristics).map((char, i) => {
           return (
             <div key={meta.characteristics[char].id}>

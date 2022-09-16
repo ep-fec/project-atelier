@@ -82,7 +82,7 @@ const Reviews = (props) => {
       </section>
 
       <section className="reviews rightcol">
-        <Sort sort={sort} setSort={setSort} reviewsAmount={allReviews.results.length}/>
+        <Sort sort={sort} setSort={setSort} reviewsAmount={allReviews?.results?.length}/>
         <List reviews={filteredReviews} filters={filters} sort={sort} productInfo={productInfo} productMeta={productMeta}/>
       </section>
     </section>
