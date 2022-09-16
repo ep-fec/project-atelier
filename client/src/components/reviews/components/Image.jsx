@@ -18,10 +18,7 @@ const Image = ({photo, summary}) => {
       height="100"
       width="100"
       loading="eager"
-      onClick={() => {
-        setShowModal(true)
-        console.log(finalUrl);
-      }}
+      onClick={() => setShowModal(true)}
       alt={summary}
       src={finalUrl}/>
 

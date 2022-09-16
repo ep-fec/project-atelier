@@ -23,6 +23,7 @@ const List = (props) => {
       <div className="reviews no-reviews">
         {!totalReviews ?
         <><button
+            id="add-a-review"
             className="reviews add-review-centered reviewsbutton"
             onClick={() => setShowModal(true)}>ADD A REVIEW +
           </button>
@@ -52,8 +53,10 @@ const List = (props) => {
         : null}
         {totalReviews ?
         <><button
-          className="reviews add-review reviewsbutton"
-          onClick={() => setShowModal(true)}>ADD A REVIEW +</button>
+            id="add-a-review"
+            className="reviews add-review reviewsbutton"
+            onClick={() => setShowModal(true)}>ADD A REVIEW +
+          </button>
 
           {showModal ?
             <Modal open={showModal}>
