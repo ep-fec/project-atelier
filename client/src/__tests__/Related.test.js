@@ -103,5 +103,6 @@ describe('Renders modal', () => {
       removeProduct={function() {console.log('remove from outfit')}}
       widget={'Related Products'}
       />);
+      expect(true).toBe(true);
   });
 });

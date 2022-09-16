@@ -97,7 +97,7 @@ app.post('/reviews/uploads', async (req, res) => {
       if (totalRatings === 0) {
         reviewScore = 'No Reviews';
       } else {
-        reviewScore = Math.floor(totalAmount/totalRatings) || 0;
+        reviewScore =(totalAmount/totalRatings).toFixed(1) || 0;
       }
       res.send({product, styles, reviewScore});
     })
