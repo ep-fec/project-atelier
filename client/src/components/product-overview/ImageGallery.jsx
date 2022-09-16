@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 
 export default function ImageGallery({
   selectedStyle,
@@ -15,6 +15,8 @@ export default function ImageGallery({
   const [showUpArrow, setShowUpdArrow] = useState(true);
   const [showDownArrow, setShowDownArrow] = useState(true);
   const [selectStatus, setSelectStatus] = useState([]);
+  const [posX, setPosX] = useState(0);
+  const [posY, setPosY] = useState(0);
 
   useEffect(() => {
     if (selectedStyle !== '') {
@@ -36,6 +38,7 @@ export default function ImageGallery({
         setShowUpdArrow(true);
       }
     }
+
   }, [selectedStyle, mainPhotoIndex, showForwardArrow, showBackArrow])
 
   useEffect(() => {
@@ -87,19 +90,27 @@ export default function ImageGallery({
     }
   }
 
-  const handleMainImageClick = () => {
+  const handleMainImageClick = (e) => {
     if (expandView === false) {
       setExpandView(true);
     }
 
     if (expandView === true) {
       setZoomView(true);
+      console.log('i should be adding', e.target);
+      e.target.addEventListener('mousemove', move)
     }
 
     if (zoomView === true) {
       setZoomView(false);
+      console.log('i should be removing', e.target);
+      e.target.removeEventListener('mousemove', move)
     }
   }
+
+  const move = useCallback(() => {
+    console.log('i am moving');
+  }, [move])
 
   const handleXmarkClick = () => {
     if (expandView === true) {
@@ -122,7 +133,12 @@ export default function ImageGallery({
               maxHeight: expandView ? '50rem' : '35rem',
           }}
           >
-            <div className={zoomView ? 'square' : null}>
+            <div className={zoomView ? 'square' : null}
+              style={{
+                left: posX + 'px',
+                top: posY + 'px'
+              }}
+            >
             </div>
           </div>
 
