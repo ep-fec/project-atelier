@@ -1345,7 +1345,7 @@ a:hover {
   box-shadow: 4px 4px 8px 4px rgba(0,0,0,0.2);
   list-style: none;
   transition: 0.3s;
-  max-height: 40vw;
+  max-height: 25vw;
   padding: 2px 4px;
   border-radius: 10px;
   display: flex;
@@ -1368,13 +1368,29 @@ a:hover {
 }
 .card-content {
   flex-basis: 50%;
+  padding: 1rem 0 0 5px;
 }
+.card-category, .card-name, .card-price {
+  margin: .5rem;
+}
+
 .card-icon {
   display: flex;
   justify-content: right;
 }
 .card i {
   color: var(--primary-color);
+}
+.card-category {
+  font-size: large;
+  color: #4e4949;
+}
+.card-name {
+  font-size: larger;
+  font-weight: bold;
+}
+.card-price {
+  font-size: large;
 }
 
 .side-by-side {
