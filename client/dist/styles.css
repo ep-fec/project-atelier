@@ -309,7 +309,6 @@ Rating Breakdown
 * {
   --bar-color-empty: #4e4949;
   --bar-color-full: #3abb7d;
-  --arr
 }
 
 .total-rating {
@@ -863,6 +862,19 @@ Add New Review
   cursor: pointer;
 }
 
+.selectStatus {
+  border: 4px solid var(--primary-color);
+  display: flex;
+  width: 4vw;
+  height: 4vw;
+  max-width: 4.5rem;
+  max-height: 4.5rem;
+  object-fit: fill;
+  overflow: hidden;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
 .thumbnailUpArrow {
   display: flex;
   height: 25px;
@@ -1118,7 +1130,7 @@ a:hover {
 }
 
 .styleThumbnailCheckmark {
-  border: 2px var(--primary-color) solid;
+  border: 4px var(--primary-color) solid;
 }
 
 .fas {

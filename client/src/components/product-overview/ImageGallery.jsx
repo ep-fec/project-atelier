@@ -10,11 +10,12 @@ export default function ImageGallery({
 
   const [mainPhoto, setMainPhoto] = useState('');
   const [mainPhotoIndex, setMainPhotoIndex] = useState(0);
-  const [selectedThumbnailIndex, setSelectedThumbnailIndex] = useState(0);
+  //const [selectedThumbnailIndex, setSelectedThumbnailIndex] = useState(0);
   const [showForwardArrow, setShowForwardArrow] = useState(true);
   const [showBackArrow, setShowBackArrow] = useState(false);
   const [showUpArrow, setShowUpdArrow] = useState(true);
   const [showDownArrow, setShowDownArrow] = useState(true);
+  const [selectStatus, setSelectStatus] = useState([]);
 
   useEffect(() => {
     if (selectedStyle !== '') {
@@ -38,8 +39,29 @@ export default function ImageGallery({
     }
   }, [selectedStyle, mainPhotoIndex, showForwardArrow, showBackArrow])
 
+  useEffect(() => {
+    if (selectedStyle !== '') {
+      setSelectStatus(setSelectToTrue(mainPhotoIndex));
+    }
+  }, [selectedStyle, mainPhotoIndex])
+
+  const setAllSelectToFalse = () => {
+    let array = [];
+    selectedStyle.photos.map(style => {
+      array.push(false);
+    })
+    return array;
+  }
+
+  const setSelectToTrue = (target) => {
+    let array = setAllSelectToFalse();
+    array[target] = true;
+    return array;
+  }
+
   const handleThumbnailPhotoClick = (e) => {
     setMainPhotoIndex(parseInt(e.target.id));
+    setSelectStatus(prevState => setSelectToTrue(e.target.id));
   }
 
   const handleMainPhotoForwardClick = () => {
@@ -116,17 +138,20 @@ export default function ImageGallery({
                 )}
 
                 <ol className='thumbnailListContainer'>
-                  {selectedStyle.photos.map((photo, index) => (
-                    <li className='thumbnailListItems' key={index}>
-                      <img className='thumbnailImages'
-                        src={photo.thumbnail_url}
-                        key={index}
-                        onClick={handleThumbnailPhotoClick}
-                        id={index}
-                        alt='Image cannot be loaded'
-                      />
-                    </li>
-                  ))}
+                  {selectedStyle.photos.map((photo, index) => {
+                    let showSelect = selectStatus[index] ? 'selectStatus' : null;
+                    return (
+                      <li className='thumbnailListItems' key={index}>
+                        <img className={`thumbnailImages ${showSelect}`}
+                          src={photo.thumbnail_url}
+                          key={index}
+                          onClick={handleThumbnailPhotoClick}
+                          id={index}
+                          alt='Image cannot be loaded'
+                        />
+                      </li>
+                    )
+                  })}
                 </ol>
 
                 {showDownArrow && (
