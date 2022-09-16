@@ -27,32 +27,81 @@ afterAll(() => server.close())
 
 describe('Main Related Component', () => {
   test('Renders the Related products Component', async () => {
-    render(<Related currProduct={71699}/>);
+    render(<Related
+          currProduct={71699}
+          changeProduct={function() {console.log('change')}}
+          handleAdd={function() {console.log('add to outfit')}}
+          outfit={[]}
+          removeProduct={function() {console.log('remove from outfit')}}
+          widget={'Related Products'}
+          />);
     expect(screen.findByText('RELATED PRODUCTS')).toBeDefined();
   });
 
   test('Renders the Outfit Component', async () => {
-    render(<Related currProduct={71699}/>);
+    render(<Related
+          currProduct={71699}
+          changeProduct={function() {console.log('change')}}
+          handleAdd={function() {console.log('add to outfit')}}
+          outfit={[]}
+          removeProduct={function() {console.log('remove from outfit')}}
+          widget={'Related Products'}
+          />);
     expect(screen.findByText('YOUR OUTFIT')).toBeDefined();
   });
 });
 
 describe('Renders lists and their cards', () => {
   test('Renders the list for related products', async () => {
-    render(<Related currProduct={71699}/>);
+    render(<Related
+          currProduct={71699}
+          changeProduct={function() {console.log('change')}}
+          handleAdd={function() {console.log('add to outfit')}}
+          outfit={[]}
+          removeProduct={function() {console.log('remove from outfit')}}
+          widget={'Related Products'}
+          />);
     expect(screen.getByRole('related-list')).toBeDefined();
   });
 
   test('Renders the list for your outfit', async () => {
-    render(<Related currProduct={71699}/>);
+    render(<Related
+          currProduct={71699}
+          changeProduct={function() {console.log('change')}}
+          handleAdd={function() {console.log('add to outfit')}}
+          outfit={[]}
+          removeProduct={function() {console.log('remove from outfit')}}
+          widget={'Related Products'}
+          />);
     expect(screen.getByRole('outfit-list')).toBeDefined();
   });
 
   test('Should render the card for a product', async () => {
-    render(<Related currProduct={71699}/>);
+    render(<Related
+          currProduct={71699}
+          changeProduct={function() {console.log('change')}}
+          handleAdd={function() {console.log('add to outfit')}}
+          outfit={[]}
+          removeProduct={function() {console.log('remove from outfit')}}
+          widget={'Related Products'}
+          />);
     await waitFor(async () => {
       const card = await screen.findByText('Summer Shoes');
       expect(card).toBeDefined();
     });
+  });
+});
+
+describe('Renders modal', () => {
+
+  test('Should display both products in modal when clicking the start icon'), async () => {
+    render(<Related
+      currProduct={71699}
+      changeProduct={function() {console.log('change')}}
+      handleAdd={function() {console.log('add to outfit')}}
+      outfit={[]}
+      removeProduct={function() {console.log('remove from outfit')}}
+      widget={'Related Products'}
+      />);
   });
 });
