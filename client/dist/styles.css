@@ -304,6 +304,12 @@ Buttons
   transition-duration: 0.4s;
 }
 
+.reviews-addreview-close {
+  display:inline-block;
+  position: fixed;
+  padding: 20px 40px 20px 40px;
+}
+
 /*
 RATINGS & REVIEWS
 Rating Breakdown
@@ -702,6 +708,7 @@ Add New Review
   font-size: 20px;
   padding: 10px;
   border: none;
+  overscroll-behavior: none;
 }
 
 .reviews-modal-x:hover {
@@ -723,6 +730,14 @@ Add New Review
   font-size: 16px;
   color: red;
   font-weight: 700;
+}
+.new-review-submit {
+  /* display: block; */
+  /* margin: 0 auto; */
+  /* padding-top: 20px; */
+  /* text-align: center; */
+  /* padding-bottom: 30px; */
+  /* margin: 0 auto; */
 }
 
 /*
