@@ -6,3 +6,4 @@ node_modules
 *bundle.js.gz
 *.sh
 *.pem
+*.idea
