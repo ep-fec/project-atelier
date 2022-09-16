@@ -77,7 +77,7 @@ const Reviews = (props) => {
       <br/><br/>
 
       <section className="reviews leftcol">
-        <Ratings reviews={allReviews?.results} filters={filters} setFilter={setFilter} shouldRun={getRatings}/>
+        <Ratings reviews={allReviews?.results} filters={filters} setFilter={setFilter} shouldRun={getRatings} changeRating={props.changeRating}/>
         <ProductBreakdown meta={productMeta}/>
       </section>
 

@@ -22,7 +22,7 @@ class App extends React.Component {
 
     this.getInitialProduct = this.getInitialProduct.bind(this);
     this.changeProduct = this.changeProduct.bind(this);
-    // this.changeRating
+    this.changeRating = this.changeRating.bind(this);
     this.addToMyOutfit = this.addToMyOutfit.bind(this);
     this.removeFromMyOutfit = this.removeFromMyOutfit.bind(this);
     this.removeFromOutfit = this.removeFromOutfit.bind(this);
@@ -84,6 +84,10 @@ class App extends React.Component {
     this.setState({productId});
   }
 
+  changeRating(currentRating) {
+    this.setState({ currentRating });
+  }
+
   addToMyOutfit() {
     let outfit = this.state.outfit;
     if (!outfit.includes(this.state.productId)) {
@@ -130,6 +134,7 @@ class App extends React.Component {
           />
         <Reviews
           currentProduct={this.state.currentProduct}
+          changeRating={this.changeRating}
           widget={'Ratings & Reviews'}
         />
       </div>);

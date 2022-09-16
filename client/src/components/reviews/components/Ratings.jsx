@@ -28,7 +28,9 @@ const Ratings = (props) => {
   useEffect(() => {
     if (totalReviews) {
       let scoreTotal = (ratings[1] * 1) + (ratings[2] * 2) + (ratings[3] * 3) + (ratings[4] * 4) + (ratings[5] * 5);
-      setTotalRating((scoreTotal / totalReviews).toFixed(1));
+      let r = (scoreTotal / totalReviews).toFixed(1);
+      setTotalRating(r);
+      props.changeRating(r);
     }
   }, [ratings])
 
