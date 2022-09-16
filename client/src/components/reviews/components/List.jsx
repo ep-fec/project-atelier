@@ -13,7 +13,7 @@ const List = (props) => {
 
   useEffect(() => {
     if (reviewLimit === 4) {
-      setMaxHeight('750px');
+      setMaxHeight('660px');
     }
   }, [reviewLimit])
 
@@ -57,7 +57,7 @@ const List = (props) => {
 
           {showModal ?
             <Modal open={showModal}>
-              <NewReview productInfo={props.productInfo} productMeta={props.productMeta} />
+              <NewReview productInfo={props.productInfo} productMeta={props.productMeta} closeModal={() => setShowModal(false)}/>
               <button onClick={() => setShowModal(false)} className="reviews-modal-x">X</button>
             </Modal>
             : null}

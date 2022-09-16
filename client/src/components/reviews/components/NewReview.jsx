@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import UploadImage from './UploadImage.jsx';
 
 
-const NewReview = ({productInfo, productMeta}) => {
+const NewReview = ({productInfo, productMeta, closeModal}) => {
 
     const form = useRef(null);
     const reviewBody = useRef(null);
@@ -283,6 +283,9 @@ const NewReview = ({productInfo, productMeta}) => {
                     <button
                     className="reviewsbutton"
                     onClick={(e) => handleSubmit(e)}>SUBMIT REVIEW</button>
+                    <button
+                        className="reviewsbutton reviews-addreview-close"
+                        onClick={closeModal}>CLOSE</button>
                 </div>
             </form>
             </> : loading ? <img className="reviews-loading" src="https://res.cloudinary.com/absaga/image/upload/v1662736077/Spin-1s-200px_g6wnrc.gif" />
