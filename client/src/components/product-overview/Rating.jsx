@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from 'react';
 
 export default function Rating({currentRating, numberOfReviews}) {
-  let [calculatedRating, setCalculatedRating] = useState(3.4);
+  let [calculatedRating, setCalculatedRating] = useState(0);
   let ratingExists = true;
 
   useEffect(() => {
@@ -9,7 +9,7 @@ export default function Rating({currentRating, numberOfReviews}) {
       ratingExists = true;
 
       let roundedRating = Math.round(currentRating * 4) / 4;
-      setCalculatedRating(3.4);
+      setCalculatedRating(roundedRating);
     }
   }, [currentRating]);
 
@@ -24,8 +24,7 @@ export default function Rating({currentRating, numberOfReviews}) {
         </div>
         <a className='reviewsLink'
           href='#reviews-container'>
-            READ ALL [#] REVIEWS
-            {/* READ ALL {numberOfReviews} REVIEWS */}
+            READ ALL {numberOfReviews} REVIEWS
         </a>
       </div>
     )

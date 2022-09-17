@@ -19,7 +19,8 @@ export default function Overview({
   currentRating,
   outfit,
   addToMyOutfit,
-  removeFromMyOutfit
+  removeFromMyOutfit,
+  numberOfReviews
 }) {
   const [announcementNumber, setAnnouncementNumber] = useState(0);
   const [allStyles, setAllStyles] = useState([]);
@@ -97,7 +98,10 @@ export default function Overview({
             {!expandView && (
               <>
                 <div className='ratingContainer'>
-                  <Rating currentRating={currentRating}/>
+                  <Rating
+                    currentRating={currentRating}
+                    numberOfReviews={numberOfReviews}
+                  />
                 </div>
 
                 <div className='categoryAndTitleContainer'>

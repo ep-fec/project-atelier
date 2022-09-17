@@ -18,7 +18,8 @@ class App extends React.Component {
       productId: 0,
       outfit: [],
       currentRating: 0,
-      theme: 'dark'
+      theme: 'light',
+      numberOfReviews: 0
     };
 
     this.getInitialProduct = this.getInitialProduct.bind(this);
@@ -28,6 +29,7 @@ class App extends React.Component {
     this.removeFromMyOutfit = this.removeFromMyOutfit.bind(this);
     this.removeFromOutfit = this.removeFromOutfit.bind(this);
     this.handleGetId = this.handleGetId.bind(this);
+    this.changeNumberOfReviews = this.changeNumberOfReviews.bind(this);
   }
 
   componentDidMount() {
@@ -113,6 +115,9 @@ class App extends React.Component {
     this.setState({outfit});
   }
 
+  changeNumberOfReviews(numberOfReviews) {
+    this.setState({numberOfReviews});
+  }
 
   render() {
     return (
@@ -120,6 +125,7 @@ class App extends React.Component {
         <Overview
           currentProduct={this.state.currentProduct}
           currentRating={this.state.currentRating}
+          numberOfReviews={this.state.numberOfReviews}
           outfit={this.state.outfit}
           addToMyOutfit={this.addToMyOutfit}
           removeFromMyOutfit={this.removeFromMyOutfit}
@@ -136,6 +142,7 @@ class App extends React.Component {
         <Reviews
           currentProduct={this.state.currentProduct}
           changeRating={this.changeRating}
+          changeNumberOfReviews={this.changeNumberOfReviews}
           widget={'Ratings & Reviews'}
         />
       </div>);

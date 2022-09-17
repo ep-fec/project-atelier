@@ -55,7 +55,7 @@ class Card extends React.Component {
   }
 
   render() {
-    let photo = this.state.styles[0].photos[0];
+    let photo = this.state.styles[0]?.photos[0];
     if (this.props.location === 'similar') {
       return(
         <li className='card' onClick={this.changeProduct}>
@@ -68,7 +68,7 @@ class Card extends React.Component {
           <div className='card-content'>
             <p className='card-category'>{this.state.product?.category}</p>
             <p className='card-name'>{this.state.product?.name}</p>
-            <p classNmae='card-price'>${this.state.product?.default_price}</p>
+            <p className='card-price'>${this.state.product?.default_price}</p>
             {(this.state.reviews === 'No Reviews')? null: <p className='stars' style={{'--rating': this.state.reviews}}></p>}
           </div>
         </li>);
@@ -84,7 +84,7 @@ class Card extends React.Component {
           <div className='card-content'>
             <p className='card-category'>{this.state.product?.category}</p>
             <p className='card-name'>{this.state.product?.name}</p>
-            <p classNmae='card-price'>${this.state.product?.default_price}</p>
+            <p className='card-price'>${this.state.product?.default_price}</p>
             {(this.state.reviews === 'No Reviews')? null: <p className='stars' style={{'--rating': this.state.reviews}}></p>}
           </div>
         </li>);

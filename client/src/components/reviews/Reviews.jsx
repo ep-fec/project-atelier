@@ -47,6 +47,7 @@ const Reviews = (props) => {
 
   useEffect(() => {
     handleFilterChange();
+    props.changeNumberOfReviews(allReviews?.results?.length)
   }, [allReviews])
 
   useEffect(() => {
