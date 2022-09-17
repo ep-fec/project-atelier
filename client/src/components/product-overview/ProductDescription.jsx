@@ -1,15 +1,15 @@
 import React from 'react';
 
-export default function ProductDescription(props) {
+export default function ProductDescription({slogan, description}) {
   return (
-    <div className="productDescriptionComponentContainer">
+    <>
       <div className='productSlogan'>
-        {props.slogan}
+        {slogan}
       </div>
 
       <div className='productDescription'>
-        {props.description}
+        {description}
       </div>
-    </div>
+    </>
   )
 }

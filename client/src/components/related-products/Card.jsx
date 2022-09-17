@@ -10,6 +10,9 @@ class Card extends React.Component {
       styles: [{photos: ['img']}],
       reviews: 0
     };
+
+    this.changeProduct = this.changeProduct.bind(this);
+    this.actionButton = this.actionButton.bind(this);
   }
 
   componentDidMount() {
@@ -28,11 +31,12 @@ class Card extends React.Component {
     if (prevState.productId !== this.state.productId) {
       axios.get(`/related/${this.state.productId}`)
       .then((result) => {
-        //console.log('Result', result.data);
         this.setState({
           product: result.data.product,
           styles: result.data.styles,
           reviews: result.data.reviewScore
+        }, function() {
+          //console.log('Result:', this.props.product, result.data);
         });
       })
       .catch((err) => {
@@ -41,16 +45,50 @@ class Card extends React.Component {
     }
   }
 
+  changeProduct() {
+    this.props.changeProduct(this.state.productId);
+  }
+
+  actionButton(e) {
+    e.stopPropagation();
+    this.props.actionButton(this.state.productId, this.state.product);
+  }
+
   render() {
-    let photo = this.state.styles[0].photos[0];
-    return(<li class='card'>
-      <img
-        src={photo.thumbnail_url}/>
-      <p>{this.state.product.category}</p>
-      <p>{this.state.product.name}</p>
-      <p>{this.state.product.default_price}</p>
-      <p>{this.state.reviews} out of 5 stars</p>
-      </li>);
+    let photo = this.state.styles[0]?.photos[0];
+    if (this.props.location === 'similar') {
+      return(
+        <li className='card' onClick={this.changeProduct}>
+          <div className='card-icon'>
+            <i className='fa-regular fa-star' onClick={this.actionButton}></i>
+          </div>
+          <div className='card-photo'>
+            <img src={photo.thumbnail_url}/>
+          </div>
+          <div className='card-content'>
+            <p className='card-category'>{this.state.product?.category}</p>
+            <p className='card-name'>{this.state.product?.name}</p>
+            <p className='card-price'>${this.state.product?.default_price}</p>
+            {(this.state.reviews === 'No Reviews')? null: <p className='stars' style={{'--rating': this.state.reviews}}></p>}
+          </div>
+        </li>);
+    } else if (this.props.location === 'outfit') {
+      return(
+        <li className='card' onClick={this.changeProduct}>
+          <div className='card-icon'>
+            <i className='fa-solid fa-x' onClick={this.actionButton}></i>
+          </div>
+          <div className='card-photo'>
+            <img src={photo.thumbnail_url}/>
+          </div>
+          <div className='card-content'>
+            <p className='card-category'>{this.state.product?.category}</p>
+            <p className='card-name'>{this.state.product?.name}</p>
+            <p className='card-price'>${this.state.product?.default_price}</p>
+            {(this.state.reviews === 'No Reviews')? null: <p className='stars' style={{'--rating': this.state.reviews}}></p>}
+          </div>
+        </li>);
+    }
   }
 }
 

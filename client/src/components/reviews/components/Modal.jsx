@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactDom from 'react-dom';
 
 const Modal = ({ open, close, children}) => {
@@ -11,8 +11,9 @@ const Modal = ({ open, close, children}) => {
     <>
       <div className="modal-overlay"></div>
       <div className="reviews-modal">
-        {children}
-        <button onClick={close} className="reviews-modal-button">CLOSE</button>
+        <div className="reviews-modal-image-container">
+          {children}
+        </div>
       </div>
     </>,
     document.getElementById('modal-root')

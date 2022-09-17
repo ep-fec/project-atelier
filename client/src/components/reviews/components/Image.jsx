@@ -1,19 +1,33 @@
-import react, { useState } from 'react';
+import React, { useState } from 'react';
 import Modal from './Modal.jsx';
 
-const Image = (props) => {
+const Image = ({photo, summary}) => {
 
   let [showModal, setShowModal] = useState(false);
+
+  let url = new URL(photo.url);
+  let currentParams = new URLSearchParams(photo.url);
+  currentParams.set('w', 200);
+  currentParams.set('q', 20);
+  url.search = currentParams.toString();
+  let finalUrl = url.toString();
 
   return (
     <>
     <img className="reviews review-thumbnail"
+      height="100"
+      width="100"
+      loading="eager"
       onClick={() => setShowModal(true)}
-      src={props.photo.url + '?tr=w-400,h-300,bl-30,q-50'}/>
+      alt={summary}
+      src={finalUrl}/>
 
-    <Modal open={showModal} close={() => setShowModal(false)}>
-      <img className="reviews modal-image" src={props.photo.url}/>
+    {showModal ?
+    <Modal open={showModal}>
+          <img className="reviews modal-image" alt={summary} src={photo.url} onClick={() => setShowModal(false)}/>
+      <button onClick={() => setShowModal(false)} className="reviews-modal-image-button">CLOSE</button>
     </Modal>
+    : null}
     </>
   )
 }

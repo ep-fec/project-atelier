@@ -15,10 +15,9 @@ const Review = (props) => {
   let [hasReported, setReportStatus] = useState(false);
   let [showMore, toggleShowMore] = useState(false);
   let [showMoreContent, setShowMoreContent] = useState(false);
-  let [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    props.data?.body.length > 250 ? toggleShowMore(true) : null;
+    props.data?.body?.length > 250 ? toggleShowMore(true) : null;
   }, []);
 
   let markHelpful = (e) => {
@@ -44,14 +43,14 @@ const Review = (props) => {
     <div className="reviews ind-review">
 
       <section className="reviews ind-review-heading">
-        <><span className="reviews ind-review-stars" style={{'--rating':  props.data.rating}}></span></>
+        <><span className="reviews stars" style={{'--rating':  props.data.rating}}></span></>
         <span className="reviews ind-review-date">{date.toLocaleDateString("en", dateOptions)}</span>
         <span className="reviews ind-review-username">{props.data.reviewer_name},</span>
       </section>
 
       <section className="reviews ind-review-body">
         <h3 className="reviews ind-review-summary">
-          {props.data?.summary.length < 60 ? props.data.summary
+          {props.data?.summary?.length < 60 ? props.data.summary
           :
           `${props.data.summary.slice(0, 60)}...` }
         </h3>
@@ -78,26 +77,25 @@ const Review = (props) => {
         </div>
         : null}
 
-        {props.data.photos.length ?
+        {props.data?.photos?.length ?
         <section className="reviews images-section">
         {props.data.photos.map((photo) => (
-          <Image photo={photo} key={photo.id}/>
+          <Image photo={photo} summary={props.data.summary} key={photo.id}/>
         ))}
         </section> : null}
       </section>
 
       <section className="reviews ind-review-footer">
         <span className="reviews ind-review-helpful">Helpful? </span>
-        <span className="reviews ind-review-helpfulYes" onClick={(e) => markHelpful(e)}>
+        <span className="reviews ind-review-helpfulYes" onClick={(e) => markHelpful(e)} role="button">
           {hasVoted ? 'Marked as helpful!' : 'Yes'}</span>
         <span className="reviews ind-review-helpfulness"> ({helpfulVotes}) | </span>
-        <span className="reviews ind-review-report" onClick={(e) => submitReport(e)}>
+        <span className="reviews ind-review-report" onClick={(e) => submitReport(e)} role="button">
           {hasReported ? 'Reported' : 'Report'}</span>
-        <br/><hr/>
+        <br/><hr className="ind-review-divider"/>
       </section>
     </div>
-  )
-
-}
+  );
+};
 
 export default Review;
