@@ -37,6 +37,8 @@ const NewReview = ({productInfo, productMeta, closeModal}) => {
     const [characteristics, setCharacteristics] = useState({});
     const [posted, setPosted] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [finalized, setFinalized] = useState(false);
+    const [focused, setFocused] = useState(false);
 
     const [ratingError, setRatingError] = useState(false);
     const [bodyError, setBodyError] = useState(false);
@@ -86,6 +88,8 @@ const NewReview = ({productInfo, productMeta, closeModal}) => {
             }
 
             setLoading(true);
+            setPosted(true);
+
             axios.post('/reviews/uploads', {
                 product_id: productInfo.id,
                 rating,
@@ -99,7 +103,7 @@ const NewReview = ({productInfo, productMeta, closeModal}) => {
             })
             .then((res) => {
                 setLoading(false);
-                setPosted(true)
+                setFinalized(true)
             })
             .catch((err) => {
                 if (err.message?.includes('Unsupported')) {
@@ -285,11 +289,30 @@ const NewReview = ({productInfo, productMeta, closeModal}) => {
                     onClick={(e) => handleSubmit(e)}>SUBMIT REVIEW</button>
                     <button
                         className="reviewsbutton reviews-addreview-close"
-                        onClick={closeModal}>CLOSE</button>
+                        onClick={closeModal}>CLOSE
+                    </button>
                 </div>
             </form>
-            </> : loading ? <img className="reviews-loading" src="https://res.cloudinary.com/absaga/image/upload/v1662736077/Spin-1s-200px_g6wnrc.gif" />
-            : <h1 className="reviews-logo">Thank you for submitting your review!</h1>}
+            </>
+            : null}
+            {loading ?
+                <div className="new-review-header">
+                    <h1>Submitting Review...</h1><br/>
+                    <img
+                        className="reviews-loading"
+                        width="100"
+                        height="100"
+                        loading="eager"
+                        src="https://res.cloudinary.com/absaga/image/upload/v1662736077/Spin-1s-200px_g6wnrc.gif"/>
+                </div> : null}
+            {finalized ?
+                <div className="new-review-header">
+                    <h1 className="reviews-logo">Thank you for submitting your review!</h1><br/>
+                    <button
+                        className="reviewsbutton reviews-addreview-close"
+                        onClick={closeModal}>CLOSE
+                    </button>
+                </div> : null}
         </div>
     );
 };
