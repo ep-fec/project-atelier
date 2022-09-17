@@ -317,7 +317,6 @@ Rating Breakdown
 * {
   --bar-color-empty: #4e4949;
   --bar-color-full: #3abb7d;
-  --arr
 }
 
 .total-rating {
@@ -358,7 +357,8 @@ Rating Breakdown
   float: left;
   width: 60%;
   margin-top: 10px;
-
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 .rating-rightcol {
@@ -384,7 +384,7 @@ Rating Breakdown
 }
 
 .rating-breakdown:hover .rating-bar-container .rating-bar {
-  filter: hue-rotate(150deg);
+  filter: hue-rotate(90deg);
   cursor: pointer;
 }
 
@@ -746,19 +746,19 @@ Media Queries
 
 @media screen and (max-width: 1000px) {
   .rating-leftcol {
-    width: 30%;
+    width: 20%;
   }
 
   .rating-midcol {
-    width: 60%;
+    width: 50%;
   }
 
   .rating-rightcol {
-    width: 10%;
+    width: 15%;
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
 
   #reviews-container {
     padding-left: 5%;
@@ -773,11 +773,14 @@ Media Queries
   }
 
   .rating-leftcol {
-    width: 13%;
+    width: 10%;
   }
 
   .rating-midcol {
-    width: 80%;
+    width: 75%;
+  }
+  .rating-rightcol {
+    width: 10%;
   }
 
   .reviews-modal {
@@ -785,9 +788,6 @@ Media Queries
     height: 70%;
   }
 
-  .rating-rightcol {
-    width: 7%;
-  }
 
   .product-breakdown-container {
     margin: 0 auto;
