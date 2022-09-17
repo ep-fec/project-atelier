@@ -252,12 +252,6 @@ Modal
     /* overflow-y: auto; */
 }
 
-.reviews-modal-image-container {}
-
-.reviews-modal-image-container {}
-
-.reviews-modal-image-container {}
-
 /*
 RATINGS & REVIEWS
 Buttons
@@ -316,7 +310,6 @@ Rating Breakdown
 * {
   --bar-color-empty: #4e4949;
   --bar-color-full: #3abb7d;
-  --arr
 }
 
 .total-rating {
@@ -1374,21 +1367,52 @@ a:hover {
   box-shadow: 4px 4px 8px 4px rgba(0,0,0,0.2);
   list-style: none;
   transition: 0.3s;
-  max-height: 40vw;
-  padding: 2px 16px;
+  max-height: 25vw;
+  padding: 2px 4px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
 .card:hover {
   box-shadow: 8px 8px 16px 8px rgba(0,0,0,0.2);
 }
-.card img {
+.card-photo {
+  display: flex;
+  object-fit: fill;
+  flex-basis: 70%;
+  overflow: hidden;
+  justify-content: center;
+}
+.card-photo img {
+  max-height: 100%;
   max-width: 100%;
-  max-height: 50%;
+  object-fit: cover;
+}
+.card-content {
+  flex-basis: 50%;
+  padding: 1rem 0 0 5px;
+}
+.card-category, .card-name, .card-price {
+  margin: .5rem;
 }
 
+.card-icon {
+  display: flex;
+  justify-content: right;
+}
 .card i {
-  float: right;
   color: var(--primary-color);
+}
+.card-category {
+  font-size: large;
+  color: #4e4949;
+}
+.card-name {
+  font-size: larger;
+  font-weight: bold;
+}
+.card-price {
+  font-size: large;
 }
 
 .side-by-side {
@@ -1489,11 +1513,6 @@ Media Queries
   .rightcol,
   .overViewMainContainer {
     width: 100%;
-  }
-
-  .overview {
-
-
   }
 
   .overViewMainContainer {
