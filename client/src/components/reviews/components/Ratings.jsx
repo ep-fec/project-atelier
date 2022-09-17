@@ -112,6 +112,7 @@ const Ratings = (props) => {
             <div className="reviews rating-bar"
             style={{'--rating-bar-size': (percentCalc(ratings['4'], totalReviews))}}></div>
           </div>
+
         </div>
         <div className="reviews rating-rightcol">
            ({ratings[4]})
