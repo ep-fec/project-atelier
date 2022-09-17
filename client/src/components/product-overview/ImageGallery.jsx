@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect, useCallback, useRef} from 'react';
 
 export default function ImageGallery({
   selectedStyle,
@@ -15,8 +15,8 @@ export default function ImageGallery({
   const [showUpArrow, setShowUpdArrow] = useState(true);
   const [showDownArrow, setShowDownArrow] = useState(true);
   const [selectStatus, setSelectStatus] = useState([]);
-  const [posX, setPosX] = useState(0);
-  const [posY, setPosY] = useState(0);
+  const [zoomPos, setZoomPos] = useState({x: '', y: ''});
+  const mainImageRef = useRef();
 
   useEffect(() => {
     if (selectedStyle !== '') {
@@ -97,24 +97,31 @@ export default function ImageGallery({
 
     if (expandView === true) {
       setZoomView(true);
-      console.log('i should be adding', e.target);
-      e.target.addEventListener('mousemove', move)
+      setZoomPos({
+        x: e.clientX,
+        y: e.clientY
+      })
+      mainImageRef.current.addEventListener('mousemove', zoomMove)
     }
 
     if (zoomView === true) {
       setZoomView(false);
-      console.log('i should be removing', e.target);
-      e.target.removeEventListener('mousemove', move)
+      mainImageRef.current.removeEventListener('mousemove', zoomMove)
     }
   }
 
-  const move = useCallback(() => {
+  const zoomMove = useCallback((e) => {
     console.log('i am moving');
-  }, [move])
+    setZoomPos({
+      x: e.pageX,
+      y: e.pageY
+    })
+  },[zoomMove])
 
-  const handleXmarkClick = () => {
+  const handleXmarkClick = (e) => {
     if (expandView === true) {
       setExpandView(false);
+      mainImageRef.current.removeEventListener('mousemove', zoomMove)
     }
   }
 
@@ -123,6 +130,7 @@ export default function ImageGallery({
       {selectedStyle !== '' && (
         <>
           <div className='mainImage'
+            ref={mainImageRef}
             onClick={handleMainImageClick}
             style={{
               backgroundImage: `url(${mainPhoto})`,
@@ -135,8 +143,8 @@ export default function ImageGallery({
           >
             <div className={zoomView ? 'square' : null}
               style={{
-                left: posX + 'px',
-                top: posY + 'px'
+                left: zoomPos.x + 'px',
+                top: zoomPos.y + 'px'
               }}
             >
             </div>
