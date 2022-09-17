@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import Stars from './Stars.jsx';
 
 class Card extends React.Component {
   constructor(props) {
@@ -60,22 +59,34 @@ class Card extends React.Component {
     if (this.props.location === 'similar') {
       return(
         <li className='card' onClick={this.changeProduct}>
-          <i className="fa-regular fa-star" onClick={this.actionButton}></i>
-          <img src={photo.thumbnail_url}/>
-          <p>{this.state.product?.category}</p>
-          <p>{this.state.product?.name}</p>
-          <p>{this.state.product?.default_price}</p>
-          <Stars reviews={this.state.reviews}/>
+          <div className='card-icon'>
+            <i className='fa-regular fa-star' onClick={this.actionButton}></i>
+          </div>
+          <div className='card-photo'>
+            <img src={photo.thumbnail_url}/>
+          </div>
+          <div className='card-content'>
+            <p className='card-category'>{this.state.product?.category}</p>
+            <p className='card-name'>{this.state.product?.name}</p>
+            <p classNmae='card-price'>${this.state.product?.default_price}</p>
+            {(this.state.reviews === 'No Reviews')? null: <p className='stars' style={{'--rating': this.state.reviews}}></p>}
+          </div>
         </li>);
     } else if (this.props.location === 'outfit') {
       return(
         <li className='card' onClick={this.changeProduct}>
-          <i className="fa-solid fa-x" onClick={this.actionButton}></i>
-          <img src={photo.thumbnail_url}/>
-          <p>{this.state.product?.category}</p>
-          <p>{this.state.product?.name}</p>
-          <p>{this.state.product?.default_price}</p>
-          <Stars reviews={this.state.reviews}/>
+          <div className='card-icon'>
+            <i className='fa-solid fa-x' onClick={this.actionButton}></i>
+          </div>
+          <div className='card-photo'>
+            <img src={photo.thumbnail_url}/>
+          </div>
+          <div className='card-content'>
+            <p className='card-category'>{this.state.product?.category}</p>
+            <p className='card-name'>{this.state.product?.name}</p>
+            <p classNmae='card-price'>${this.state.product?.default_price}</p>
+            {(this.state.reviews === 'No Reviews')? null: <p className='stars' style={{'--rating': this.state.reviews}}></p>}
+          </div>
         </li>);
     }
   }
