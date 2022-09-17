@@ -95,8 +95,7 @@ const Review = (props) => {
         <br/><hr className="ind-review-divider"/>
       </section>
     </div>
-  )
-
-}
+  );
+};
 
 export default Review;
