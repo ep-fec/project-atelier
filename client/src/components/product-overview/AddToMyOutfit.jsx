@@ -34,7 +34,7 @@ export default function AddToMyOutfit({currentProductId, outfit, addToMyOutfit, 
       onClick={handleFavoriteButtonClick}
     >
       {isFavorite === false && (<i className="fa-regular fa-heart"></i>)}
-      {isFavorite === true && (<i class="fa-solid fa-heart"></i>)}
+      {isFavorite === true && (<i className="fa-solid fa-heart"></i>)}
     </button>
   )
 }

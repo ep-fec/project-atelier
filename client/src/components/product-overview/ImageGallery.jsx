@@ -111,16 +111,12 @@ export default function ImageGallery({
   }
 
   const zoomMove = useCallback((e) => {
-    console.log('i am moving');
-    console.log('getbounding', e.target.getBoundingClientRect());
     let mainImagePos = {
       x: e.target.getBoundingClientRect().x,
       y: e.target.getBoundingClientRect().y
     }
 
     setZoomPos({
-      //x: ((e.pageX - mainImagePos.x) / e.target.width) * 100,
-      //y: ((e.pageY - mainImagePos.y) / e.target.height) * 100
       x: e.pageX,
       y: e.pageY
     })
