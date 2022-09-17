@@ -80,13 +80,20 @@ app.post('/reviews/uploads', async (req, res) => {
       return request(stylesURL, req.method, req.body);
     })
     .then((response) => {
-      styles = response.data.results;
+      if (response?.data?.status === 429) {
+        throw new Error(response.data);
+      } else {
+        styles = response?.data?.results;
+      }
     })
     .then(() => {
       return request(reviewsURL, req.method, req.body);
     })
     .then((response) => {
-      reviews = response.data.ratings;
+      reviews = response?.data?.ratings;
+      if (!response?.data?.ratings) {
+        throw new Error(response.data);
+      }
       let [totalAmount, totalRatings] = [0, 0];
       for (let [key, value] of Object.entries(reviews)) {
         let [rating, amount] = [parseInt(key), parseInt(value)];
@@ -103,7 +110,7 @@ app.post('/reviews/uploads', async (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.send(err);
+      res.status(404);
     });
   });
 

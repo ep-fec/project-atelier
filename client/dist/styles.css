@@ -52,10 +52,6 @@ Widget Skeleton
     var(--primary-color);
 }
 
-h1.reviews-logo {
-
-}
-
 .leftcol {
   width: 25%;
 }
@@ -185,6 +181,7 @@ Individual Review
   padding: 5px;
   width: 100px;
   height: 100px;
+  object-fit: cover;
 }
 
 
@@ -227,11 +224,12 @@ Modal
   left: 50%;
   transform: translate(-50%, -50%);
   height: 80%;
-  width: 80%;
-  max-height: 95%;
+  width: 60%;
+  /* max-height: 95%; */
   max-width: 95;
   background-color: rgb(255, 255, 255);
-  z-index: 1000;
+  z-index: 5000;
+  overflow-y: auto;
 }
 
 .modal-image {
@@ -241,16 +239,17 @@ Modal
   padding-top: 50px;
   margin: 0 auto;
   /* width: 50%; */
-  object-fit:contain;
+  object-fit: contain;
 }
 
 .reviews-modal-image-container {
-    height: 90%;
-    width: 90%;
+    height: 80%;
+    width: 80%;
     padding: 0;
     margin: 0 auto;
     position: relative;
     display: flex;
+    /* overflow-y: auto; */
 }
 
 /*
@@ -268,7 +267,7 @@ Buttons
   color: white;
   font-weight: 500;
   font-size: 14px;
-  padding: 18px;
+  padding: 20px;
   border: none;
 }
 
@@ -295,6 +294,12 @@ Buttons
   background-color: rgb(0, 0, 0);
   color: white;
   transition-duration: 0.4s;
+}
+
+.reviews-addreview-close {
+  display:inline-block;
+  position: fixed;
+  padding: 20px 40px 20px 40px;
 }
 
 /*
@@ -553,6 +558,14 @@ RATINGS & REVIEWS
 Add New Review
 */
 
+.new-review-component {
+  position: absolute;
+  width: 100%;
+  /* display: block; */
+  /* height: 100%; */
+  overflow-y: auto;
+}
+
 .reviews-logo {
   margin-bottom: 5px;
 }
@@ -686,6 +699,7 @@ Add New Review
   font-size: 20px;
   padding: 10px;
   border: none;
+  overscroll-behavior: none;
 }
 
 .reviews-modal-x:hover {
@@ -707,6 +721,14 @@ Add New Review
   font-size: 16px;
   color: red;
   font-weight: 700;
+}
+.new-review-submit {
+  /* display: block; */
+  /* margin: 0 auto; */
+  /* padding-top: 20px; */
+  /* text-align: center; */
+  /* padding-bottom: 30px; */
+  /* margin: 0 auto; */
 }
 
 
@@ -1483,6 +1505,8 @@ Media Queries
   #reviews-container {
     padding-left: 5%;
     padding-right: 5%;
+    overflow-x: none;
+    word-wrap: break-word;
   }
 
   .leftcol,
@@ -1496,7 +1520,7 @@ Media Queries
   }
 
   .rating-leftcol {
-    width: 15%;
+    width: 13%;
   }
 
   .rating-midcol {
@@ -1509,7 +1533,7 @@ Media Queries
   }
 
   .rating-rightcol {
-    width: 5%;
+    width: 7%;
   }
 
   .product-breakdown-container {
@@ -1517,3 +1541,4 @@ Media Queries
   }
 
 }
+

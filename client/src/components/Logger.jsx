@@ -34,10 +34,8 @@ const withLogger = (WrappedComponent) => {
       let element = this.state.element;
       let widget = this.state.widget;
       let time = this.state.time;
-      console.log({ element, widget, time });
-
       axios.post('/interactions', {element, widget, time})
-        .then((res) => console.log(res))
+        .then((res) => res)
         .catch((err) => console.log(err));
     }
 

@@ -17,7 +17,7 @@ const Image = ({photo, summary}) => {
 
     {showModal ?
     <Modal open={showModal}>
-      <img className="reviews modal-image" src={photo.url}/>
+          <img className="reviews modal-image" src={photo.url} onClick={() => setShowModal(false)}/>
       <button onClick={() => setShowModal(false)} className="reviews-modal-image-button">CLOSE</button>
     </Modal>
     : null}
