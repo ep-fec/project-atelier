@@ -13,7 +13,7 @@ const List = (props) => {
 
   useEffect(() => {
     if (reviewLimit === 4) {
-      setMaxHeight('750px');
+      setMaxHeight('660px');
     }
   }, [reviewLimit])
 
@@ -23,6 +23,7 @@ const List = (props) => {
       <div className="reviews no-reviews">
         {!totalReviews ?
         <><button
+            id="add-a-review"
             className="reviews add-review-centered reviewsbutton"
             onClick={() => setShowModal(true)}>ADD A REVIEW +
           </button>
@@ -52,12 +53,14 @@ const List = (props) => {
         : null}
         {totalReviews ?
         <><button
-          className="reviews add-review reviewsbutton"
-          onClick={() => setShowModal(true)}>ADD A REVIEW +</button>
+            id="add-a-review"
+            className="reviews add-review reviewsbutton"
+            onClick={() => setShowModal(true)}>ADD A REVIEW +
+          </button>
 
           {showModal ?
             <Modal open={showModal}>
-              <NewReview productInfo={props.productInfo} productMeta={props.productMeta} />
+              <NewReview productInfo={props.productInfo} productMeta={props.productMeta} closeModal={() => setShowModal(false)}/>
               <button onClick={() => setShowModal(false)} className="reviews-modal-x">X</button>
             </Modal>
             : null}

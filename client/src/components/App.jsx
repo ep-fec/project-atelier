@@ -16,11 +16,14 @@ class App extends React.Component {
     this.state = {
       currentProduct: {},
       productId: 0,
-      outfit: []
+      outfit: [],
+      currentRating: 0,
+      theme: 'dark'
     };
 
     this.getInitialProduct = this.getInitialProduct.bind(this);
     this.changeProduct = this.changeProduct.bind(this);
+    this.changeRating = this.changeRating.bind(this);
     this.addToMyOutfit = this.addToMyOutfit.bind(this);
     this.removeFromMyOutfit = this.removeFromMyOutfit.bind(this);
     this.removeFromOutfit = this.removeFromOutfit.bind(this);
@@ -31,9 +34,9 @@ class App extends React.Component {
     let url = window.location.pathname.split('/');
     if (url.length === 3) {
       let productId = Number(url[2]);
-      this.handleGetId(productId);
+      this.handleGetId(productId).catch((err) => console.log(err));
     } else {
-      this.getInitialProduct();
+      this.getInitialProduct().catch((err) => console.log(err));
     }
   }
 
@@ -82,6 +85,10 @@ class App extends React.Component {
     this.setState({productId});
   }
 
+  changeRating(currentRating) {
+    this.setState({ currentRating });
+  }
+
   addToMyOutfit() {
     let outfit = this.state.outfit;
     if (!outfit.includes(this.state.productId)) {
@@ -109,7 +116,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id={this.state.theme}>
         <Overview
           currentProduct={this.state.currentProduct}
           currentRating={this.state.currentRating}
@@ -128,6 +135,7 @@ class App extends React.Component {
           />
         <Reviews
           currentProduct={this.state.currentProduct}
+          changeRating={this.changeRating}
           widget={'Ratings & Reviews'}
         />
       </div>);

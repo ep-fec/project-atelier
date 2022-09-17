@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import List from './components/List.jsx';
-import Review from './components/Review.jsx';
 import ProductBreakdown from './components/ProductBreakdown.jsx';
 import Ratings from './components/Ratings.jsx';
 import Sort from './components/Sort.jsx';
@@ -77,12 +76,12 @@ const Reviews = (props) => {
       <br/><br/>
 
       <section className="reviews leftcol">
-        <Ratings reviews={allReviews?.results} filters={filters} setFilter={setFilter} shouldRun={getRatings}/>
+        <Ratings reviews={allReviews?.results} filters={filters} setFilter={setFilter} shouldRun={getRatings} changeRating={props.changeRating}/>
         <ProductBreakdown meta={productMeta}/>
       </section>
 
       <section className="reviews rightcol">
-        <Sort sort={sort} setSort={setSort} reviewsAmount={allReviews.results.length}/>
+        <Sort sort={sort} setSort={setSort} reviewsAmount={allReviews?.results?.length}/>
         <List reviews={filteredReviews} filters={filters} sort={sort} productInfo={productInfo} productMeta={productMeta}/>
       </section>
     </section>

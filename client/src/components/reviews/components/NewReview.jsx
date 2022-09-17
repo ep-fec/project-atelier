@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import UploadImage from './UploadImage.jsx';
 
 
-const NewReview = ({productInfo, productMeta}) => {
+const NewReview = ({productInfo, productMeta, closeModal}) => {
 
     const form = useRef(null);
     const reviewBody = useRef(null);
@@ -37,6 +37,8 @@ const NewReview = ({productInfo, productMeta}) => {
     const [characteristics, setCharacteristics] = useState({});
     const [posted, setPosted] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [finalized, setFinalized] = useState(false);
+    const [focused, setFocused] = useState(false);
 
     const [ratingError, setRatingError] = useState(false);
     const [bodyError, setBodyError] = useState(false);
@@ -86,6 +88,8 @@ const NewReview = ({productInfo, productMeta}) => {
             }
 
             setLoading(true);
+            setPosted(true);
+
             axios.post('/reviews/uploads', {
                 product_id: productInfo.id,
                 rating,
@@ -99,7 +103,7 @@ const NewReview = ({productInfo, productMeta}) => {
             })
             .then((res) => {
                 setLoading(false);
-                setPosted(true)
+                setFinalized(true)
             })
             .catch((err) => {
                 if (err.message?.includes('Unsupported')) {
@@ -111,7 +115,8 @@ const NewReview = ({productInfo, productMeta}) => {
 
     return (
         <div className="reviews new-review-component">
-            {!posted ? <>
+            {!loading && !posted ?
+        <>
             <div className="new-review-header">
                 <h1 className="reviews-logo">Write Your Review</h1>
                 <h3>About the <span className="new-review-product-name">{productInfo.name}</span></h3>
@@ -281,12 +286,35 @@ const NewReview = ({productInfo, productMeta}) => {
 
                 <div className="new-review-category new-review-submit">
                     <button
-                    className="reviewsbutton"
-                    onClick={(e) => handleSubmit(e)}>SUBMIT REVIEW</button>
+                        className="reviewsbutton"
+                        onClick={(e) => handleSubmit(e)}>SUBMIT REVIEW
+                    </button>
+                    <button
+                        className="reviewsbutton reviews-addreview-close"
+                        onClick={closeModal}>CLOSE
+                    </button>
                 </div>
             </form>
-            </> : loading ? <img className="reviews-loading" src="https://res.cloudinary.com/absaga/image/upload/v1662736077/Spin-1s-200px_g6wnrc.gif" />
-            : <h1 className="reviews-logo">Thank you for submitting your review!</h1>}
+            </>
+            : null}
+            {loading ?
+                <div className="new-review-header">
+                    <h1>Submitting Review...</h1><br/>
+                    <img
+                        className="reviews-loading"
+                        width="100"
+                        height="100"
+                        loading="eager"
+                        src="https://res.cloudinary.com/absaga/image/upload/v1662736077/Spin-1s-200px_g6wnrc.gif"/>
+                </div> : null}
+            {finalized ?
+                <div className="new-review-header">
+                    <h1 className="reviews-logo">Thank you for submitting your review!</h1><br/>
+                    <button
+                        className="reviewsbutton reviews-addreview-close"
+                        onClick={closeModal}>CLOSE
+                    </button>
+                </div> : null}
         </div>
     );
 };

@@ -17,7 +17,7 @@ const Review = (props) => {
   let [showMoreContent, setShowMoreContent] = useState(false);
 
   useEffect(() => {
-    props.data?.body.length > 250 ? toggleShowMore(true) : null;
+    props.data?.body?.length > 250 ? toggleShowMore(true) : null;
   }, []);
 
   let markHelpful = (e) => {
@@ -50,7 +50,7 @@ const Review = (props) => {
 
       <section className="reviews ind-review-body">
         <h3 className="reviews ind-review-summary">
-          {props.data?.summary.length < 60 ? props.data.summary
+          {props.data?.summary?.length < 60 ? props.data.summary
           :
           `${props.data.summary.slice(0, 60)}...` }
         </h3>
@@ -77,7 +77,7 @@ const Review = (props) => {
         </div>
         : null}
 
-        {props.data.photos.length ?
+        {props.data?.photos?.length ?
         <section className="reviews images-section">
         {props.data.photos.map((photo) => (
           <Image photo={photo} summary={props.data.summary} key={photo.id}/>
@@ -95,8 +95,7 @@ const Review = (props) => {
         <br/><hr className="ind-review-divider"/>
       </section>
     </div>
-  )
-
-}
+  );
+};
 
 export default Review;

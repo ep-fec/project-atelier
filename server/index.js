@@ -80,13 +80,20 @@ app.get('/related/:productId', function(req, res) {
     return request(stylesURL, req.method, req.body);
   })
   .then((response) => {
-    styles = response.data.results;
+    if (response?.data?.status === 429) {
+      throw new Error(response.data);
+    } else {
+      styles = response?.data?.results;
+    }
   })
   .then(() => {
     return request(reviewsURL, req.method, req.body);
   })
   .then((response) => {
-    reviews = response.data.ratings;
+    reviews = response?.data?.ratings;
+    if (!response?.data?.ratings) {
+      throw new Error(response.data);
+    }
     let [totalAmount, totalRatings] = [0, 0];
     for (let [key, value] of Object.entries(reviews)) {
       let [rating, amount] = [parseInt(key), parseInt(value)];
@@ -97,13 +104,13 @@ app.get('/related/:productId', function(req, res) {
     if (totalRatings === 0) {
       reviewScore = 'No Reviews';
     } else {
-      reviewScore = Math.floor(totalAmount/totalRatings) || 0;
+      reviewScore =(totalAmount/totalRatings).toFixed(1) || 0;
     }
     res.send({product, styles, reviewScore});
   })
   .catch((err) => {
     console.log(err);
-    res.send(err);
+    res.status(404);
   });
 });
 

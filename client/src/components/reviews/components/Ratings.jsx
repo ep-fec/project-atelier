@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Ratings = (props) => {
   let data = props.reviews;
@@ -28,7 +28,9 @@ const Ratings = (props) => {
   useEffect(() => {
     if (totalReviews) {
       let scoreTotal = (ratings[1] * 1) + (ratings[2] * 2) + (ratings[3] * 3) + (ratings[4] * 4) + (ratings[5] * 5);
-      setTotalRating((scoreTotal / totalReviews).toFixed(1));
+      let r = (scoreTotal / totalReviews).toFixed(1);
+      setTotalRating(r);
+      props.changeRating(r);
     }
   }, [ratings])
 
@@ -110,6 +112,7 @@ const Ratings = (props) => {
             <div className="reviews rating-bar"
             style={{'--rating-bar-size': (percentCalc(ratings['4'], totalReviews))}}></div>
           </div>
+
         </div>
         <div className="reviews rating-rightcol">
            ({ratings[4]})

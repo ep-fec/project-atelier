@@ -51,9 +51,9 @@ class Modal extends React.Component {
             {features.map((feature, index) => {
               return (
                 <tr>
-                  <td>{left[index] ? <p>check</p> : null}</td>
+                  <td>{left[index] ? <i class="fa-solid fa-check"></i> : null}</td>
                   <td>{feature}</td>
-                  <td>{right[index] ? <p>check</p> : null}</td>
+                  <td>{right[index] ? <i class="fa-solid fa-check"></i> : null}</td>
                 </tr>);
               })}
             </tbody>

@@ -1,9 +1,16 @@
-import react, { useState } from 'react';
+import React, { useState } from 'react';
 import Modal from './Modal.jsx';
 
 const Image = ({photo, summary}) => {
 
   let [showModal, setShowModal] = useState(false);
+
+  let url = new URL(photo.url);
+  let currentParams = new URLSearchParams(photo.url);
+  currentParams.set('w', 200);
+  currentParams.set('q', 20);
+  url.search = currentParams.toString();
+  let finalUrl = url.toString();
 
   return (
     <>
@@ -13,11 +20,11 @@ const Image = ({photo, summary}) => {
       loading="eager"
       onClick={() => setShowModal(true)}
       alt={summary}
-      src={photo.url}/>
+      src={finalUrl}/>
 
     {showModal ?
     <Modal open={showModal}>
-      <img className="reviews modal-image" src={photo.url}/>
+          <img className="reviews modal-image" alt={summary} src={photo.url} onClick={() => setShowModal(false)}/>
       <button onClick={() => setShowModal(false)} className="reviews-modal-image-button">CLOSE</button>
     </Modal>
     : null}
