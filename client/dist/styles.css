@@ -1344,6 +1344,7 @@ a:hover {
   background-color: transparent;
   border: 2px solid black;
   transform: scale(2.5);
+  display: flex;
 }
 /* ========== OVERVIEW END ========== */
 

@@ -112,7 +112,15 @@ export default function ImageGallery({
 
   const zoomMove = useCallback((e) => {
     console.log('i am moving');
+    console.log('getbounding', e.target.getBoundingClientRect());
+    let mainImagePos = {
+      x: e.target.getBoundingClientRect().x,
+      y: e.target.getBoundingClientRect().y
+    }
+
     setZoomPos({
+      //x: ((e.pageX - mainImagePos.x) / e.target.width) * 100,
+      //y: ((e.pageY - mainImagePos.y) / e.target.height) * 100
       x: e.pageX,
       y: e.pageY
     })
@@ -141,10 +149,16 @@ export default function ImageGallery({
               maxHeight: expandView ? '50rem' : '35rem',
           }}
           >
-            <div className={zoomView ? 'square' : null}
+            <div
+              className={zoomView ? 'square' : null}
               style={{
                 left: zoomPos.x + 'px',
-                top: zoomPos.y + 'px'
+                top: zoomPos.y + 'px',
+                backgroundImage: `url(${mainPhoto})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: `${mainImageRef.width * 2.5}px ${mainImageRef.height * 2.5}px`,
+                backgroundPosition: `-${zoomPos.x * 2.5}px -${zoomPos.y * 2.5}px`,
+                backgroundOrigin: 'padding-box'
               }}
             >
             </div>
