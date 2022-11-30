@@ -1,6 +1,6 @@
 # 👋 Welcome to `Project Atelier`
 
-🎉 ***A front-end solution for a dynamic and interactive product details page.*** 🎉
+***A front-end solution for a dynamic and interactive product details page.***
 
 **Problem**:
 This project was launched to assist an enterprise in both scaling and deploying it's outdated product details page. The client requested that their products API be used to serve the web app, and that interactions between components meet certain requirements. Additionally, performance metrics and click-tracking were requested in order to keep their service fast and reliable.
@@ -14,7 +14,6 @@ Our team delivered a web app which dynamically displays data from a products API
 
 - Product Overview
 - Related Products
-- Q&A
 - Ratings & Reviews
 - Click-Tracking
 
