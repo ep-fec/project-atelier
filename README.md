@@ -21,7 +21,7 @@ Our team delivered a web app which dynamically displays data from a products API
 
 1. Clone the repository.
    ```sh
-   git clone https://github.com/rpp31-fec-bleu-cheese/project-atelier
+   git clone https://github.com/
    ```
 2. To access the API, acquire a personal access token from https://github.com/ and insert the token into a ```config.js``` file.
 3. Install NPM packages.
