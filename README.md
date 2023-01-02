@@ -59,7 +59,6 @@ To run this project in production or as a deployment, you will need to add the f
 * [Babel](https://babeljs.io/)
 * [Webpack](https://webpack.js.org/)
 * [Jest](https://jestjs.io/docs/expect)
-* [Enzyme](https://enzymejs.github.io/enzyme/)
 * [React Testing Library](https://github.com/testing-library/react-testing-library)
 
 ## 🤖 Authors
@@ -68,8 +67,8 @@ To run this project in production or as a deployment, you will need to add the f
   * https://github.com/huchchas
 * William - Related Products
   * https://github.com/
-* Abdiel - Question and Answers
-  * https://github.com/
+* Abdiel - Ratings & Reviews
+  * https://github.com/absaga
 
 ## 🛠 Skills
 Javascript, HTML, CSS, AWS
