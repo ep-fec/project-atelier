@@ -34,19 +34,20 @@ Our team delivered a web app which dynamically displays data from a products API
    git clone https://github.com/
    ```
 2. To access the API, acquire a personal access token from https://github.com/ and insert the token into a ```config.js``` file.
+
 3. Install NPM packages.
    ```sh
    npm install
     ```
-3. Compile Webpack.
+4. Compile Webpack.
    ```sh
    npm run build
     ```
-4. Start the server.
+5. Start the server.
    ```sh
    npm start
     ```
-5. Open on localhost:3000 or your preferred deployment!
+6. Open on localhost:3000 or your preferred deployment!
 
 ## ⛰️ Environment Variables
 
@@ -75,13 +76,7 @@ To run this project in production or as a deployment, you will need to add the f
 
 * Hasan Uchchas - Product Overview
   * https://github.com/huchchas
-* William - Related Products
+* William Kent - Related Products
   * https://github.com/
-* Abdiel - Ratings & Reviews
+* [Abdiel Sanchez](https://github.com/absaga) - Ratings & Reviews
   * https://github.com/absaga
-
-## 🛠 Skills
-Javascript, HTML, CSS, AWS
-
-## 📷 Screenshots
-
