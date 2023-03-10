@@ -77,6 +77,6 @@ To run this project in production or as a deployment, you will need to add the f
 * Hasan Uchchas - Product Overview
   * https://github.com/huchchas
 * William Kent - Related Products
-  * https://github.com/
+  * https://github.com/kentwl1876
 * [Abdiel Sanchez](https://github.com/absaga) - Ratings & Reviews
   * https://github.com/absaga
